@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:DM;src:url(DMSans-Regular.ttf);font-weight:400}
+@font-face{font-family:DM;src:url(DMSans-SemiBold.ttf);font-weight:600}
+*{margin:0;padding:0}
+body{background:transparent;font-family:DM}
+svg{display:block}
+.sheet{background:#0b0d10;width:1600px;padding:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;color:#98a0aa;font-size:22px}
+.sheet div{display:flex;flex-direction:column;align-items:center;gap:14px}
+.wide{grid-column:1/4;background:#15181d;border-radius:20px;padding:30px}
+</style></head><body><div id="r"></div>
+<script>
+const F="font-family:DM";
+// Eisberg: Spitzen weiss, Schattenflaeche grau, Horizontlinie
+const berg=(x,y,s)=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 190 L140 0 L210 92 L260 36 L392 190 Z" fill="#f1f3f5"/><path d="M140 0 L180 52 L154 76 L140 56 L124 80 L102 52 Z" fill="#101317" opacity=".22"/><path d="M260 36 L392 190 L300 190 Z" fill="#101317" opacity=".12"/><rect x="0" y="222" width="392" height="12" rx="6" fill="#98a0aa"/></g>`;
+const bg='<rect width="512" height="512" fill="#101317"/>';
+const V={
+ skin:()=>`<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">${bg}${berg(70,56,0.42)}<text x="70" y="262" font-size="78" font-weight="400" fill="#98a0aa" style="${F}">arctic</text><text x="70" y="350" font-size="78" font-weight="600" fill="#f1f3f5" style="${F}">zephyr</text><text x="70" y="438" font-size="78" font-weight="400" fill="#c9ced4" style="${F}">modern.</text></svg>`,
+ symbol:()=>`<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">${bg}${berg(60,140,1.0)}</svg>`,
+ repo:()=>`<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">${bg}${berg(70,56,0.42)}<text x="70" y="262" font-size="78" font-weight="400" fill="#98a0aa" style="${F}">sunset</text><text x="70" y="350" font-size="78" font-weight="600" fill="#f1f3f5" style="${F}">1982</text><text x="70" y="438" font-size="78" font-weight="400" fill="#c9ced4" style="${F}">repo.</text></svg>`,
+ word:()=>`<svg width="1600" height="200" viewBox="0 0 1600 200" xmlns="http://www.w3.org/2000/svg">${berg(20,28,0.56)}<text x="280" y="140" font-size="120" font-weight="400" fill="#98a0aa" style="${F}">arctic <tspan font-weight="600" fill="#ffffff">zephyr</tspan> <tspan fill="#c9ced4">modern.</tspan></text></svg>`,
+};
+const h=location.hash.slice(1);
+if(h==='sheet') document.getElementById('r').innerHTML=`<div class="sheet"><div>${V.skin()}Skin-Icon</div><div>${V.symbol()}Symbol allein</div><div>${V.repo()}Repo-Icon</div><div class="wide">${V.word().replace('width="1600" height="200"','width="1300" height="162"')}Schriftzug (Startbildschirm, Skin-Einstellungen)</div></div>`;
+else document.getElementById('r').innerHTML=V[h]();
+</script></body></html>

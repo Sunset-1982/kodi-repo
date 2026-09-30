@@ -1546,6 +1546,7 @@
                             <label>Arctic [COLOR=$VAR[ColorAccentText]]Zephyr[/COLOR]</label>
                             <font>EpisodeNumber</font>
                             <textcolor>PanelWhite100</textcolor>
+                            <visible>false</visible>
                         </control>
                         <control type="button" id="9905">
                             <width>1360</width>
@@ -1555,10 +1556,10 @@
                             <enable>false</enable>
                         </control>
                         <control type="image" id="9902">
-                            <aspectratio scalediffuse="false">keep</aspectratio>
-                            <height>47</height>
-                            <left>385</left>
-                            <texture colordiffuse="PanelWhite100">misc/martian.png</texture>
+                            <aspectratio>keep</aspectratio>
+                            <width>1360</width>
+                            <height>70</height>
+                            <texture>misc/logo-modern.png</texture>
                         </control>
                         <control type="button" id="9907">
                             <width>1360</width>

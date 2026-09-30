@@ -124,3 +124,10 @@ Offen: `Includes_SettingsModern.xml` mit den Hub- und Kategorie-Layouts, bedingt
 - **Dateimanager:** Panels als abgerundete Karte (modern-round20, ModernBg), Fokus als eingerückte abgerundete Fläche (ModernFocus), in der inaktiven Liste ModernSurface. Textfarben über `ModernFileText20/21` (in gen_menus_modern.py).
 - **Einstellungen Design A:** Liste 5 ist 612 statt 660 hoch und endet damit über der Uhr.
 - Offen: Auf den Fotos der Box war die Schrift auf dem Fokus hell. Im Emulator ist sie dunkel, vermutlich wurde auf der Box „Text auf Fokus“ geändert. Lösung: Farbthema neu wählen oder Modern-Farben zurücksetzen.
+
+
+## v0.8.1 (30.09.2026): Neues Logo (Eisberg aus Vorschlag 5 in Schwarz/Weiß plus Typografie aus Vorschlag 8)
+- `icon.png` (512 px): Eisberg-Symbol (weiß, graue Schattenflächen, graue Horizontlinie) über „arctic / zephyr / modern.“ in DM Sans (grau, weiß, hellgrau) auf #101317. Das Symbol lässt sich auch einzeln verwenden. Die Vorlage liegt in `tools/logo.html` (Playwright-Render, #skin #symbol #repo #word).
+- `media/misc/logo-modern.png` (1510×154, Eisberg + Schriftzug, transparent, farbig) ersetzt `misc/martian.png`, das gelöscht ist. Dabei beachten: `media/Textures.xbt` enthält noch alte Martian-Grafiken. Neue Grafiken deshalb immer unter neuem Namen anlegen, weil Kodi sonst die gleichnamige Datei aus der XBT lädt.
+- Startbildschirm (Custom_1198): Das Text-Label „Arctic Zephyr“ ist entfernt, das Logo steht zentriert (900×94, keep). In den Skin-Einstellungen („Über“) ist Label 9901 ausgeblendet, Bild 9902 zeigt das neue Logo.
+- `fanart.jpg` zeigt jetzt einen Screenshot des neuen Hauptmenüs. Repository-Addon 1.0.1 mit eigenem Icon „sunset / 1982 / repo.“ und derselben Fanart. Kodi zeigt das neue Repo-Icon erst nach dem Update des Repo-Addons.

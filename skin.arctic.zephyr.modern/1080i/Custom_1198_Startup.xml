@@ -13,25 +13,13 @@
                 <texture colordiffuse="$VAR[StartupDiffuse]">$VAR[StartupFanart]</texture>
                 <animation effect="fade" start="100" end="0" time="500" tween="quadratic">WindowClose</animation>
             </control>
-            <control type="label">
-                <description>Loading</description>
-                <width>100%</width>
-                <height>100%</height>
-                <align>center</align>
-                <aligny>center</aligny>
-                <label>Arctic [COLOR=$VAR[ColorAccentText]]Zephyr[/COLOR]</label>
-                <font>EpisodeNumber</font>
-                <textcolor>Dark1</textcolor>
-	            <animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-                <visible>String.IsEmpty(Skin.String(StartupPlaylist)) + String.IsEmpty(Skin.String(startupfanart.fallback))</visible>
-            </control>
             <control type="image">
-                <left>1020</left>
-                <top>605</top>
-                <width>331</width>
-                <height>60</height>
+                <centerleft>50%</centerleft>
                 <centertop>50%</centertop>
-                <texture colordiffuse="Dark1">misc/martian.png</texture>
+                <width>900</width>
+                <height>94</height>
+                <aspectratio>keep</aspectratio>
+                <texture>misc/logo-modern.png</texture>
 	            <animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
                 <visible>String.IsEmpty(Skin.String(StartupPlaylist)) + String.IsEmpty(Skin.String(startupfanart.fallback))</visible>
             </control>

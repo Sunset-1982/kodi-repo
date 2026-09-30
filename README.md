@@ -29,7 +29,7 @@ Lizenz: Creative Commons BY-NC-SA 3.0 (siehe `skin.arctic.zephyr.modern/LICENSE.
 
 1. Kodi → Einstellungen → System → Addons: **Unbekannte Quellen** aktivieren.
 2. Einstellungen → Dateimanager → **Quelle hinzufügen** → `https://sunset-1982.github.io/kodi-repo/` → Name z. B. `sunset`.
-3. Addons → **Aus ZIP-Datei installieren** → `sunset` → `repository.sunset1982-1.0.0.zip`.
+3. Addons → **Aus ZIP-Datei installieren** → `sunset` → `repository.sunset1982-1.0.1.zip`.
 4. Addons → **Aus Repository installieren** → *Sunset1982 Repository* → Aussehen → Skin → **Arctic: Zephyr - Modern**.
 
 Ab jetzt holt sich Kodi neue Versionen automatisch, sobald im Skin die Versionsnummer in `addon.xml` erhöht und gepusht wurde.
