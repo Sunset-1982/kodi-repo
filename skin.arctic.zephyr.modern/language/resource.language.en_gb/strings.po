@@ -2492,3 +2492,71 @@ msgstr ""
 msgctxt "#32152"
 msgid "Compact"
 msgstr ""
+
+msgctxt "#32153"
+msgid "Programme"
+msgstr ""
+
+msgctxt "#32160"
+msgid "Colour theme"
+msgstr ""
+
+msgctxt "#32161"
+msgid "Graphite (default)"
+msgstr ""
+
+msgctxt "#32162"
+msgid "Midnight"
+msgstr ""
+
+msgctxt "#32163"
+msgid "OLED black"
+msgstr ""
+
+msgctxt "#32164"
+msgid "Northern lights"
+msgstr ""
+
+msgctxt "#32165"
+msgid "Sunset"
+msgstr ""
+
+msgctxt "#32166"
+msgid "Sand"
+msgstr ""
+
+msgctxt "#32167"
+msgid "Kodi blue"
+msgstr ""
+
+msgctxt "#32168"
+msgid "Custom"
+msgstr ""
+
+msgctxt "#32169"
+msgid "Background"
+msgstr ""
+
+msgctxt "#32170"
+msgid "Surfaces (tiles, panels)"
+msgstr ""
+
+msgctxt "#32171"
+msgid "Focus and buttons"
+msgstr ""
+
+msgctxt "#32172"
+msgid "Text on focus"
+msgstr ""
+
+msgctxt "#32173"
+msgid "Accent (headings, chapters)"
+msgstr ""
+
+msgctxt "#32174"
+msgid "Reset colours"
+msgstr ""
+
+msgctxt "#32175"
+msgid "Modern colours"
+msgstr ""

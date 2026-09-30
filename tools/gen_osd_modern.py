@@ -5,11 +5,11 @@ OSD-Varianten: Kino (Skin.String(OSDStyle) leer) und Kompakt (OSDStyle=kompakt).
 import sys
 OUT = sys.argv[1] if len(sys.argv) > 1 else "1080i/Includes_OSDModern.xml"
 
-W = "fff1f3f5"      # Fokus-Weiss
-DARK = "ff14171b"   # Text auf Weiss
+W = "$VAR[ModernFocus]"      # Fokus-Weiss
+DARK = "$VAR[ModernFocusText]"   # Text auf Weiss
 TXT = "ffececec"
 MUTED = "ffa8b0b9"
-ACC = "ff9db0cf"
+ACC = "$VAR[ModernAccent]"
 
 FULL = "[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))]"
 
@@ -124,20 +124,23 @@ def chips(left, top, width):
                 {chip('$VAR[ModernOSD_AudioLanguage]','!String.IsEmpty(VideoPlayer.AudioLanguage) + !String.IsEqual(VideoPlayer.AudioLanguage,und)')}
             </control>"""
 
-def progress(left, top, width, knob=False):
-    kn = f"""
-                <control type="progress">
+def progress(left, top, width, knob=True):
+    if knob:
+        step = width / 100.0
+        anims = "\n".join(
+            f'                    <animation effect="slide" end="{step:.2f},0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,{i})">Conditional</animation>'
+            for i in range(1, 101))
+        kn = f"""
+                <control type="image">
                     <left>-10</left>
                     <top>-7</top>
-                    <width>{width + 20}</width>
+                    <width>20</width>
                     <height>20</height>
-                    <info>Player.Progress</info>
-                    <texturebg />
-                    <lefttexture />
-                    <midtexture colordiffuse="00ffffff">osd/modern/bar.png</midtexture>
-                    <righttexture>osd/modern/knob.png</righttexture>
-                    <visible>!Player.Seeking</visible>
-                </control>""" if knob else ""
+{anims}
+                    <texture>osd/modern/knob.png</texture>
+                </control>"""
+    else:
+        kn = ""
     return f"""
             <control type="group">
                 <left>{left}</left>
@@ -283,11 +286,154 @@ def clock(right, top, font="ClockModern", sub_top=None):
                 <visible>!String.IsEmpty(Player.FinishTime)</visible>
             </control>"""
 
+
+# ---------------------------------------------------------------- Live-TV
+def tv_progress(left, top, width):
+    return f"""
+            <control type="group">
+                <left>{left}</left><top>{top}</top><width>{width}</width><height>6</height>
+                <control type="progress">
+                    <width>{width}</width><height>6</height>
+                    <info>PVR.EpgEventProgress</info>
+                    <texturebg border="3" colordiffuse="38ffffff">osd/modern/bar.png</texturebg>
+                    <lefttexture /><righttexture />
+                    <midtexture border="3" colordiffuse="{W}">osd/modern/bar.png</midtexture>
+                </control>
+                <control type="progress">
+                    <width>{width}</width><height>6</height>
+                    <info>PVR.TimeshiftProgress</info>
+                    <texturebg /><lefttexture /><righttexture />
+                    <midtexture border="3" colordiffuse="66ffffff">osd/modern/bar.png</midtexture>
+                    <visible>PVR.IsTimeShift</visible>
+                </control>
+            </control>"""
+
+def tv_times(left, top, right):
+    return f"""
+            <control type="label">
+                <left>{left}</left><top>{top}</top><width>600</width><height>34</height>
+                <font>ModernSmall</font><textcolor>{TXT}</textcolor>
+                <label>$INFO[VideoPlayer.StartTime]  ·  $INFO[PVR.EpgEventElapsedTime]</label>
+            </control>
+            <control type="label">
+                <right>{right}</right><top>{top}</top><width>600</width><height>34</height><align>right</align>
+                <font>ModernSmall</font><textcolor>{MUTED}</textcolor>
+                <label>$INFO[PVR.EpgEventRemainingTime,−,  ·  ]$INFO[VideoPlayer.EndTime]</label>
+            </control>"""
+
+TVNEXT = "$LOCALIZE[19031]: $INFO[VideoPlayer.NextStartTime,, ]$INFO[VideoPlayer.NextTitle]"
+TVMETA = "$INFO[VideoPlayer.ChannelNumberLabel,,  ·  ]$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.StartTime,  ·  ,]$INFO[VideoPlayer.EndTime, – ,]$INFO[VideoPlayer.Genre,  ·  ,]"
+
+def kino_tv():
+    return f"""
+        <control type="group">
+            <visible>{FULL} + VideoPlayer.Content(livetv)</visible>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(pvrchannelguide)">Conditional</animation>
+            <control type="image"><width>1920</width><height>380</height><texture colordiffuse="d9ffffff">osd/modern/shade-top.png</texture></control>
+            <control type="image"><top>500</top><width>1920</width><height>580</height><texture>osd/modern/shade-bottom.png</texture></control>
+            <control type="image">
+                <left>96</left><top>72</top><width>120</width><height>120</height>
+                <aspectratio>keep</aspectratio>
+                <texture>$INFO[Player.Art(thumb)]</texture>
+            </control>
+            <control type="label">
+                <left>244</left><top>72</top><width>1200</width><height>34</height>
+                <font>ModernSmall</font><textcolor>{MUTED}</textcolor>
+                <label>$INFO[VideoPlayer.ChannelNumberLabel,,  ·  ]$INFO[VideoPlayer.ChannelName]</label>
+            </control>
+            <control type="label">
+                <left>244</left><top>104</top><width>1250</width><height>90</height>
+                <font>ModernTitle</font><textcolor>{TXT}</textcolor>
+                <label>$INFO[VideoPlayer.Title]</label>
+            </control>
+            <control type="label">
+                <left>96</left><top>226</top><width>1300</width><height>36</height>
+                <font>ModernRow</font><textcolor>{MUTED}</textcolor>
+                <label>$INFO[VideoPlayer.StartTime]$INFO[VideoPlayer.EndTime, – ,]$INFO[VideoPlayer.Genre,  ·  ,]</label>
+            </control>
+            {chips(96, 276, 1300)}
+            <control type="label">
+                <right>96</right><top>64</top><width>400</width><height>70</height><align>right</align>
+                <font>ClockModern</font><textcolor>{TXT}</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+            </control>
+            <control type="label">
+                <left>96</left><top>792</top><width>900</width><height>30</height>
+                <font>ModernCaption</font><textcolor>{ACC}</textcolor>
+                <label>$LOCALIZE[19030]</label>
+            </control>
+            <control type="label">
+                <left>96</left><top>822</top><width>1100</width><height>40</height>
+                <font>ModernItem</font><textcolor>{TXT}</textcolor>
+                <label>$INFO[VideoPlayer.Title]</label>
+            </control>
+            <control type="label">
+                <right>96</right><top>826</top><width>760</width><height>34</height><align>right</align>
+                <font>ModernSmall</font><textcolor>{MUTED}</textcolor>
+                <label>{TVNEXT}</label>
+                <visible>!String.IsEmpty(VideoPlayer.NextTitle)</visible>
+            </control>
+            {tv_progress(96, 876, 1728)}
+            {tv_times(96, 894, 96)}
+        </control>"""
+
+def kompakt_tv():
+    return f"""
+        <control type="group">
+            <visible>{FULL} + VideoPlayer.Content(livetv)</visible>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <animation effect="slide" start="0,40" end="0,0" time="220" tween="cubic" easing="out">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(pvrchannelguide)">Conditional</animation>
+            <control type="image"><top>600</top><width>1920</width><height>480</height><texture colordiffuse="99ffffff">osd/modern/shade-bottom.png</texture></control>
+            <control type="image">
+                <left>96</left><top>{PANEL_T}</top><width>1728</width><height>300</height>
+                <texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture>
+            </control>
+            <control type="image">
+                <left>128</left><top>{PANEL_T + 32}</top><width>158</width><height>158</height>
+                <aspectratio>keep</aspectratio>
+                <texture>$INFO[Player.Art(thumb)]</texture>
+            </control>
+            <control type="label">
+                <left>128</left><top>{PANEL_T + 200}</top><width>158</width><height>60</height><align>center</align>
+                <font>ModernCaption</font><textcolor>{MUTED}</textcolor><wrapmultiline>true</wrapmultiline>
+                <label>$INFO[VideoPlayer.ChannelName]</label>
+            </control>
+            <control type="label">
+                <left>318</left><top>{PANEL_T + 26}</top><width>1100</width><height>54</height>
+                <font>ModernH2</font><textcolor>{TXT}</textcolor>
+                <label>$INFO[VideoPlayer.Title]</label>
+            </control>
+            <control type="label">
+                <left>318</left><top>{PANEL_T + 82}</top><width>1100</width><height>32</height>
+                <font>ModernSmall</font><textcolor>{MUTED}</textcolor>
+                <label>{TVMETA}</label>
+            </control>
+            <control type="label">
+                <right>128</right><top>{PANEL_T + 26}</top><width>400</width><height>54</height><align>right</align>
+                <font>ModernH2</font><textcolor>{TXT}</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+            </control>
+            <control type="label">
+                <right>128</right><top>{PANEL_T + 82}</top><width>700</width><height>32</height><align>right</align>
+                <font>ModernSmall</font><textcolor>{MUTED}</textcolor>
+                <label>{TVNEXT}</label>
+                <visible>!String.IsEmpty(VideoPlayer.NextTitle)</visible>
+            </control>
+            {tv_progress(318, PANEL_T + 142, 1474)}
+            {tv_times(318, PANEL_T + 160, 128)}
+            {chips(318, PANEL_T + 226, 720)}
+        </control>"""
+
 # ---------------------------------------------------------------- Seekbar Kino
 seek_kino = f"""
     <include name="SeekbarKino">
+        {kino_tv()}
         <control type="group">
-            <visible>{FULL}</visible>
+            <visible>{FULL} + !VideoPlayer.Content(livetv)</visible>
             <animation effect="fade" start="0" end="100" time="200">Visible</animation>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
             <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(DialogPlayerProcessInfo.xml) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks)">Conditional</animation>
@@ -394,8 +540,9 @@ seek_kino = f"""
 PANEL_T = 1080 - 64 - 300   # 716
 seek_kompakt = f"""
     <include name="SeekbarKompakt">
+        {kompakt_tv()}
         <control type="group">
-            <visible>{FULL}</visible>
+            <visible>{FULL} + !VideoPlayer.Content(livetv)</visible>
             <animation effect="fade" start="0" end="100" time="200">Visible</animation>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
             <animation effect="slide" start="0,40" end="0,0" time="220" tween="cubic" easing="out">Visible</animation>
@@ -411,7 +558,7 @@ seek_kompakt = f"""
                 <top>{PANEL_T}</top>
                 <width>1728</width>
                 <height>300</height>
-                <texture border="20" colordiffuse="e612151a">common/modern-round20.png</texture>
+                <texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture>
             </control>
             <control type="image">
                 <left>128</left>
@@ -513,7 +660,7 @@ def round_btn(cid, left, top, size, glyph, onclick, nav, visible=None, glyph_alt
                     <height>{size}</height>
                     <label />
                     <texturefocus colordiffuse="{W}">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
 {oc}
                     {nav}{extra}
                 </control>{glyphs}
@@ -533,7 +680,7 @@ def pill(cid, label, onclick, visible=None, extra=""):
                     <textcolor>{TXT}</textcolor>
                     <focusedcolor>{DARK}</focusedcolor>
                     <texturefocus border="27" colordiffuse="{W}">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>{label}</label>
 {oc}{vis}{extra}
                 </control>"""
@@ -599,8 +746,10 @@ osd_kino = f"""
                 <onup>noop</onup>
                 <ondown>noop</ondown>
                 <usecontrolcoords>true</usecontrolcoords>
-                {pill("321", "$LOCALIZE[21396]", CHAP, "Integer.IsGreater(Player.ChapterCount,1)")}
-                {pill("322", "$LOCALIZE[291]", VIDEO)}
+                {pill("321", "$LOCALIZE[21396]", CHAP, "Integer.IsGreater(Player.ChapterCount,1) + !VideoPlayer.Content(livetv)")}
+                {pill("326", "$LOCALIZE[19019]", "ActivateWindow(pvrosdchannels)", "VideoPlayer.Content(livetv)")}
+                {pill("328", "$LOCALIZE[32153]", ["Close", "ActivateWindow(tvguide,,return)"], "VideoPlayer.Content(livetv)")}
+                {pill("322", "$LOCALIZE[291]", VIDEO, "!VideoPlayer.Content(livetv)")}
                 {pill("323", "$LOCALIZE[32133]", PPI, PPI_VIS)}
                 {pill("325", "$LOCALIZE[32133]", "ActivateWindow(playerprocessinfo)", PPI_FALLBACK_VIS)}
                 <control type="button" id="324">
@@ -613,7 +762,7 @@ osd_kino = f"""
                     <textcolor>{TXT}</textcolor>
                     <focusedcolor>{DARK}</focusedcolor>
                     <texturefocus border="27" colordiffuse="{W}">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$LOCALIZE[32123]</label>
                     <include>OSDExtendedInfo_Click_Action</include>
                     <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
@@ -627,35 +776,35 @@ osd_kino = f"""
 ks, kg = 68, 14
 kbtns = [("501", "audio", AUDIO, None), ("502", "sub", SUBS, None), ("503", "rew", "PlayerControl(Rewind)", None),
          ("504", "pause", "PlayerControl(Play)", None), ("505", "ff", "PlayerControl(Forward)", None),
-         ("506", "stop", "PlayerControl(Stop)", None), ("507", "chapters", CHAP, None),
+         ("506", "stop", "PlayerControl(Stop)", None), ("507", "chapters", CHAP, "!VideoPlayer.Content(livetv)"), ("511", "tv", "ActivateWindow(pvrosdchannels)", "VideoPlayer.Content(livetv)"),
          ("508", "ppi", PPI, PPI_VIS), ("510", "ppi", "ActivateWindow(playerprocessinfo)", PPI_FALLBACK_VIS),
-         ("509", "info", None, "VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)")]
-# sichtbare Anzahl fuer Positionierung: 9 (eine der beiden PPI-Varianten)
-visible_slots = [k for k in kbtns if k[0] != "510"]
+         ("509", "info", None, "!VideoPlayer.Content(livetv)"), ("512", "guide", ["Close", "ActivateWindow(tvguide,,return)"], "VideoPlayer.Content(livetv)")]
+# Plaetze: Buttons mit gleichem Platz sind Alternativen (je nach Sichtbarkeit)
+SLOTS = [["501"], ["502"], ["503"], ["504"], ["505"], ["506"], ["507", "511"], ["508", "510"], ["509", "512"]]
+BTN = {k[0]: k for k in kbtns}
 right_edge = 96 + 1728 - 32
-kx0 = right_edge - (len(visible_slots) * ks + (len(visible_slots) - 1) * kg)
+kx0 = right_edge - (len(SLOTS) * ks + (len(SLOTS) - 1) * kg)
 ky = PANEL_T + 300 - 32 - ks
+def nav_to(direction, slot_idx):
+    if slot_idx < 0 or slot_idx >= len(SLOTS):
+        return f"<on{direction}>noop</on{direction}>"
+    out = []
+    for cid in SLOTS[slot_idx]:
+        vis = BTN[cid][3]
+        cond = f' condition="{vis}"' if vis and len(SLOTS[slot_idx]) > 1 else ""
+        out.append(f"<on{direction}{cond}>{cid}</on{direction}>")
+    return "\n                    ".join(out)
 kompakt_btns = ""
-slot = 0
-ids_in_order = [k[0] for k in visible_slots]
-for cid, g, oc, vis in kbtns:
-    s = slot if cid != "510" else ids_in_order.index("508")
-    lx = kx0 + s * (ks + kg)
-    order = ids_in_order
-    idx = order.index(cid) if cid in order else order.index("508")
-    left_id = order[idx - 1] if idx > 0 else "noop"
-    right_id = order[idx + 1] if idx < len(order) - 1 else "noop"
-    # PPI-Nachbarn: beide Varianten bedienen
-    if left_id == "508": left_id = "508"
-    nav = f"<onleft>{left_id}</onleft>\n                    <onright>{right_id}</onright>\n                    <onup>noop</onup>\n                    <ondown>noop</ondown>"
-    if cid == "509":
-        onclick_xml = []
-        extra = "\n                    <include>OSDExtendedInfo_Click_Action</include>"
-        kompakt_btns += round_btn(cid, lx, ky, ks, g, [], nav, vis, None, extra).replace("\n\n", "\n")
-    else:
-        kompakt_btns += round_btn(cid, lx, ky, ks, g, oc, nav, vis, "play" if g == "pause" else None)
-    if cid != "510":
-        slot += 1
+for si, slot_ids in enumerate(SLOTS):
+    lx = kx0 + si * (ks + kg)
+    for cid in slot_ids:
+        _, g, oc, vis = BTN[cid]
+        nav = nav_to("left", si - 1) + "\n                    " + nav_to("right", si + 1) + "\n                    <onup>noop</onup>\n                    <ondown>noop</ondown>"
+        if cid == "509":
+            extra = "\n                    <include>OSDExtendedInfo_Click_Action</include>"
+            kompakt_btns += round_btn(cid, lx, ky, ks, g, [], nav, vis, None, extra)
+        else:
+            kompakt_btns += round_btn(cid, lx, ky, ks, g, oc, nav, vis, "play" if g == "pause" else None)
 
 osd_kompakt = f"""
     <include name="OSDKompakt">

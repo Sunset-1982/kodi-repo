@@ -63,7 +63,7 @@ Offen: `Includes_SettingsModern.xml` mit den Hub- und Kategorie-Layouts, bedingt
   - `tools/`: gen_osd_modern.py und das Test-Umgebungs-Skript; `docs/`: diese Doku
 - Installationsquelle für Kodi: `https://sunset-1982.github.io/kodi-repo/` (GitHub Pages auf gh-pages stellen).
 - **Künftig:** Die Quelle der Wahrheit ist das GitHub-Repo. Eine neue Session klont `Sunset-1982/kodi-repo` (in Claude Code in der Cloud mit verbundenem Repo kann Claude direkt pushen). Für ein Update die Version in addon.xml erhöhen und pushen.
-- Offen: Regler-Knopf im OSD, Live-TV-OSD, OSD-Dialoge (Audio/Untertitel) als Seitenblatt.
+- Offen: siehe unten.
 
 
 ## v0.3.0 (30.09.2026): Einstellungs-Designs A/B/C
@@ -73,3 +73,25 @@ Offen: `Includes_SettingsModern.xml` mit den Hub- und Kategorie-Layouts, bedingt
 - Stolperfallen: Kodi-Labels kennen kein `aligny=bottom`. Einwortige Labels umbrechen nicht, deshalb laufen sie bei Fokus durch (`<scroll>`). Die „focusedlayout“-Kachel muss `Control.HasFocus(id)` prüfen, sonst ist bei zwei Listen in beiden eine weiß.
 - Testumgebung: `tools/testenv/kodi-skinstring ID WERT` setzt Skin-Strings bei gestopptem Kodi.
 - Nicht umgestaltet: Skin-Einstellungen, Systeminfo, Profile, Addon-Browser, Dateimanager (weiter Original-Optik).
+
+
+## v0.4.0 (30.09.2026): OSD-Knopf, Dialoge als Seitenblatt, Live-TV
+- **Regler-Knopf:** Ein Bild mit 100 gestaffelten Slide-Animationen auf Player.Progress, wie bei der Zeit-Blase. Der progress-righttexture-Trick funktioniert in Kodi nicht.
+- **DialogSettings.xml:** `DialogSettings_Sheet` (Seitenblatt rechts, 860 px breit, Templates im Modern-Stil, Buttons 28/29/30 als Pillen) gilt, solange `OSDStyle` nicht `original` ist. Das Original liegt als `DialogSettings_Original` in Includes_SettingsOriginal.xml.
+  - Stolperfalle: Eine Bedingung auf `Window.IsActive(fullscreenvideo)` im Include war unzuverlässig, weil Kodi den Dialog teils vorher lädt. Deshalb wurde sie entfernt.
+  - Regler (sliderex): eigene schlanke Texturen `osd/modern/sliderbar.png` (64×16, 4 px Linie) und `slidernib.png` (16 px), sliderwidth 140.
+- **Live-TV:** Das Modern-OSD gilt jetzt auch für Live-TV. Kino und Kompakt haben eigene TV-Gruppen (`kino_tv()`/`kompakt_tv()`) mit Senderlogo (Player.Art(thumb)), Sendung, Zeiten, „Als nächstes“ (VideoPlayer.NextTitle/NextStartTime) und PVR.EpgEventProgress (plus TimeshiftProgress). Kino hat die Pillen „Sender“ (pvrosdchannels) und „Programm“ (tvguide), die Video-Pille ist bei TV ausgeblendet. Kompakt hat alternative Buttons auf denselben Plätzen (507/511 und 509/512) mit bedingter Navigation.
+- **Testumgebung Live-TV:** pvr.iptvsimple (in Flatpak-Kodi enthalten). `/home/claude/testmedia/tv/channels.m3u` (3 Sender auf Kaltfront.mkv), `epg.xml`, Logos. Konfiguriert über `addon_data/pvr.iptvsimple/instance-settings-1.xml` (m3uPath, epgPath). Nach dem Start etwa 15 s warten, bis die Sender geladen sind.
+
+## Offen (Stand v0.4.0)
+- Restliche Fenster im neuen Stil: Skin-Einstellungen, Systeminfo, Addon-Browser, Dateimanager, Profile, DialogSelect (Auswahllisten, z. B. Audiostream-Auswahl)
+- Musik-OSD/Visualisierung
+
+
+## v0.5.0 (30.09.2026): Farbsystem und Aufräumen
+- **Farbvariablen** in Includes_Defs.xml: ModernBg, ModernSurface, ModernFocus, ModernFocusText, ModernAccent. Standard ist Graphit, der Wert kommt aus `Skin.String(<Name>)`. ColorFocusFrame nutzt ModernFocus.
+- Beide Generatoren nutzen die Variablen statt fester Hex-Werte. Die Hintergrund-Abdunklung in den Einstellungen ist jetzt `common/modern-shade-w.png` (weiß mit Alpha-Verlauf) mit colordiffuse ModernBg. Sheets und Kompakt-Panel sind in ModernBg gefärbt.
+- **Farbthemen** (Skript `tools/add_color_system.py`, idempotent): graphit, mitternacht, oled, nordlicht, sonnenuntergang, sand, kodiblau. Auswahl über Custom_1130 (DialogSelect) mit `includesetting=ModernTheme` und den Items `CustomSettings_Items.ModernTheme` (setzen alle 5 Strings plus ModernTheme). Label über `Label_ModernTheme`.
+- **Skin-Einstellungen > Farben:** Abschnitt „Modern-Farben“ (97599 Überschrift, 9760 Farbthema, 9761–9765 Einzelfarben per `Skin.SetColor(Name,StringID,$VAR[Name],special://skin/extras/colors.xml)`, danach ModernTheme=custom; 9766 zurücksetzen). Stolperfalle: Die Überschrift bei Skin.SetColor muss eine reine String-ID sein, nicht `$LOCALIZE[...]`.
+- **Ausgeblendet** (nur sichtbar bei OSDStyle=original): 9202, 9209, 9210, 9211, 92111, 9212, 9217, 9213, 92131, 9216, 9218, 9219, 9220, 9221, 9222. Farbverläufe 9653/9654 nur sichtbar, wenn OSD oder Einstellungen auf Original stehen. Nichts gelöscht, damit das Original-Design funktionsfähig bleibt.
+- Noch nicht eingefärbt: Home-Bildschirm und Bibliotheksansichten nutzen weiter die Original-Farben (ColorHighlight/Akzentfarbe).

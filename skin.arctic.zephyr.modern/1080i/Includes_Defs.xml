@@ -6,9 +6,31 @@
         <value>ff0091ea</value>
     </variable>
 
+    <!-- Modern: Farbsystem (Skin-Einstellungen > Farben) -->
+    <variable name="ModernBg">
+        <value condition="!String.IsEmpty(Skin.String(ModernBg))">$INFO[Skin.String(ModernBg)]</value>
+        <value>ff101317</value>
+    </variable>
+    <variable name="ModernSurface">
+        <value condition="!String.IsEmpty(Skin.String(ModernSurface))">$INFO[Skin.String(ModernSurface)]</value>
+        <value>1effffff</value>
+    </variable>
+    <variable name="ModernFocus">
+        <value condition="!String.IsEmpty(Skin.String(ModernFocus))">$INFO[Skin.String(ModernFocus)]</value>
+        <value>fff1f3f5</value>
+    </variable>
+    <variable name="ModernFocusText">
+        <value condition="!String.IsEmpty(Skin.String(ModernFocusText))">$INFO[Skin.String(ModernFocusText)]</value>
+        <value>ff14171b</value>
+    </variable>
+    <variable name="ModernAccent">
+        <value condition="!String.IsEmpty(Skin.String(ModernAccent))">$INFO[Skin.String(ModernAccent)]</value>
+        <value>ff9db0cf</value>
+    </variable>
+
     <!-- Modern: schlichter weisser Fokusrahmen, Verlaufsebene ausgeblendet -->
     <variable name="ColorFocusFrame">
-        <value>fff2f2f2</value>
+        <value>$VAR[ModernFocus]</value>
     </variable>
     <variable name="ColorFocusGradient">
         <value>00ffffff</value>

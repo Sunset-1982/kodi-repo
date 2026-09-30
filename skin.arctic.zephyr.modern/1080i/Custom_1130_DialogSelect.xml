@@ -26,6 +26,7 @@
                     <include condition="String.IsEqual(Window(Home).Property(includesetting),NetflixTrailerDelay)">CustomSettings_Items.NetflixTrailerDelay</include>
                     <include condition="String.IsEqual(Window(Home).Property(includesetting),TrailerCount)">CustomSettings_Items.TrailerCount</include>
                     <include condition="String.IsEqual(Window(Home).Property(includesetting),OSD_Timeout)">CustomSettings_Items.OSD_Timeout</include>
+                    <include condition="String.IsEqual(Window(Home).Property(includesetting),ModernTheme)">CustomSettings_Items.ModernTheme</include>
                     <include condition="String.IsEqual(Window(Home).Property(includesetting),OSD_Info)">CustomSettings_Items.OSD_Info</include>
                     <include condition="String.IsEqual(Window(Home).Property(includesetting),ColorSettings)">CustomSettings_Items.ColorSettings</include>
                     <include condition="String.IsEqual(Window(Home).Property(includesetting),BackgroundImageSettings)">CustomSettings_Items.BackgroundImageSettings</include>

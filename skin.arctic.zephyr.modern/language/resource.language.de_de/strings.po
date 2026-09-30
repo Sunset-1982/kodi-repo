@@ -2456,3 +2456,71 @@ msgstr "Kino"
 msgctxt "#32152"
 msgid "Compact"
 msgstr "Kompakt"
+
+msgctxt "#32153"
+msgid "Programme"
+msgstr "Programm"
+
+msgctxt "#32160"
+msgid "Colour theme"
+msgstr "Farbthema"
+
+msgctxt "#32161"
+msgid "Graphite (default)"
+msgstr "Graphit (Standard)"
+
+msgctxt "#32162"
+msgid "Midnight"
+msgstr "Mitternacht"
+
+msgctxt "#32163"
+msgid "OLED black"
+msgstr "OLED Schwarz"
+
+msgctxt "#32164"
+msgid "Northern lights"
+msgstr "Nordlicht"
+
+msgctxt "#32165"
+msgid "Sunset"
+msgstr "Sonnenuntergang"
+
+msgctxt "#32166"
+msgid "Sand"
+msgstr "Sand"
+
+msgctxt "#32167"
+msgid "Kodi blue"
+msgstr "Kodi-Blau"
+
+msgctxt "#32168"
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+msgctxt "#32169"
+msgid "Background"
+msgstr "Hintergrund"
+
+msgctxt "#32170"
+msgid "Surfaces (tiles, panels)"
+msgstr "Oberflächen (Kacheln, Panels)"
+
+msgctxt "#32171"
+msgid "Focus and buttons"
+msgstr "Fokus und Buttons"
+
+msgctxt "#32172"
+msgid "Text on focus"
+msgstr "Text auf Fokus"
+
+msgctxt "#32173"
+msgid "Accent (headings, chapters)"
+msgstr "Akzent (Überschriften, Kapitel)"
+
+msgctxt "#32174"
+msgid "Reset colours"
+msgstr "Farben zurücksetzen"
+
+msgctxt "#32175"
+msgid "Modern colours"
+msgstr "Modern-Farben"

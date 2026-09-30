@@ -592,6 +592,93 @@
         </item>
     </include>
 
+    <include name="CustomSettings_Items.ModernTheme">
+        <item>
+            <label>$LOCALIZE[32161]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,graphit)</onclick>
+            <onclick>Skin.SetString(ModernBg,ff101317)</onclick>
+            <onclick>Skin.SetString(ModernSurface,1effffff)</onclick>
+            <onclick>Skin.SetString(ModernFocus,fff1f3f5)</onclick>
+            <onclick>Skin.SetString(ModernFocusText,ff14171b)</onclick>
+            <onclick>Skin.SetString(ModernAccent,ff9db0cf)</onclick>
+            <onclick>Close</onclick>
+            <include condition="[String.IsEmpty(Skin.String(ModernTheme)) | String.IsEqual(Skin.String(ModernTheme),graphit)]">Item_Selected</include>
+        </item>
+        <item>
+            <label>$LOCALIZE[32162]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,mitternacht)</onclick>
+            <onclick>Skin.SetString(ModernBg,ff0b1220)</onclick>
+            <onclick>Skin.SetString(ModernSurface,24a8c4ff)</onclick>
+            <onclick>Skin.SetString(ModernFocus,ffdce8ff)</onclick>
+            <onclick>Skin.SetString(ModernFocusText,ff0b1220)</onclick>
+            <onclick>Skin.SetString(ModernAccent,ff8fb4ff)</onclick>
+            <onclick>Close</onclick>
+            <include condition="String.IsEqual(Skin.String(ModernTheme),mitternacht)">Item_Selected</include>
+        </item>
+        <item>
+            <label>$LOCALIZE[32163]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,oled)</onclick>
+            <onclick>Skin.SetString(ModernBg,ff000000)</onclick>
+            <onclick>Skin.SetString(ModernSurface,1affffff)</onclick>
+            <onclick>Skin.SetString(ModernFocus,ffffffff)</onclick>
+            <onclick>Skin.SetString(ModernFocusText,ff000000)</onclick>
+            <onclick>Skin.SetString(ModernAccent,ffa0a0a0)</onclick>
+            <onclick>Close</onclick>
+            <include condition="String.IsEqual(Skin.String(ModernTheme),oled)">Item_Selected</include>
+        </item>
+        <item>
+            <label>$LOCALIZE[32164]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,nordlicht)</onclick>
+            <onclick>Skin.SetString(ModernBg,ff08171a)</onclick>
+            <onclick>Skin.SetString(ModernSurface,2280e0c8)</onclick>
+            <onclick>Skin.SetString(ModernFocus,ffbff0dd)</onclick>
+            <onclick>Skin.SetString(ModernFocusText,ff08201a)</onclick>
+            <onclick>Skin.SetString(ModernAccent,ff7fd6b9)</onclick>
+            <onclick>Close</onclick>
+            <include condition="String.IsEqual(Skin.String(ModernTheme),nordlicht)">Item_Selected</include>
+        </item>
+        <item>
+            <label>$LOCALIZE[32165]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,sonnenuntergang)</onclick>
+            <onclick>Skin.SetString(ModernBg,ff1a1016)</onclick>
+            <onclick>Skin.SetString(ModernSurface,24ffb4a2)</onclick>
+            <onclick>Skin.SetString(ModernFocus,ffffc4b0)</onclick>
+            <onclick>Skin.SetString(ModernFocusText,ff2a1016)</onclick>
+            <onclick>Skin.SetString(ModernAccent,ffffa78c)</onclick>
+            <onclick>Close</onclick>
+            <include condition="String.IsEqual(Skin.String(ModernTheme),sonnenuntergang)">Item_Selected</include>
+        </item>
+        <item>
+            <label>$LOCALIZE[32166]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,sand)</onclick>
+            <onclick>Skin.SetString(ModernBg,ff17140f)</onclick>
+            <onclick>Skin.SetString(ModernSurface,22f1e3c8)</onclick>
+            <onclick>Skin.SetString(ModernFocus,fff1e3c8)</onclick>
+            <onclick>Skin.SetString(ModernFocusText,ff201a10)</onclick>
+            <onclick>Skin.SetString(ModernAccent,ffd6c39c)</onclick>
+            <onclick>Close</onclick>
+            <include condition="String.IsEqual(Skin.String(ModernTheme),sand)">Item_Selected</include>
+        </item>
+        <item>
+            <label>$LOCALIZE[32167]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,kodiblau)</onclick>
+            <onclick>Skin.SetString(ModernBg,ff0f1419)</onclick>
+            <onclick>Skin.SetString(ModernSurface,1effffff)</onclick>
+            <onclick>Skin.SetString(ModernFocus,ff1f8fff)</onclick>
+            <onclick>Skin.SetString(ModernFocusText,ffffffff)</onclick>
+            <onclick>Skin.SetString(ModernAccent,ff6fb6ff)</onclick>
+            <onclick>Close</onclick>
+            <include condition="String.IsEqual(Skin.String(ModernTheme),kodiblau)">Item_Selected</include>
+        </item>
+    </include>
+
     <include name="CustomSettings_Items.OSD_Timeout">
         <item>
             <label>$LOCALIZE[591] - $LOCALIZE[571]</label>

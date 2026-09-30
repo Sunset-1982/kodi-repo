@@ -223,6 +223,17 @@
         <value condition="!String.IsEmpty(Container(9500).ListItem.MusicChannels)">$INFO[Container(9500).ListItem.MusicChannels,, $LOCALIZE[10127]]</value>
     </variable>
 
+    <variable name="Label_ModernTheme">
+        <value condition="String.IsEqual(Skin.String(ModernTheme),mitternacht)">$LOCALIZE[32162]</value>
+        <value condition="String.IsEqual(Skin.String(ModernTheme),oled)">$LOCALIZE[32163]</value>
+        <value condition="String.IsEqual(Skin.String(ModernTheme),nordlicht)">$LOCALIZE[32164]</value>
+        <value condition="String.IsEqual(Skin.String(ModernTheme),sonnenuntergang)">$LOCALIZE[32165]</value>
+        <value condition="String.IsEqual(Skin.String(ModernTheme),sand)">$LOCALIZE[32166]</value>
+        <value condition="String.IsEqual(Skin.String(ModernTheme),kodiblau)">$LOCALIZE[32167]</value>
+        <value condition="String.IsEqual(Skin.String(ModernTheme),custom)">$LOCALIZE[32168]</value>
+        <value>$LOCALIZE[32161]</value>
+    </variable>
+
     <variable name="Label_OSDStyle">
         <value condition="String.IsEqual(Skin.String(OSDStyle),kompakt)">$LOCALIZE[32152]</value>
         <value condition="String.IsEqual(Skin.String(OSDStyle),original)">$LOCALIZE[32101]</value>

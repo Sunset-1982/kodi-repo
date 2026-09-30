@@ -826,6 +826,7 @@
                             </control>
                         </control>
                         <control type="radiobutton" id="9202" description="SELECT OSD">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <include>DefSettingsButtonGradientSkinSettings</include>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
@@ -861,6 +862,7 @@
                             </control>
                         </control>
                         <control type="button" id="9209" description="SELECT OSD">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <include>DefSettingsButtonGradientSkinSettings</include>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
@@ -869,6 +871,7 @@
                             <onclick>Skin.ToggleSetting(videoosd.side)</onclick>
                         </control>
                         <control type="button" id="9210" description="Show detailed info on start">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -878,6 +881,7 @@
                             <onclick>ActivateWindow(1130)</onclick>
                         </control>
                         <control type="radiobutton" id="9211" description="Show detailed info on pause">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -886,6 +890,7 @@
                             <onclick>Skin.ToggleSetting(osd.showinfoonpause)</onclick>
                         </control>
                         <control type="radiobutton" id="92111" description="Auto hide seekbar">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -902,6 +907,7 @@
                             <onclick>Skin.ToggleSetting(osd.disablepauseoninfo)</onclick>
                         </control>
                         <control type="radiobutton" id="9212" description="Show clearart">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -910,6 +916,7 @@
                             <onclick>Skin.ToggleSetting(ShowClearArtOSD)</onclick>
                         </control>
                         <control type="radiobutton" id="9217" description="Show poster">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -920,6 +927,7 @@
                             <visible>!Skin.HasSetting(osd.usetheme)</visible>
                         </control>
                         <control type="radiobutton" id="9213" description="Show discartosd">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -930,6 +938,7 @@
                             <visible>Skin.HasSetting(osd.usetheme)</visible>
                         </control>
                         <control type="radiobutton" id="92131" description="Show discartosd">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -939,6 +948,7 @@
                             <visible>!Skin.HasSetting(osd.usetheme) + !Skin.HasSetting(osd.disableposter) + !Skin.HasSetting(videoosd.side)</visible>
                         </control>
                         <control type="radiobutton" id="9216">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -948,6 +958,7 @@
                             <enable>!Skin.HasSetting(videoosd.side)</enable>
                         </control>
                         <control type="radiobutton" id="9218">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -956,6 +967,7 @@
 		                    <onclick>Skin.ToggleSetting(chapter.markers)</onclick>
 		                </control>
 		                <control type="radiobutton" id="9219">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -964,6 +976,7 @@
 		                    <onclick>Skin.ToggleSetting(cutlist.markers)</onclick>
 		                </control>
                         <control type="radiobutton" id="9220">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -972,6 +985,7 @@
                             <onclick>Skin.ToggleSetting(ClockOSD)</onclick>
                         </control>
                         <control type="radiobutton" id="9221">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -981,6 +995,7 @@
                             <enable>!Skin.HasSetting(videoosd.side)</enable>
                         </control>
                         <control type="radiobutton" id="9222">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),5)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -1153,6 +1168,89 @@
                                 <label>31078</label>
                             </control>
                         </control>
+                        <control type="grouplist" id="97599">
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <orientation>horizontal</orientation>
+                            <enable>false</enable>
+                            <height>70</height>
+                            <control type="button">
+                                <enable>false</enable>
+                                <textoffsetx>30</textoffsetx>
+                                <font>Button</font>
+                                <align>left</align>
+                                <width>1310</width>
+                                <disabledcolor>PanelWhite30</disabledcolor>
+                                <height>70</height>
+                                <label>$LOCALIZE[32175]</label>
+                            </control>
+                        </control>
+                        <control type="button" id="9760">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32160]</label>
+                            <label2>$VAR[Label_ModernTheme]</label2>
+                            <onclick>SetProperty(includesetting,ModernTheme,home)</onclick>
+                            <onclick>ActivateWindow(1130)</onclick>
+                        </control>
+                        <control type="button" id="9761">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32169]</label>
+                            <label2>$VAR[ModernBg]</label2>
+                            <onclick>Skin.SetColor(ModernBg,32169,$VAR[ModernBg],special://skin/extras/colors.xml)</onclick>
+                            <onclick>Skin.SetString(ModernTheme,custom)</onclick>
+                        </control>
+                        <control type="button" id="9762">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32170]</label>
+                            <label2>$VAR[ModernSurface]</label2>
+                            <onclick>Skin.SetColor(ModernSurface,32170,$VAR[ModernSurface],special://skin/extras/colors.xml)</onclick>
+                            <onclick>Skin.SetString(ModernTheme,custom)</onclick>
+                        </control>
+                        <control type="button" id="9763">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32171]</label>
+                            <label2>$VAR[ModernFocus]</label2>
+                            <onclick>Skin.SetColor(ModernFocus,32171,$VAR[ModernFocus],special://skin/extras/colors.xml)</onclick>
+                            <onclick>Skin.SetString(ModernTheme,custom)</onclick>
+                        </control>
+                        <control type="button" id="9764">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32172]</label>
+                            <label2>$VAR[ModernFocusText]</label2>
+                            <onclick>Skin.SetColor(ModernFocusText,32172,$VAR[ModernFocusText],special://skin/extras/colors.xml)</onclick>
+                            <onclick>Skin.SetString(ModernTheme,custom)</onclick>
+                        </control>
+                        <control type="button" id="9765">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32173]</label>
+                            <label2>$VAR[ModernAccent]</label2>
+                            <onclick>Skin.SetColor(ModernAccent,32173,$VAR[ModernAccent],special://skin/extras/colors.xml)</onclick>
+                            <onclick>Skin.SetString(ModernTheme,custom)</onclick>
+                        </control>
+                        <control type="button" id="9766">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),3)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32174]</label>
+                            <label2></label2>
+                            <onclick>Skin.Reset(ModernBg)</onclick>
+                            <onclick>Skin.Reset(ModernSurface)</onclick>
+                            <onclick>Skin.Reset(ModernFocus)</onclick>
+                            <onclick>Skin.Reset(ModernFocusText)</onclick>
+                            <onclick>Skin.Reset(ModernAccent)</onclick>
+                            <onclick>Skin.Reset(ModernTheme)</onclick>
+                        </control>
                         <control type="radiobutton" id="9602" description="Autocolor">
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),3)</visible>
@@ -1209,6 +1307,7 @@
 	                        <onclick>Skin.SetColor(focuscolor.name,31699,$VAR[ColorHighlight],special://skin/extras/colors.xml)</onclick>
                         </control>
                         <control type="radiobutton" id="9653">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original) | String.IsEqual(Skin.String(SettingsStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),3)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -1217,6 +1316,7 @@
                             <onclick>Skin.ToggleSetting(EnableMonochromeHighlight)</onclick>
                         </control>
                         <control type="radiobutton" id="9654" description="Set Custom Gradient Colour">
+                            <visible>String.IsEqual(Skin.String(OSDStyle),original) | String.IsEqual(Skin.String(SettingsStyle),original)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),3)</visible>
                             <include content="DefContextButtonColorbox">

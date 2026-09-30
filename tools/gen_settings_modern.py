@@ -8,7 +8,7 @@ import re, sys
 SKIN = sys.argv[1] if len(sys.argv) > 1 else "."
 OUT = f"{SKIN}/1080i/Includes_SettingsModern.xml"
 
-W, DARK, TXT, MUTED, DIM, ACC = "fff1f3f5", "ff14171b", "ffececec", "ff98a0aa", "ff6c747e", "ff9db0cf"
+W, DARK, TXT, MUTED, DIM, ACC = "$VAR[ModernFocus]", "$VAR[ModernFocusText]", "ffececec", "ff98a0aa", "ff6c747e", "$VAR[ModernAccent]"
 DIS = "59ececec"
 
 # ------------------------------------------------------------ Hub-Items umsortieren
@@ -63,7 +63,7 @@ def img(left, top, width, height, tex, diffuse, border=None):
 SHADE = """
         <control type="image">
             <width>1920</width><height>1080</height>
-            <texture>common/modern-shade.png</texture>
+            <texture colordiffuse="$VAR[ModernBg]">common/modern-shade-w.png</texture>
         </control>"""
 
 ANIM = "\n        <include>Animation.Common</include>"
@@ -106,11 +106,11 @@ def templates(width, rowh, font, offx, nofocus=None, radio_right=24):
             <textureradioondisabled colordiffuse="59ffffff">buttons/modern-switch-on.png</textureradioondisabled>
             <textureradiooffdisabled colordiffuse="59ffffff">buttons/modern-switch-off.png</textureradiooffdisabled>"""
     slider = f"""
-            <sliderwidth>220</sliderwidth>
-            <sliderheight>20</sliderheight>
-            <texturesliderbar colordiffuse="66808890" border="3">osd/modern/bar.png</texturesliderbar>
-            <textureslidernib>osd/modern/knob.png</textureslidernib>
-            <textureslidernibfocus colordiffuse="{DARK}">osd/modern/knob.png</textureslidernibfocus>"""
+            <sliderwidth>140</sliderwidth>
+            <sliderheight>16</sliderheight>
+            <texturesliderbar colordiffuse="80808890" border="4,0,4,0">osd/modern/sliderbar.png</texturesliderbar>
+            <textureslidernib>osd/modern/slidernib.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="{DARK}">osd/modern/slidernib.png</textureslidernibfocus>"""
     return f"""
     <control type="button" id="7">
         <description>Default Button</description>{common}
@@ -140,7 +140,7 @@ def templates(width, rowh, font, offx, nofocus=None, radio_right=24):
         <textcolor>{ACC}</textcolor>
     </control>"""
 
-def category_button(width, height, font, offx, color, nofocus=None, sel="1fffffff", tex="common/modern-round14.png", border=14):
+def category_button(width, height, font, offx, color, nofocus=None, sel="$VAR[ModernSurface]", tex="common/modern-round14.png", border=14):
     w = f'<width min="80" max="420">auto</width>' if width == "auto" else f"<width>{width}</width>"
     nf = f'<texturenofocus border="{border}" colordiffuse="{nofocus}">{tex}</texturenofocus>' if nofocus else "<texturenofocus />"
     anf = f'<alttexturenofocus border="{border}" colordiffuse="{sel}">{tex}</alttexturenofocus>'
@@ -169,7 +169,7 @@ def level_button(left, top, width=320):
             <font>ModernSmall</font><textoffsetx>18</textoffsetx><align>left</align><aligny>center</aligny>
             <textcolor>{TXT}</textcolor><focusedcolor>{DARK}</focusedcolor>
             <texturefocus border="27" colordiffuse="{W}">common/modern-pill.png</texturefocus>
-            <texturenofocus border="27" colordiffuse="14ffffff">common/modern-pill.png</texturenofocus>
+            <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
             <onclick>SettingsLevelChange</onclick>
             <onup>3</onup><ondown>3</ondown><onright>3</onright><onleft>noop</onleft>
         </control>"""
@@ -210,13 +210,13 @@ cat_b = f"""
             <animation effect="slide" start="860,0" end="0,0" time="260" tween="cubic" easing="out">WindowOpen</animation>
             <animation effect="slide" start="0,0" end="860,0" time="200" tween="cubic" easing="in">WindowClose</animation>
             {img(-40, 0, 40, 1080, "common/modern-shade.png", "99ffffff")}
-            {img(0, 0, 860, 1080, "common/white.png", "f516191e")}
+            {img(0, 0, 860, 1080, "common/white.png", "$VAR[ModernBg]")}
             {grouplist(3, 56, 66, 748, 64, "horizontal", 8, "<ondown>5</ondown><onleft>20</onleft><onup>noop</onup>")}
-            {img(56, 146, 748, 1, "common/white.png", "1fffffff")}
+            {img(56, 146, 748, 1, "common/white.png", "$VAR[ModernSurface]")}
             {grouplist(5, 56, 166, 748, 880, nav="<onup>3</onup><onleft>20</onleft>")}
         </control>
     </control>
-    {category_button("auto", 56, "ModernTile", 22, "ff7d858f", None, "29ffffff", "common/modern-pill.png", 27)}
+    {category_button("auto", 56, "ModernTile", 22, "ff7d858f", None, "$VAR[ModernSurface]", "common/modern-pill.png", 27)}
     {templates(748, 68, "ModernTile", 22)}
     </include>
 """
@@ -227,25 +227,71 @@ cat_c = f"""
         {header("$VAR[Label_SettingsHeader]")}
         {grouplist(3, 96, 250, 1150, 56, "horizontal", 12, "<ondown>5</ondown><onleft>20</onleft><onup>noop</onup>")}
         {grouplist(5, 96, 340, 1080, 690, nav="<onup>3</onup><onleft>20</onleft><onright>noop</onright>")}
-        {img(1260, 340, 564, 500, "common/modern-round20.png", "12ffffff", 20)}
+        {img(1260, 340, 564, 500, "common/modern-round20.png", "$VAR[ModernSurface]", 20)}
         {lbl(1300, 372, 480, 30, "ModernCaption", ACC, "$LOCALIZE[32123]")}
         {tbox(1300, 408, 484, 100, "ModernCard", TXT, "$INFO[System.CurrentControl]", auto=False)}
         {tbox(1300, 516, 484, 220, "ModernSmall", MUTED, None, 6)}
         {level_button(1300, 748, 480)}
     </control>
-    {category_button("auto", 52, "ModernTile", 26, "ff8a929c", "14ffffff", "38ffffff", "common/modern-pill.png", 26)}
-    {templates(1080, 66, "ModernRow", 22, nofocus="0fffffff")}
+    {category_button("auto", 52, "ModernTile", 26, "ff8a929c", "$VAR[ModernSurface]", "$VAR[ModernSurface]", "common/modern-pill.png", 26)}
+    {templates(1080, 66, "ModernRow", 22, nofocus="$VAR[ModernSurface]")}
+    </include>
+"""
+
+
+DLG_BTN = f"""
+                    <width min="120" max="320">auto</width><height>56</height>
+                    <font>ModernTile</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>{TXT}</textcolor><focusedcolor>{DARK}</focusedcolor>
+                    <texturefocus border="27" colordiffuse="{W}">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>"""
+
+dialog_sheet = f"""
+    <include name="DialogSettings_Sheet">
+    <control type="group">
+        <animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(SliderDialog)">Conditional</animation>
+        {img(0, 0, 1920, 1080, "common/white.png", "59000000")}
+        <control type="group">
+            <left>1060</left>
+            <animation effect="slide" start="860,0" end="0,0" time="260" tween="cubic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="860,0" time="200" tween="cubic" easing="in">WindowClose</animation>
+            {img(-40, 0, 40, 1080, "common/modern-shade.png", "99ffffff")}
+            {img(0, 0, 860, 1080, "common/white.png", "$VAR[ModernBg]")}
+            {lbl(56, 60, 748, 32, "ModernSmall", MUTED, "$VAR[ModernOSD_Title]")}
+            <control type="label" id="2">
+                <left>56</left><top>92</top><width>748</width><height>64</height>
+                <font>ModernH2</font><textcolor>{TXT}</textcolor>
+            </control>
+            <control type="grouplist" id="5">
+                <left>56</left><top>180</top><width>748</width><height>780</height>
+                <orientation>vertical</orientation><itemgap>4</itemgap>
+                <scrolltime tween="cubic" easing="out">200</scrolltime>
+                <usecontrolcoords>true</usecontrolcoords>
+                <onleft>noop</onleft><onright>noop</onright><ondown>8000</ondown>
+            </control>
+            <control type="grouplist" id="8000">
+                <left>56</left><top>980</top><width>748</width><height>56</height>
+                <orientation>horizontal</orientation><itemgap>12</itemgap>
+                <onup>5</onup><onleft>noop</onleft><onright>noop</onright>
+                <control type="button" id="28">{DLG_BTN}</control>
+                <control type="button" id="29">{DLG_BTN}</control>
+                <control type="button" id="30">{DLG_BTN}</control>
+            </control>
+        </control>
+    </control>
+    <control type="image" id="11"><visible>false</visible></control>
+    {templates(748, 64, "ModernTile", 22)}
     </include>
 """
 
 # ------------------------------------------------------------ Uebersicht (Fenster 4)
-def tile_layout(w, h, tw, th, icon, label_top, font, focused, sub=False, zoom=None, radius="common/modern-round14.png", border=14, bg="12ffffff", lab_h=44, wrap=False, cid="9100"):
+def tile_layout(w, h, tw, th, icon, label_top, font, focused, sub=False, zoom=None, radius="common/modern-round14.png", border=14, bg="$VAR[ModernSurface]", lab_h=44, wrap=False, cid="9100"):
     tag = "focusedlayout" if focused else "itemlayout"
     def part(on, vis):
         bgc = W if on else bg
         ic = DARK if on else "e6ffffff"
         tc = DARK if on else TXT
-        sc = "ff4a5058" if on else MUTED
+        sc = DARK if on else MUTED
         v = f"\n            <visible>{vis}</visible>" if vis else ""
         z = f'\n            <animation effect="zoom" start="100" end="{zoom}" time="150" tween="cubic" easing="out" center="auto">Visible</animation>' if (zoom and on) else ""
         subl = f"""
@@ -286,7 +332,7 @@ def list_row(w, h, focused):
     bgc = W if focused else "00ffffff"
     ic = DARK if focused else "ccffffff"
     tc = DARK if focused else TXT
-    sc = "ff4a5058" if focused else DIM
+    sc = DARK if focused else DIM
     tag = "focusedlayout" if focused else "itemlayout"
     return f"""
         <{tag} width="{w}" height="{h}">
@@ -342,7 +388,7 @@ hub_b = f"""
             {list_row(760, 72, True)}
             <content><include>SettingsItemsModern</include></content>
         </control>
-        {img(1000, 226, 824, 700, "common/modern-round20.png", "0fffffff", 20)}
+        {img(1000, 226, 824, 700, "common/modern-round20.png", "$VAR[ModernSurface]", 20)}
         <control type="image">
             <left>1056</left><top>282</top><width>96</width><height>96</height>
             <aspectratio align="left">keep</aspectratio>
@@ -363,7 +409,7 @@ hub_c = f"""
             <orientation>horizontal</orientation>
             <scrolltime tween="cubic" easing="out">200</scrolltime>
             <ondown>9101</ondown><onup>noop</onup>
-            {tile_layout(426, 290, 400, 256, (34, 34, 60), 150, "ModernCard", False, sub=True, radius="common/modern-round20.png", border=20, bg="1fffffff")}
+            {tile_layout(426, 290, 400, 256, (34, 34, 60), 150, "ModernCard", False, sub=True, radius="common/modern-round20.png", border=20, bg="$VAR[ModernSurface]")}
             {tile_layout(426, 290, 400, 256, (34, 34, 60), 150, "ModernCard", True, sub=True, zoom=105, radius="common/modern-round20.png", border=20)}
             <content><include>SettingsItemsTop</include></content>
         </control>
@@ -400,6 +446,7 @@ xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 {cat_a}
 {cat_b}
 {cat_c}
+{dialog_sheet}
 </includes>
 """
 open(OUT, "w", encoding="utf-8").write(xml)

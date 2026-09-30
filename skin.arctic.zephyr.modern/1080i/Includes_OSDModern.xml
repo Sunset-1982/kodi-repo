@@ -82,8 +82,157 @@
 
 
     <include name="SeekbarKino">
+        
         <control type="group">
-            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))]</visible>
+            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))] + VideoPlayer.Content(livetv)</visible>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(pvrchannelguide)">Conditional</animation>
+            <control type="image"><width>1920</width><height>380</height><texture colordiffuse="d9ffffff">osd/modern/shade-top.png</texture></control>
+            <control type="image"><top>500</top><width>1920</width><height>580</height><texture>osd/modern/shade-bottom.png</texture></control>
+            <control type="image">
+                <left>96</left><top>72</top><width>120</width><height>120</height>
+                <aspectratio>keep</aspectratio>
+                <texture>$INFO[Player.Art(thumb)]</texture>
+            </control>
+            <control type="label">
+                <left>244</left><top>72</top><width>1200</width><height>34</height>
+                <font>ModernSmall</font><textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[VideoPlayer.ChannelNumberLabel,,  ·  ]$INFO[VideoPlayer.ChannelName]</label>
+            </control>
+            <control type="label">
+                <left>244</left><top>104</top><width>1250</width><height>90</height>
+                <font>ModernTitle</font><textcolor>ffececec</textcolor>
+                <label>$INFO[VideoPlayer.Title]</label>
+            </control>
+            <control type="label">
+                <left>96</left><top>226</top><width>1300</width><height>36</height>
+                <font>ModernRow</font><textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[VideoPlayer.StartTime]$INFO[VideoPlayer.EndTime, – ,]$INFO[VideoPlayer.Genre,  ·  ,]</label>
+            </control>
+            
+            <control type="grouplist">
+                <left>96</left>
+                <top>276</top>
+                <width>1300</width>
+                <height>32</height>
+                <orientation>horizontal</orientation>
+                <itemgap>10</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_Resolution]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_HDR]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.HdrType)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioCodec] $VAR[ModernOSD_AudioChannels]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioLanguage]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioLanguage) + !String.IsEqual(VideoPlayer.AudioLanguage,und)</visible>
+                </control>
+            </control>
+            <control type="label">
+                <right>96</right><top>64</top><width>400</width><height>70</height><align>right</align>
+                <font>ClockModern</font><textcolor>ffececec</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+            </control>
+            <control type="label">
+                <left>96</left><top>792</top><width>900</width><height>30</height>
+                <font>ModernCaption</font><textcolor>$VAR[ModernAccent]</textcolor>
+                <label>$LOCALIZE[19030]</label>
+            </control>
+            <control type="label">
+                <left>96</left><top>822</top><width>1100</width><height>40</height>
+                <font>ModernItem</font><textcolor>ffececec</textcolor>
+                <label>$INFO[VideoPlayer.Title]</label>
+            </control>
+            <control type="label">
+                <right>96</right><top>826</top><width>760</width><height>34</height><align>right</align>
+                <font>ModernSmall</font><textcolor>ffa8b0b9</textcolor>
+                <label>$LOCALIZE[19031]: $INFO[VideoPlayer.NextStartTime,, ]$INFO[VideoPlayer.NextTitle]</label>
+                <visible>!String.IsEmpty(VideoPlayer.NextTitle)</visible>
+            </control>
+            
+            <control type="group">
+                <left>96</left><top>876</top><width>1728</width><height>6</height>
+                <control type="progress">
+                    <width>1728</width><height>6</height>
+                    <info>PVR.EpgEventProgress</info>
+                    <texturebg border="3" colordiffuse="38ffffff">osd/modern/bar.png</texturebg>
+                    <lefttexture /><righttexture />
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
+                </control>
+                <control type="progress">
+                    <width>1728</width><height>6</height>
+                    <info>PVR.TimeshiftProgress</info>
+                    <texturebg /><lefttexture /><righttexture />
+                    <midtexture border="3" colordiffuse="66ffffff">osd/modern/bar.png</midtexture>
+                    <visible>PVR.IsTimeShift</visible>
+                </control>
+            </control>
+            
+            <control type="label">
+                <left>96</left><top>894</top><width>600</width><height>34</height>
+                <font>ModernSmall</font><textcolor>ffececec</textcolor>
+                <label>$INFO[VideoPlayer.StartTime]  ·  $INFO[PVR.EpgEventElapsedTime]</label>
+            </control>
+            <control type="label">
+                <right>96</right><top>894</top><width>600</width><height>34</height><align>right</align>
+                <font>ModernSmall</font><textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[PVR.EpgEventRemainingTime,−,  ·  ]$INFO[VideoPlayer.EndTime]</label>
+            </control>
+        </control>
+        <control type="group">
+            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))] + !VideoPlayer.Content(livetv)</visible>
             <animation effect="fade" start="0" end="100" time="200">Visible</animation>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
             <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(DialogPlayerProcessInfo.xml) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks)">Conditional</animation>
@@ -227,7 +376,7 @@
                 <width>900</width>
                 <height>30</height>
                 <font>ModernCaption</font>
-                <textcolor>ff9db0cf</textcolor>
+                <textcolor>$VAR[ModernAccent]</textcolor>
                 <label>$LOCALIZE[21396] $INFO[Player.Chapter] / $INFO[Player.ChapterCount]</label>
                 <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
             </control>
@@ -272,7 +421,7 @@
                     <info>Player.Progress</info>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>!Player.Seeking</visible>
                 </control>
@@ -281,7 +430,7 @@
                     <height>6</height>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>Player.Seeking</visible>
                 </control>
@@ -294,6 +443,113 @@
                     <midtexture />
                     <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
                     <info>Player.Chapters</info>
+                </control>
+                <control type="image">
+                    <left>-10</left>
+                    <top>-7</top>
+                    <width>20</width>
+                    <height>20</height>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,1)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,2)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,3)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,4)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,5)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,6)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,7)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,8)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,9)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,10)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,11)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,12)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,13)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,14)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,15)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,16)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,17)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,18)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,19)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,20)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,21)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,22)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,23)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,24)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,25)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,26)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,27)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,28)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,29)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,30)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,31)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,32)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,33)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,34)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,35)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,36)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,37)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,38)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,39)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,40)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,41)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,42)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,43)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,44)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,45)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,46)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,47)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,48)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,49)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,50)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,51)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,52)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,53)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,54)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,55)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,56)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,57)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,58)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,59)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,60)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,61)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,62)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,63)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,64)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,65)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,66)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,67)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,68)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,69)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,70)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,71)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,72)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,73)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,74)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,75)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,76)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,77)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,78)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,79)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,80)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,81)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,82)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,83)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,84)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,85)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,86)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,87)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,88)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,89)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,90)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,91)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,92)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,93)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,94)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,95)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,96)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,97)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,98)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,99)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,100)">Conditional</animation>
+                    <texture>osd/modern/knob.png</texture>
                 </control>
             </control>
             <control type="label">
@@ -437,7 +693,7 @@
                 <control type="image">
                     <width>200</width>
                     <height>70</height>
-                    <texture border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texture>
+                    <texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture>
                 </control>
                 <control type="label">
                     <top>6</top>
@@ -445,7 +701,7 @@
                     <height>36</height>
                     <align>center</align>
                     <font>ModernRowBold</font>
-                    <textcolor>ff14171b</textcolor>
+                    <textcolor>$VAR[ModernFocusText]</textcolor>
                     <label>$VAR[ModernOSD_Time]</label>
                 </control>
                 <control type="label">
@@ -479,7 +735,7 @@
                     <info>Player.Progress</info>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>!Player.Seeking</visible>
                 </control>
@@ -488,7 +744,7 @@
                     <height>6</height>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>Player.Seeking</visible>
                 </control>
@@ -501,6 +757,113 @@
                     <midtexture />
                     <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
                     <info>Player.Chapters</info>
+                </control>
+                <control type="image">
+                    <left>-10</left>
+                    <top>-7</top>
+                    <width>20</width>
+                    <height>20</height>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,1)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,2)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,3)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,4)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,5)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,6)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,7)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,8)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,9)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,10)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,11)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,12)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,13)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,14)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,15)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,16)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,17)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,18)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,19)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,20)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,21)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,22)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,23)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,24)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,25)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,26)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,27)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,28)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,29)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,30)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,31)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,32)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,33)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,34)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,35)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,36)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,37)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,38)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,39)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,40)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,41)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,42)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,43)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,44)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,45)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,46)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,47)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,48)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,49)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,50)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,51)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,52)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,53)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,54)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,55)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,56)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,57)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,58)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,59)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,60)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,61)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,62)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,63)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,64)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,65)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,66)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,67)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,68)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,69)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,70)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,71)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,72)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,73)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,74)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,75)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,76)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,77)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,78)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,79)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,80)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,81)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,82)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,83)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,84)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,85)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,86)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,87)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,88)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,89)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,90)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,91)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,92)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,93)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,94)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,95)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,96)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,97)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,98)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,99)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,100)">Conditional</animation>
+                    <texture>osd/modern/knob.png</texture>
                 </control>
             </control>
             <control type="label">
@@ -527,8 +890,151 @@
 
 
     <include name="SeekbarKompakt">
+        
         <control type="group">
-            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))]</visible>
+            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))] + VideoPlayer.Content(livetv)</visible>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <animation effect="slide" start="0,40" end="0,0" time="220" tween="cubic" easing="out">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(pvrchannelguide)">Conditional</animation>
+            <control type="image"><top>600</top><width>1920</width><height>480</height><texture colordiffuse="99ffffff">osd/modern/shade-bottom.png</texture></control>
+            <control type="image">
+                <left>96</left><top>716</top><width>1728</width><height>300</height>
+                <texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture>
+            </control>
+            <control type="image">
+                <left>128</left><top>748</top><width>158</width><height>158</height>
+                <aspectratio>keep</aspectratio>
+                <texture>$INFO[Player.Art(thumb)]</texture>
+            </control>
+            <control type="label">
+                <left>128</left><top>916</top><width>158</width><height>60</height><align>center</align>
+                <font>ModernCaption</font><textcolor>ffa8b0b9</textcolor><wrapmultiline>true</wrapmultiline>
+                <label>$INFO[VideoPlayer.ChannelName]</label>
+            </control>
+            <control type="label">
+                <left>318</left><top>742</top><width>1100</width><height>54</height>
+                <font>ModernH2</font><textcolor>ffececec</textcolor>
+                <label>$INFO[VideoPlayer.Title]</label>
+            </control>
+            <control type="label">
+                <left>318</left><top>798</top><width>1100</width><height>32</height>
+                <font>ModernSmall</font><textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[VideoPlayer.ChannelNumberLabel,,  ·  ]$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.StartTime,  ·  ,]$INFO[VideoPlayer.EndTime, – ,]$INFO[VideoPlayer.Genre,  ·  ,]</label>
+            </control>
+            <control type="label">
+                <right>128</right><top>742</top><width>400</width><height>54</height><align>right</align>
+                <font>ModernH2</font><textcolor>ffececec</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+            </control>
+            <control type="label">
+                <right>128</right><top>798</top><width>700</width><height>32</height><align>right</align>
+                <font>ModernSmall</font><textcolor>ffa8b0b9</textcolor>
+                <label>$LOCALIZE[19031]: $INFO[VideoPlayer.NextStartTime,, ]$INFO[VideoPlayer.NextTitle]</label>
+                <visible>!String.IsEmpty(VideoPlayer.NextTitle)</visible>
+            </control>
+            
+            <control type="group">
+                <left>318</left><top>858</top><width>1474</width><height>6</height>
+                <control type="progress">
+                    <width>1474</width><height>6</height>
+                    <info>PVR.EpgEventProgress</info>
+                    <texturebg border="3" colordiffuse="38ffffff">osd/modern/bar.png</texturebg>
+                    <lefttexture /><righttexture />
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
+                </control>
+                <control type="progress">
+                    <width>1474</width><height>6</height>
+                    <info>PVR.TimeshiftProgress</info>
+                    <texturebg /><lefttexture /><righttexture />
+                    <midtexture border="3" colordiffuse="66ffffff">osd/modern/bar.png</midtexture>
+                    <visible>PVR.IsTimeShift</visible>
+                </control>
+            </control>
+            
+            <control type="label">
+                <left>318</left><top>876</top><width>600</width><height>34</height>
+                <font>ModernSmall</font><textcolor>ffececec</textcolor>
+                <label>$INFO[VideoPlayer.StartTime]  ·  $INFO[PVR.EpgEventElapsedTime]</label>
+            </control>
+            <control type="label">
+                <right>128</right><top>876</top><width>600</width><height>34</height><align>right</align>
+                <font>ModernSmall</font><textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[PVR.EpgEventRemainingTime,−,  ·  ]$INFO[VideoPlayer.EndTime]</label>
+            </control>
+            
+            <control type="grouplist">
+                <left>318</left>
+                <top>942</top>
+                <width>720</width>
+                <height>32</height>
+                <orientation>horizontal</orientation>
+                <itemgap>10</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_Resolution]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_HDR]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.HdrType)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioCodec] $VAR[ModernOSD_AudioChannels]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioLanguage]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioLanguage) + !String.IsEqual(VideoPlayer.AudioLanguage,und)</visible>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))] + !VideoPlayer.Content(livetv)</visible>
             <animation effect="fade" start="0" end="100" time="200">Visible</animation>
             <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
             <animation effect="slide" start="0,40" end="0,0" time="220" tween="cubic" easing="out">Visible</animation>
@@ -544,7 +1050,7 @@
                 <top>716</top>
                 <width>1728</width>
                 <height>300</height>
-                <texture border="20" colordiffuse="e612151a">common/modern-round20.png</texture>
+                <texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture>
             </control>
             <control type="image">
                 <left>128</left>
@@ -615,7 +1121,7 @@
                     <info>Player.Progress</info>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>!Player.Seeking</visible>
                 </control>
@@ -624,7 +1130,7 @@
                     <height>6</height>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>Player.Seeking</visible>
                 </control>
@@ -637,6 +1143,113 @@
                     <midtexture />
                     <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
                     <info>Player.Chapters</info>
+                </control>
+                <control type="image">
+                    <left>-10</left>
+                    <top>-7</top>
+                    <width>20</width>
+                    <height>20</height>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,1)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,2)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,3)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,4)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,5)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,6)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,7)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,8)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,9)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,10)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,11)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,12)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,13)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,14)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,15)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,16)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,17)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,18)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,19)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,20)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,21)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,22)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,23)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,24)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,25)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,26)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,27)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,28)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,29)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,30)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,31)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,32)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,33)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,34)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,35)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,36)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,37)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,38)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,39)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,40)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,41)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,42)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,43)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,44)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,45)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,46)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,47)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,48)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,49)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,50)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,51)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,52)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,53)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,54)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,55)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,56)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,57)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,58)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,59)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,60)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,61)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,62)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,63)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,64)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,65)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,66)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,67)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,68)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,69)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,70)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,71)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,72)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,73)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,74)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,75)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,76)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,77)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,78)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,79)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,80)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,81)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,82)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,83)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,84)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,85)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,86)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,87)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,88)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,89)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,90)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,91)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,92)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,93)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,94)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,95)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,96)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,97)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,98)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,99)">Conditional</animation>
+                    <animation effect="slide" end="14.74,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,100)">Conditional</animation>
+                    <texture>osd/modern/knob.png</texture>
                 </control>
             </control>
             <control type="label">
@@ -862,7 +1475,7 @@
                 <control type="image">
                     <width>200</width>
                     <height>70</height>
-                    <texture border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texture>
+                    <texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture>
                 </control>
                 <control type="label">
                     <top>6</top>
@@ -870,7 +1483,7 @@
                     <height>36</height>
                     <align>center</align>
                     <font>ModernRowBold</font>
-                    <textcolor>ff14171b</textcolor>
+                    <textcolor>$VAR[ModernFocusText]</textcolor>
                     <label>$VAR[ModernOSD_Time]</label>
                 </control>
                 <control type="label">
@@ -904,7 +1517,7 @@
                     <info>Player.Progress</info>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>!Player.Seeking</visible>
                 </control>
@@ -913,7 +1526,7 @@
                     <height>6</height>
                     <texturebg />
                     <lefttexture />
-                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
                     <visible>Player.Seeking</visible>
                 </control>
@@ -926,6 +1539,113 @@
                     <midtexture />
                     <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
                     <info>Player.Chapters</info>
+                </control>
+                <control type="image">
+                    <left>-10</left>
+                    <top>-7</top>
+                    <width>20</width>
+                    <height>20</height>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,1)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,2)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,3)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,4)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,5)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,6)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,7)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,8)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,9)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,10)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,11)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,12)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,13)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,14)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,15)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,16)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,17)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,18)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,19)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,20)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,21)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,22)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,23)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,24)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,25)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,26)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,27)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,28)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,29)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,30)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,31)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,32)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,33)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,34)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,35)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,36)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,37)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,38)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,39)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,40)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,41)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,42)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,43)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,44)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,45)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,46)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,47)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,48)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,49)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,50)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,51)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,52)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,53)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,54)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,55)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,56)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,57)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,58)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,59)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,60)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,61)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,62)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,63)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,64)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,65)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,66)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,67)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,68)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,69)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,70)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,71)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,72)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,73)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,74)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,75)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,76)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,77)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,78)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,79)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,80)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,81)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,82)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,83)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,84)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,85)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,86)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,87)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,88)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,89)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,90)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,91)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,92)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,93)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,94)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,95)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,96)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,97)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,98)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,99)">Conditional</animation>
+                    <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,100)">Conditional</animation>
+                    <texture>osd/modern/knob.png</texture>
                 </control>
             </control>
             <control type="label">
@@ -977,9 +1697,9 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textcolor>ffececec</textcolor>
-                    <focusedcolor>ff14171b</focusedcolor>
-                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$VAR[ModernOSD_AudioLanguage] $VAR[ModernOSD_AudioChannels]</label>
                     <onclick>ActivateWindow(osdaudiosettings)</onclick>
                 </control>
@@ -992,9 +1712,9 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textcolor>ffececec</textcolor>
-                    <focusedcolor>ff14171b</focusedcolor>
-                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$LOCALIZE[287]: $VAR[ModernOSD_SubLanguage]</label>
                     <onclick>ActivateWindow(osdsubtitlesettings)</onclick>
                 </control>
@@ -1010,8 +1730,8 @@
                     <width>76</width>
                     <height>76</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Previous)</onclick>
                     <onleft>300</onleft>
                     <onright>312</onright>
@@ -1020,7 +1740,7 @@
                 </control>
                 <control type="image">
                     <left>21</left><top>21</top><width>34</width><height>34</height>
-                    <texture colordiffuse="ff14171b">osd/modern/prev.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/prev.png</texture>
                     <visible>Control.HasFocus(311)</visible>
                 </control>
                 <control type="image">
@@ -1039,8 +1759,8 @@
                     <width>76</width>
                     <height>76</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Rewind)</onclick>
                     <onleft>311</onleft>
                     <onright>313</onright>
@@ -1049,7 +1769,7 @@
                 </control>
                 <control type="image">
                     <left>21</left><top>21</top><width>34</width><height>34</height>
-                    <texture colordiffuse="ff14171b">osd/modern/rew.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/rew.png</texture>
                     <visible>Control.HasFocus(312)</visible>
                 </control>
                 <control type="image">
@@ -1068,8 +1788,8 @@
                     <width>92</width>
                     <height>92</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Play)</onclick>
                     <onleft>312</onleft>
                     <onright>314</onright>
@@ -1078,7 +1798,7 @@
                 </control>
                 <control type="image">
                     <left>25</left><top>25</top><width>42</width><height>42</height>
-                    <texture colordiffuse="ff14171b">osd/modern/pause.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/pause.png</texture>
                     <visible>Control.HasFocus(313) + !Player.Paused</visible>
                 </control>
                 <control type="image">
@@ -1088,7 +1808,7 @@
                 </control>
                 <control type="image">
                     <left>25</left><top>25</top><width>42</width><height>42</height>
-                    <texture colordiffuse="ff14171b">osd/modern/play.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/play.png</texture>
                     <visible>Control.HasFocus(313) + Player.Paused</visible>
                 </control>
                 <control type="image">
@@ -1107,8 +1827,8 @@
                     <width>76</width>
                     <height>76</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Forward)</onclick>
                     <onleft>313</onleft>
                     <onright>315</onright>
@@ -1117,7 +1837,7 @@
                 </control>
                 <control type="image">
                     <left>21</left><top>21</top><width>34</width><height>34</height>
-                    <texture colordiffuse="ff14171b">osd/modern/ff.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/ff.png</texture>
                     <visible>Control.HasFocus(314)</visible>
                 </control>
                 <control type="image">
@@ -1136,8 +1856,8 @@
                     <width>76</width>
                     <height>76</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Next)</onclick>
                     <onleft>314</onleft>
                     <onright>316</onright>
@@ -1146,7 +1866,7 @@
                 </control>
                 <control type="image">
                     <left>21</left><top>21</top><width>34</width><height>34</height>
-                    <texture colordiffuse="ff14171b">osd/modern/next.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/next.png</texture>
                     <visible>Control.HasFocus(315)</visible>
                 </control>
                 <control type="image">
@@ -1165,8 +1885,8 @@
                     <width>76</width>
                     <height>76</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Stop)</onclick>
                     <onleft>315</onleft>
                     <onright>320</onright>
@@ -1175,7 +1895,7 @@
                 </control>
                 <control type="image">
                     <left>21</left><top>21</top><width>34</width><height>34</height>
-                    <texture colordiffuse="ff14171b">osd/modern/stop.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/stop.png</texture>
                     <visible>Control.HasFocus(316)</visible>
                 </control>
                 <control type="image">
@@ -1206,12 +1926,45 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textcolor>ffececec</textcolor>
-                    <focusedcolor>ff14171b</focusedcolor>
-                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$LOCALIZE[21396]</label>
                     <onclick>ActivateWindow(videobookmarks)</onclick>
-                    <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
+                    <visible>Integer.IsGreater(Player.ChapterCount,1) + !VideoPlayer.Content(livetv)</visible>
+                </control>
+                
+                <control type="button" id="326">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[19019]</label>
+                    <onclick>ActivateWindow(pvrosdchannels)</onclick>
+                    <visible>VideoPlayer.Content(livetv)</visible>
+                </control>
+                
+                <control type="button" id="328">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[32153]</label>
+                    <onclick>Close</onclick>
+                    <onclick>ActivateWindow(tvguide,,return)</onclick>
+                    <visible>VideoPlayer.Content(livetv)</visible>
                 </control>
                 
                 <control type="button" id="322">
@@ -1222,11 +1975,12 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textcolor>ffececec</textcolor>
-                    <focusedcolor>ff14171b</focusedcolor>
-                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$LOCALIZE[291]</label>
                     <onclick>ActivateWindow(osdvideosettings)</onclick>
+                    <visible>!VideoPlayer.Content(livetv)</visible>
                 </control>
                 
                 <control type="button" id="323">
@@ -1237,9 +1991,9 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textcolor>ffececec</textcolor>
-                    <focusedcolor>ff14171b</focusedcolor>
-                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$LOCALIZE[32133]</label>
                     <onclick>RunScript(script.signde.tinyppi,dialog)</onclick>
                     <visible>System.HasAddon(script.signde.tinyppi)</visible>
@@ -1253,9 +2007,9 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textcolor>ffececec</textcolor>
-                    <focusedcolor>ff14171b</focusedcolor>
-                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$LOCALIZE[32133]</label>
                     <onclick>ActivateWindow(playerprocessinfo)</onclick>
                     <visible>!System.HasAddon(script.signde.tinyppi)</visible>
@@ -1268,9 +2022,9 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textcolor>ffececec</textcolor>
-                    <focusedcolor>ff14171b</focusedcolor>
-                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
-                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="27" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
                     <label>$LOCALIZE[32123]</label>
                     <include>OSDExtendedInfo_Click_Action</include>
                     <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
@@ -1296,8 +2050,8 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>ActivateWindow(osdaudiosettings)</onclick>
                     <onleft>noop</onleft>
                     <onright>502</onright>
@@ -1306,7 +2060,7 @@
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/audio.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/audio.png</texture>
                     <visible>Control.HasFocus(501)</visible>
                 </control>
                 <control type="image">
@@ -1325,8 +2079,8 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>ActivateWindow(osdsubtitlesettings)</onclick>
                     <onleft>501</onleft>
                     <onright>503</onright>
@@ -1335,7 +2089,7 @@
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/sub.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/sub.png</texture>
                     <visible>Control.HasFocus(502)</visible>
                 </control>
                 <control type="image">
@@ -1354,8 +2108,8 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Rewind)</onclick>
                     <onleft>502</onleft>
                     <onright>504</onright>
@@ -1364,7 +2118,7 @@
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/rew.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/rew.png</texture>
                     <visible>Control.HasFocus(503)</visible>
                 </control>
                 <control type="image">
@@ -1383,8 +2137,8 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Play)</onclick>
                     <onleft>503</onleft>
                     <onright>505</onright>
@@ -1393,7 +2147,7 @@
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/pause.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/pause.png</texture>
                     <visible>Control.HasFocus(504) + !Player.Paused</visible>
                 </control>
                 <control type="image">
@@ -1403,7 +2157,7 @@
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/play.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/play.png</texture>
                     <visible>Control.HasFocus(504) + Player.Paused</visible>
                 </control>
                 <control type="image">
@@ -1422,8 +2176,8 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Forward)</onclick>
                     <onleft>504</onleft>
                     <onright>506</onright>
@@ -1432,7 +2186,7 @@
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/ff.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/ff.png</texture>
                     <visible>Control.HasFocus(505)</visible>
                 </control>
                 <control type="image">
@@ -1451,17 +2205,18 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>PlayerControl(Stop)</onclick>
                     <onleft>505</onleft>
-                    <onright>507</onright>
+                    <onright condition="!VideoPlayer.Content(livetv)">507</onright>
+                    <onright condition="VideoPlayer.Content(livetv)">511</onright>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/stop.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/stop.png</texture>
                     <visible>Control.HasFocus(506)</visible>
                 </control>
                 <control type="image">
@@ -1475,28 +2230,61 @@
                 <top>916</top>
                 <width>68</width>
                 <height>68</height>
+                <visible>!VideoPlayer.Content(livetv)</visible>
                 <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(507)">Conditional</animation>
                 <control type="button" id="507">
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>ActivateWindow(videobookmarks)</onclick>
                     <onleft>506</onleft>
-                    <onright>508</onright>
+                    <onright condition="System.HasAddon(script.signde.tinyppi)">508</onright>
+                    <onright condition="!System.HasAddon(script.signde.tinyppi)">510</onright>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/chapters.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/chapters.png</texture>
                     <visible>Control.HasFocus(507)</visible>
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
                     <texture colordiffuse="ffececec">osd/modern/chapters.png</texture>
                     <visible>!Control.HasFocus(507)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1560</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <visible>VideoPlayer.Content(livetv)</visible>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(511)">Conditional</animation>
+                <control type="button" id="511">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
+                    <onclick>ActivateWindow(pvrosdchannels)</onclick>
+                    <onleft>506</onleft>
+                    <onright condition="System.HasAddon(script.signde.tinyppi)">508</onright>
+                    <onright condition="!System.HasAddon(script.signde.tinyppi)">510</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/tv.png</texture>
+                    <visible>Control.HasFocus(511)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/tv.png</texture>
+                    <visible>!Control.HasFocus(511)</visible>
                 </control>
             </control>
             <control type="group">
@@ -1510,17 +2298,19 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>RunScript(script.signde.tinyppi,dialog)</onclick>
-                    <onleft>507</onleft>
-                    <onright>509</onright>
+                    <onleft condition="!VideoPlayer.Content(livetv)">507</onleft>
+                    <onleft condition="VideoPlayer.Content(livetv)">511</onleft>
+                    <onright condition="!VideoPlayer.Content(livetv)">509</onright>
+                    <onright condition="VideoPlayer.Content(livetv)">512</onright>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/ppi.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/ppi.png</texture>
                     <visible>Control.HasFocus(508)</visible>
                 </control>
                 <control type="image">
@@ -1540,17 +2330,19 @@
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
                     <onclick>ActivateWindow(playerprocessinfo)</onclick>
-                    <onleft>507</onleft>
-                    <onright>509</onright>
+                    <onleft condition="!VideoPlayer.Content(livetv)">507</onleft>
+                    <onleft condition="VideoPlayer.Content(livetv)">511</onleft>
+                    <onright condition="!VideoPlayer.Content(livetv)">509</onright>
+                    <onright condition="VideoPlayer.Content(livetv)">512</onright>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/ppi.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/ppi.png</texture>
                     <visible>Control.HasFocus(510)</visible>
                 </control>
                 <control type="image">
@@ -1564,15 +2356,17 @@
                 <top>916</top>
                 <width>68</width>
                 <height>68</height>
-                <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+                <visible>!VideoPlayer.Content(livetv)</visible>
                 <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(509)">Conditional</animation>
                 <control type="button" id="509">
                     <width>68</width>
                     <height>68</height>
                     <label />
-                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
-                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
-                    <onleft>508</onleft>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
+
+                    <onleft condition="System.HasAddon(script.signde.tinyppi)">508</onleft>
+                    <onleft condition="!System.HasAddon(script.signde.tinyppi)">510</onleft>
                     <onright>noop</onright>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
@@ -1580,13 +2374,45 @@
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
-                    <texture colordiffuse="ff14171b">osd/modern/info.png</texture>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/info.png</texture>
                     <visible>Control.HasFocus(509)</visible>
                 </control>
                 <control type="image">
                     <left>18</left><top>18</top><width>31</width><height>31</height>
                     <texture colordiffuse="ffececec">osd/modern/info.png</texture>
                     <visible>!Control.HasFocus(509)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1724</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <visible>VideoPlayer.Content(livetv)</visible>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(512)">Conditional</animation>
+                <control type="button" id="512">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texturenofocus>
+                    <onclick>Close</onclick>
+                    <onclick>ActivateWindow(tvguide,,return)</onclick>
+                    <onleft condition="System.HasAddon(script.signde.tinyppi)">508</onleft>
+                    <onleft condition="!System.HasAddon(script.signde.tinyppi)">510</onleft>
+                    <onright>noop</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="$VAR[ModernFocusText]">osd/modern/guide.png</texture>
+                    <visible>Control.HasFocus(512)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/guide.png</texture>
+                    <visible>!Control.HasFocus(512)</visible>
                 </control>
             </control>
         </control>
