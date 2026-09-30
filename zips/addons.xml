@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="skin.arctic.zephyr.modern" version="0.8.1" name="Arctic: Zephyr - Modern" provider-name="jurialmunkey, beatmasterrs, martian89, jamal2362, signde, Sunset1982">
+    <requires>
+        <import addon="xbmc.gui" version="5.17.0"/>
+        <import addon="script.skinvariables" version="2.1.33" />
+        <import addon="script.skinshortcuts" version="2.0.3"/>
+        <import addon="script.image.resource.select" version="3.0.2"/>
+        <import addon="plugin.video.themoviedb.helper" version="5.4.16"/>
+        <import addon="resource.images.weathericons.white" version="0.0.6"/>
+        <import addon="script.signde.tinyppi" version="10.2.7.3"/>
+    </requires>
+    <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" debugging="false" effectslowdown="1">
+        <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>Creative Commons Attribution Non-Commercial Share-Alike 3.0</license>
+        <forum>https://forum.kodi.tv/showthread.php?tid=382650</forum>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <news>
+v0.8.1
+- Neues Logo (Eisberg + arctic zephyr modern.), Startbildschirm und Skin-Einstellungen ohne Martian-Logo
+- Neues Hintergrundbild fuer die Addon-Ansicht
+
+v0.8.0
+- Zeitstrahl im OSD: gelaufener Teil liegt jetzt exakt auf dem Balken
+- Audio-, Untertitel- und Videoeinstellungen im OSD immer als modernes Seitenblatt
+- Dateimanager: abgerundete Karten und Fokus
+- Einstellungen: Liste ueberlappt die Uhr nicht mehr
+- Farbthema-Auswahl repariert (alle 8 Themen waehlbar)
+
+v0.7.0
+- Kontextmenue und Powermenue neu: abgerundete Karte, Fokus als abgerundete Flaeche mit gut lesbarem Text
+- Kontextmenue zeigt Art und Titel des Eintrags
+- Powermenue mit Symbolen, Datum und Uhrzeit
+
+v0.6.0
+- Farbthema gilt jetzt im ganzen Skin: Hauptmenue, Ansichten, Listen, Kontextmenue, Dialoge, Info-Dialog
+- Neues Thema Klassisch (Original-Farben)
+- Dialoge standardmaessig dunkel
+- Neue Option: Unschaerfe auch im Hauptmenue (Hintergrund)
+
+v0.5.0
+- Neues Farbmenue (Skin-Einstellungen &gt; Farben &gt; Modern-Farben): 7 Farbthemen plus Hintergrund, Oberflaechen, Fokus, Text auf Fokus und Akzent einzeln waehlbar
+- Nicht mehr benoetigte Optionen des Original-OSD und der Farbverlaeufe werden nur noch beim Design Original angezeigt
+
+v0.4.0
+- OSD: Regler-Knopf auf der Fortschrittsleiste wandert jetzt mit
+- OSD-Dialoge (Audio, Untertitel, Video) und alle Einstellungsdialoge als dunkles Seitenblatt mit Schaltern und schlanken Reglern
+- Live-TV im Kino- und Kompakt-OSD: Senderlogo, Sendung, Als naechstes, Sendungsfortschritt, Sender/Programm-Buttons
+
+v0.3.0
+- Neue Einstellungs-Designs: A Schwebend (Standard), B Seitenblatt, C Karten, Original weiterhin waehlbar
+  (Skin-Einstellungen &gt; Hauptmenue &gt; Einstellungs-Design)
+- Schalter statt Checkboxen, weisse Fokusflaeche, Einstellungsstufe als Pille
+
+v0.2.1
+- Asiatische Schriften (CJK) und Fontset "Default (Unicode)" entfernt, Skin deutlich kleiner
+- Erste Version ueber das Sunset1982-Repository
+
+v0.2.0
+- Neues OSD: Varianten Kino und Kompakt (Skin-Einstellungen > OSD-Design), Original weiterhin waehlbar
+- PPI-Pille/-Button (signde TinyPPI bzw. P3i-PPI)
+- Vorbereitung Einstellungs-Designs (noch ohne Layouts)
+
+v0.1.0
+- Abgeleitet von Arctic: Zephyr - Martian (avdvplus/p3i) 11.3.20.2 von signde
+- Eigene Add-on-ID skin.arctic.zephyr.modern
+- DM Sans als Standardschrift, Roboto als "Classic (Roboto)" waehlbar
+- Keine Versalien in Menue, Datum und Buttons
+- Weisse, schlanke Uhr
+- Duenner, abgerundeter weisser Fokusrahmen
+        </news>
+        <summary lang="de">Klar, minimalistisch, elegant, einfach, leicht.</summary>
+        <summary lang="en">Clean, minimal, elegant, simple, light.</summary>
+        <summary lang="en_AU">Clean, minimal, elegant, simple, light.</summary>
+        <summary lang="en_US">Clean, minimal, elegant, simple, light.</summary>
+        <summary lang="es">Limpio, minimalista, elegante, simple, ligero.</summary>
+        <summary lang="fr">Clair, minimaliste, élégant, simple et léger.</summary>
+        <summary lang="fr_CA">Net, minimal, élégant, simple, léger.</summary>
+        <summary lang="lt">Švari, minimali, elegantiška, paprasta, lengva.</summary>
+        <summary lang="nl">Schoon, minimaal, elegant, simpel, licht.</summary>
+        <summary lang="pl">Prosta, minimalista, elegancka i lekka.</summary>
+        <summary lang="ro">Curat, minimalist, elegant, simplu, ușor.</summary>
+        <summary lang="ru">Опрятный, минималистичный, элегантный, простой, светлый.</summary>
+        <summary lang="zh_CN">干净，简约，优雅，简单，轻便。</summary>
+        <description lang="de">Arctic: Zephyr - Martian basiert auf dem original Arctic: Zephyr Skin von jurialmunkey und dessen Erweiterungen durch beatmasterRS. Es ist ein minimalistisches, klares und simples Interface für deine Medien mit dem gewissen Etwas.</description>
+        <description lang="en">Arctic: Zephyr - Martian is based on the original Arctic: Zephyr skin, created by jurialmunkey and it's extension by beatmasterRS. Arctic focuses on being simple, clean and minimalistic with a light spin.</description>
+        <description lang="en_AU">Arctic: Zephyr - Martian is based on the original Arctic: Zephyr skin, created by jurialmunkey and it's extension by beatmasterRS. Arctic focuses on being simple, clean and minimalistic with a light spin.</description>
+        <description lang="en_US">Arctic: Zephyr - Martian is based on the original Arctic: Zephyr skin, created by jurialmunkey and it's extension by beatmasterRS. Arctic focuses on being simple, clean and minimalistic with a light spin.</description>
+        <description lang="fr">Arctic: Zephyr - Martian est basé sur le skin original Arctic: Zephyr, créé par jurialmunkey et son extension par beatmasterRS. Arctic se focalise sur le fait d&apos;être simple, claire et minimaliste.</description>
+        <description lang="zh_CN">Arctic: Zephyr - Martian 是基于 jurialmunkey 所创 Arctic 皮肤的第三个版本，以及 beatmasterRS 对该皮肤的扩展版本。Arctic 系列皮肤主打简洁、干净且简约的风格，并略带独特设计巧思。</description>
+    </extension>
+</addon>
+
+<addon id="repository.sunset1982" name="Sunset1982 Repository" version="1.0.1" provider-name="Sunset1982">
+    <extension point="xbmc.addon.repository" name="Sunset1982 Repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Sunset-1982/kodi-repo/gh-pages/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Sunset-1982/kodi-repo/gh-pages/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Sunset-1982/kodi-repo/gh-pages/zips/</datadir>
+            <hashes>false</hashes>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de_DE">Repository für Arctic: Zephyr - Modern</summary>
+        <summary lang="en_GB">Repository for Arctic: Zephyr - Modern</summary>
+        <description lang="de_DE">Installiert und aktualisiert automatisch den Skin Arctic: Zephyr - Modern.</description>
+        <description lang="en_GB">Installs and automatically updates the Arctic: Zephyr - Modern skin.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+</addons>
