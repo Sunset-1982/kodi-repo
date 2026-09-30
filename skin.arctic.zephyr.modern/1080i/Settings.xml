@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="4">
+    <defaultcontrol always="true">9100</defaultcontrol>
+    <backgroundcolor>0</backgroundcolor>
+    <include>Blur_OnLoad_Action</include>
+    <include>Blur_SimpleBackground_Onload_Action</include>
+    <controls>
+        <include>GlobalBackground</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),original)">Furniture_Header</include>
+        <include>Furniture_Clock</include>
+        <include>Furniture_NowPlaying</include>
+        <include>Furniture_Weather</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),original)">SettingsHub_Original</include>
+        <include condition="String.IsEmpty(Skin.String(SettingsStyle))">SettingsHub_A</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),B)">SettingsHub_B</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),C)">SettingsHub_C</include>
+    </controls>
+</window>

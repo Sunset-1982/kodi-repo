@@ -1,0 +1,3 @@
+#!/bin/bash
+# kodi-shot NAME [wartezeit]  -> /home/claude/kodi/shots/NAME.png
+sleep ${2:-1.5}; DISPLAY=:99 import -window root /home/claude/kodi/shots/$1.png && echo /home/claude/kodi/shots/$1.png

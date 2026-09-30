@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Original-Layouts von Arctic Zephyr Martian fuer Settings.xml / SettingsCategory.xml (Einstellungs-Design "Original") -->
+<includes>
+    <include name="SettingsHub_Original">
+        <control type="group">
+            <left>SidePad</left>
+            <width>1760</width>
+            <top>PosterPad</top>
+            <height>652</height>
+            <include>Animation.Common</include>
+            <control type="image">
+                <left>-8</left>
+                <right>-8</right>
+                <top>-8</top>
+                <bottom>-8</bottom>
+                <texture border="16" colordiffuse="Panel">common/rounded-shadow8.png</texture>
+            </control>
+            <control type="group">
+                <top>10</top>
+                <bottom>10</bottom>
+                <right>10</right>
+                <left>1220</left>
+                <control type="textbox">
+                    <top>30</top>
+                    <bottom>30</bottom>
+                    <right>30</right>
+                    <left>30</left>
+                    <align>left</align>
+                    <font>TinyPlot</font>
+                    <textcolor>PanelWhite100</textcolor>
+                    <label>$INFO[Container(9100).ListItem.Label2]</label>
+                </control>
+            </control>
+            <control type="image">
+                <left>1218</left>
+                <top>11</top>
+                <bottom>11</bottom>
+                <width>1</width>
+                <texture colordiffuse="PanelWhite12">common/white.png</texture>
+            </control>
+            <control type="Panel" id="9100">
+                <left>0</left>
+                <width>1356</width>
+                <top>0</top>
+                <height>662</height>
+                <orientation>horizontal</orientation>
+                <itemlayout width="302" height="214">
+                    <control type="image">
+                        <left>10</left>
+                        <top>11</top>
+                        <bottom>0</bottom>
+                        <width>290</width>
+                        <texture colordiffuse="PanelBlack30" border="5">common/box.png</texture>
+                    </control>
+                    <control type="label">
+                        <top>129</top>
+                        <left>30</left>
+                        <right>25</right>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <align>center</align>
+                        <font>TinyBold</font>
+                        <textcolor>PanelWhite100</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="image">
+                        <top>42</top>
+                        <left>100</left>
+                        <width>106.7</width>
+                        <height>106.7</height>
+                        <texture colordiffuse="PanelWhite100">$INFO[ListItem.Icon]</texture>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="302" height="214">
+                    <control type="image">
+                        <left>10</left>
+                        <top>11</top>
+                        <bottom>0</bottom>
+                        <width>290</width>
+                        <texture border="5" colordiffuse="$VAR[ColorHighlight]">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>11</top>
+                        <bottom>0</bottom>
+                        <width>290</width>
+                        <texture border="8" colordiffuse="$VAR[ColorGradient]">common/gradient-box-wide.png</texture>
+                    </control>
+                    <control type="label">
+                        <top>129</top>
+                        <left>30</left>
+                        <right>25</right>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <align>center</align>
+                        <font>TinyBold</font>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="image">
+                        <top>42</top>
+                        <left>100</left>
+                        <width>106.7</width>
+                        <height>106.7</height>
+                        <texture colordiffuse="PanelWhite100">$INFO[ListItem.Icon]</texture>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <include>SettingsInfoItems</include>
+                </content>
+            </control>
+        </control>
+    </include>
+    <include name="SettingsCat_Original">
+        <control type="group">
+            <include>Animation.Common</include>
+            <left>72</left>
+            <right>72</right>
+            <top>208</top>
+            <height>656</height>
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="16" colordiffuse="Panel">common/rounded-shadow8.png</texture>
+            </control>
+            <include content="Def_Gradient_Settings_Image">
+                <param name="controlid" value="5"/>
+                <param name="left" value="458"/>
+                <param name="top" value="148"/>
+                <param name="overlayfix" value="true"/>
+            </include>
+            <include content="Def_Gradient_Settings_Image">
+                <param name="controlid" value="3"/>
+                <param name="left" value="88"/>
+                <param name="top" value="148"/>
+                <param name="width" value="370"/>
+                <param name="overlayfix" value="true"/>
+            </include>
+            <control type="group">
+                <left>8</left>
+                <right>8</right>
+                <top>8</top>
+                <bottom>8</bottom>
+                <control type="image">
+                    <top>0</top>
+                    <left>0</left>
+                    <width>80</width>
+                    <bottom>0</bottom>
+                    <colordiffuse>PanelWhite12</colordiffuse>
+                    <texture border="5">common/box.png</texture>
+                    <animation effect="fade" end="50" start="100" time="0" condition="true">Conditional</animation>
+                </control>
+                
+                <!-- Right Group -->
+                <control type="grouplist" id="5">
+                    <scrolltime>0</scrolltime>
+                    <description>Control Area</description>
+                    <left>500</left>
+                    <right>0</right>
+                    <top>140</top>
+                    <bottom>10</bottom>
+                    <itemgap>0</itemgap>
+                    <onleft>3</onleft>
+                    <onup>5</onup>
+                    <ondown>5</ondown>
+                    <orientation>vertical</orientation>
+                </control>
+
+                <!-- Left Group -->
+                <control type="grouplist" id="3">
+                    <description>Button Area</description>
+                    <width>370</width>
+                    <top>140</top>
+                    <left>80</left>
+                    <bottom>10</bottom>
+                    <itemgap>0</itemgap>
+                    <onright>5</onright>
+                    <onleft>20</onleft>
+                    <ondown>3</ondown>
+                    <orientation>vertical</orientation>
+                </control>
+
+                <!-- Lines -->
+                <control type="image">
+                    <top>10</top>
+                    <left>450</left>
+                    <width>1</width>
+                    <bottom>10</bottom>
+                    <colordiffuse>PanelWhite12</colordiffuse>
+                    <texture>common/white.png</texture>
+                </control>
+
+                <!-- Header -->
+                <control type="label">
+                    <left>110</left>
+                    <width>390</width>
+                    <posy>18</posy>
+                    <font>MediumBold</font>
+                    <label>5</label>
+                    <textcolor>PanelWhite100</textcolor>
+                </control>
+                <control type="textbox">
+                    <left>110</left>
+                    <right>30</right>
+                    <posy>74</posy>
+                    <height>40</height>
+                    <font>TinyPlot</font>
+                    <textcolor>PanelWhite70</textcolor>
+                    <scroll>true</scroll>
+                    <align>left</align>
+                    <textoffsetx>0</textoffsetx>
+                    <label>$INFO[System.ProfileName]</label>
+                    <autoscroll>false</autoscroll>
+                </control>
+                <control type="group">
+                    <width>641</width>
+                    <top>-80</top>
+                    <visible>Control.HasFocus(20)</visible>
+                    <animation effect="rotate" condition="true" start="0" end="270" time="0">Conditional</animation>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>80</height>
+                        <texture colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>80</height>
+                        <texture colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide.png</texture>
+                    </control>
+                </control>
+                <control type="button" id="20">
+                    <left>-260</left>
+                    <right>30</right>
+                    <posy>305</posy>
+                    <height>30</height>
+                    <font>Tiny</font>
+                    <width>600</width>
+                    <textcolor>PanelWhite70</textcolor>
+                    <align>center</align>
+                    <textoffsetx>0</textoffsetx>
+                    <texturenofocus />
+                    <texturefocus />
+                    <focusedcolor>PanelWhite100</focusedcolor>
+                    <ondown>3</ondown>
+                    <onright>3</onright>
+                    <onup>3</onup>
+                    <onclick>SettingsLevelChange</onclick>
+                    <animation effect="rotate" condition="true" start="360" end="270" loop="false" time="0" center="auto">Conditional</animation>
+                </control>
+                <control type="label">
+                    <left>480</left>
+                    <width>390</width>
+                    <posy>18</posy>
+                    <font>MediumBold</font>
+                    <label>$VAR[Label_SettingsHeader]</label>
+                    <textcolor>PanelWhite100</textcolor>
+                </control>
+                <control type="textbox" id="6">
+                    <left>480</left>
+                    <right>30</right>
+                    <posy>74</posy>
+                    <height>40</height>
+                    <font>TinyPlot</font>
+                    <textcolor>PanelWhite70</textcolor>
+                    <autoscroll delay="3000" repeat="7500" time="3000" />
+                </control>
+                <control type="image">
+                    <left>480</left>
+                    <right>30</right>
+                    <top>135</top>
+                    <height>1</height>
+                    <colordiffuse>PanelWhite12</colordiffuse>
+                    <texture>common/white.png</texture>
+                </control>
+            </control>
+        </control>
+        <control type="button" id="7">
+            <description>Default Button</description>
+            <include>DefSettingsButtonGradient</include>
+        </control>
+        <control type="radiobutton" id="8">
+            <radioposx>1200</radioposx>
+            <description>Default Radio Button</description>
+            <include>DefSettingsButtonGradient</include>
+        </control>
+        <control type="spincontrolex" id="9">
+            <description>Default Spin Control</description>
+            <include>DefSettingsButtonGradient</include>
+        </control>
+        <control type="togglebutton" id="10">
+            <width>450</width>
+            <description>Default Category Button</description>
+            <include>DefSettingsButtonGradient</include>
+        </control>
+        <control type="colorbutton" id="15">
+			<description>Default ColorButton</description>
+			<include>DefSettingsButtonGradient</include>
+		</control>
+        <control type="sliderex" id="13">
+            <font>Small33</font>
+            <include>DefSettingsButtonGradient</include>
+        </control>
+        <control type="grouplist" id="5">
+            <enable>false</enable>
+            <height>1</height>
+            <control type="label" id="14">
+                <font>Button</font>
+                <textoffsetx>0</textoffsetx>
+                <textcolor>PanelWhite30</textcolor>
+                <include>DefSettingsButtonGradient</include>
+                <animation effect="slide" start="0" end="-20,0" time="0" condition="true">Conditional</animation>
+            </control>
+        </control>
+    </include>
+    <include name="DialogSettings_Original">
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog)">Conditional</animation>
+            <include>GlobalOverlay</include>
+        </control>
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog)">Conditional</animation>
+
+            <include content="DefDialogBackground">
+                <param name="width" value="1450"/>
+                <param name="height" value="840"/>
+            </include>
+
+            <control type="label" id="2">
+                <include>DefDialogHeader</include>
+            </control>
+
+            <include content="Kodi_Logo">
+                <param name="dimensions" value="40"/>
+                <param name="top" value="40"/>
+                <param name="left" value="40"/>
+            </include>
+
+            <!-- Lines -->
+            <control type="image">
+                <top>95</top>
+                <left>40</left>
+                <right>40</right>
+                <height>1</height>
+                <bottom>10</bottom>
+                <colordiffuse>Black12</colordiffuse>
+                <texture>common/white.png</texture>
+            </control>  
+
+            <include content="Def_Gradient_Settings_Image">
+                <param name="controlid" value="5"/>
+                <param name="left" value="8"/>
+                <param name="top" value="115"/>
+                <param name="width" value="1067"/>
+                <param name="height" value="66"/>
+                <param name="slide" value="69"/>
+            </include>
+
+            <control type="grouplist" id="5">
+                <description>Control Area</description>
+                <usecontrolcoords>true</usecontrolcoords>
+                <left>8</left>
+                <width>1067</width>
+                <top>115</top>
+                <height>687</height>
+                <itemgap>3</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <onleft>8000</onleft>
+                <onright>60</onright>
+                <scrolltime>0</scrolltime>
+            </control>
+
+            <include content="Furniture_Scrollbar_Dialog">
+                <param name="id" value="60"/>
+                <param name="onleft" value="5"/>
+                <param name="onright" value="8000"/>
+                <param name="height" value="690"/>                
+            </include>
+
+            <!-- Lines -->
+            <control type="image">
+                <top>115</top>
+                <right>375</right>
+                <height>690</height>
+                <width>1</width>
+                <texture colordiffuse="Black12">common/white.png</texture>
+                <!-- <animation effect="fade" start="0" end="100" time="100" condition="!Control.HasFocus(1723) + !Container.Scrolling">Conditional</animation> -->
+            </control>
+
+             <!-- Buttons -->           
+            <control type="grouplist" id="8000">
+                <top>115</top>              
+                <right>42</right>
+                <width>300</width>
+                <itemgap>DialogButtonsItemgap</itemgap>
+                <orientation>vertical</orientation>
+                <onleft>60</onleft>
+                <onright>5</onright>
+                <control type="button" id="28">
+                    <description>OK</description>
+		            <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="29">
+                    <description>Cancel</description>
+		            <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="30">
+                    <description>Defaults</description>
+		            <include>DefDialogButtons</include>
+                </control>
+            </control>
+            <control type="button" id="7">
+                <description>Default Button</description>
+                <align>left</align>
+                <height>66</height>
+                <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
+                <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
+            </control>
+            <control type="radiobutton" id="8">
+                <description>Default RadioButton</description>
+                <align>left</align>
+                <radioposx>1010</radioposx>
+                <texturefocus colordiffuse="$VAR[ColorGradient]" border="8">common/gradient-box-wide-cut.png</texturefocus>
+            </control>
+            <control type="spincontrolex" id="9">
+                <description>Default spincontrolex</description>
+                <align>left</align>
+                <reverse>yes</reverse>
+                <texturefocus colordiffuse="$VAR[ColorGradient]" border="8">common/gradient-box-wide-cut.png</texturefocus>
+            </control>
+            <control type="image" id="11">
+                <visible>false</visible>
+            </control>
+            <control type="edit" id="12">
+                <description>Default Button</description>
+                <align>left</align>
+                <texturefocus colordiffuse="$VAR[ColorGradient]" border="8">common/gradient-box-wide-cut.png</texturefocus>
+            </control>
+            <control type="sliderex" id="13">
+                <description>Default Slider</description>
+                <texturefocus colordiffuse="$VAR[ColorGradient]" border="8">common/gradient-box-wide-cut.png</texturefocus>
+            </control>
+            <control type="label" id="14">
+                <description>Default Button</description>
+                <align>left</align>
+                <height>66</height>
+                <textoffsetx>20</textoffsetx>
+                <textcolor>PanelWhite30</textcolor>
+                <include>DefSettingsButtonNew</include>
+            </control>
+			<control type="gamecontroller" id="100">
+				<top>505</top>
+				<right>42</right>
+				<height>300</height>
+				<width>300</width>
+			</control>
+        </control>
+    </include>
+</includes>

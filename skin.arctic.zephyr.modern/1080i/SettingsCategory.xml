@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="12">
+    <defaultcontrol always="true">3</defaultcontrol>
+    <backgroundcolor>0</backgroundcolor>
+    <controls>
+        <include>GlobalBackground</include>
+        <include condition="![String.IsEqual(Skin.String(SettingsStyle),B)]">Furniture_Clock</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),original)">Furniture_Header</include>
+        <include>Furniture_NowPlaying</include>
+        <include condition="![String.IsEqual(Skin.String(SettingsStyle),B)]">Furniture_Weather</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),original)">SettingsCat_Original</include>
+        <include condition="String.IsEmpty(Skin.String(SettingsStyle))">SettingsCat_A</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),B)">SettingsCat_B</include>
+        <include condition="String.IsEqual(Skin.String(SettingsStyle),C)">SettingsCat_C</include>
+    </controls>
+</window>

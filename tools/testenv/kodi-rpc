@@ -1,0 +1,4 @@
+#!/bin/bash
+# kodi-rpc METHOD '{params}'   z.B. kodi-rpc GUI.ActivateWindow '{"window":"videos"}'
+M=$1; P=${2:-{\}}
+curl -s localhost:8080/jsonrpc -H 'Content-Type: application/json' -d "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"$M\",\"params\":$P}"; echo

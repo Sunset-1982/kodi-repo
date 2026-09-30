@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# kodi-getaddon ID...  : laedt Addons (inkl. Abhaengigkeiten) aus dem Omega-Repo
+import sys, os, io, zipfile, urllib.request, xml.etree.ElementTree as ET
+DEST=os.path.expanduser('~/.var/app/tv.kodi.Kodi/data/addons')
+idx=ET.parse('/home/claude/kodi/omega-addons.xml').getroot()
+repo={a.get('id'):a for a in idx.findall('addon')}
+done=set()
+def get(aid):
+    if aid in done or aid.startswith('xbmc.') or aid.startswith('kodi.'): return
+    done.add(aid)
+    if os.path.isdir(os.path.join(DEST,aid)): print('vorhanden',aid)
+    elif aid not in repo: print('NICHT IM REPO',aid); return
+    else:
+        v=repo[aid].get('version'); url=f'https://mirrors.kodi.tv/addons/omega/{aid}/{aid}-{v}.zip'
+        import subprocess
+        for t in range(8):
+            r=subprocess.run(['curl','-sfL','-o','/tmp/_a.zip',url])
+            if r.returncode==0: break
+        zipfile.ZipFile('/tmp/_a.zip').extractall(DEST); print('installiert',aid,v)
+    x=ET.parse(os.path.join(DEST,aid,'addon.xml')).getroot()
+    for i in x.iter('import'):
+        if i.get('optional')!='true': get(i.get('addon'))
+for a in sys.argv[1:]: get(a)

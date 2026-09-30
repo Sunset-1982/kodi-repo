@@ -1,0 +1,4 @@
+#!/bin/bash
+curl -s -m2 localhost:8080/jsonrpc -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"Application.Quit"}' >/dev/null
+for i in $(seq 1 15); do pgrep -x kodi.bin >/dev/null || { echo gestoppt; exit 0; }; sleep 1; done
+pkill -9 -x kodi.bin; echo "hart beendet"
