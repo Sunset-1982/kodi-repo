@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="115">
+    <defaultcontrol always="true">901</defaultcontrol>
+    <visible>Window.IsActive(fullscreenvideo) + ![Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-stillwatching-simple.xml) | Window.IsActive(script-upnext-upnext.xml) | Window.IsActive(script-upnext-upnext-simple.xml)]</visible>
+    <visible>[VideoPlayer.IsFullscreen + [Window.IsVisible(videoosd) | Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.HasPerformedSeek(3) | Player.Paused | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput) | Player.Forwarding | Player.Rewinding | Player.ShowInfo] + String.IsEmpty(Window(home).Property(HideSeekbar))] | !String.IsEmpty(Window(home).Property(osdinfo))</visible>
+    <zorder>0</zorder>
+
+    <onload condition="Player.Paused + !String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">PlayerControl(Play)</onload>
+    <onload condition="Player.Paused + !String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onload>
+
+    <controls>
+        <control type="group">
+            <visible>String.IsEmpty(Window(Home).Property(OSDExtendedInfo))</visible>
+            <animation effect="fade" start="100" end="0" time="250">Hidden</animation>
+            <animation effect="fade" start="100" end="0" time="250" condition="Window.IsVisible(DialogSlider.xml)">Conditional</animation>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + Skin.HasSetting(osd.usetheme) + !Skin.HasSetting(videoosd.side)">Seekbar1</include>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + !Skin.HasSetting(osd.usetheme) + !Skin.HasSetting(videoosd.side)">Seekbar2</include>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + Skin.HasSetting(videoosd.side)">Seekbar3</include>
+            <include condition="[String.IsEmpty(Skin.String(OSDStyle)) + !VideoPlayer.Content(livetv)]">SeekbarKino</include>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),kompakt) + !VideoPlayer.Content(livetv)]">SeekbarKompakt</include>
+        </control>
+        <include>ChannelNumberInput</include>
+
+        <!-- Clock -->
+        <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)]">Furniture_OSDClock</include>
+    </controls>
+</window>

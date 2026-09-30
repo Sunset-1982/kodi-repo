@@ -1,0 +1,1595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Arctic Zephyr - Modern: OSD-Varianten Kino und Kompakt.
+     Generiert von tools/gen_osd_modern.py - bitte dort aendern. -->
+<includes>
+    <include name="OSDFocusKino">
+        <defaultcontrol always="true">313</defaultcontrol>
+    </include>
+    <include name="OSDFocusKompakt">
+        <defaultcontrol always="true">504</defaultcontrol>
+    </include>
+
+    <!-- ===== Modern OSD: Variablen ===== -->
+    <variable name="ModernOSD_Title">
+        <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle]</value>
+        <value condition="!String.IsEmpty(VideoPlayer.Title)">$INFO[VideoPlayer.Title]</value>
+        <value>$INFO[Player.Title]</value>
+    </variable>
+    <variable name="ModernOSD_Meta">
+        <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E,]$INFO[VideoPlayer.Title,  ·  ,]</value>
+        <value>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Duration,  ·  ,]$INFO[VideoPlayer.Genre,  ·  ,]$INFO[VideoPlayer.mpaa,  ·  ,]</value>
+    </variable>
+    <variable name="ModernOSD_Resolution">
+        <value condition="String.IsEqual(VideoPlayer.VideoResolution,4K) | String.IsEqual(VideoPlayer.VideoResolution,2160)">4K</value>
+        <value condition="String.IsEqual(VideoPlayer.VideoResolution,1080)">1080p</value>
+        <value condition="String.IsEqual(VideoPlayer.VideoResolution,720)">720p</value>
+        <value condition="String.IsEqual(VideoPlayer.VideoResolution,8K) | String.IsEqual(VideoPlayer.VideoResolution,4320)">8K</value>
+        <value>$INFO[VideoPlayer.VideoResolution]</value>
+    </variable>
+    <variable name="ModernOSD_HDR">
+        <value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision)">Dolby Vision</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus)">HDR10+</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10)">HDR10</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hlg)">HLG</value>
+    </variable>
+    <variable name="ModernOSD_AudioCodec">
+        <value condition="String.Contains(VideoPlayer.AudioCodec,truehd)">TrueHD</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3) | String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">DD+</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,ac3)">Dolby Digital</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) | String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x) | String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">DTS-HD MA</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra)">DTS-HD HRA</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,dts) | String.IsEqual(VideoPlayer.AudioCodec,dca)">DTS</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,aac)">AAC</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,flac)">FLAC</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,opus)">Opus</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,mp3)">MP3</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,pcm)">PCM</value>
+        <value>$INFO[VideoPlayer.AudioCodec]</value>
+    </variable>
+    <variable name="ModernOSD_AudioChannels">
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,8)">7.1</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,7)">6.1</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,6)">5.1</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,2)">Stereo</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,1)">Mono</value>
+        <value>$INFO[VideoPlayer.AudioChannels]</value>
+    </variable>
+    <variable name="ModernOSD_AudioLanguage">
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,ger) | String.IsEqual(VideoPlayer.AudioLanguage,deu) | String.IsEqual(VideoPlayer.AudioLanguage,de)">$LOCALIZE[32140]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,eng) | String.IsEqual(VideoPlayer.AudioLanguage,en)">$LOCALIZE[32141]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,fre) | String.IsEqual(VideoPlayer.AudioLanguage,fra)">$LOCALIZE[32142]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,spa)">$LOCALIZE[32143]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,ita)">$LOCALIZE[32144]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,jpn)">$LOCALIZE[32145]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,und) | String.IsEmpty(VideoPlayer.AudioLanguage)">$LOCALIZE[292]</value>
+        <value>$INFO[VideoPlayer.AudioLanguage]</value>
+    </variable>
+    <variable name="ModernOSD_SubLanguage">
+        <value condition="!VideoPlayer.SubtitlesEnabled">$LOCALIZE[32132]</value>
+        <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,ger) | String.IsEqual(VideoPlayer.SubtitlesLanguage,deu)">$LOCALIZE[32140]</value>
+        <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,eng)">$LOCALIZE[32141]</value>
+        <value>$INFO[VideoPlayer.SubtitlesLanguage]</value>
+    </variable>
+    <variable name="ModernOSD_Poster">
+        <value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
+        <value>$INFO[Player.Art(thumb)]</value>
+    </variable>
+    <variable name="ModernOSD_Time">
+        <value condition="Player.Seeking + !String.IsEmpty(Player.SeekTime)">$INFO[Player.SeekTime]</value>
+        <value>$INFO[Player.Time]</value>
+    </variable>
+
+
+    <include name="SeekbarKino">
+        <control type="group">
+            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))]</visible>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(DialogPlayerProcessInfo.xml) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks)">Conditional</animation>
+            <control type="image">
+                <width>1920</width>
+                <height>380</height>
+                <texture colordiffuse="d9ffffff">osd/modern/shade-top.png</texture>
+            </control>
+            <control type="image">
+                <top>500</top>
+                <width>1920</width>
+                <height>580</height>
+                <texture>osd/modern/shade-bottom.png</texture>
+            </control>
+            <!-- Titel / Clearlogo -->
+            <control type="image">
+                <left>96</left>
+                <top>64</top>
+                <width>620</width>
+                <height>150</height>
+                <aspectratio align="left" aligny="bottom">keep</aspectratio>
+                <texture>$INFO[Player.Art(clearlogo)]</texture>
+                <visible>!String.IsEmpty(Player.Art(clearlogo))</visible>
+            </control>
+            <control type="label">
+                <left>96</left>
+                <top>120</top>
+                <width>1300</width>
+                <height>90</height>
+                <aligny>bottom</aligny>
+                <font>ModernTitle</font>
+                <textcolor>ffececec</textcolor>
+                <label>$VAR[ModernOSD_Title]</label>
+                <visible>String.IsEmpty(Player.Art(clearlogo))</visible>
+            </control>
+            <control type="label">
+                <left>96</left>
+                <top>226</top>
+                <width>1300</width>
+                <height>36</height>
+                <font>ModernRow</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$VAR[ModernOSD_Meta]</label>
+            </control>
+            
+            <control type="grouplist">
+                <left>96</left>
+                <top>276</top>
+                <width>1300</width>
+                <height>32</height>
+                <orientation>horizontal</orientation>
+                <itemgap>10</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_Resolution]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_HDR]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.HdrType)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioCodec] $VAR[ModernOSD_AudioChannels]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioLanguage]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioLanguage) + !String.IsEqual(VideoPlayer.AudioLanguage,und)</visible>
+                </control>
+            </control>
+            
+            <control type="label">
+                <right>96</right>
+                <top>64</top>
+                <width>400</width>
+                <height>70</height>
+                <align>right</align>
+                <font>ClockModern</font>
+                <textcolor>ffececec</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+            </control>
+            <control type="label">
+                <right>96</right>
+                <top>140</top>
+                <width>400</width>
+                <height>32</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$LOCALIZE[32130] $INFO[Player.FinishTime]</label>
+                <visible>!String.IsEmpty(Player.FinishTime)</visible>
+            </control>
+            <!-- Kapitel + Status -->
+            <control type="label">
+                <left>96</left>
+                <top>792</top>
+                <width>900</width>
+                <height>30</height>
+                <font>ModernCaption</font>
+                <textcolor>ff9db0cf</textcolor>
+                <label>$LOCALIZE[21396] $INFO[Player.Chapter] / $INFO[Player.ChapterCount]</label>
+                <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
+            </control>
+            <control type="label">
+                <left>96</left>
+                <top>822</top>
+                <width>1200</width>
+                <height>40</height>
+                <font>ModernItem</font>
+                <textcolor>ffececec</textcolor>
+                <label>$INFO[Player.ChapterName]</label>
+            </control>
+            <control type="label">
+                <right>96</right>
+                <top>826</top>
+                <width>400</width>
+                <height>34</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$LOCALIZE[112]</label>
+                <visible>Player.Paused</visible>
+            </control>
+            
+            <control type="group">
+                <left>96</left>
+                <top>876</top>
+                <width>1728</width>
+                <height>6</height>
+                <control type="progress">
+                    <width>1728</width>
+                    <height>6</height>
+                    <info>Player.ProgressCache</info>
+                    <texturebg border="3" colordiffuse="38ffffff">osd/modern/bar.png</texturebg>
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="40ffffff">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                </control>
+                <control type="progress">
+                    <width>1728</width>
+                    <height>6</height>
+                    <info>Player.Progress</info>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>!Player.Seeking</visible>
+                </control>
+                <control type="progress" id="401">
+                    <width>1728</width>
+                    <height>6</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>Player.Seeking</visible>
+                </control>
+                <control type="ranges">
+                    <top>-4</top>
+                    <width>1728</width>
+                    <height>12</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture />
+                    <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
+                    <info>Player.Chapters</info>
+                </control>
+            </control>
+            <control type="label">
+                <left>96</left>
+                <top>894</top>
+                <width>600</width>
+                <height>34</height>
+                <font>ModernSmall</font>
+                <textcolor>ffececec</textcolor>
+                <label>$VAR[ModernOSD_Time]</label>
+            </control>
+            <control type="label">
+                <right>96</right>
+                <top>894</top>
+                <width>600</width>
+                <height>34</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[Player.TimeRemaining,−,]</label>
+            </control>
+        </control>
+        
+        <!-- Nur Spulen / Springen: schlanke Leiste mit Zeit-Blase -->
+        <control type="group">
+            <visible>![Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))]</visible>
+            <animation effect="fade" start="0" end="100" time="150">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <control type="image">
+                <top>680</top>
+                <width>1920</width>
+                <height>400</height>
+                <texture colordiffuse="b3ffffff">osd/modern/shade-bottom.png</texture>
+            </control>
+            
+            <control type="group">
+                <left>-4</left>
+                <top>880</top>
+                <width>200</width>
+                <height>70</height>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,1)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,2)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,3)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,4)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,5)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,6)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,7)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,8)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,9)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,10)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,11)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,12)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,13)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,14)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,15)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,16)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,17)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,18)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,19)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,20)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,21)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,22)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,23)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,24)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,25)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,26)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,27)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,28)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,29)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,30)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,31)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,32)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,33)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,34)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,35)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,36)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,37)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,38)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,39)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,40)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,41)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,42)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,43)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,44)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,45)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,46)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,47)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,48)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,49)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,50)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,51)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,52)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,53)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,54)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,55)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,56)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,57)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,58)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,59)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,60)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,61)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,62)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,63)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,64)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,65)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,66)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,67)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,68)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,69)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,70)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,71)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,72)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,73)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,74)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,75)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,76)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,77)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,78)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,79)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,80)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,81)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,82)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,83)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,84)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,85)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,86)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,87)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,88)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,89)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,90)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,91)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,92)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,93)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,94)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,95)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,96)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,97)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,98)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,99)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,100)">Conditional</animation>
+                <control type="image">
+                    <width>200</width>
+                    <height>70</height>
+                    <texture border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texture>
+                </control>
+                <control type="label">
+                    <top>6</top>
+                    <width>200</width>
+                    <height>36</height>
+                    <align>center</align>
+                    <font>ModernRowBold</font>
+                    <textcolor>ff14171b</textcolor>
+                    <label>$VAR[ModernOSD_Time]</label>
+                </control>
+                <control type="label">
+                    <top>38</top>
+                    <width>200</width>
+                    <height>26</height>
+                    <align>center</align>
+                    <font>ModernCaption</font>
+                    <textcolor>ff555c64</textcolor>
+                    <label>$INFO[Player.SeekOffset]</label>
+                </control>
+            </control>
+            
+            <control type="group">
+                <left>96</left>
+                <top>964</top>
+                <width>1728</width>
+                <height>6</height>
+                <control type="progress">
+                    <width>1728</width>
+                    <height>6</height>
+                    <info>Player.ProgressCache</info>
+                    <texturebg border="3" colordiffuse="38ffffff">osd/modern/bar.png</texturebg>
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="40ffffff">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                </control>
+                <control type="progress">
+                    <width>1728</width>
+                    <height>6</height>
+                    <info>Player.Progress</info>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>!Player.Seeking</visible>
+                </control>
+                <control type="progress" id="401">
+                    <width>1728</width>
+                    <height>6</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>Player.Seeking</visible>
+                </control>
+                <control type="ranges">
+                    <top>-4</top>
+                    <width>1728</width>
+                    <height>12</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture />
+                    <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
+                    <info>Player.Chapters</info>
+                </control>
+            </control>
+            <control type="label">
+                <left>96</left>
+                <top>986</top>
+                <width>1000</width>
+                <height>34</height>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[Player.ChapterName]</label>
+            </control>
+            <control type="label">
+                <right>96</right>
+                <top>986</top>
+                <width>400</width>
+                <height>34</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[Player.TimeRemaining,−,]</label>
+            </control>
+        </control>
+    </include>
+
+
+    <include name="SeekbarKompakt">
+        <control type="group">
+            <visible>[Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))]</visible>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <animation effect="slide" start="0,40" end="0,0" time="220" tween="cubic" easing="out">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(DialogPlayerProcessInfo.xml) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks)">Conditional</animation>
+            <control type="image">
+                <top>600</top>
+                <width>1920</width>
+                <height>480</height>
+                <texture colordiffuse="99ffffff">osd/modern/shade-bottom.png</texture>
+            </control>
+            <control type="image">
+                <left>96</left>
+                <top>716</top>
+                <width>1728</width>
+                <height>300</height>
+                <texture border="20" colordiffuse="e612151a">common/modern-round20.png</texture>
+            </control>
+            <control type="image">
+                <left>128</left>
+                <top>748</top>
+                <width>158</width>
+                <height>236</height>
+                <aspectratio>scale</aspectratio>
+                <texture diffuse="common/modern-round14.png">$VAR[ModernOSD_Poster]</texture>
+            </control>
+            <control type="label">
+                <left>318</left>
+                <top>742</top>
+                <width>1100</width>
+                <height>54</height>
+                <font>ModernH2</font>
+                <textcolor>ffececec</textcolor>
+                <label>$VAR[ModernOSD_Title]</label>
+            </control>
+            <control type="label">
+                <left>318</left>
+                <top>798</top>
+                <width>1100</width>
+                <height>32</height>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$VAR[ModernOSD_Meta]$INFO[Player.ChapterName,  ·  ,]</label>
+            </control>
+            
+            <control type="label">
+                <right>128</right>
+                <top>742</top>
+                <width>400</width>
+                <height>70</height>
+                <align>right</align>
+                <font>ModernH2</font>
+                <textcolor>ffececec</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+            </control>
+            <control type="label">
+                <right>128</right>
+                <top>796</top>
+                <width>400</width>
+                <height>32</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$LOCALIZE[32130] $INFO[Player.FinishTime]</label>
+                <visible>!String.IsEmpty(Player.FinishTime)</visible>
+            </control>
+            
+            <control type="group">
+                <left>318</left>
+                <top>858</top>
+                <width>1474</width>
+                <height>6</height>
+                <control type="progress">
+                    <width>1474</width>
+                    <height>6</height>
+                    <info>Player.ProgressCache</info>
+                    <texturebg border="3" colordiffuse="38ffffff">osd/modern/bar.png</texturebg>
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="40ffffff">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                </control>
+                <control type="progress">
+                    <width>1474</width>
+                    <height>6</height>
+                    <info>Player.Progress</info>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>!Player.Seeking</visible>
+                </control>
+                <control type="progress" id="401">
+                    <width>1474</width>
+                    <height>6</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>Player.Seeking</visible>
+                </control>
+                <control type="ranges">
+                    <top>-4</top>
+                    <width>1474</width>
+                    <height>12</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture />
+                    <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
+                    <info>Player.Chapters</info>
+                </control>
+            </control>
+            <control type="label">
+                <left>318</left>
+                <top>876</top>
+                <width>600</width>
+                <height>32</height>
+                <font>ModernSmall</font>
+                <textcolor>ffececec</textcolor>
+                <label>$VAR[ModernOSD_Time]</label>
+            </control>
+            <control type="label">
+                <right>128</right>
+                <top>876</top>
+                <width>600</width>
+                <height>32</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$LOCALIZE[112]  ·  $INFO[Player.TimeRemaining,−,]</label>
+                <visible>Player.Paused</visible>
+            </control>
+            <control type="label">
+                <right>128</right>
+                <top>876</top>
+                <width>600</width>
+                <height>32</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[Player.TimeRemaining,−,]</label>
+                <visible>!Player.Paused</visible>
+            </control>
+            
+            <control type="grouplist">
+                <left>318</left>
+                <top>942</top>
+                <width>720</width>
+                <height>32</height>
+                <orientation>horizontal</orientation>
+                <itemgap>10</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_Resolution]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_HDR]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.HdrType)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioCodec] $VAR[ModernOSD_AudioChannels]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
+                </control>
+                
+                <control type="button">
+                    <width min="40" max="400">auto</width>
+                    <height>32</height>
+                    <font>ModernCaption</font>
+                    <textoffsetx>12</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <enable>false</enable>
+                    <disabledcolor>ffe2e5e8</disabledcolor>
+                    <texturenofocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturenofocus>
+                    <texturefocus border="9" colordiffuse="66ffffff">common/modern-chip.png</texturefocus>
+                    <label>$VAR[ModernOSD_AudioLanguage]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.AudioLanguage) + !String.IsEqual(VideoPlayer.AudioLanguage,und)</visible>
+                </control>
+            </control>
+        </control>
+        
+        <!-- Nur Spulen / Springen: schlanke Leiste mit Zeit-Blase -->
+        <control type="group">
+            <visible>![Window.IsVisible(videoosd) | Player.Paused | Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(home).Property(osdinfo))]</visible>
+            <animation effect="fade" start="0" end="100" time="150">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <control type="image">
+                <top>680</top>
+                <width>1920</width>
+                <height>400</height>
+                <texture colordiffuse="b3ffffff">osd/modern/shade-bottom.png</texture>
+            </control>
+            
+            <control type="group">
+                <left>-4</left>
+                <top>880</top>
+                <width>200</width>
+                <height>70</height>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,1)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,2)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,3)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,4)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,5)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,6)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,7)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,8)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,9)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,10)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,11)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,12)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,13)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,14)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,15)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,16)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,17)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,18)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,19)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,20)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,21)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,22)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,23)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,24)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,25)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,26)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,27)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,28)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,29)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,30)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,31)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,32)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,33)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,34)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,35)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,36)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,37)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,38)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,39)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,40)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,41)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,42)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,43)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,44)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,45)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,46)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,47)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,48)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,49)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,50)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,51)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,52)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,53)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,54)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,55)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,56)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,57)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,58)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,59)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,60)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,61)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,62)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,63)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,64)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,65)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,66)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,67)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,68)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,69)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,70)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,71)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,72)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,73)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,74)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,75)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,76)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,77)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,78)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,79)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,80)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,81)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,82)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,83)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,84)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,85)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,86)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,87)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,88)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,89)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,90)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,91)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,92)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,93)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,94)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,95)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,96)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,97)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,98)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,99)">Conditional</animation>
+                <animation effect="slide" end="17.28,0" time="0" condition="Integer.IsGreaterOrEqual(Player.Progress,100)">Conditional</animation>
+                <control type="image">
+                    <width>200</width>
+                    <height>70</height>
+                    <texture border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texture>
+                </control>
+                <control type="label">
+                    <top>6</top>
+                    <width>200</width>
+                    <height>36</height>
+                    <align>center</align>
+                    <font>ModernRowBold</font>
+                    <textcolor>ff14171b</textcolor>
+                    <label>$VAR[ModernOSD_Time]</label>
+                </control>
+                <control type="label">
+                    <top>38</top>
+                    <width>200</width>
+                    <height>26</height>
+                    <align>center</align>
+                    <font>ModernCaption</font>
+                    <textcolor>ff555c64</textcolor>
+                    <label>$INFO[Player.SeekOffset]</label>
+                </control>
+            </control>
+            
+            <control type="group">
+                <left>96</left>
+                <top>964</top>
+                <width>1728</width>
+                <height>6</height>
+                <control type="progress">
+                    <width>1728</width>
+                    <height>6</height>
+                    <info>Player.ProgressCache</info>
+                    <texturebg border="3" colordiffuse="38ffffff">osd/modern/bar.png</texturebg>
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="40ffffff">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                </control>
+                <control type="progress">
+                    <width>1728</width>
+                    <height>6</height>
+                    <info>Player.Progress</info>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>!Player.Seeking</visible>
+                </control>
+                <control type="progress" id="401">
+                    <width>1728</width>
+                    <height>6</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture border="3" colordiffuse="fff1f3f5">osd/modern/bar.png</midtexture>
+                    <righttexture />
+                    <visible>Player.Seeking</visible>
+                </control>
+                <control type="ranges">
+                    <top>-4</top>
+                    <width>1728</width>
+                    <height>12</height>
+                    <texturebg />
+                    <lefttexture />
+                    <midtexture />
+                    <righttexture colordiffuse="aa000000">osd/modern/tick.png</righttexture>
+                    <info>Player.Chapters</info>
+                </control>
+            </control>
+            <control type="label">
+                <left>96</left>
+                <top>986</top>
+                <width>1000</width>
+                <height>34</height>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[Player.ChapterName]</label>
+            </control>
+            <control type="label">
+                <right>96</right>
+                <top>986</top>
+                <width>400</width>
+                <height>34</height>
+                <align>right</align>
+                <font>ModernSmall</font>
+                <textcolor>ffa8b0b9</textcolor>
+                <label>$INFO[Player.TimeRemaining,−,]</label>
+            </control>
+        </control>
+    </include>
+
+
+    <include name="OSDKino">
+        <control type="group">
+            <animation type="WindowOpen"><effect type="fade" start="0" end="100" time="200"/></animation>
+            <animation type="WindowClose"><effect type="fade" start="100" end="0" time="150"/></animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(DialogPlayerProcessInfo.xml) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks)">Conditional</animation>
+            <control type="grouplist" id="300">
+                <left>96</left>
+                <top>942</top>
+                <width>553</width>
+                <height>56</height>
+                <orientation>horizontal</orientation>
+                <itemgap>12</itemgap>
+                <onright>311</onright>
+                <onleft>noop</onleft>
+                <onup>noop</onup>
+                <ondown>noop</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <control type="button" id="301">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>ff14171b</focusedcolor>
+                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <label>$VAR[ModernOSD_AudioLanguage] $VAR[ModernOSD_AudioChannels]</label>
+                    <onclick>ActivateWindow(osdaudiosettings)</onclick>
+                </control>
+                
+                <control type="button" id="302">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>ff14171b</focusedcolor>
+                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[287]: $VAR[ModernOSD_SubLanguage]</label>
+                    <onclick>ActivateWindow(osdsubtitlesettings)</onclick>
+                </control>
+            </control>
+            
+            <control type="group">
+                <left>679</left>
+                <top>932</top>
+                <width>76</width>
+                <height>76</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(311)">Conditional</animation>
+                <control type="button" id="311">
+                    <width>76</width>
+                    <height>76</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Previous)</onclick>
+                    <onleft>300</onleft>
+                    <onright>312</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ff14171b">osd/modern/prev.png</texture>
+                    <visible>Control.HasFocus(311)</visible>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ffececec">osd/modern/prev.png</texture>
+                    <visible>!Control.HasFocus(311)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>773</left>
+                <top>932</top>
+                <width>76</width>
+                <height>76</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(312)">Conditional</animation>
+                <control type="button" id="312">
+                    <width>76</width>
+                    <height>76</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Rewind)</onclick>
+                    <onleft>311</onleft>
+                    <onright>313</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ff14171b">osd/modern/rew.png</texture>
+                    <visible>Control.HasFocus(312)</visible>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ffececec">osd/modern/rew.png</texture>
+                    <visible>!Control.HasFocus(312)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>867</left>
+                <top>924</top>
+                <width>92</width>
+                <height>92</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(313)">Conditional</animation>
+                <control type="button" id="313">
+                    <width>92</width>
+                    <height>92</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Play)</onclick>
+                    <onleft>312</onleft>
+                    <onright>314</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>25</left><top>25</top><width>42</width><height>42</height>
+                    <texture colordiffuse="ff14171b">osd/modern/pause.png</texture>
+                    <visible>Control.HasFocus(313) + !Player.Paused</visible>
+                </control>
+                <control type="image">
+                    <left>25</left><top>25</top><width>42</width><height>42</height>
+                    <texture colordiffuse="ffececec">osd/modern/pause.png</texture>
+                    <visible>!Control.HasFocus(313) + !Player.Paused</visible>
+                </control>
+                <control type="image">
+                    <left>25</left><top>25</top><width>42</width><height>42</height>
+                    <texture colordiffuse="ff14171b">osd/modern/play.png</texture>
+                    <visible>Control.HasFocus(313) + Player.Paused</visible>
+                </control>
+                <control type="image">
+                    <left>25</left><top>25</top><width>42</width><height>42</height>
+                    <texture colordiffuse="ffececec">osd/modern/play.png</texture>
+                    <visible>!Control.HasFocus(313) + Player.Paused</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>977</left>
+                <top>932</top>
+                <width>76</width>
+                <height>76</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(314)">Conditional</animation>
+                <control type="button" id="314">
+                    <width>76</width>
+                    <height>76</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Forward)</onclick>
+                    <onleft>313</onleft>
+                    <onright>315</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ff14171b">osd/modern/ff.png</texture>
+                    <visible>Control.HasFocus(314)</visible>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ffececec">osd/modern/ff.png</texture>
+                    <visible>!Control.HasFocus(314)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1071</left>
+                <top>932</top>
+                <width>76</width>
+                <height>76</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(315)">Conditional</animation>
+                <control type="button" id="315">
+                    <width>76</width>
+                    <height>76</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Next)</onclick>
+                    <onleft>314</onleft>
+                    <onright>316</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ff14171b">osd/modern/next.png</texture>
+                    <visible>Control.HasFocus(315)</visible>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ffececec">osd/modern/next.png</texture>
+                    <visible>!Control.HasFocus(315)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1165</left>
+                <top>932</top>
+                <width>76</width>
+                <height>76</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(316)">Conditional</animation>
+                <control type="button" id="316">
+                    <width>76</width>
+                    <height>76</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Stop)</onclick>
+                    <onleft>315</onleft>
+                    <onright>320</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ff14171b">osd/modern/stop.png</texture>
+                    <visible>Control.HasFocus(316)</visible>
+                </control>
+                <control type="image">
+                    <left>21</left><top>21</top><width>34</width><height>34</height>
+                    <texture colordiffuse="ffececec">osd/modern/stop.png</texture>
+                    <visible>!Control.HasFocus(316)</visible>
+                </control>
+            </control>
+            <control type="grouplist" id="320">
+                <right>96</right>
+                <top>942</top>
+                <width>553</width>
+                <height>56</height>
+                <orientation>horizontal</orientation>
+                <align>right</align>
+                <itemgap>12</itemgap>
+                <onleft>316</onleft>
+                <onright>noop</onright>
+                <onup>noop</onup>
+                <ondown>noop</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <control type="button" id="321">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>ff14171b</focusedcolor>
+                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[21396]</label>
+                    <onclick>ActivateWindow(videobookmarks)</onclick>
+                    <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
+                </control>
+                
+                <control type="button" id="322">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>ff14171b</focusedcolor>
+                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[291]</label>
+                    <onclick>ActivateWindow(osdvideosettings)</onclick>
+                </control>
+                
+                <control type="button" id="323">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>ff14171b</focusedcolor>
+                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[32133]</label>
+                    <onclick>RunScript(script.signde.tinyppi,dialog)</onclick>
+                    <visible>System.HasAddon(script.signde.tinyppi)</visible>
+                </control>
+                
+                <control type="button" id="325">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>ff14171b</focusedcolor>
+                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[32133]</label>
+                    <onclick>ActivateWindow(playerprocessinfo)</onclick>
+                    <visible>!System.HasAddon(script.signde.tinyppi)</visible>
+                </control>
+                <control type="button" id="324">
+                    <width min="110" max="520">auto</width>
+                    <height>56</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>26</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>ff14171b</focusedcolor>
+                    <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="27" colordiffuse="1fffffff">common/modern-pill.png</texturenofocus>
+                    <label>$LOCALIZE[32123]</label>
+                    <include>OSDExtendedInfo_Click_Action</include>
+                    <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+                </control>
+            </control>
+        </control>
+    </include>
+
+
+    <include name="OSDKompakt">
+        <control type="group">
+            <animation type="WindowOpen"><effect type="fade" start="0" end="100" time="200"/></animation>
+            <animation type="WindowClose"><effect type="fade" start="100" end="0" time="150"/></animation>
+            <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(DialogPlayerProcessInfo.xml) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks)">Conditional</animation>
+            
+            <control type="group">
+                <left>1068</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(501)">Conditional</animation>
+                <control type="button" id="501">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>ActivateWindow(osdaudiosettings)</onclick>
+                    <onleft>noop</onleft>
+                    <onright>502</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/audio.png</texture>
+                    <visible>Control.HasFocus(501)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/audio.png</texture>
+                    <visible>!Control.HasFocus(501)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1150</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(502)">Conditional</animation>
+                <control type="button" id="502">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>ActivateWindow(osdsubtitlesettings)</onclick>
+                    <onleft>501</onleft>
+                    <onright>503</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/sub.png</texture>
+                    <visible>Control.HasFocus(502)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/sub.png</texture>
+                    <visible>!Control.HasFocus(502)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1232</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(503)">Conditional</animation>
+                <control type="button" id="503">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Rewind)</onclick>
+                    <onleft>502</onleft>
+                    <onright>504</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/rew.png</texture>
+                    <visible>Control.HasFocus(503)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/rew.png</texture>
+                    <visible>!Control.HasFocus(503)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1314</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(504)">Conditional</animation>
+                <control type="button" id="504">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Play)</onclick>
+                    <onleft>503</onleft>
+                    <onright>505</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/pause.png</texture>
+                    <visible>Control.HasFocus(504) + !Player.Paused</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/pause.png</texture>
+                    <visible>!Control.HasFocus(504) + !Player.Paused</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/play.png</texture>
+                    <visible>Control.HasFocus(504) + Player.Paused</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/play.png</texture>
+                    <visible>!Control.HasFocus(504) + Player.Paused</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1396</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(505)">Conditional</animation>
+                <control type="button" id="505">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Forward)</onclick>
+                    <onleft>504</onleft>
+                    <onright>506</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/ff.png</texture>
+                    <visible>Control.HasFocus(505)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/ff.png</texture>
+                    <visible>!Control.HasFocus(505)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1478</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(506)">Conditional</animation>
+                <control type="button" id="506">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>PlayerControl(Stop)</onclick>
+                    <onleft>505</onleft>
+                    <onright>507</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/stop.png</texture>
+                    <visible>Control.HasFocus(506)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/stop.png</texture>
+                    <visible>!Control.HasFocus(506)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1560</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(507)">Conditional</animation>
+                <control type="button" id="507">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>ActivateWindow(videobookmarks)</onclick>
+                    <onleft>506</onleft>
+                    <onright>508</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/chapters.png</texture>
+                    <visible>Control.HasFocus(507)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/chapters.png</texture>
+                    <visible>!Control.HasFocus(507)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1642</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <visible>System.HasAddon(script.signde.tinyppi)</visible>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(508)">Conditional</animation>
+                <control type="button" id="508">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>RunScript(script.signde.tinyppi,dialog)</onclick>
+                    <onleft>507</onleft>
+                    <onright>509</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/ppi.png</texture>
+                    <visible>Control.HasFocus(508)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/ppi.png</texture>
+                    <visible>!Control.HasFocus(508)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1642</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <visible>!System.HasAddon(script.signde.tinyppi)</visible>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(510)">Conditional</animation>
+                <control type="button" id="510">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onclick>ActivateWindow(playerprocessinfo)</onclick>
+                    <onleft>507</onleft>
+                    <onright>509</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/ppi.png</texture>
+                    <visible>Control.HasFocus(510)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/ppi.png</texture>
+                    <visible>!Control.HasFocus(510)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1724</left>
+                <top>916</top>
+                <width>68</width>
+                <height>68</height>
+                <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+                <animation effect="zoom" start="100" end="108" center="auto" time="120" condition="Control.HasFocus(509)">Conditional</animation>
+                <control type="button" id="509">
+                    <width>68</width>
+                    <height>68</height>
+                    <label />
+                    <texturefocus colordiffuse="fff1f3f5">osd/modern/circle.png</texturefocus>
+                    <texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <onleft>508</onleft>
+                    <onright>noop</onright>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                    <include>OSDExtendedInfo_Click_Action</include>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ff14171b">osd/modern/info.png</texture>
+                    <visible>Control.HasFocus(509)</visible>
+                </control>
+                <control type="image">
+                    <left>18</left><top>18</top><width>31</width><height>31</height>
+                    <texture colordiffuse="ffececec">osd/modern/info.png</texture>
+                    <visible>!Control.HasFocus(509)</visible>
+                </control>
+            </control>
+        </control>
+    </include>
+
+</includes>

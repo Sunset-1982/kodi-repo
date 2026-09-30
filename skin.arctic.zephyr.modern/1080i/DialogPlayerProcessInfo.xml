@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <!-- Preserve Kodi's native PlayerProcessInfo action for keymaps/remotes,
+         but delegate the display to signde PPI's configured PPI mode. -->
+    <onload>RunScript(script.signde.tinyppi)</onload>
+    <onload>Close</onload>
+    <controls />
+</window>

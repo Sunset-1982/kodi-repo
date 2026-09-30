@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="2901">
+    <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + !Player.PauseEnabled">OSDFocusStop</include>
+    <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + Player.PauseEnabled">OSDFocusPause</include>
+    <include condition="[String.IsEmpty(Skin.String(OSDStyle)) + !VideoPlayer.Content(livetv)]">OSDFocusKino</include>
+    <include condition="[String.IsEqual(Skin.String(OSDStyle),kompakt) + !VideoPlayer.Content(livetv)]">OSDFocusKompakt</include>
+    <onload>ClearProperty(dontautoclose,home)</onload>
+    <onunload>ClearProperty(dontautoclose,home)</onunload>
+
+    <controls>
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="250" condition="Window.IsVisible(DialogSlider.xml)">Conditional</animation>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + Skin.HasSetting(osd.usetheme) + !Skin.HasSetting(videoosd.side)">OSD1</include>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + !Skin.HasSetting(osd.usetheme) + !Skin.HasSetting(videoosd.side)">OSD2</include>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),original) | VideoPlayer.Content(livetv)] + Skin.HasSetting(videoosd.side)">OSD3</include>
+            <include condition="[String.IsEmpty(Skin.String(OSDStyle)) + !VideoPlayer.Content(livetv)]">OSDKino</include>
+            <include condition="[String.IsEqual(Skin.String(OSDStyle),kompakt) + !VideoPlayer.Content(livetv)]">OSDKompakt</include>
+        </control>
+    </controls>
+</window>
