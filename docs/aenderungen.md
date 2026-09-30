@@ -107,3 +107,20 @@ Offen: `Includes_SettingsModern.xml` mit den Hub- und Kategorie-Layouts, bedingt
 - `colors/defaults.xml` übernimmt die Werte von „Dark with Dark Dialogs“ (8 Farben), Dialoge sind also standardmäßig dunkel. Helle Dialoge lassen sich weiter über Kodis Skin-Farben wählen, dort ist der Kontrast mit hellem Fokus aber schwächer.
 - **Unschärfe:** existiert über TMDb Helper (Hintergrund > „Unschärfe aktivieren“, `TMDbHelper.EnableBlur`, Bild `Window(Home).Property(TMDbHelper.ListItem.BlurImage)`). Neu ist die Option 93121 „Unschärfe auch im Hauptmenü“ (`blur.home`), angepasst in Includes_Global.xml (GlobalBackground-Multiimages). In der Testumgebung startet der TMDb-Helper-Dienst nicht (keine ListItem-Properties), deshalb nur auf der Box testbar.
 - Testumgebung: kodi-start setzt REQUESTS_CA_BUNDLE/SSL_CERT_FILE auf /etc/ssl/certs/ca-certificates.crt.
+
+
+## v0.7.0 (30.09.2026): Kontext- und Powermenü als Karte (Variante A)
+- Generator `tools/gen_menus_modern.py` erzeugt DialogContextMenu.xml, DialogButtonMenu.xml und Includes_MenusModern.xml (registriert in Includes.xml). Die Dateien nicht von Hand bearbeiten.
+- **Kontextmenü (106):** Karte 560 px breit mit `common/modern-card.png` (Radius 24, weicher Schatten, 28 px Rand, border 52), gefärbt in ModernBg. Kopf: Art des Eintrags (`ModernContextCaption` nach ListItem.DBType) und Titel (`ModernContextTitle`). Die Buttons haben als Fokus eine abgerundete Fläche (modern-round14) in ModernFocus, Text in ModernFocusText, 14 px Abstand zum Kartenrand.
+  - Stolperfalle: Kodi setzt die Höhe von Bild 999 auf `XML-Höhe − XML-Höhe der Grouplist (max 700) + tatsächliche Höhe der Grouplist`. Deshalb ist die XML-Höhe 118 + 700 + 14 + 56.
+- **Powermenü (111):** gleiche Karte, Kopf mit Datum/Uhrzeit und „Power-Menü“. Liste 3110 aus skinshortcuts-group-powermenu. Kartenhöhe über 10 bedingte Hintergründe (NumItems). Symbole `osd/modern/pm-*.png` über `ModernPowerIcon` (Teilstring von ListItem.Property(path)). Timer-Regeln stehen vor powerdown/shutdown, weil der Timer-Pfad „shutdowntimer“ enthält.
+- Alte Menüs mit unlesbarem Fokus (helles Grau, Text Black70 aus DefContextButton) sind damit ersetzt. Getestet mit Graphit und Sonnenuntergang.
+
+
+## v0.8.0 (30.09.2026): Fehler von der Box
+- **Zeitstrahl:** Kodi skaliert beim Fortschrittsbalken die midtexture über die Pixelhöhe der texturebg. Bei leerer `<texturebg />` ist der Faktor 1, der Füllbalken wird 8 statt 6 px hoch und rutscht um 4 px nach unten (Kodi rechnet den Versatz mit `fabs`). Lösung: Alle Fortschrittsbalken in gen_osd_modern.py haben jetzt `bar.png` mit `colordiffuse 00ffffff` als unsichtbaren Hintergrund.
+- **DialogSettings** (Audio-, Untertitel- und Videoeinstellungen) nutzt immer `DialogSettings_Sheet`. Ursache für das Original-Layout auf der Box: Diese Dialoge sind KEEP_IN_MEMORY. Bedingte Includes werden dadurch nur beim ersten Laden ausgewertet, und nach einem Wechsel des OSD-Designs bleibt die alte Variante bis zum Skin-Neuladen aktiv.
+- **Farbthema-Liste repariert:** Das Klassisch-Item (v0.6.0) stand innerhalb des Graphit-Items. Das `CustomSettings_Items.ModernTheme`-Include war dadurch vorzeitig geschlossen, und nur Graphit war auswählbar. Klassisch ist jetzt das letzte Item.
+- **Dateimanager:** Panels als abgerundete Karte (modern-round20, ModernBg), Fokus als eingerückte abgerundete Fläche (ModernFocus), in der inaktiven Liste ModernSurface. Textfarben über `ModernFileText20/21` (in gen_menus_modern.py).
+- **Einstellungen Design A:** Liste 5 ist 612 statt 660 hoch und endet damit über der Uhr.
+- Offen: Auf den Fotos der Box war die Schrift auf dem Fokus hell. Im Emulator ist sie dunkel, vermutlich wurde auf der Box „Text auf Fokus“ geändert. Lösung: Farbthema neu wählen oder Modern-Farben zurücksetzen.

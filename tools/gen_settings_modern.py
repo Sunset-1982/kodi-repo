@@ -189,7 +189,7 @@ cat_a = f"""
     <control type="group">{ANIM}{SHADE}
         {header("$VAR[Label_SettingsHeader]")}
         {grouplist(3, 96, 290, 340, 620, gap=6, nav="<onright>5</onright><onleft>20</onleft><onup>3</onup><ondown>3</ondown>")}
-        {grouplist(5, 480, 270, 1344, 660, nav="<onleft>3</onleft><onup>5</onup><ondown>5</ondown>")}
+        {grouplist(5, 480, 270, 1344, 612, nav="<onleft>3</onleft><onup>5</onup><ondown>5</ondown>")}
         {tbox(508, 950, 880, 72, "ModernSmall", MUTED, None, 6)}
         {level_button(96, 946)}
     </control>

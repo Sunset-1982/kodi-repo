@@ -47,6 +47,7 @@
     <include file="Includes_OSDModern.xml"/>
     <include file="Includes_SettingsOriginal.xml"/>
     <include file="Includes_SettingsModern.xml"/>
+    <include file="Includes_MenusModern.xml"/>
     <include file="Includes_VideoLyrics.xml"/>
     <include file="Includes_DialogInfo.xml"/>
     <include file="Includes_DialogSelect.xml"/>

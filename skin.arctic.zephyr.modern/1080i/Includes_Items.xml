@@ -603,19 +603,7 @@
             <onclick>Skin.SetString(ModernFocusText,ff14171b)</onclick>
             <onclick>Skin.SetString(ModernAccent,ff9db0cf)</onclick>
             <onclick>Close</onclick>
-            <include condition="[String.IsEmpty(Skin.String(ModernTheme)) | String.IsEqual(Skin.String(ModernTheme),graphit)]">Item_Selected<item>
-            <label>$LOCALIZE[32176]</label>
-            <property name="SettingsName">$LOCALIZE[32160]</property>
-            <onclick>Skin.SetString(ModernTheme,classic)</onclick>
-            <onclick>Skin.Reset(ModernBg)</onclick>
-            <onclick>Skin.Reset(ModernSurface)</onclick>
-            <onclick>Skin.Reset(ModernFocus)</onclick>
-            <onclick>Skin.Reset(ModernFocusText)</onclick>
-            <onclick>Skin.Reset(ModernAccent)</onclick>
-            <onclick>Close</onclick>
-            <include condition="String.IsEqual(Skin.String(ModernTheme),classic)">Item_Selected</include>
-        </item>
-    </include>
+            <include condition="[String.IsEmpty(Skin.String(ModernTheme)) | String.IsEqual(Skin.String(ModernTheme),graphit)]">Item_Selected</include>
         </item>
         <item>
             <label>$LOCALIZE[32162]</label>
@@ -688,6 +676,18 @@
             <onclick>Skin.SetString(ModernAccent,ff6fb6ff)</onclick>
             <onclick>Close</onclick>
             <include condition="String.IsEqual(Skin.String(ModernTheme),kodiblau)">Item_Selected</include>
+        </item>
+        <item>
+            <label>$LOCALIZE[32176]</label>
+            <property name="SettingsName">$LOCALIZE[32160]</property>
+            <onclick>Skin.SetString(ModernTheme,classic)</onclick>
+            <onclick>Skin.Reset(ModernBg)</onclick>
+            <onclick>Skin.Reset(ModernSurface)</onclick>
+            <onclick>Skin.Reset(ModernFocus)</onclick>
+            <onclick>Skin.Reset(ModernFocusText)</onclick>
+            <onclick>Skin.Reset(ModernAccent)</onclick>
+            <onclick>Close</onclick>
+            <include condition="String.IsEqual(Skin.String(ModernTheme),classic)">Item_Selected</include>
         </item>
     </include>
 

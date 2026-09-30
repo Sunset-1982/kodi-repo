@@ -214,7 +214,7 @@
                 <control type="progress">
                     <width>1728</width><height>6</height>
                     <info>PVR.TimeshiftProgress</info>
-                    <texturebg /><lefttexture /><righttexture />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture /><righttexture />
                     <midtexture border="3" colordiffuse="66ffffff">osd/modern/bar.png</midtexture>
                     <visible>PVR.IsTimeShift</visible>
                 </control>
@@ -419,7 +419,7 @@
                     <width>1728</width>
                     <height>6</height>
                     <info>Player.Progress</info>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -428,7 +428,7 @@
                 <control type="progress" id="401">
                     <width>1728</width>
                     <height>6</height>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -733,7 +733,7 @@
                     <width>1728</width>
                     <height>6</height>
                     <info>Player.Progress</info>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -742,7 +742,7 @@
                 <control type="progress" id="401">
                     <width>1728</width>
                     <height>6</height>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -946,7 +946,7 @@
                 <control type="progress">
                     <width>1474</width><height>6</height>
                     <info>PVR.TimeshiftProgress</info>
-                    <texturebg /><lefttexture /><righttexture />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture /><righttexture />
                     <midtexture border="3" colordiffuse="66ffffff">osd/modern/bar.png</midtexture>
                     <visible>PVR.IsTimeShift</visible>
                 </control>
@@ -1119,7 +1119,7 @@
                     <width>1474</width>
                     <height>6</height>
                     <info>Player.Progress</info>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -1128,7 +1128,7 @@
                 <control type="progress" id="401">
                     <width>1474</width>
                     <height>6</height>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -1515,7 +1515,7 @@
                     <width>1728</width>
                     <height>6</height>
                     <info>Player.Progress</info>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -1524,7 +1524,7 @@
                 <control type="progress" id="401">
                     <width>1728</width>
                     <height>6</height>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture>
                     <righttexture />

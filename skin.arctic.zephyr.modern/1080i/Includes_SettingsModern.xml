@@ -624,7 +624,7 @@
         </control>
         
         <control type="grouplist" id="5">
-            <left>480</left><top>270</top><width>1344</width><height>660</height>
+            <left>480</left><top>270</top><width>1344</width><height>612</height>
             <orientation>vertical</orientation><itemgap>4</itemgap>
             <scrolltime tween="cubic" easing="out">200</scrolltime>
             <onleft>3</onleft><onup>5</onup><ondown>5</ondown>

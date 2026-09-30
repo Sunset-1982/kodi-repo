@@ -1,9 +1,0 @@
-#!/bin/bash
-# Startet Xvfb (1920x1080) + Kodi 21.3 Omega (Flatpak)
-export DISPLAY=:99
-pgrep -f "Xvfb :99" >/dev/null || { Xvfb :99 -screen 0 1920x1080x24 >/dev/null 2>&1 & sleep 2; }
-pgrep -x dbus-daemon >/dev/null || { mkdir -p /run/dbus; rm -f /run/dbus/pid; dbus-daemon --system --fork; }
-pgrep -x kodi.bin >/dev/null && { echo "Kodi laeuft bereits"; exit 0; }
-nohup flatpak run --env=KODI_AE_SINK=NULL --env=REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt --env=SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt --nosocket=wayland --filesystem=/home/claude tv.kodi.Kodi --windowing=x11 > /home/claude/kodi/kodi.out 2>&1 &
-for i in $(seq 1 60); do curl -s -m1 localhost:8080/jsonrpc -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"JSONRPC.Ping"}' | grep -q pong && { echo "Kodi bereit"; exit 0; }; sleep 1; done
-echo "Timeout"; exit 1

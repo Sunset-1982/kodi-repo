@@ -160,7 +160,7 @@ def progress(left, top, width, knob=True):
                     <width>{width}</width>
                     <height>6</height>
                     <info>Player.Progress</info>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="{W}">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -169,7 +169,7 @@ def progress(left, top, width, knob=True):
                 <control type="progress" id="401">
                     <width>{width}</width>
                     <height>6</height>
-                    <texturebg />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg>
                     <lefttexture />
                     <midtexture border="3" colordiffuse="{W}">osd/modern/bar.png</midtexture>
                     <righttexture />
@@ -302,7 +302,7 @@ def tv_progress(left, top, width):
                 <control type="progress">
                     <width>{width}</width><height>6</height>
                     <info>PVR.TimeshiftProgress</info>
-                    <texturebg /><lefttexture /><righttexture />
+                    <texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture /><righttexture />
                     <midtexture border="3" colordiffuse="66ffffff">osd/modern/bar.png</midtexture>
                     <visible>PVR.IsTimeShift</visible>
                 </control>
