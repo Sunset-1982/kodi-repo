@@ -93,7 +93,7 @@
 					            <width>200</width>
 					            <font>EPGTimeline</font>
 					            <height>64</height>
-					            <textcolor>$VAR[ColorHighlight]</textcolor>
+					            <textcolor>$VAR[ColorAccentText]</textcolor>
 					            <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
 					            <label>$INFO[ListItem.Label]</label>
 					        </control>
@@ -106,8 +106,8 @@
 					            <height>64</height>
 					            <font>EPGTimeline</font>
 					            <label>$INFO[ListItem.Label]</label>
-					            <textcolor>PanelWhite100</textcolor>
-					            <selectedcolor>PanelWhite100</selectedcolor>
+					            <textcolor>$VAR[ColorHighlightText]</textcolor>
+					            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
 					        </control>
                         </control>
                     </focusedlayout>
@@ -371,7 +371,7 @@
                             <right>12</right>
                             <height>67</height>
                             <font>ChannelInfo</font>
-                            <textcolor>Selected</textcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
                             <label>$INFO[ListItem.Label]</label>
                             <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                         </control>
@@ -381,7 +381,7 @@
                             <top>0</top>
                             <height>67</height>
                             <font>ChannelInfo</font>
-                            <textcolor>Selected</textcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
                             <label>$INFO[ListItem.Label]</label>
                             <visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
                         </control>

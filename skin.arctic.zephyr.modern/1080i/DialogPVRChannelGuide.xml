@@ -132,8 +132,8 @@
                         <right>22</right>
                         <posy>10</posy>
                         <align>left</align>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <font>SmallBold</font>
                         <label>$INFO[ListItem.Title]</label>
                     </control>
@@ -143,8 +143,8 @@
                         <right>22</right>
                         <align>left</align>
                         <font>Tiny24</font>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
                     </control>
                 </focusedlayout>

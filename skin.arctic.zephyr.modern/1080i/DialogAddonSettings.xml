@@ -89,7 +89,7 @@
             </control>
             <control type="label" id="14">
                 <label />
-                <textcolor>$VAR[ColorHighlight]</textcolor>
+                <textcolor>$VAR[ColorAccentText]</textcolor>
             </control>
             <control type="image" id="11">
                 <description>Default Seperator</description>

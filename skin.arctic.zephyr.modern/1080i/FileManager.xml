@@ -105,16 +105,16 @@
                             <posx>30</posx>
                             <width>700</width>
                             <align>left</align>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                             <info>ListItem.Label</info>
                         </control>
                         <control type="label">
                             <right>84</right>
                             <width>116</width>
                             <align>right</align>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                             <font>Tiny</font>
                             <info>ListItem.Label2</info>
                         </control>
@@ -214,16 +214,16 @@
                             <posx>30</posx>
                             <width>700</width>
                             <align>left</align>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                             <info>ListItem.Label</info>
                         </control>
                         <control type="label">
                             <right>84</right>
                             <width>116</width>
                             <align>right</align>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                             <font>Tiny</font>
                             <info>ListItem.Label2</info>
                         </control>

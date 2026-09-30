@@ -44,7 +44,7 @@
         <font>Small</font>
         <textoffsetx>30</textoffsetx>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <disabledcolor>White12</disabledcolor>
         <texturefocus colordiffuse="White30">common/white.png</texturefocus>
@@ -57,7 +57,7 @@
         <aligny>center</aligny>
         <font>Small</font>
         <textcolor>White70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <disabledcolor>White12</disabledcolor>
         <scrollout>false</scrollout>
@@ -72,7 +72,7 @@
         <font>Small</font>
         <textoffsetx>30</textoffsetx>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <disabledcolor>Black30</disabledcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <texturefocus colordiffuse="White12">common/white.png</texturefocus>
@@ -90,7 +90,7 @@
 		<texturecolordisabledmask colordiffuse="disabled">common/white.png</texturecolordisabledmask>
         <textoffsetx>30</textoffsetx>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <disabledcolor>Black30</disabledcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <texturefocus colordiffuse="White12">common/white.png</texturefocus>
@@ -104,7 +104,7 @@
         <font>Small</font>
         <textoffsetx>30</textoffsetx>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <disabledcolor>Black30</disabledcolor>
         <texturefocus colordiffuse="White12">common/white.png</texturefocus>
@@ -124,7 +124,7 @@
         <radioheight>32</radioheight>
         <textoffsetx>30</textoffsetx>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <disabledcolor>Black30</disabledcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <texturefocus colordiffuse="White12">common/white.png</texturefocus>
@@ -142,7 +142,7 @@
         <spinwidth>32</spinwidth>
         <spinheight>32</spinheight>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <disabledcolor>Black12</disabledcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <texturefocus colordiffuse="White12">common/white.png</texturefocus>
@@ -165,7 +165,7 @@
         <spinwidth>32</spinwidth>
         <spinheight>32</spinheight>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <disabledcolor>Black12</disabledcolor>
         <selectedcolor>Highlight2</selectedcolor>
         <texturefocus colordiffuse="White12">common/white.png</texturefocus>
@@ -211,7 +211,7 @@
         <font>Small</font>
         <aligny>center</aligny>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <disabledcolor>Black12</disabledcolor>
         <textoffsetx>30</textoffsetx>
         <textoffsety>0</textoffsety>

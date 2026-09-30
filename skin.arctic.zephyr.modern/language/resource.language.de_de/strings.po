@@ -2524,3 +2524,11 @@ msgstr "Farben zurücksetzen"
 msgctxt "#32175"
 msgid "Modern colours"
 msgstr "Modern-Farben"
+
+msgctxt "#32176"
+msgid "Classic (original colours)"
+msgstr "Klassisch (Original-Farben)"
+
+msgctxt "#32177"
+msgid "      Also blur the background on the home screen"
+msgstr "      Unschärfe auch im Hauptmenü"

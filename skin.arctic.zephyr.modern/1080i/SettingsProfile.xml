@@ -115,7 +115,7 @@
                         <control type="label">
                             <posx>30</posx>
                             <width>810</width>
-                            <textcolor>Selected</textcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
                             <info>ListItem.Label</info>
                         </control>
                         <control type="label">
@@ -123,7 +123,7 @@
                             <width>810</width>
                             <align>right</align>
                             <font>Tiny</font>
-                            <textcolor>Selected</textcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
                             <info>ListItem.Label2</info>
                         </control>
                     </control>

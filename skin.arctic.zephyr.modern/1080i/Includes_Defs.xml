@@ -2,8 +2,32 @@
 <includes>
 
     <variable name="ColorHighlight">
+        <value condition="!String.IsEqual(Skin.String(ModernTheme),classic)">$VAR[ModernFocus]</value>
         <value condition="!String.IsEmpty(Skin.String(focuscolor.name))">$INFO[Skin.String(focuscolor.name)]</value>
         <value>ff0091ea</value>
+    </variable>
+
+    <!-- Modern: Text auf Fokusflaechen und hervorgehobener Text -->
+    <variable name="ColorHighlightText">
+        <value condition="!String.IsEqual(Skin.String(ModernTheme),classic)">$VAR[ModernFocusText]</value>
+        <value>Selected</value>
+    </variable>
+    <variable name="ColorAccentText">
+        <value condition="!String.IsEqual(Skin.String(ModernTheme),classic)">$VAR[ModernAccent]</value>
+        <value>$VAR[ColorHighlight]</value>
+    </variable>
+
+    <variable name="ColorListFocus">
+        <value condition="!String.IsEqual(Skin.String(ModernTheme),classic)">$VAR[ModernFocus]</value>
+        <value>Dark1</value>
+    </variable>
+    <variable name="ColorListFocusText">
+        <value condition="!String.IsEqual(Skin.String(ModernTheme),classic)">$VAR[ModernFocusText]</value>
+        <value>Light1</value>
+    </variable>
+    <variable name="ColorListFocusText2">
+        <value condition="!String.IsEqual(Skin.String(ModernTheme),classic)">$VAR[ModernFocusText]</value>
+        <value>Light2</value>
     </variable>
 
     <!-- Modern: Farbsystem (Skin-Einstellungen > Farben) -->
@@ -37,6 +61,7 @@
     </variable>
 
     <variable name="ColorGradient">
+        <value condition="!String.IsEqual(Skin.String(ModernTheme),classic)">$VAR[ModernFocus]</value>
         <value condition="!Skin.HasSetting(EnableMonochromeHighlight) + !String.IsEmpty(Skin.String(gradientcolor.name))">$INFO[Skin.String(gradientcolor.name)]</value>
         <value condition="!Skin.HasSetting(EnableMonochromeHighlight)">ff00bfa5</value>
         <value>$VAR[ColorHighlight]</value>
@@ -385,7 +410,7 @@
         <texturefocus border="5" colordiffuse="$VAR[ColorHighlight]">common/box.png</texturefocus>
         <textoffsetx>0</textoffsetx>
         <textcolor>Black70</textcolor>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <radioposx>320</radioposx>
         <radioposy>22</radioposy>
     </include>
@@ -398,7 +423,7 @@
         <textcolor>Black70</textcolor>
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorHighlight]" border="16">common/white.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorHighlight]" border="16">common/white.png</texturefocus>
     </include>
@@ -412,7 +437,7 @@
         <textcolor>Black70</textcolor>
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
     </include>
@@ -429,7 +454,7 @@
         <textcolor>Black70</textcolor>
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
     </include>
@@ -446,7 +471,7 @@
         <textcolor>Black70</textcolor>
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
     </include>
@@ -463,7 +488,7 @@
         <textcolor>Black70</textcolor>
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
     </include>
@@ -485,7 +510,7 @@
         <textcolor>PanelWhite100</textcolor>
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black70">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorHighlight]" border="16">common/white.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorHighlight]" border="16">common/white.png</texturefocus>
     </include>
@@ -501,7 +526,7 @@
         <disabledcolor>PanelWhite12</disabledcolor>
         <textureradiofocus colordiffuse="$PARAM[colorcode]">buttons/colorbox.png</textureradiofocus>
         <textureradionofocus colordiffuse="$PARAM[colorcode]">buttons/colorbox.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide.png</texturefocus>
     </include>
@@ -534,7 +559,7 @@
         <texturedownfocus colordiffuse="PanelWhite100">buttons/spin-down.png</texturedownfocus>
         <textureradiofocus colordiffuse="PanelWhite70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="PanelWhite70">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
     </include>
@@ -552,7 +577,7 @@
         <texturedownfocus colordiffuse="PanelWhite100">buttons/spin-down.png</texturedownfocus>
         <textureradiofocus colordiffuse="PanelWhite70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="PanelWhite70">buttons/radio-off.png</textureradionofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
     </include>
@@ -565,7 +590,7 @@
         <textureradioonnofocus colordiffuse="PanelWhite12">buttons/radio-disabled.png</textureradioonnofocus>
         <textureradioofffocus colordiffuse="PanelWhite70">buttons/radio-disabled.png</textureradioofffocus>
         <textureradiooffnofocus colordiffuse="PanelWhite70">buttons/radio-disabled.png</textureradiooffnofocus>
-        <focusedcolor>Selected</focusedcolor>
+        <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
         <alttexturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</alttexturefocus>
         <texturefocus colordiffuse="$VAR[ColorGradient]" border="5">common/gradient-box-wide-cut.png</texturefocus>
     </include>
@@ -1073,7 +1098,7 @@
                                 <control type="image">
                                     <width>100%</width>
                                     <height>100%</height>
-                                    <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+                                    <texture border="8" colordiffuse="$VAR[ColorListFocus]">common/box.png</texture>
                                 </control>
                                 <control type="image">
                                     <right>10</right>
@@ -1088,7 +1113,7 @@
                                     <right>80</right>
                                     <height>100%</height>
                                     <font>SmallBold</font>
-                                    <textcolor>Light1</textcolor>
+                                    <textcolor>$VAR[ColorListFocusText]</textcolor>
                                     <label>$INFO[ListItem.Label]</label>
                                 </control>
                             </control>
@@ -2313,8 +2338,8 @@
                         <right>30</right>
                         <height>66</height>
                         <font>$PARAM[font]</font>
-                        <textcolor>Black70</textcolor>
-                        <selectedcolor>Black70</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <aligny>center</aligny>
                         <info>ListItem.Label</info>
                     </control>
@@ -2344,8 +2369,8 @@
                         <right>30</right>
                         <height>66</height>
                         <font>$PARAM[font]</font>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <aligny>center</aligny>
                         <info>ListItem.Label</info>
                     </control>
@@ -2456,8 +2481,8 @@
                         <right>30</right>
                         <height>135</height>
                         <font>SmallBold</font>
-                        <textcolor>Black70</textcolor>
-                        <selectedcolor>Black70</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
                         <animation effect="slide" end="0,18" condition="!$PARAM[detailed] | String.IsEmpty(ListItem.Label2)">Conditional</animation>
                     </control>
@@ -2470,8 +2495,8 @@
                         <right>30</right>
                         <height>135</height>
                         <font>Mini</font>
-                        <textcolor>Black70</textcolor>
-                        <selectedcolor>Black70</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label>$INFO[ListItem.Label2]</label>
                         <visible>$PARAM[detailed]</visible>
                     </control>
@@ -2502,8 +2527,8 @@
                         <right>30</right>
                         <height>135</height>
                         <font>SmallBold</font>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
                         <animation effect="slide" end="0,18" condition="!$PARAM[detailed] | String.IsEmpty(ListItem.Label2)">Conditional</animation>
                     </control>
@@ -2516,8 +2541,8 @@
                         <right>30</right>
                         <height>135</height>
                         <font>Mini</font>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label>$INFO[ListItem.Label2]</label>
                         <visible>$PARAM[detailed]</visible>
                     </control>
@@ -2662,8 +2687,8 @@
                         <height>135</height>
                         <font>SmallBold</font>
                         <posy>-18</posy>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label>$VAR[Label_List_MediaInfo]</label>
                     </control>
                     <control type="label">
@@ -2675,8 +2700,8 @@
                         <height>135</height>
                         <font>Mini</font>
                         <posy>18</posy>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label fallback="19055">$VAR[Label_List_MediaInfo_Label2]</label>
                     </control>
                     <include condition="$PARAM[indicators]" content="Def_IndicatorImage">

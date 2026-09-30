@@ -62,7 +62,7 @@
 	                            <control type="image">
 	                                <width>100%</width>
 	                                <height>100%</height>
-	                                <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+	                                <texture border="8" colordiffuse="$VAR[ColorListFocus]">common/box.png</texture>
 	                                <include>ListViewScrollAnim</include>
 	                            </control>
 	                            <control type="image">
@@ -78,8 +78,8 @@
 	                                <height>100%</height>
 	                                <font>SmallBold</font>
 	                                <label>$INFO[ListItem.Label]</label>
-	                                <textcolor>Light1</textcolor>
-	                                <selectedcolor>Light1</selectedcolor>
+	                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+	                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
 	                            </control>
 	                            <control type="label">
 	                                <right>30</right>
@@ -87,8 +87,8 @@
 	                                <height>100%</height>
 	                                <align>right</align>
 	                                <font>Small</font>
-	                                <textcolor>Light1</textcolor>
-	                                <selectedcolor>Light1</selectedcolor>
+	                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+	                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
 	                                <label>$INFO[ListItem.Label2]</label>
 	                            </control>
                             </control>

@@ -196,7 +196,7 @@
                         <height>66</height>
                         <aligny>center</aligny>
                         <label>$INFO[ListItem.Label,,  •  ]$INFO[ListItem.Label2]</label>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
                         <font>Small</font>
                         <scroll>true</scroll>
                     </control>
@@ -216,7 +216,7 @@
                         <aligny>center</aligny>
                         <align>right</align>
                         <label fallback="-">$INFO[ListItem.ActualIcon,,.0]</label>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
                         <font>Small</font>
                     </control>
                 </focusedlayout>
@@ -262,7 +262,7 @@
                 <onleft>120</onleft>
                 <align>left</align>
                 <textcolor>Black30</textcolor>
-                <focusedcolor>Selected</focusedcolor>
+                <focusedcolor>$VAR[ColorHighlightText]</focusedcolor>
                 <texturefocus border="5" colordiffuse="$VAR[ColorGradient]">common/gradient-box-wide.png</texturefocus>
                 <texturenofocus border="5" colordiffuse="Black12">common/box.png</texturenofocus>
             </control>
@@ -331,8 +331,8 @@
                         <height>66</height>
                         <aligny>center</aligny>
                         <label>$INFO[ListItem.Label]</label>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <visible>Control.HasFocus(150)</visible>
                     </control>
                 </focusedlayout>

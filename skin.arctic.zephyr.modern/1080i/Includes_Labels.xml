@@ -231,6 +231,7 @@
         <value condition="String.IsEqual(Skin.String(ModernTheme),sand)">$LOCALIZE[32166]</value>
         <value condition="String.IsEqual(Skin.String(ModernTheme),kodiblau)">$LOCALIZE[32167]</value>
         <value condition="String.IsEqual(Skin.String(ModernTheme),custom)">$LOCALIZE[32168]</value>
+        <value condition="String.IsEqual(Skin.String(ModernTheme),classic)">$LOCALIZE[32176]</value>
         <value>$LOCALIZE[32161]</value>
     </variable>
 
@@ -402,8 +403,8 @@
     </variable>
 
     <variable name="LabelNextRecording">
-        <value condition="Pvr.IsRecording">[COLOR=$VAR[ColorHighlight]]$INFO[Pvr.NowRecordingTitle,,][/COLOR]$INFO[Pvr.NowRecordingChannel,  ,]</value>
-        <value condition="Pvr.HasTimer">[COLOR=$VAR[ColorHighlight]]$INFO[Pvr.NextRecordingTitle,,][/COLOR]$INFO[Pvr.NextRecordingDateTime,  ,]$INFO[Pvr.NextRecordingChannel,  ,]</value>
+        <value condition="Pvr.IsRecording">[COLOR=$VAR[ColorAccentText]]$INFO[Pvr.NowRecordingTitle,,][/COLOR]$INFO[Pvr.NowRecordingChannel,  ,]</value>
+        <value condition="Pvr.HasTimer">[COLOR=$VAR[ColorAccentText]]$INFO[Pvr.NextRecordingTitle,,][/COLOR]$INFO[Pvr.NextRecordingDateTime,  ,]$INFO[Pvr.NextRecordingChannel,  ,]</value>
     </variable>
 
     <variable name="HDSD">

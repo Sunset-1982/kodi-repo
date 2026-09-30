@@ -83,7 +83,7 @@
                         <height>66</height>
                         <font>SmallBold</font>
                         <aligny>center</aligny>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
                         <info>ListItem.Label</info>
                     </control>
                     <control type="label">
@@ -92,7 +92,7 @@
                         <align>right</align>
                         <height>66</height>
                         <aligny>center</aligny>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
                         <info>ListItem.Label2</info>
                     </control>
                 </focusedlayout>

@@ -183,7 +183,7 @@
                             <left>10</left>
                             <width>870</width>
                             <height>305</height>
-                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                            <texture colordiffuse="$VAR[ColorListFocus]" border="5">common/box.png</texture>
                             <animation type="Focus">
                                 <effect type="zoom" start="10,0,202,311" end="10,0,868,311" tween="cubic" easing="inout" delay="1000" time="400"/>
                                 <effect type="fade" start="0" end="100" tween="cubic" easing="inout" delay="200" time="150"/>
@@ -203,7 +203,7 @@
                             <right>10</right>
                             <width>870</width>
                             <height>328</height>
-                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                            <texture colordiffuse="$VAR[ColorListFocus]" border="5">common/box.png</texture>
                             <animation type="Focus">
                                 <effect type="zoom" start="675,0,202,311" end="0,0,868,311" tween="cubic" easing="inout" delay="1000" time="400"/>
                                 <effect type="fade" start="0" end="100" delay="200" time="150" tween="cubic" easing="inout"/>

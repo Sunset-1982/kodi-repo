@@ -784,6 +784,15 @@
                             <onclick condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetBool(EnableBlurSettings)</onclick>
                             <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.Reset(EnableBlurSettings)</onclick>                    
                         </control>
+                        <control type="radiobutton" id="93121" description="Blur on home">
+                            <width>1360</width>
+                            <visible>String.IsEqual(Window.Property(content),2)</visible>
+                            <visible>Skin.HasSetting(TMDbHelper.EnableBlur)</visible>
+                            <include>DefSettingsButtonGradientSkinSettings</include>
+                            <label>$LOCALIZE[32177]</label>
+                            <selected>Skin.HasSetting(blur.home)</selected>
+                            <onclick>Skin.ToggleSetting(blur.home)</onclick>
+                        </control>
                         <control type="button" id="9313">
                             <width>1360</width>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -1297,6 +1306,7 @@
                             </control>
                         </control>
                         <control type="radiobutton" id="9651" description="Set Custom Highlight Colour">
+                            <visible>String.IsEqual(Skin.String(ModernTheme),classic)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),3)</visible>
                             <include content="DefContextButtonColorbox">
@@ -1307,7 +1317,7 @@
 	                        <onclick>Skin.SetColor(focuscolor.name,31699,$VAR[ColorHighlight],special://skin/extras/colors.xml)</onclick>
                         </control>
                         <control type="radiobutton" id="9653">
-                            <visible>String.IsEqual(Skin.String(OSDStyle),original) | String.IsEqual(Skin.String(SettingsStyle),original)</visible>
+                            <visible>String.IsEqual(Skin.String(ModernTheme),classic)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),3)</visible>
                             <include>DefSettingsButtonGradientSkinSettings</include>
@@ -1316,7 +1326,7 @@
                             <onclick>Skin.ToggleSetting(EnableMonochromeHighlight)</onclick>
                         </control>
                         <control type="radiobutton" id="9654" description="Set Custom Gradient Colour">
-                            <visible>String.IsEqual(Skin.String(OSDStyle),original) | String.IsEqual(Skin.String(SettingsStyle),original)</visible>
+                            <visible>String.IsEqual(Skin.String(ModernTheme),classic)</visible>
                             <width>1360</width>
                             <visible>String.IsEqual(Window.Property(content),3)</visible>
                             <include content="DefContextButtonColorbox">
@@ -1533,7 +1543,7 @@
                             <height>75</height>
                             <align>center</align>
                             <aligny>center</aligny>
-                            <label>Arctic [COLOR=$VAR[ColorHighlight]]Zephyr[/COLOR]</label>
+                            <label>Arctic [COLOR=$VAR[ColorAccentText]]Zephyr[/COLOR]</label>
                             <font>EpisodeNumber</font>
                             <textcolor>PanelWhite100</textcolor>
                         </control>

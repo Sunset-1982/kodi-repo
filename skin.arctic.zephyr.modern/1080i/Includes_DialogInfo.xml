@@ -734,7 +734,7 @@
                 <control type="group">
                     <visible>Control.HasFocus(9010)</visible>
                     <control type="label">
-                        <textcolor>$VAR[ColorHighlight]</textcolor>
+                        <textcolor>$VAR[ColorAccentText]</textcolor>
                         <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
                         <height>auto</height>
                         <width>660</width>
@@ -745,8 +745,8 @@
                 <control type="group">
                     <visible>!Control.HasFocus(9010)</visible>
                     <control type="label">
-                        <textcolor>Dark2</textcolor>
-                        <selectedcolor>Dark2</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <height>auto</height>
                         <width>660</width>
                         <font>Tiny</font>
@@ -921,7 +921,7 @@
             <onup>9601</onup>
             <orientation>horizontal</orientation>
             <control type="radiobutton" id="8">
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/continue.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/continue.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/continue.png</textureradioonnofocus>
                 <include content="DialogVideoInfoButtons">
                     <param name="icon" value="icons/play.png" />
@@ -936,7 +936,7 @@
             <control type="radiobutton" id="10001">
                 <onclick condition="!ListItem.IsFolder + !String.IsEmpty(ListItem.FileNameAndPath)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,"playmedia=$INFO[ListItem.FileNameAndPath]")</onclick>
                 <onclick condition="!ListItem.IsFolder + String.IsEmpty(ListItem.FileNameAndPath)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,"playmedia=$INFO[ListItem.FolderPath]")</onclick>
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/continue.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/continue.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/continue.png</textureradioonnofocus>
                 <include content="DialogVideoInfoButtons">
                     <param name="icon" value="icons/play.png" />
@@ -961,7 +961,7 @@
             <control type="radiobutton" id="10003">
                 <onclick condition="Player.Playing">Pause</onclick>
                 <onclick condition="!Player.Playing">Play</onclick>
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/pause.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/pause.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/pause.png</textureradioonnofocus>
                 <include content="DialogVideoInfoButtons">
                     <param name="icon" value="icons/continue.png" />
@@ -1007,7 +1007,7 @@
             <control type="radiobutton" id="7">
                 <include>OnFocusOnClick</include>
                 <include>ClearOnFocusOnClick</include>
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/rating.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/rating.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/rating.png</textureradioonnofocus>
                 <include content="DialogVideoInfoButtons">
                     <param name="icon" value="icons/rating_new.png" />
@@ -1251,7 +1251,7 @@
                 <visible>[String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song)] + [ListItem.IsPlaying | [!String.IsEmpty(ListItem.FolderPath) + String.IsEqual(ListItem.FileNameAndPath,Player.Folderpath)]]</visible>
                 <onclick condition="Player.Playing">Pause</onclick>
                 <onclick condition="!Player.Playing">Play</onclick>
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/pause.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/pause.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/pause.png</textureradioonnofocus>
                 <include content="DialogInfo_Buttons">
                     <param name="icon" value="icons/continue.png" />
@@ -1265,7 +1265,7 @@
                 <include>OnFocusOnClick</include>
                 <include>ClearOnFocusOnClick</include>
                 <onclick>SendClick(7)</onclick>
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/rating.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/rating.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/rating.png</textureradioonnofocus>
                 <include content="DialogInfo_Buttons">
                     <param name="icon" value="icons/rating_new.png" />
@@ -1367,7 +1367,7 @@
                 <visible>Control.IsEnabled(12)</visible>
             </control>
             <control type="radiobutton" id="6">
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/uninstall.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/uninstall.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/uninstall.png</textureradioonnofocus>
                 <include content="DialogInfo_Buttons">
                     <param name="icon" value="icons/install.png" />
@@ -1377,7 +1377,7 @@
                 <selected>ListItem.Property(addon.isinstalled) | !Window.IsActive(addonbrowser)</selected>
             </control>
             <control type="radiobutton" id="7">
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/disable.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/disable.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/disable.png</textureradioonnofocus>
                 <include content="DialogInfo_Buttons">
                     <param name="icon" value="icons/enabled.png" />
@@ -1405,7 +1405,7 @@
                 <visible>Control.IsEnabled(14)</visible>
             </control>
             <control type="radiobutton" id="13">
-                <textureradioonfocus colordiffuse="FFFFFFFF">icons/autoupdateon.png</textureradioonfocus>
+                <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/autoupdateon.png</textureradioonfocus>
                 <textureradioonnofocus colordiffuse="FFFFFFFF">icons/autoupdateon.png</textureradioonnofocus>
                 <include content="DialogInfo_Buttons">
                     <param name="icon" value="icons/autoupdate.png" />

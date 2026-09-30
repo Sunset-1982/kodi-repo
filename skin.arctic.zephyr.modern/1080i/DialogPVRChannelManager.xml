@@ -110,7 +110,7 @@
                             <control type="label">
                                 <left>SidePad</left>
                                 <right>30</right>
-                                <textcolor>Selected</textcolor>
+                                <textcolor>$VAR[ColorHighlightText]</textcolor>
                                 <label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
                             </control>
                             <control type="label">
@@ -119,7 +119,7 @@
                                 <font>Mini</font>
                                 <right>30</right>
                                 <height>50</height>
-                                <textcolor>Selected</textcolor>
+                                <textcolor>$VAR[ColorHighlightText]</textcolor>
                                 <label>$INFO[ListItem.Property(ClientName),$LOCALIZE[19210]: ,]</label>
                             </control>
                         </control>

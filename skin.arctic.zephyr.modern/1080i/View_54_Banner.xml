@@ -233,7 +233,7 @@
                             <top>10</top>
                             <right>110</right>
                             <bottom>10</bottom>
-                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                            <texture colordiffuse="$VAR[ColorListFocus]" border="5">common/box.png</texture>
                         </control>
                         <control type="image">
                             <left>110</left>
@@ -263,8 +263,8 @@
                             <height>45</height>
                             <align>left</align>
                             <font>MediumBold</font>
-                            <textcolor>Light1</textcolor>
-                            <selectedcolor>Light1</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                             <label>$INFO[ListItem.Label]</label>
                         </control>
                         <control type="textbox">
@@ -274,8 +274,8 @@
                             <height>170</height>
                             <align>justify</align>
                             <font>Tiny</font>
-                            <textcolor>Light2</textcolor>
-                            <selectedcolor>Light2</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             <label>$VAR[LabelPlotBox]</label>
                         </control>
                         <control type="label">
@@ -286,8 +286,8 @@
                             <height>38</height>
                             <align>right</align>
                             <font>Tiny</font>
-                            <textcolor>Light1</textcolor>
-                            <selectedcolor>Light1</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                             <label fallback="19055">$VAR[LabelYear]$VAR[LabelDuration,  •  ]$VAR[RatingLabel,  •  ]</label>
                         </control>
                     </focusedlayout>
@@ -304,7 +304,7 @@
                             <top>24</top>
                             <width>1240</width>
                             <height>270</height>
-                            <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+                            <texture border="8" colordiffuse="$VAR[ColorListFocus]">common/box.png</texture>
                         </control>
                         <control type="image">
                             <left>24</left>
@@ -341,7 +341,7 @@
                                 <align>center</align>
                                 <label>$VAR[Label_View_54_EpisodesCount]</label>
                                 <font>HintBold</font>
-                                <textcolor>Light1</textcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
                             </control>
                         </control>
                         <control type="label">
@@ -353,8 +353,8 @@
                             <aligny>center</aligny>
                             <label>$INFO[ListItem.Label]</label>
                             <font>Flag</font>
-                            <textcolor>Light1</textcolor>
-                            <selectedcolor>Light1</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                         </control>
                         <control type="label">
                             <centerbottom>50</centerbottom>
@@ -365,8 +365,8 @@
                             <aligny>center</aligny>
                             <label>$VAR[LabelYear]$VAR[LabelDuration,  •  ]$VAR[RatingLabel,  •  ]</label>
                             <font>Flag</font>
-                            <textcolor>Light1</textcolor>
-                            <selectedcolor>Light1</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                         </control>
                     </focusedlayout>
                     <focusedlayout width="1560" height="322" condition="Container.Content(episodes)">
@@ -383,7 +383,7 @@
                                 <top>24</top>
                                 <right>24</right>
                                 <height>270</height>
-                                <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+                                <texture border="8" colordiffuse="$VAR[ColorListFocus]">common/box.png</texture>
                             </control>
                             <control type="image">
                                 <left>24</left>
@@ -412,8 +412,8 @@
                                     <align>right</align>
                                     <aligny>center</aligny>
                                     <label>$VAR[LabelSeason]x$VAR[LabelEpisodeZero]$INFO[ListItem.Episode]</label>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
+                                    <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                    <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                 </control>
                                 <control type="label">
                                     <top>47</top>
@@ -424,8 +424,8 @@
                                     <aligny>center</aligny>
                                     <label>$VAR[LabelTitle]</label>
                                     <font>MediumBold</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
+                                    <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                    <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                     <animation effect="slide" start="0" end="50" condition="Integer.IsGreater(ListItem.Episode,99) | [Integer.IsGreater(ListItem.Episode,9) + String.Contains(ListItem.Episode,S)]">Conditional</animation>
                                 </control>
                                 <control type="label">
@@ -434,8 +434,8 @@
                                     <width>50</width>
                                     <height>40</height>
                                     <aligny>center</aligny>
-                                    <textcolor>Light2</textcolor>
-                                    <selectedcolor>Light2</selectedcolor>
+                                    <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                                    <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                                     <font>WatchedIconSmall</font>
                                     <label>$VAR[LabelPercentWatched]</label>
                                     <visible>!String.IsEqual(ListItem.Label,..)</visible>
@@ -449,8 +449,8 @@
                                     <aligny>center</aligny>
                                     <label fallback="19055">$VAR[LabelYear]$VAR[LabelDuration,  •  ]$VAR[RatingLabel,  •  ]</label>
                                     <font>Tiny</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
+                                    <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                    <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                     <animation effect="slide" start="0" end="50" condition="Integer.IsGreater(ListItem.Episode,99) | [Integer.IsGreater(ListItem.Episode,9) + String.Contains(ListItem.Episode,S)]">Conditional</animation>
                                 </control>
                             </control>
@@ -463,8 +463,8 @@
                                 <aligny>top</aligny>
                                 <label>$VAR[LabelPlot]</label>
                                 <font>Tiny</font>
-                                <textcolor>Light2</textcolor>
-                                <selectedcolor>Light2</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             </control>
                         </control>
                     </focusedlayout>
@@ -482,7 +482,7 @@
                                 <top>24</top>
                                 <right>24</right>
                                 <height>270</height>
-                                <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+                                <texture border="8" colordiffuse="$VAR[ColorListFocus]">common/box.png</texture>
                             </control>
                             <control type="image">
                                 <left>24</left>
@@ -516,8 +516,8 @@
                                 <aligny>top</aligny>
                                 <label>$VAR[LabelTitle]</label>
                                 <font>MediumBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                             </control>
                             <control type="label">
                                 <top>95</top>
@@ -528,8 +528,8 @@
                                 <aligny>top</aligny>
                                 <label fallback="19055">$INFO[ListItem.Artist]$INFO[ListItem.Year, • ,]</label>
                                 <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                             </control>
                             <control type="textbox">
                                 <top>135</top>
@@ -540,8 +540,8 @@
                                 <aligny>top</aligny>
                                 <label>$INFO[ListItem.Property(Album_Description)]</label>
                                 <font>Tiny</font>
-                                <textcolor>Light2</textcolor>
-                                <selectedcolor>Light2</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             </control>
                             <control type="group">
                                 <right>40</right>
@@ -599,7 +599,7 @@
                                 <top>24</top>
                                 <right>24</right>
                                 <height>270</height>
-                                <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+                                <texture border="8" colordiffuse="$VAR[ColorListFocus]">common/box.png</texture>
                             </control>
                             <control type="image">
                                 <left>24</left>
@@ -633,8 +633,8 @@
                                 <align>right</align>
                                 <aligny>center</aligny>
                                 <label>$NUMBER[0]$NUMBER[0]</label>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                 <visible>!Integer.IsGreater(ListItem.TrackNumber,0)</visible>
                             </control>
                             <control type="label">
@@ -646,8 +646,8 @@
                                 <align>right</align>
                                 <aligny>center</aligny>
                                 <label>$INFO[ListItem.TrackNumber]</label>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                 <visible>!Integer.IsGreater(ListItem.TrackNumber,9) + Integer.IsGreater(ListItem.TrackNumber,0)</visible>
                             </control>
                             <control type="label">
@@ -659,8 +659,8 @@
                                 <align>right</align>
                                 <aligny>center</aligny>
                                 <label>$INFO[ListItem.TrackNumber]</label>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                 <visible>Integer.IsGreater(ListItem.TrackNumber,9)</visible>
                             </control>
                             <control type="image">
@@ -681,8 +681,8 @@
                                 <aligny>center</aligny>
                                 <label>$INFO[ListItem.Title]</label>
                                 <font>MediumBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                 <visible>ListItem.IsPlaying</visible>
                             </control>
                             <control type="label">
@@ -694,8 +694,8 @@
                                 <aligny>center</aligny>
                                 <label>$INFO[ListItem.Title]</label>
                                 <font>MediumBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                                 <visible>!ListItem.IsPlaying</visible>
                             </control>
                             <control type="label">
@@ -707,8 +707,8 @@
                                 <aligny>center</aligny>
                                 <label fallback="19055">$INFO[ListItem.Artist]$INFO[ListItem.Album,  •  ,]</label>
                                 <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                             </control>
                             <control type="textbox">
                                 <top>170</top>
@@ -719,8 +719,8 @@
                                 <aligny>top</aligny>
                                 <label>$INFO[ListItem.Genre,[B]$LOCALIZE[515]  [/B],[CR]]$INFO[ListItem.Duration(mins ss),[B]$LOCALIZE[180]  [/B],[CR]]</label>
                                 <font>Tiny</font>
-                                <textcolor>Light2</textcolor>
-                                <selectedcolor>Light2</selectedcolor>
+                                <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                                <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             </control>
                             <control type="group">
                                 <right>40</right>

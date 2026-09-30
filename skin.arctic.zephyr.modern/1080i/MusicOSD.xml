@@ -329,9 +329,9 @@
                                 <aligny>center</aligny>
                                 <align>left</align>
                                 <font>SmallBold</font>
-                                <textcolor>Selected</textcolor>
+                                <textcolor>$VAR[ColorHighlightText]</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
-                                <selectedcolor>Selected</selectedcolor>
+                                <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                                 <visible>String.IsEmpty(ListItem.Property(IsPlaying))</visible>
                             </control>
                             <control type="label">
@@ -341,9 +341,9 @@
                                 <aligny>center</aligny>
                                 <align>left</align>
                                 <font>SmallBold</font>
-                                <textcolor>Selected</textcolor>
+                                <textcolor>$VAR[ColorHighlightText]</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
-                                <selectedcolor>Selected</selectedcolor>
+                                <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                                 <visible>!String.IsEmpty(ListItem.Property(IsPlaying))</visible>
                             </control>
                             <control type="label">
@@ -353,9 +353,9 @@
                                 <aligny>center</aligny>
                                 <align>right</align>
                                 <font>Small</font>
-                                <textcolor>Selected</textcolor>
+                                <textcolor>$VAR[ColorHighlightText]</textcolor>
                                 <label>$INFO[ListItem.Label2]</label>
-                                <selectedcolor>Selected</selectedcolor>
+                                <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                             </control>
                         </control>
                         <control type="image">

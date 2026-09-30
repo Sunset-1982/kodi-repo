@@ -94,4 +94,16 @@ Offen: `Includes_SettingsModern.xml` mit den Hub- und Kategorie-Layouts, bedingt
 - **Farbthemen** (Skript `tools/add_color_system.py`, idempotent): graphit, mitternacht, oled, nordlicht, sonnenuntergang, sand, kodiblau. Auswahl über Custom_1130 (DialogSelect) mit `includesetting=ModernTheme` und den Items `CustomSettings_Items.ModernTheme` (setzen alle 5 Strings plus ModernTheme). Label über `Label_ModernTheme`.
 - **Skin-Einstellungen > Farben:** Abschnitt „Modern-Farben“ (97599 Überschrift, 9760 Farbthema, 9761–9765 Einzelfarben per `Skin.SetColor(Name,StringID,$VAR[Name],special://skin/extras/colors.xml)`, danach ModernTheme=custom; 9766 zurücksetzen). Stolperfalle: Die Überschrift bei Skin.SetColor muss eine reine String-ID sein, nicht `$LOCALIZE[...]`.
 - **Ausgeblendet** (nur sichtbar bei OSDStyle=original): 9202, 9209, 9210, 9211, 92111, 9212, 9217, 9213, 92131, 9216, 9218, 9219, 9220, 9221, 9222. Farbverläufe 9653/9654 nur sichtbar, wenn OSD oder Einstellungen auf Original stehen. Nichts gelöscht, damit das Original-Design funktionsfähig bleibt.
-- Noch nicht eingefärbt: Home-Bildschirm und Bibliotheksansichten nutzen weiter die Original-Farben (ColorHighlight/Akzentfarbe).
+- (Seit v0.6.0 gilt das Farbsystem überall, siehe unten.)
+
+
+## v0.6.0 (30.09.2026): Farben einheitlich, Unschärfe im Hauptmenü
+- Skript `tools/unify_colors.py` (idempotent, lässt die generierten Includes aus):
+  - `ColorHighlight` und `ColorGradient` → ModernFocus, außer bei `ModernTheme=classic`.
+  - Neue Variablen: `ColorHighlightText` (ModernFocusText / Selected), `ColorAccentText` (ModernAccent / ColorHighlight), `ColorListFocus` (ModernFocus / Dark1), `ColorListFocusText` und `ColorListFocusText2` (ModernFocusText / Light1 bzw. Light2).
+  - In focusedlayouts mit Highlight werden helle text- und selectedcolor-Werte zu ColorHighlightText. `focusedcolor Selected` → ColorHighlightText. Radio-Fokus-Icons in FFFFFFFF → ColorHighlightText. `textcolor`/`[COLOR]` mit ColorHighlight → ColorAccentText.
+  - Fokusbalken der Ansichten (box.png in Dark1, in focusedlayouts und *focus*-Includes) → ColorListFocus, Text darauf entsprechend.
+- Thema **„Klassisch (Original-Farben)“** (ModernTheme=classic, String 32176). Die alten Optionen Akzentfarbe (9651) und Verlauf (9653/9654) sind nur bei Klassisch sichtbar.
+- `colors/defaults.xml` übernimmt die Werte von „Dark with Dark Dialogs“ (8 Farben), Dialoge sind also standardmäßig dunkel. Helle Dialoge lassen sich weiter über Kodis Skin-Farben wählen, dort ist der Kontrast mit hellem Fokus aber schwächer.
+- **Unschärfe:** existiert über TMDb Helper (Hintergrund > „Unschärfe aktivieren“, `TMDbHelper.EnableBlur`, Bild `Window(Home).Property(TMDbHelper.ListItem.BlurImage)`). Neu ist die Option 93121 „Unschärfe auch im Hauptmenü“ (`blur.home`), angepasst in Includes_Global.xml (GlobalBackground-Multiimages). In der Testumgebung startet der TMDb-Helper-Dienst nicht (keine ListItem-Properties), deshalb nur auf der Box testbar.
+- Testumgebung: kodi-start setzt REQUESTS_CA_BUNDLE/SSL_CERT_FILE auf /etc/ssl/certs/ca-certificates.crt.

@@ -163,8 +163,8 @@
                             <aligny>center</aligny>
                             <height>64</height>
                             <font>SmallBold</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                             <label>$INFO[ListItem.ChannelNumberLabel,,  ]$INFO[ListItem.ChannelName]</label>
                         </control>
                         <control type="label">
@@ -174,8 +174,8 @@
                             <aligny>center</aligny>
                             <height>64</height>
                             <font>Tiny24</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                             <label fallback="19055">$INFO[ListItem.Title]</label>
                         </control>
                     </control>
@@ -185,8 +185,8 @@
                         <right>30</right>
                         <align>right</align>
                         <font>Small</font>
-                        <textcolor>Selected</textcolor>
-                        <selectedcolor>Selected</selectedcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
+                        <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         <label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
                     </control>
                 </focusedlayout>

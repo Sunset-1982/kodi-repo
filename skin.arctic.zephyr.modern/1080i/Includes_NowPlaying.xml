@@ -391,7 +391,7 @@
                                 <aligny>center</aligny>
                                 <align>left</align>
                                 <font>Tiny</font>
-                                <textcolor>Dark2</textcolor>
+                                <textcolor>$VAR[ColorHighlightText]</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
                             </control>
                         </control>
@@ -403,7 +403,7 @@
                                 <aligny>center</aligny>
                                 <align>left</align>
                                 <font>Tiny</font>
-                                <textcolor>$VAR[ColorHighlight]</textcolor>
+                                <textcolor>$VAR[ColorAccentText]</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
                             </control>
                         </control>

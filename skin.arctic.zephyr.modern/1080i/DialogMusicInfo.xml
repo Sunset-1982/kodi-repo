@@ -695,7 +695,7 @@
                                     <visible>ListItem.IsPlaying</visible>
                                 </control>
                                 <control type="label">
-                                    <textcolor>$VAR[ColorHighlight]</textcolor>
+                                    <textcolor>$VAR[ColorAccentText]</textcolor>
                                     <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
                                     <height>50</height>
                                     <width>800</width>
@@ -716,8 +716,8 @@
                                     <visible>ListItem.IsPlaying</visible>
                                 </control>
                                 <control type="label">
-                                    <textcolor>Dark2</textcolor>
-                                    <selectedcolor>Dark2</selectedcolor>
+                                    <textcolor>$VAR[ColorHighlightText]</textcolor>
+                                    <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                                     <height>50</height>
                                     <width>800</width>
                                     <font>Tiny</font>

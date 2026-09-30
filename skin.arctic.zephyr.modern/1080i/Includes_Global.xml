@@ -337,7 +337,7 @@
             <visible>![Window.IsVisible(Home.xml) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(hide.homemenu.netflix.preview) | [Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524)] + !Skin.HasSetting(hide.views.netflix.preview) + !Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)] | $EXP[InfoDialogsActive] + [!Window.IsVisible(home) | !$EXP[InfoDialogsExtendedBackground]]</visible>
             <include>Animation.BackgroundHideView</include>
             <control type="multiimage" description="Fanart">
-                <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) | [Window.IsVisible(home) + !$EXP[InfoDialogsActive]]</visible>
+                <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) | [Window.IsVisible(home) + !$EXP[InfoDialogsActive] + !Skin.HasSetting(blur.home)]</visible>
                 <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
                 <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
                 <include condition="![Window.IsVisible(home) + [$EXP[HomeIsSpotlight] | $EXP[HomeIsClassic]]]">GlobalBackgroundFade</include>
@@ -353,7 +353,7 @@
             </control>
 
             <control type="multiimage" description="Fanart">
-                <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + [!Window.IsVisible(home) | $EXP[InfoDialogsActive]]</visible>
+                <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + [!Window.IsVisible(home) | $EXP[InfoDialogsActive] | Skin.HasSetting(blur.home)]</visible>
                 <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
                 <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
                 <include>GlobalBackgroundFadeBlur</include>

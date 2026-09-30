@@ -2560,3 +2560,11 @@ msgstr ""
 msgctxt "#32175"
 msgid "Modern colours"
 msgstr ""
+
+msgctxt "#32176"
+msgid "Classic (original colours)"
+msgstr ""
+
+msgctxt "#32177"
+msgid "      Also blur the background on the home screen"
+msgstr ""

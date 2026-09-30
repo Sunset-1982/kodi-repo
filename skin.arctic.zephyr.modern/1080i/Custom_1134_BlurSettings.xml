@@ -187,9 +187,9 @@
                     <include>buttondimensionsblur</include>
                     <texturenofocus colordiffuse="Black30" border="0">common/boxsquare.png</texturenofocus>
                     <texturefocus colordiffuse="$VAR[ColorHighlight]" border="0">common/boxsquare.png</texturefocus>
-                    <textureradioonfocus colordiffuse="FFFFFFFF">icons/artworkdownloader.png</textureradioonfocus>
+                    <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/artworkdownloader.png</textureradioonfocus>
                     <textureradioonnofocus colordiffuse="FFFFFFFF">icons/artworkdownloader.png</textureradioonnofocus>
-                    <textureradioofffocus colordiffuse="FFFFFFFF">icons/artworkdownloader.png</textureradioofffocus>
+                    <textureradioofffocus colordiffuse="$VAR[ColorHighlightText]">icons/artworkdownloader.png</textureradioofffocus>
                     <textureradiooffnofocus colordiffuse="FFFFFFFF">icons/artworkdownloader.png</textureradiooffnofocus>
                     <textcolor>Dark4</textcolor>
                     <font>Null</font>
@@ -205,9 +205,9 @@
                     <include>buttondimensionsblur</include>
                     <texturenofocus colordiffuse="Black30" border="0">common/boxsquare.png</texturenofocus>
                     <texturefocus colordiffuse="$VAR[ColorHighlight]" border="0">common/boxsquare.png</texturefocus>
-                    <textureradioonfocus colordiffuse="FFFFFFFF">icons/choose_image.png</textureradioonfocus>
+                    <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">icons/choose_image.png</textureradioonfocus>
                     <textureradioonnofocus colordiffuse="FFFFFFFF">icons/choose_image.png</textureradioonnofocus>
-                    <textureradioofffocus colordiffuse="FFFFFFFF">icons/choose_image_blur.png</textureradioofffocus>
+                    <textureradioofffocus colordiffuse="$VAR[ColorHighlightText]">icons/choose_image_blur.png</textureradioofffocus>
                     <textureradiooffnofocus colordiffuse="FFFFFFFF">icons/choose_image_blur.png</textureradiooffnofocus>
                     <textcolor>Dark4</textcolor>
                     <font>Null</font>

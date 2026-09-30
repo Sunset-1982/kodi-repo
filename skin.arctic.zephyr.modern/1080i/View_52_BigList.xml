@@ -165,7 +165,7 @@
             <right>10</right>
             <top>1</top>
             <height>119</height>
-            <texture border="5" colordiffuse="Dark1">common/box.png</texture>
+            <texture border="5" colordiffuse="$VAR[ColorListFocus]">common/box.png</texture>
         </control>
         <include content="View_52_Thumbnail_Image">
            <param name="icon_color" value="Light1"/>

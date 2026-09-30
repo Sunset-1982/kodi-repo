@@ -459,9 +459,9 @@
         <textcolor>Dark2</textcolor>
         <texturenofocus colordiffuse="$PARAM[color]" border="0">common/boxsquare.png</texturenofocus>
         <texturefocus colordiffuse="$VAR[ColorHighlight]" border="0">common/boxsquare.png</texturefocus>
-        <textureradioonfocus colordiffuse="FFFFFFFF">$PARAM[icon]</textureradioonfocus>
+        <textureradioonfocus colordiffuse="$VAR[ColorHighlightText]">$PARAM[icon]</textureradioonfocus>
         <textureradioonnofocus colordiffuse="FFFFFFFF">$PARAM[icon]</textureradioonnofocus>
-        <textureradioofffocus colordiffuse="FFFFFFFF">$PARAM[icon]</textureradioofffocus>
+        <textureradioofffocus colordiffuse="$VAR[ColorHighlightText]">$PARAM[icon]</textureradioofffocus>
         <textureradiooffnofocus colordiffuse="FFFFFFFF">$PARAM[icon]</textureradiooffnofocus>
         <textureradiooffdisabled colordiffuse="1FFFFFFF">$PARAM[icon]</textureradiooffdisabled>
         <textureradioondisabled colordiffuse="1FFFFFFF">$PARAM[icon]</textureradioondisabled>
@@ -475,9 +475,9 @@
 	        <textcolor>Black70</textcolor>
 	        <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
 	        <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
-	        <textureradioonfocus flipx="$PARAM[flipx]" colordiffuse="Selected">$PARAM[icon]</textureradioonfocus>
+	        <textureradioonfocus flipx="$PARAM[flipx]" colordiffuse="$VAR[ColorHighlightText]">$PARAM[icon]</textureradioonfocus>
 	        <textureradioonnofocus flipx="$PARAM[flipx]" colordiffuse="Black70">$PARAM[icon]</textureradioonnofocus>
-	        <textureradioofffocus flipx="$PARAM[flipx]" colordiffuse="Selected">$PARAM[icon]</textureradioofffocus>
+	        <textureradioofffocus flipx="$PARAM[flipx]" colordiffuse="$VAR[ColorHighlightText]">$PARAM[icon]</textureradioofffocus>
 	        <textureradiooffnofocus flipx="$PARAM[flipx]" colordiffuse="Black70">$PARAM[icon]</textureradiooffnofocus>
 	        <textureradiooffdisabled flipx="$PARAM[flipx]" colordiffuse="disabled">$PARAM[icon]</textureradiooffdisabled>
 	        <textureradioondisabled flipx="$PARAM[flipx]" colordiffuse="disabled">$PARAM[icon]</textureradioondisabled>

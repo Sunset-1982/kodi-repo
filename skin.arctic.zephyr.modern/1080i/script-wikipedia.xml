@@ -62,8 +62,8 @@
                             <height>64</height>
                             <font>SmallBold</font>
                             <label>$INFO[ListItem.Label]</label>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         </control>
                     </focusedlayout>
                     <itemlayout width="PosterH" height="64" condition="Window.IsVisible(DialogMusicInfo.xml)">
@@ -96,8 +96,8 @@
                             <height>64</height>
                             <font>SmallBold</font>
                             <label>$INFO[ListItem.Label]</label>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColorHighlightText]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
                         </control>
                     </focusedlayout>
                 </control>

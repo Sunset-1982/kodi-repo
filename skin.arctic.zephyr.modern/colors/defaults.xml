@@ -13,15 +13,15 @@
     <color name="Light3">4d333333</color>
     <color name="Light4">1f333333</color>
 
-    <color name="White100">FFcccccc</color>
-    <color name="White70">B3cccccc</color>
-    <color name="White30">4Dcccccc</color>
-    <color name="White12">1Fcccccc</color>
+    <color name="White100">FF333333</color>
+    <color name="White70">B3333333</color>
+    <color name="White30">4D333333</color>
+    <color name="White12">1F333333</color>
 
-    <color name="Black100">FF000000</color>
-    <color name="Black70">B3000000</color>
-    <color name="Black30">4D000000</color>
-    <color name="Black12">1F000000</color>
+    <color name="Black100">FFbbbbbb</color>
+    <color name="Black70">B3bbbbbb</color>
+    <color name="Black30">4Dbbbbbb</color>
+    <color name="Black12">1Fbbbbbb</color>
 
     <color name="PanelWhite100">FFdddddd</color>
     <color name="PanelWhite90">E6dddddd</color>

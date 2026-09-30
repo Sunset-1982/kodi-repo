@@ -95,7 +95,7 @@
                         <left>96</left>
                         <right>220</right>
                         <info>ListItem.Label</info>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColorHighlightText]</textcolor>
                         <animation effect="fade" start="100" end="50" time="0" condition="String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)">Conditional</animation>
                     </control>
                 </focusedlayout>

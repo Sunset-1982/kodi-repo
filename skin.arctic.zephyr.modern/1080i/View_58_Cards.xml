@@ -154,7 +154,7 @@
                             <top>10</top>
                             <right>10</right>
                             <bottom>10</bottom>
-                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                            <texture colordiffuse="$VAR[ColorListFocus]" border="5">common/box.png</texture>
                         </control>
                         <control type="image">
                             <left>10</left>
@@ -171,8 +171,8 @@
                             <height>45</height>
                             <align>left</align>
                             <font>MediumBold</font>
-                            <textcolor>Light1</textcolor>
-                            <selectedcolor>Light1</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                             <label>$INFO[ListItem.Label]</label>
                         </control>
                         <control type="textbox">
@@ -182,8 +182,8 @@
                             <height>170</height>
                             <align>justify</align>
                             <font>Tiny</font>
-                            <textcolor>Light2</textcolor>
-                            <selectedcolor>Light2</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             <label>$VAR[LabelPlotBox]</label>
                         </control>
                         <control type="label">
@@ -194,8 +194,8 @@
                             <height>38</height>
                             <align>right</align>
                             <font>Tiny</font>
-                            <textcolor>Light2</textcolor>
-                            <selectedcolor>Light2</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             <label fallback="19055">$VAR[LabelYear]$VAR[LabelDuration,  •  ,]$VAR[RatingLabel,  •  ,]</label>
                         </control>
                         <control type="image">
@@ -216,7 +216,7 @@
                             <top>10</top>
                             <right>10</right>
                             <bottom>10</bottom>
-                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                            <texture colordiffuse="$VAR[ColorListFocus]" border="5">common/box.png</texture>
                         </control>
                         <control type="image">
                             <left>10</left>
@@ -233,8 +233,8 @@
                             <height>45</height>
                             <align>left</align>
                             <font>MediumBold</font>
-                            <textcolor>Light1</textcolor>
-                            <selectedcolor>Light1</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText]</selectedcolor>
                             <label>$INFO[ListItem.Label]</label>
                         </control>
                         <control type="textbox">
@@ -244,8 +244,8 @@
                             <height>170</height>
                             <align>justify</align>
                             <font>Tiny</font>
-                            <textcolor>Light2</textcolor>
-                            <selectedcolor>Light2</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             <label>$VAR[LabelPlot]</label>
                         </control>
                         <control type="label">
@@ -256,8 +256,8 @@
                             <height>38</height>
                             <align>right</align>
                             <font>Tiny</font>
-                            <textcolor>Light2</textcolor>
-                            <selectedcolor>Light2</selectedcolor>
+                            <textcolor>$VAR[ColorListFocusText2]</textcolor>
+                            <selectedcolor>$VAR[ColorListFocusText2]</selectedcolor>
                             <label fallback="19055">$VAR[LabelYear]$VAR[LabelDuration,  •  ,]$VAR[RatingLabel,  •  ,]</label>
                         </control>
                         <control type="image">

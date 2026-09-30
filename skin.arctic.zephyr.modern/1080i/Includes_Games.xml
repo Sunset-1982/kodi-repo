@@ -290,8 +290,8 @@
 		                    <width>416</width>
 		                    <height>135</height>
 		                    <font>SmallBold</font>
-		                    <textcolor>Black70</textcolor>
-		                    <selectedcolor>Black70</selectedcolor>
+		                    <textcolor>$VAR[ColorHighlightText]</textcolor>
+		                    <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
 		                    <label>$INFO[ListItem.Label]</label>
 		                </control>
 		                <control type="label">
@@ -300,8 +300,8 @@
 		                    <height>135</height>
 		                    <font>Small</font>
 		                    <align>right</align>
-		                    <textcolor>Black70</textcolor>
-		                    <selectedcolor>Black70</selectedcolor>
+		                    <textcolor>$VAR[ColorHighlightText]</textcolor>
+		                    <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
 		                    <label>$INFO[ListItem.Label2]</label>
 		                </control>
 					</control>
@@ -324,8 +324,8 @@
 		                    <width>416</width>
 		                    <height>135</height>
 		                    <font>SmallBold</font>
-		                    <textcolor>Selected</textcolor>
-		                    <selectedcolor>Selected</selectedcolor>
+		                    <textcolor>$VAR[ColorHighlightText]</textcolor>
+		                    <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
 		                    <label>$INFO[ListItem.Label]</label>
 		                </control>
 		                <control type="label">
@@ -334,8 +334,8 @@
 		                    <height>135</height>
 		                    <font>Small</font>
 		                    <align>right</align>
-		                    <textcolor>Selected</textcolor>
-		                    <selectedcolor>Selected</selectedcolor>
+		                    <textcolor>$VAR[ColorHighlightText]</textcolor>
+		                    <selectedcolor>$VAR[ColorHighlightText]</selectedcolor>
 		                    <label>$INFO[ListItem.Label2]</label>
 		                </control>
 					</control>
