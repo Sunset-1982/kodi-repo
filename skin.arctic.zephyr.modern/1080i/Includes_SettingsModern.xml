@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Arctic Zephyr - Modern: Einstellungs-Designs A/B/C.
+     Generiert von tools/gen_settings_modern.py - bitte dort aendern. -->
+<includes>
+    <include name="SettingsItemsModern">
+        <item id="1">
+            <property name="Short">$LOCALIZE[32110]</property>
+            <label>31004</label>
+            <label2>31166</label2>
+            <icon>special://skin/extras/icons/paintbrush.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(SkinSettings)</onclick>
+        </item>
+        <item id="2">
+            <property name="Short">$LOCALIZE[32111]</property>
+            <label>14200</label>
+            <label2>31277</label2>
+            <icon>special://skin/extras/icons/equalizer.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(PlayerSettings)</onclick>
+        </item>
+        <item id="6">
+            <property name="Short">$LOCALIZE[32115]</property>
+            <label>14206</label>
+            <label2>31275</label2>
+            <icon>special://skin/extras/icons/skinsettings.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(InterfaceSettings)</onclick>
+        </item>
+        <item id="12">
+            <property name="Short">$LOCALIZE[32120]</property>
+            <label>CoreELEC</label>
+            <label2>31374</label2>
+            <icon>special://skin/extras/icons/coreelec.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>RunScript(service.coreelec.settings)</onclick>
+            <visible>System.HasAddon(service.coreelec.settings)</visible>
+        </item>
+        <item id="11">
+            <property name="Short">$LOCALIZE[32120]</property>
+            <label>LibreELEC</label>
+            <label2>31373</label2>
+            <icon>special://skin/extras/icons/libreelec.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>RunScript(service.libreelec.settings)</onclick>
+            <visible>System.HasAddon(service.libreelec.settings)</visible>
+        </item>
+        <item id="5">
+            <property name="Short">$LOCALIZE[32114]</property>
+            <label>14211</label>
+            <label2>31276</label2>
+            <icon>special://skin/extras/icons/tags.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(MediaSettings)</onclick>
+        </item>
+        <item id="8">
+            <property name="Short">$LOCALIZE[32117]</property>
+            <label>14204</label>
+            <label2>31163</label2>
+            <icon>special://skin/extras/icons/livetv.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(pvrsettings)</onclick>
+        </item>
+        <item id="13">
+            <property name="Short">$LOCALIZE[32121]</property>
+            <label>14036</label>
+            <label2>31164</label2>
+            <icon>special://skin/extras/icons/network.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(servicesettings)</onclick>
+        </item>
+        <item id="7">
+            <property name="Short">$LOCALIZE[32116]</property>
+            <label>24001</label>
+            <label2>31162</label2>
+            <icon>special://skin/extras/icons/addons.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(AddonBrowser)</onclick>
+        </item>
+        <item id="4">
+            <property name="Short">$LOCALIZE[32113]</property>
+            <label>$LOCALIZE[7]</label>
+            <label2>31501</label2>
+            <icon>special://skin/extras/icons/files.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(filemanager)</onclick>
+        </item>
+        <item id="10">
+            <property name="Short">$LOCALIZE[32119]</property>
+            <label>130</label>
+            <label2>31167</label2>
+            <icon>special://skin/extras/icons/sysinfo.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(7)</onclick>
+            <visible>!System.HasAddon(service.libreelec.settings) + !System.HasAddon(service.coreelec.settings)</visible>
+        </item>
+        <item id="9">
+            <property name="Short">$LOCALIZE[32118]</property>
+            <label>13200</label>
+            <label2>31165</label2>
+            <icon>special://skin/extras/icons/actor.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(Profiles)</onclick>
+        </item>
+        <item id="14">
+            <property name="Short">$LOCALIZE[32122]</property>
+            <label>13000</label>
+            <label2>31161</label2>
+            <icon>special://skin/extras/icons/configure.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(SystemSettings)</onclick>
+        </item>
+        <item id="3">
+            <property name="Short">$LOCALIZE[32112]</property>
+            <label>15016</label>
+            <label2>31987</label2>
+            <icon>special://skin/extras/icons/xbox.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(gamesettings)</onclick>
+        </item>
+    </include>
+    <include name="SettingsItemsTop">
+        <item id="1">
+            <property name="Short">$LOCALIZE[32110]</property>
+            <label>31004</label>
+            <label2>31166</label2>
+            <icon>special://skin/extras/icons/paintbrush.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(SkinSettings)</onclick>
+        </item>
+        <item id="2">
+            <property name="Short">$LOCALIZE[32111]</property>
+            <label>14200</label>
+            <label2>31277</label2>
+            <icon>special://skin/extras/icons/equalizer.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(PlayerSettings)</onclick>
+        </item>
+        <item id="6">
+            <property name="Short">$LOCALIZE[32115]</property>
+            <label>14206</label>
+            <label2>31275</label2>
+            <icon>special://skin/extras/icons/skinsettings.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(InterfaceSettings)</onclick>
+        </item>
+        <item id="12">
+            <property name="Short">$LOCALIZE[32120]</property>
+            <label>CoreELEC</label>
+            <label2>31374</label2>
+            <icon>special://skin/extras/icons/coreelec.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>RunScript(service.coreelec.settings)</onclick>
+            <visible>System.HasAddon(service.coreelec.settings)</visible>
+        </item>
+        <item id="14">
+            <property name="Short">$LOCALIZE[32122]</property>
+            <label>13000</label>
+            <label2>31161</label2>
+            <icon>special://skin/extras/icons/configure.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(SystemSettings)</onclick>
+            <visible>!System.HasAddon(service.coreelec.settings)</visible>
+        </item>
+    </include>
+    <include name="SettingsItemsRest">
+        <item id="5">
+            <property name="Short">$LOCALIZE[32114]</property>
+            <label>14211</label>
+            <label2>31276</label2>
+            <icon>special://skin/extras/icons/tags.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(MediaSettings)</onclick>
+        </item>
+        <item id="8">
+            <property name="Short">$LOCALIZE[32117]</property>
+            <label>14204</label>
+            <label2>31163</label2>
+            <icon>special://skin/extras/icons/livetv.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(pvrsettings)</onclick>
+        </item>
+        <item id="13">
+            <property name="Short">$LOCALIZE[32121]</property>
+            <label>14036</label>
+            <label2>31164</label2>
+            <icon>special://skin/extras/icons/network.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(servicesettings)</onclick>
+        </item>
+        <item id="7">
+            <property name="Short">$LOCALIZE[32116]</property>
+            <label>24001</label>
+            <label2>31162</label2>
+            <icon>special://skin/extras/icons/addons.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(AddonBrowser)</onclick>
+        </item>
+        <item id="4">
+            <property name="Short">$LOCALIZE[32113]</property>
+            <label>$LOCALIZE[7]</label>
+            <label2>31501</label2>
+            <icon>special://skin/extras/icons/files.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(filemanager)</onclick>
+        </item>
+        <item id="10">
+            <property name="Short">$LOCALIZE[32119]</property>
+            <label>130</label>
+            <label2>31167</label2>
+            <icon>special://skin/extras/icons/sysinfo.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(7)</onclick>
+            <visible>!System.HasAddon(service.libreelec.settings) + !System.HasAddon(service.coreelec.settings)</visible>
+        </item>
+        <item id="11">
+            <property name="Short">$LOCALIZE[32120]</property>
+            <label>LibreELEC</label>
+            <label2>31373</label2>
+            <icon>special://skin/extras/icons/libreelec.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>RunScript(service.libreelec.settings)</onclick>
+            <visible>System.HasAddon(service.libreelec.settings)</visible>
+        </item>
+        <item id="9">
+            <property name="Short">$LOCALIZE[32118]</property>
+            <label>13200</label>
+            <label2>31165</label2>
+            <icon>special://skin/extras/icons/actor.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(Profiles)</onclick>
+        </item>
+        <item id="3">
+            <property name="Short">$LOCALIZE[32112]</property>
+            <label>15016</label>
+            <label2>31987</label2>
+            <icon>special://skin/extras/icons/xbox.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(gamesettings)</onclick>
+        </item>
+        <item id="14">
+            <property name="Short">$LOCALIZE[32122]</property>
+            <label>13000</label>
+            <label2>31161</label2>
+            <icon>special://skin/extras/icons/configure.png</icon>
+            <property name="Fanart">$VAR[Image_Systeminfo]</property>
+            <onclick>ActivateWindow(SystemSettings)</onclick>
+            <visible>System.HasAddon(service.coreelec.settings)</visible>
+        </item>
+    </include>
+
+    <include name="SettingsHub_A">
+    <control type="group">
+        <include>Animation.Common</include>
+        <control type="image">
+            <width>1920</width><height>1080</height>
+            <texture>common/modern-shade.png</texture>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>92</top><width>1200</width><height>34</height>
+            <font>ModernSmall</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$LOCALIZE[5]</label>
+        </control>
+        <control type="label">
+            <left>96</left><top>124</top><width>1300</width><height>84</height>
+            <font>ModernTitle</font><textcolor>ffececec</textcolor><align>left</align>
+            <label>$LOCALIZE[32105]</label>
+        </control>
+        <control type="panel" id="9100">
+            <left>96</left><top>300</top><width>1216</width><height>600</height>
+            <orientation>vertical</orientation>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <onright>noop</onright>
+            
+        <itemlayout width="304" height="196">
+            <control type="group">
+            <control type="image">
+                <width>280</width><height>172</height>
+                <texture border="14" colordiffuse="12ffffff">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>14</left><top>12</top><width>72</width><height>72</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="e6ffffff">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>26</left><top>112</top><width>238</width><height>44</height>
+                <font>ModernTile</font><textcolor>ffececec</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            </control>
+        </itemlayout>
+            
+        <focusedlayout width="304" height="196">
+            <control type="group">
+            <visible>Control.HasFocus(9100)</visible>
+            <animation effect="zoom" start="100" end="104" time="150" tween="cubic" easing="out" center="auto">Visible</animation>
+            <control type="image">
+                <width>280</width><height>172</height>
+                <texture border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>14</left><top>12</top><width>72</width><height>72</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="ff14171b">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>26</left><top>112</top><width>238</width><height>44</height>
+                <font>ModernTile</font><textcolor>ff14171b</textcolor><scroll>true</scroll><scrollspeed>50</scrollspeed>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            </control>
+            <control type="group">
+            <visible>!Control.HasFocus(9100)</visible>
+            <control type="image">
+                <width>280</width><height>172</height>
+                <texture border="14" colordiffuse="12ffffff">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>14</left><top>12</top><width>72</width><height>72</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="e6ffffff">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>26</left><top>112</top><width>238</width><height>44</height>
+                <font>ModernTile</font><textcolor>ffececec</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            </control>
+        </focusedlayout>
+            <content><include>SettingsItemsModern</include></content>
+        </control>
+        
+        <control type="textbox">
+            <left>1380</left><top>300</top><width>444</width><height>580</height>
+            <font>ModernRow</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$INFO[Container(9100).ListItem.Label2]</label>
+        </control>
+    </control>
+    </include>
+
+
+    <include name="SettingsHub_B">
+    <control type="group">
+        <include>Animation.Common</include>
+        <control type="image">
+            <width>1920</width><height>1080</height>
+            <texture>common/modern-shade.png</texture>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>96</top><width>1200</width><height>84</height>
+            <font>ModernTitle</font><textcolor>ffececec</textcolor><align>left</align>
+            <label>$LOCALIZE[5]</label>
+        </control>
+        <control type="list" id="9100">
+            <left>96</left><top>226</top><width>760</width><height>792</height>
+            <orientation>vertical</orientation>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <onright>noop</onright>
+            
+        <itemlayout width="760" height="72">
+            <control type="image">
+                <width>760</width><height>68</height>
+                <texture border="14" colordiffuse="00ffffff">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>16</left><top>8</top><width>52</width><height>52</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="ccffffff">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>84</left><top>4</top><width>660</width><height>36</height>
+                <font>ModernRow</font><textcolor>ffececec</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+                <left>84</left><top>38</top><width>660</width><height>28</height>
+                <font>ModernCaption</font><textcolor>ff6c747e</textcolor>
+                <label>$INFO[ListItem.Property(Short)]</label>
+            </control>
+        </itemlayout>
+            
+        <focusedlayout width="760" height="72">
+            <control type="image">
+                <width>760</width><height>68</height>
+                <texture border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>16</left><top>8</top><width>52</width><height>52</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="ff14171b">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>84</left><top>4</top><width>660</width><height>36</height>
+                <font>ModernRow</font><textcolor>ff14171b</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+                <left>84</left><top>38</top><width>660</width><height>28</height>
+                <font>ModernCaption</font><textcolor>ff4a5058</textcolor>
+                <label>$INFO[ListItem.Property(Short)]</label>
+            </control>
+        </focusedlayout>
+            <content><include>SettingsItemsModern</include></content>
+        </control>
+        
+        <control type="image">
+            <left>1000</left><top>226</top><width>824</width><height>700</height>
+            <texture border="20" colordiffuse="0fffffff">common/modern-round20.png</texture>
+        </control>
+        <control type="image">
+            <left>1056</left><top>282</top><width>96</width><height>96</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture>$INFO[Container(9100).ListItem.Icon]</texture>
+        </control>
+        
+        <control type="textbox">
+            <left>1056</left><top>410</top><width>712</width><height>480</height>
+            <font>ModernItem</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$INFO[Container(9100).ListItem.Label2]</label>
+        </control>
+    </control>
+    </include>
+
+
+    <include name="SettingsHub_C">
+    <control type="group">
+        <include>Animation.Common</include>
+        <control type="image">
+            <width>1920</width><height>1080</height>
+            <texture>common/modern-shade.png</texture>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>96</top><width>1200</width><height>84</height>
+            <font>ModernTitle</font><textcolor>ffececec</textcolor><align>left</align>
+            <label>$LOCALIZE[5]</label>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>246</top><width>800</width><height>36</height>
+            <font>ModernTile</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$LOCALIZE[32107]</label>
+        </control>
+        <control type="list" id="9100">
+            <left>96</left><top>296</top><width>1760</width><height>290</height>
+            <orientation>horizontal</orientation>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <ondown>9101</ondown><onup>noop</onup>
+            
+        <itemlayout width="426" height="290">
+            <control type="group">
+            <control type="image">
+                <width>400</width><height>256</height>
+                <texture border="20" colordiffuse="1fffffff">common/modern-round20.png</texture>
+            </control>
+            <control type="image">
+                <left>19</left><top>19</top><width>90</width><height>90</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="e6ffffff">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>34</left><top>150</top><width>350</width><height>44</height>
+                <font>ModernCard</font><textcolor>ffececec</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+                <left>34</left><top>196</top><width>346</width><height>30</height>
+                <font>ModernCaption</font><textcolor>ff98a0aa</textcolor>
+                <label>$INFO[ListItem.Property(Short)]</label>
+            </control>
+            </control>
+        </itemlayout>
+            
+        <focusedlayout width="426" height="290">
+            <control type="group">
+            <visible>Control.HasFocus(9100)</visible>
+            <animation effect="zoom" start="100" end="105" time="150" tween="cubic" easing="out" center="auto">Visible</animation>
+            <control type="image">
+                <width>400</width><height>256</height>
+                <texture border="20" colordiffuse="fff1f3f5">common/modern-round20.png</texture>
+            </control>
+            <control type="image">
+                <left>19</left><top>19</top><width>90</width><height>90</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="ff14171b">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>34</left><top>150</top><width>350</width><height>44</height>
+                <font>ModernCard</font><textcolor>ff14171b</textcolor><scroll>true</scroll><scrollspeed>50</scrollspeed>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+                <left>34</left><top>196</top><width>346</width><height>30</height>
+                <font>ModernCaption</font><textcolor>ff4a5058</textcolor>
+                <label>$INFO[ListItem.Property(Short)]</label>
+            </control>
+            </control>
+            <control type="group">
+            <visible>!Control.HasFocus(9100)</visible>
+            <control type="image">
+                <width>400</width><height>256</height>
+                <texture border="20" colordiffuse="12ffffff">common/modern-round20.png</texture>
+            </control>
+            <control type="image">
+                <left>19</left><top>19</top><width>90</width><height>90</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="e6ffffff">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>34</left><top>150</top><width>350</width><height>44</height>
+                <font>ModernCard</font><textcolor>ffececec</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+                <left>34</left><top>196</top><width>346</width><height>30</height>
+                <font>ModernCaption</font><textcolor>ff98a0aa</textcolor>
+                <label>$INFO[ListItem.Property(Short)]</label>
+            </control>
+            </control>
+        </focusedlayout>
+            <content><include>SettingsItemsTop</include></content>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>626</top><width>800</width><height>36</height>
+            <font>ModernTile</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$LOCALIZE[32108]</label>
+        </control>
+        <control type="list" id="9101">
+            <left>96</left><top>676</top><width>1760</width><height>200</height>
+            <orientation>horizontal</orientation>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <onup>9100</onup><ondown>noop</ondown>
+            
+        <itemlayout width="214" height="200">
+            <control type="group">
+            <control type="image">
+                <width>196</width><height>172</height>
+                <texture border="14" colordiffuse="12ffffff">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>12</left><top>12</top><width>60</width><height>60</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="e6ffffff">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>22</left><top>104</top><width>158</width><height>40</height>
+                <font>ModernCaption</font><textcolor>ffececec</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            </control>
+        </itemlayout>
+            
+        <focusedlayout width="214" height="200">
+            <control type="group">
+            <visible>Control.HasFocus(9101)</visible>
+            <animation effect="zoom" start="100" end="105" time="150" tween="cubic" easing="out" center="auto">Visible</animation>
+            <control type="image">
+                <width>196</width><height>172</height>
+                <texture border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>12</left><top>12</top><width>60</width><height>60</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="ff14171b">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>22</left><top>104</top><width>158</width><height>40</height>
+                <font>ModernCaption</font><textcolor>ff14171b</textcolor><scroll>true</scroll><scrollspeed>50</scrollspeed>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            </control>
+            <control type="group">
+            <visible>!Control.HasFocus(9101)</visible>
+            <control type="image">
+                <width>196</width><height>172</height>
+                <texture border="14" colordiffuse="12ffffff">common/modern-round14.png</texture>
+            </control>
+            <control type="image">
+                <left>12</left><top>12</top><width>60</width><height>60</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="e6ffffff">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>22</left><top>104</top><width>158</width><height>40</height>
+                <font>ModernCaption</font><textcolor>ffececec</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            </control>
+        </focusedlayout>
+            <content><include>SettingsItemsRest</include></content>
+        </control>
+    </control>
+    </include>
+
+
+    <include name="SettingsCat_A">
+    <control type="group">
+        <include>Animation.Common</include>
+        <control type="image">
+            <width>1920</width><height>1080</height>
+            <texture>common/modern-shade.png</texture>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>92</top><width>1200</width><height>34</height>
+            <font>ModernSmall</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$LOCALIZE[5]</label>
+        </control>
+        <control type="label">
+            <left>96</left><top>124</top><width>1300</width><height>84</height>
+            <font>ModernTitle</font><textcolor>ffececec</textcolor><align>left</align>
+            <label>$VAR[Label_SettingsHeader]</label>
+        </control>
+        
+        <control type="grouplist" id="3">
+            <left>96</left><top>290</top><width>340</width><height>620</height>
+            <orientation>vertical</orientation><itemgap>6</itemgap>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <onright>5</onright><onleft>20</onleft><onup>3</onup><ondown>3</ondown>
+        </control>
+        
+        <control type="grouplist" id="5">
+            <left>480</left><top>270</top><width>1344</width><height>660</height>
+            <orientation>vertical</orientation><itemgap>4</itemgap>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <onleft>3</onleft><onup>5</onup><ondown>5</ondown>
+        </control>
+        
+        <control type="textbox" id="6">
+            <left>508</left><top>950</top><width>880</width><height>72</height>
+            <font>ModernSmall</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <autoscroll delay="4000" repeat="8000" time="3000" />
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>946</top><width>320</width><height>28</height>
+            <font>ModernCaption</font><textcolor>ff6c747e</textcolor><align>left</align>
+            <label>$LOCALIZE[32106]</label>
+        </control>
+        <control type="button" id="20">
+            <left>96</left><top>976</top>
+            <width min="120" max="320">auto</width><height>44</height>
+            <font>ModernSmall</font><textoffsetx>18</textoffsetx><align>left</align><aligny>center</aligny>
+            <textcolor>ffececec</textcolor><focusedcolor>ff14171b</focusedcolor>
+            <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+            <texturenofocus border="27" colordiffuse="14ffffff">common/modern-pill.png</texturenofocus>
+            <onclick>SettingsLevelChange</onclick>
+            <onup>3</onup><ondown>3</ondown><onright>3</onright><onleft>noop</onleft>
+        </control>
+    </control>
+    
+    <control type="togglebutton" id="10">
+        <description>Default Category Button</description>
+        <width>340</width>
+        <height>60</height>
+        <font>ModernItem</font>
+        <textoffsetx>24</textoffsetx>
+        <align>left</align>
+        <aligny>center</aligny>
+        <textcolor>ff8a929c</textcolor>
+        <focusedcolor>ff14171b</focusedcolor>
+        <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+        <texturenofocus />
+        <alttexturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</alttexturefocus>
+        <alttexturenofocus border="14" colordiffuse="1fffffff">common/modern-round14.png</alttexturenofocus>
+    </control>
+    
+    <control type="button" id="7">
+        <description>Default Button</description>
+            <width>1344</width>
+            <height>72</height>
+            <font>ModernRow</font>
+            <textoffsetx>28</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+    </control>
+    <control type="radiobutton" id="8">
+        <description>Default Radio Button</description>
+            <width>1344</width>
+            <height>72</height>
+            <font>ModernRow</font>
+            <textoffsetx>28</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+            <radioposx>1264</radioposx>
+            <radiowidth>56</radiowidth>
+            <radioheight>32</radioheight>
+            <textureradioonfocus>buttons/modern-switch-on-focus.png</textureradioonfocus>
+            <textureradioonnofocus>buttons/modern-switch-on.png</textureradioonnofocus>
+            <textureradioofffocus>buttons/modern-switch-off-focus.png</textureradioofffocus>
+            <textureradiooffnofocus>buttons/modern-switch-off.png</textureradiooffnofocus>
+            <textureradioondisabled colordiffuse="59ffffff">buttons/modern-switch-on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="59ffffff">buttons/modern-switch-off.png</textureradiooffdisabled>
+    </control>
+    <control type="spincontrolex" id="9">
+        <description>Default Spin Control</description>
+            <width>1344</width>
+            <height>72</height>
+            <font>ModernRow</font>
+            <textoffsetx>28</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+            <textureup colordiffuse="00ffffff">buttons/spin-down.png</textureup>
+            <texturedown colordiffuse="00ffffff">buttons/spin-down.png</texturedown>
+            <textureupfocus flipy="true" colordiffuse="ff14171b">buttons/spin-down.png</textureupfocus>
+            <texturedownfocus colordiffuse="ff14171b">buttons/spin-down.png</texturedownfocus>
+            <textureupdisabled colordiffuse="00ffffff">buttons/spin-down.png</textureupdisabled>
+            <texturedowndisabled colordiffuse="00ffffff">buttons/spin-down.png</texturedowndisabled>
+            <spinwidth>28</spinwidth><spinheight>28</spinheight>
+    </control>
+    <control type="edit" id="12">
+        <description>Default Edit</description>
+            <width>1344</width>
+            <height>72</height>
+            <font>ModernRow</font>
+            <textoffsetx>28</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+    </control>
+    <control type="sliderex" id="13">
+        <description>Default Slider</description>
+            <width>1344</width>
+            <height>72</height>
+            <font>ModernRow</font>
+            <textoffsetx>28</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+            <sliderwidth>220</sliderwidth>
+            <sliderheight>20</sliderheight>
+            <texturesliderbar colordiffuse="66808890" border="3">osd/modern/bar.png</texturesliderbar>
+            <textureslidernib>osd/modern/knob.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="ff14171b">osd/modern/knob.png</textureslidernibfocus>
+    </control>
+    <control type="colorbutton" id="15">
+        <description>Default ColorButton</description>
+            <width>1344</width>
+            <height>72</height>
+            <font>ModernRow</font>
+            <textoffsetx>28</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+    </control>
+    <control type="label" id="14">
+        <description>Group Title</description>
+        <width>1344</width>
+        <height>61</height>
+        <font>ModernCaption</font>
+        <textoffsetx>28</textoffsetx>
+        <aligny>center</aligny>
+        <textcolor>ff9db0cf</textcolor>
+    </control>
+    </include>
+
+
+    <include name="SettingsCat_B">
+    <control type="group">
+        <include>Animation.Common</include>
+        <control type="image">
+            <width>1920</width><height>1080</height>
+            <texture>common/modern-shade.png</texture>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>92</top><width>900</width><height>34</height>
+            <font>ModernSmall</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$LOCALIZE[5]  ·  $VAR[Label_SettingsHeader]</label>
+        </control>
+        
+        <control type="textbox">
+            <left>96</left><top>140</top><width>880</width><height>170</height>
+            <font>ModernH2</font><textcolor>ffececec</textcolor><align>left</align>
+            <label>$INFO[System.CurrentControl]</label>
+        </control>
+        
+        <control type="textbox" id="6">
+            <left>96</left><top>330</top><width>880</width><height>480</height>
+            <font>ModernItem</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <autoscroll delay="4000" repeat="8000" time="3000" />
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>900</top><width>320</width><height>28</height>
+            <font>ModernCaption</font><textcolor>ff6c747e</textcolor><align>left</align>
+            <label>$LOCALIZE[32106]</label>
+        </control>
+        <control type="button" id="20">
+            <left>96</left><top>930</top>
+            <width min="120" max="320">auto</width><height>44</height>
+            <font>ModernSmall</font><textoffsetx>18</textoffsetx><align>left</align><aligny>center</aligny>
+            <textcolor>ffececec</textcolor><focusedcolor>ff14171b</focusedcolor>
+            <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+            <texturenofocus border="27" colordiffuse="14ffffff">common/modern-pill.png</texturenofocus>
+            <onclick>SettingsLevelChange</onclick>
+            <onup>3</onup><ondown>3</ondown><onright>3</onright><onleft>noop</onleft>
+        </control>
+        <control type="group">
+            <left>1060</left>
+            <animation effect="slide" start="860,0" end="0,0" time="260" tween="cubic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="860,0" time="200" tween="cubic" easing="in">WindowClose</animation>
+            
+        <control type="image">
+            <left>-40</left><top>0</top><width>40</width><height>1080</height>
+            <texture colordiffuse="99ffffff">common/modern-shade.png</texture>
+        </control>
+            
+        <control type="image">
+            <left>0</left><top>0</top><width>860</width><height>1080</height>
+            <texture colordiffuse="f516191e">common/white.png</texture>
+        </control>
+            
+        <control type="grouplist" id="3">
+            <left>56</left><top>66</top><width>748</width><height>64</height>
+            <orientation>horizontal</orientation><itemgap>8</itemgap>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <ondown>5</ondown><onleft>20</onleft><onup>noop</onup>
+        </control>
+            
+        <control type="image">
+            <left>56</left><top>146</top><width>748</width><height>1</height>
+            <texture colordiffuse="1fffffff">common/white.png</texture>
+        </control>
+            
+        <control type="grouplist" id="5">
+            <left>56</left><top>166</top><width>748</width><height>880</height>
+            <orientation>vertical</orientation><itemgap>4</itemgap>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <onup>3</onup><onleft>20</onleft>
+        </control>
+        </control>
+    </control>
+    
+    <control type="togglebutton" id="10">
+        <description>Default Category Button</description>
+        <width min="80" max="420">auto</width>
+        <height>56</height>
+        <font>ModernTile</font>
+        <textoffsetx>22</textoffsetx>
+        <align>center</align>
+        <aligny>center</aligny>
+        <textcolor>ff7d858f</textcolor>
+        <focusedcolor>ff14171b</focusedcolor>
+        <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+        <texturenofocus />
+        <alttexturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</alttexturefocus>
+        <alttexturenofocus border="27" colordiffuse="29ffffff">common/modern-pill.png</alttexturenofocus>
+    </control>
+    
+    <control type="button" id="7">
+        <description>Default Button</description>
+            <width>748</width>
+            <height>68</height>
+            <font>ModernTile</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+    </control>
+    <control type="radiobutton" id="8">
+        <description>Default Radio Button</description>
+            <width>748</width>
+            <height>68</height>
+            <font>ModernTile</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+            <radioposx>668</radioposx>
+            <radiowidth>56</radiowidth>
+            <radioheight>32</radioheight>
+            <textureradioonfocus>buttons/modern-switch-on-focus.png</textureradioonfocus>
+            <textureradioonnofocus>buttons/modern-switch-on.png</textureradioonnofocus>
+            <textureradioofffocus>buttons/modern-switch-off-focus.png</textureradioofffocus>
+            <textureradiooffnofocus>buttons/modern-switch-off.png</textureradiooffnofocus>
+            <textureradioondisabled colordiffuse="59ffffff">buttons/modern-switch-on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="59ffffff">buttons/modern-switch-off.png</textureradiooffdisabled>
+    </control>
+    <control type="spincontrolex" id="9">
+        <description>Default Spin Control</description>
+            <width>748</width>
+            <height>68</height>
+            <font>ModernTile</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+            <textureup colordiffuse="00ffffff">buttons/spin-down.png</textureup>
+            <texturedown colordiffuse="00ffffff">buttons/spin-down.png</texturedown>
+            <textureupfocus flipy="true" colordiffuse="ff14171b">buttons/spin-down.png</textureupfocus>
+            <texturedownfocus colordiffuse="ff14171b">buttons/spin-down.png</texturedownfocus>
+            <textureupdisabled colordiffuse="00ffffff">buttons/spin-down.png</textureupdisabled>
+            <texturedowndisabled colordiffuse="00ffffff">buttons/spin-down.png</texturedowndisabled>
+            <spinwidth>28</spinwidth><spinheight>28</spinheight>
+    </control>
+    <control type="edit" id="12">
+        <description>Default Edit</description>
+            <width>748</width>
+            <height>68</height>
+            <font>ModernTile</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+    </control>
+    <control type="sliderex" id="13">
+        <description>Default Slider</description>
+            <width>748</width>
+            <height>68</height>
+            <font>ModernTile</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+            <sliderwidth>220</sliderwidth>
+            <sliderheight>20</sliderheight>
+            <texturesliderbar colordiffuse="66808890" border="3">osd/modern/bar.png</texturesliderbar>
+            <textureslidernib>osd/modern/knob.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="ff14171b">osd/modern/knob.png</textureslidernibfocus>
+    </control>
+    <control type="colorbutton" id="15">
+        <description>Default ColorButton</description>
+            <width>748</width>
+            <height>68</height>
+            <font>ModernTile</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus />
+    </control>
+    <control type="label" id="14">
+        <description>Group Title</description>
+        <width>748</width>
+        <height>57</height>
+        <font>ModernCaption</font>
+        <textoffsetx>22</textoffsetx>
+        <aligny>center</aligny>
+        <textcolor>ff9db0cf</textcolor>
+    </control>
+    </include>
+
+
+    <include name="SettingsCat_C">
+    <control type="group">
+        <include>Animation.Common</include>
+        <control type="image">
+            <width>1920</width><height>1080</height>
+            <texture>common/modern-shade.png</texture>
+        </control>
+        
+        <control type="label">
+            <left>96</left><top>92</top><width>1200</width><height>34</height>
+            <font>ModernSmall</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <label>$LOCALIZE[5]</label>
+        </control>
+        <control type="label">
+            <left>96</left><top>124</top><width>1300</width><height>84</height>
+            <font>ModernTitle</font><textcolor>ffececec</textcolor><align>left</align>
+            <label>$VAR[Label_SettingsHeader]</label>
+        </control>
+        
+        <control type="grouplist" id="3">
+            <left>96</left><top>250</top><width>1150</width><height>56</height>
+            <orientation>horizontal</orientation><itemgap>12</itemgap>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <ondown>5</ondown><onleft>20</onleft><onup>noop</onup>
+        </control>
+        
+        <control type="grouplist" id="5">
+            <left>96</left><top>340</top><width>1080</width><height>690</height>
+            <orientation>vertical</orientation><itemgap>4</itemgap>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <onup>3</onup><onleft>20</onleft><onright>noop</onright>
+        </control>
+        
+        <control type="image">
+            <left>1260</left><top>340</top><width>564</width><height>500</height>
+            <texture border="20" colordiffuse="12ffffff">common/modern-round20.png</texture>
+        </control>
+        
+        <control type="label">
+            <left>1300</left><top>372</top><width>480</width><height>30</height>
+            <font>ModernCaption</font><textcolor>ff9db0cf</textcolor><align>left</align>
+            <label>$LOCALIZE[32123]</label>
+        </control>
+        
+        <control type="textbox">
+            <left>1300</left><top>408</top><width>484</width><height>100</height>
+            <font>ModernCard</font><textcolor>ffececec</textcolor><align>left</align>
+            <label>$INFO[System.CurrentControl]</label>
+        </control>
+        
+        <control type="textbox" id="6">
+            <left>1300</left><top>516</top><width>484</width><height>220</height>
+            <font>ModernSmall</font><textcolor>ff98a0aa</textcolor><align>left</align>
+            <autoscroll delay="4000" repeat="8000" time="3000" />
+        </control>
+        
+        <control type="label">
+            <left>1300</left><top>748</top><width>480</width><height>28</height>
+            <font>ModernCaption</font><textcolor>ff6c747e</textcolor><align>left</align>
+            <label>$LOCALIZE[32106]</label>
+        </control>
+        <control type="button" id="20">
+            <left>1300</left><top>778</top>
+            <width min="120" max="480">auto</width><height>44</height>
+            <font>ModernSmall</font><textoffsetx>18</textoffsetx><align>left</align><aligny>center</aligny>
+            <textcolor>ffececec</textcolor><focusedcolor>ff14171b</focusedcolor>
+            <texturefocus border="27" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+            <texturenofocus border="27" colordiffuse="14ffffff">common/modern-pill.png</texturenofocus>
+            <onclick>SettingsLevelChange</onclick>
+            <onup>3</onup><ondown>3</ondown><onright>3</onright><onleft>noop</onleft>
+        </control>
+    </control>
+    
+    <control type="togglebutton" id="10">
+        <description>Default Category Button</description>
+        <width min="80" max="420">auto</width>
+        <height>52</height>
+        <font>ModernTile</font>
+        <textoffsetx>26</textoffsetx>
+        <align>center</align>
+        <aligny>center</aligny>
+        <textcolor>ff8a929c</textcolor>
+        <focusedcolor>ff14171b</focusedcolor>
+        <texturefocus border="26" colordiffuse="fff1f3f5">common/modern-pill.png</texturefocus>
+        <texturenofocus border="26" colordiffuse="14ffffff">common/modern-pill.png</texturenofocus>
+        <alttexturefocus border="26" colordiffuse="fff1f3f5">common/modern-pill.png</alttexturefocus>
+        <alttexturenofocus border="26" colordiffuse="38ffffff">common/modern-pill.png</alttexturenofocus>
+    </control>
+    
+    <control type="button" id="7">
+        <description>Default Button</description>
+            <width>1080</width>
+            <height>66</height>
+            <font>ModernRow</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus border="14" colordiffuse="0fffffff">common/modern-round14.png</texturenofocus>
+    </control>
+    <control type="radiobutton" id="8">
+        <description>Default Radio Button</description>
+            <width>1080</width>
+            <height>66</height>
+            <font>ModernRow</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus border="14" colordiffuse="0fffffff">common/modern-round14.png</texturenofocus>
+            <radioposx>1000</radioposx>
+            <radiowidth>56</radiowidth>
+            <radioheight>32</radioheight>
+            <textureradioonfocus>buttons/modern-switch-on-focus.png</textureradioonfocus>
+            <textureradioonnofocus>buttons/modern-switch-on.png</textureradioonnofocus>
+            <textureradioofffocus>buttons/modern-switch-off-focus.png</textureradioofffocus>
+            <textureradiooffnofocus>buttons/modern-switch-off.png</textureradiooffnofocus>
+            <textureradioondisabled colordiffuse="59ffffff">buttons/modern-switch-on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="59ffffff">buttons/modern-switch-off.png</textureradiooffdisabled>
+    </control>
+    <control type="spincontrolex" id="9">
+        <description>Default Spin Control</description>
+            <width>1080</width>
+            <height>66</height>
+            <font>ModernRow</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus border="14" colordiffuse="0fffffff">common/modern-round14.png</texturenofocus>
+            <textureup colordiffuse="00ffffff">buttons/spin-down.png</textureup>
+            <texturedown colordiffuse="00ffffff">buttons/spin-down.png</texturedown>
+            <textureupfocus flipy="true" colordiffuse="ff14171b">buttons/spin-down.png</textureupfocus>
+            <texturedownfocus colordiffuse="ff14171b">buttons/spin-down.png</texturedownfocus>
+            <textureupdisabled colordiffuse="00ffffff">buttons/spin-down.png</textureupdisabled>
+            <texturedowndisabled colordiffuse="00ffffff">buttons/spin-down.png</texturedowndisabled>
+            <spinwidth>28</spinwidth><spinheight>28</spinheight>
+    </control>
+    <control type="edit" id="12">
+        <description>Default Edit</description>
+            <width>1080</width>
+            <height>66</height>
+            <font>ModernRow</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus border="14" colordiffuse="0fffffff">common/modern-round14.png</texturenofocus>
+    </control>
+    <control type="sliderex" id="13">
+        <description>Default Slider</description>
+            <width>1080</width>
+            <height>66</height>
+            <font>ModernRow</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus border="14" colordiffuse="0fffffff">common/modern-round14.png</texturenofocus>
+            <sliderwidth>220</sliderwidth>
+            <sliderheight>20</sliderheight>
+            <texturesliderbar colordiffuse="66808890" border="3">osd/modern/bar.png</texturesliderbar>
+            <textureslidernib>osd/modern/knob.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="ff14171b">osd/modern/knob.png</textureslidernibfocus>
+    </control>
+    <control type="colorbutton" id="15">
+        <description>Default ColorButton</description>
+            <width>1080</width>
+            <height>66</height>
+            <font>ModernRow</font>
+            <textoffsetx>22</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>ffececec</textcolor>
+            <focusedcolor>ff14171b</focusedcolor>
+            <disabledcolor>59ececec</disabledcolor>
+            <texturefocus border="14" colordiffuse="fff1f3f5">common/modern-round14.png</texturefocus>
+            <texturenofocus border="14" colordiffuse="0fffffff">common/modern-round14.png</texturenofocus>
+    </control>
+    <control type="label" id="14">
+        <description>Group Title</description>
+        <width>1080</width>
+        <height>56</height>
+        <font>ModernCaption</font>
+        <textoffsetx>22</textoffsetx>
+        <aligny>center</aligny>
+        <textcolor>ff9db0cf</textcolor>
+    </control>
+    </include>
+
+</includes>

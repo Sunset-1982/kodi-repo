@@ -63,4 +63,13 @@ Offen: `Includes_SettingsModern.xml` mit den Hub- und Kategorie-Layouts, bedingt
   - `tools/`: gen_osd_modern.py und das Test-Umgebungs-Skript; `docs/`: diese Doku
 - Installationsquelle für Kodi: `https://sunset-1982.github.io/kodi-repo/` (GitHub Pages auf gh-pages stellen).
 - **Künftig:** Die Quelle der Wahrheit ist das GitHub-Repo. Eine neue Session klont `Sunset-1982/kodi-repo` (in Claude Code in der Cloud mit verbundenem Repo kann Claude direkt pushen). Für ein Update die Version in addon.xml erhöhen und pushen.
-- Offen: Einstellungs-Varianten A/B/C (Layouts), Regler-Knopf im OSD, Live-TV-OSD, OSD-Dialoge (Audio/Untertitel) als Seitenblatt.
+- Offen: Regler-Knopf im OSD, Live-TV-OSD, OSD-Dialoge (Audio/Untertitel) als Seitenblatt.
+
+
+## v0.3.0 (30.09.2026): Einstellungs-Designs A/B/C
+- Generator `tools/gen_settings_modern.py` → `1080i/Includes_SettingsModern.xml` (Hub-Includes SettingsHub_A/B/C, Kategorie-Includes SettingsCat_A/B/C inkl. Templates 7–15 und 10/20, Item-Listen SettingsItemsModern/Top/Rest aus SettingsInfoItems).
+- Original-Layouts ausgelagert in `1080i/Includes_SettingsOriginal.xml` (SettingsHub_Original, SettingsCat_Original).
+- Settings.xml und SettingsCategory.xml wählen per `Skin.String(SettingsStyle)` (leer = A, `B`, `C`, `original`). Furniture_Header nur beim Original, bei B-Kategorie ohne Uhr und Wetter.
+- Stolperfallen: Kodi-Labels kennen kein `aligny=bottom`. Einwortige Labels umbrechen nicht, deshalb laufen sie bei Fokus durch (`<scroll>`). Die „focusedlayout“-Kachel muss `Control.HasFocus(id)` prüfen, sonst ist bei zwei Listen in beiden eine weiß.
+- Testumgebung: `tools/testenv/kodi-skinstring ID WERT` setzt Skin-Strings bei gestopptem Kodi.
+- Nicht umgestaltet: Skin-Einstellungen, Systeminfo, Profile, Addon-Browser, Dateimanager (weiter Original-Optik).
