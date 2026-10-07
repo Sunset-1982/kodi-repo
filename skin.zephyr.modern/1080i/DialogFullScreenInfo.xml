@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">999</defaultcontrol>
+    <controls>
+        <control type="button" id="999"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/><onclick>Action(close)</onclick></control>
+    </controls>
+</window>

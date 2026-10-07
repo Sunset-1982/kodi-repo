@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <zorder>60</zorder>
+    <controls>
+        <control type="group">
+            <top>56</top><width>520</width><height>120</height><right>64</right>
+            <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+            <control type="image"><left>0</left><top>0</top><width>520</width><height>120</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label" id="30"><left>28</left><top>18</top><width>464</width><height>34</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor></control>
+            <control type="label" id="31"><left>28</left><top>52</top><width>464</width><height>30</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor></control>
+            <control type="progress" id="32"><left>28</left><top>94</top><width>464</width><height>6</height><texturebg border="3" colordiffuse="33ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture><righttexture/></control>
+        </control>
+    </controls>
+</window>

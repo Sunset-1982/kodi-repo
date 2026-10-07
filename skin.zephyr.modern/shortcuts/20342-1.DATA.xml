@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+    <shortcut>
+        <defaultID>zmmovies0</defaultID>
+        <label>$LOCALIZE[31011]</label>
+        <label2>Widget</label2>
+        <icon>DefaultFolder.png</icon>
+        <action>ActivateWindow(videos,special://skin/extras/playlists/zm_inprogress_movies.xsp,return)</action>
+    </shortcut>
+    <shortcut>
+        <defaultID>zmmovies1</defaultID>
+        <label>$LOCALIZE[31010]</label>
+        <label2>Widget</label2>
+        <icon>DefaultFolder.png</icon>
+        <action>ActivateWindow(videos,videodb://recentlyaddedmovies/,return)</action>
+    </shortcut>
+    <shortcut>
+        <defaultID>zmmovies2</defaultID>
+        <label>$LOCALIZE[31015]</label>
+        <label2>Widget</label2>
+        <icon>DefaultFolder.png</icon>
+        <action>ActivateWindow(videos,special://skin/extras/playlists/zm_unwatched_movies.xsp,return)</action>
+    </shortcut>
+</shortcuts>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">11</defaultcontrol>
+    <controls>
+        <control type="group">
+            <left>560</left><top>860</top><width>800</width><height>170</height>
+            <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+            <control type="image"><left>0</left><top>0</top><width>800</width><height>170</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label" id="10"><left>32</left><top>20</top><width>736</width><height>40</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor></control>
+            <control type="label" id="12"><left>32</left><top>62</top><width>736</width><height>34</height><font>ZSmall</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor></control>
+            <control type="slider" id="11"><left>32</left><top>122</top><width>736</width><height>16</height><orientation>horizontal</orientation>
+                <texturesliderbar border="4" colordiffuse="44ffffff">osd/modern/sliderbar.png</texturesliderbar>
+                <textureslidernib colordiffuse="$VAR[ModernFocus]">osd/modern/slidernib.png</textureslidernib><textureslidernibfocus colordiffuse="$VAR[ModernFocus]">osd/modern/slidernib.png</textureslidernibfocus></control>
+        </control>
+    </controls>
+</window>

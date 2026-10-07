@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="cc000000">common/white.png</texture><animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="150">WindowClose</animation></control>
+        <control type="image"><left>200</left><top>120</top><width>1520</width><height>840</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+        <control type="image"><left>250</left><top>170</top><width>160</width><height>160</height><aspectratio>keep</aspectratio><texture>$INFO[ListItem.Icon]</texture></control>
+        <control type="label"><left>440</left><top>170</top><width>1230</width><height>64</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Label]</label></control>
+        <control type="label"><left>440</left><top>240</top><width>1230</width><height>36</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$INFO[ListItem.ChannelName]$INFO[ListItem.Date,  •  ]$INFO[ListItem.Duration,  •  ]</label></control>
+        <control type="label"><left>440</left><top>282</top><width>1230</width><height>36</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[ListItem.EpisodeName]$INFO[ListItem.Genre,  •  ]</label></control>
+        <control type="textbox" id="400"><left>250</left><top>360</top><width>1420</width><height>440</height><font>ZBody</font><textcolor>ffececec</textcolor><label>$INFO[ListItem.Plot]</label><autoscroll delay="8000" time="3000" repeat="10000">true</autoscroll></control>
+        <control type="button" id="61"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/></control>
+        <control type="grouplist" id="9000"><left>250</left><top>850</top><width>1420</width><height>64</height><orientation>horizontal</orientation><itemgap>12</itemgap>
+            <control type="button" id="5"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[19165]</label><visible>Window.IsActive(PVRGuideInfo)</visible></control>
+                <control type="button" id="10"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[19190]</label><visible>Window.IsActive(PVRGuideInfo)</visible></control>
+                <control type="button" id="8"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[19687]</label><visible>Window.IsActive(PVRGuideInfo) | Window.IsActive(PVRRecordingInfo)</visible></control>
+                <control type="button" id="6"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label></label><visible>Window.IsActive(PVRGuideInfo)</visible></control>
+                <control type="button" id="9"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[19061]</label><visible>Window.IsActive(PVRGuideInfo)</visible></control>
+                <control type="button" id="11"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[826]</label><visible>Window.IsActive(PVRGuideInfo)</visible></control>
+                <control type="button" id="4"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[19003]</label><visible>Window.IsActive(PVRGuideInfo) | Window.IsActive(PVRRecordingInfo)</visible></control>
+            
+                <control type="button" id="7"><height>56</height><width min="140" max="420">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[15015]</label><visible>Window.IsActive(PVRRecordingInfo)</visible></control>
+        </control>
+    </controls>
+</window>

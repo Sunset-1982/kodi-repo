@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/video.py -->
+<includes>
+    <variable name="ZFlagRes"><value condition="String.IsEqual(ListItem.VideoResolution,4K)">4K</value><value condition="String.IsEqual(ListItem.VideoResolution,8K)">8K</value><value condition="String.IsEqual(ListItem.VideoResolution,1080)">1080p</value><value condition="String.IsEqual(ListItem.VideoResolution,720)">720p</value><value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value></variable>
+    <variable name="ZFlagHdr"><value condition="String.IsEqual(ListItem.HdrType,dolbyvision)">Dolby Vision</value><value condition="String.IsEqual(ListItem.HdrType,hdr10plus)">HDR10+</value><value condition="String.IsEqual(ListItem.HdrType,hdr10)">HDR10</value><value condition="String.IsEqual(ListItem.HdrType,hlg)">HLG</value></variable>
+    <variable name="ZFlagVideo"><value condition="String.IsEqual(ListItem.VideoCodec,hevc) | String.IsEqual(ListItem.VideoCodec,h265)">HEVC</value><value condition="String.IsEqual(ListItem.VideoCodec,h264) | String.IsEqual(ListItem.VideoCodec,avc1)">H.264</value><value condition="String.IsEqual(ListItem.VideoCodec,av1)">AV1</value><value condition="String.IsEqual(ListItem.VideoCodec,vp9)">VP9</value><value condition="String.IsEqual(ListItem.VideoCodec,mpeg2video)">MPEG-2</value><value condition="String.IsEqual(ListItem.VideoCodec,vc1)">VC-1</value><value>$INFO[ListItem.VideoCodec]</value></variable>
+    <variable name="ZFlagAudio"><value condition="String.IsEqual(ListItem.AudioCodec,truehd)">TrueHD</value><value condition="String.IsEqual(ListItem.AudioCodec,eac3)">Dolby Digital+</value><value condition="String.IsEqual(ListItem.AudioCodec,ac3)">Dolby Digital</value><value condition="String.StartsWith(ListItem.AudioCodec,dtshd_ma)">DTS-HD MA</value><value condition="String.IsEqual(ListItem.AudioCodec,dtshd_hra)">DTS-HD HRA</value><value condition="String.IsEqual(ListItem.AudioCodec,dca) | String.IsEqual(ListItem.AudioCodec,dts)">DTS</value><value condition="String.IsEqual(ListItem.AudioCodec,aac)">AAC</value><value condition="String.IsEqual(ListItem.AudioCodec,flac)">FLAC</value><value condition="String.StartsWith(ListItem.AudioCodec,pcm)">PCM</value><value>$INFO[ListItem.AudioCodec]</value></variable>
+    <variable name="ZFlagCh"><value condition="String.IsEqual(ListItem.AudioChannels,8)">7.1</value><value condition="String.IsEqual(ListItem.AudioChannels,7)">6.1</value><value condition="String.IsEqual(ListItem.AudioChannels,6)">5.1</value><value condition="String.IsEqual(ListItem.AudioChannels,2)">Stereo</value><value condition="String.IsEqual(ListItem.AudioChannels,1)">Mono</value></variable>
+    <variable name="ZFlagAspect"><value condition="!String.IsEmpty(ListItem.VideoAspect)">$INFO[ListItem.VideoAspect]:1</value></variable>
+    <variable name="ZNavSub"><value condition="Control.IsVisible(51) | Control.IsVisible(55)">$INFO[ListItem.Label]$INFO[ListItem.Year,  •  ]$INFO[ListItem.Duration(mins),  •  , min]</value><value>$INFO[Container.NumItems,, $LOCALIZE[31050]]$INFO[Container.SortMethod,  •  ]</value></variable>
+    <variable name="ZPlayLabel"><value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set)">$LOCALIZE[31053]</value><value condition="ListItem.IsResumable">$LOCALIZE[31055]</value><value>$LOCALIZE[31054]</value></variable>
+    <variable name="ZTmdbType"><value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">tv</value><value>movie</value></variable>
+    <variable name="ZTmdbQuery"><value condition="!String.IsEmpty(ListItem.UniqueID(tmdb)) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,season)">tmdb_id=$INFO[ListItem.UniqueID(tmdb)]</value><value condition="!String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)]</value><value condition="!String.IsEmpty(ListItem.Property(tmdb_id)) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,season)">tmdb_id=$INFO[ListItem.Property(tmdb_id)]</value><value condition="!String.IsEmpty(ListItem.TVShowTitle)">query=$INFO[ListItem.TVShowTitle]</value><value>query=$INFO[ListItem.Title]&amp;year=$INFO[ListItem.Year]</value></variable>
+    <variable name="ZCredits"><value>$INFO[ListItem.Director,$LOCALIZE[31052]: ,  •  ]$INFO[ListItem.Studio,,  •  ]$INFO[ListItem.MPAA]</value></variable>
+    <include name="ZFlags">
+        <param name="width">1100</param>
+        <definition>
+        <control type="grouplist">
+            <width>$PARAM[width]</width><height>40</height><orientation>horizontal</orientation><itemgap>10</itemgap><usecontrolcoords>true</usecontrolcoords>
+            <control type="button"><width min="40" max="260">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                <disabledcolor>ffececec</disabledcolor><texturenofocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturefocus>
+                <enable>false</enable><label>$VAR[ZFlagRes]</label><visible>!String.IsEmpty(ListItem.VideoResolution)</visible></control>
+            <control type="button"><width min="40" max="260">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                <disabledcolor>ffececec</disabledcolor><texturenofocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturefocus>
+                <enable>false</enable><label>$VAR[ZFlagHdr]</label><visible>!String.IsEmpty(ListItem.HdrType)</visible></control>
+            <control type="button"><width min="40" max="260">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                <disabledcolor>ffececec</disabledcolor><texturenofocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturefocus>
+                <enable>false</enable><label>$VAR[ZFlagVideo]</label><visible>!String.IsEmpty(ListItem.VideoCodec)</visible></control>
+            <control type="button"><width min="40" max="260">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                <disabledcolor>ffececec</disabledcolor><texturenofocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturefocus>
+                <enable>false</enable><label>$VAR[ZFlagAudio]</label><visible>!String.IsEmpty(ListItem.AudioCodec)</visible></control>
+            <control type="button"><width min="40" max="260">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                <disabledcolor>ffececec</disabledcolor><texturenofocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturefocus>
+                <enable>false</enable><label>$VAR[ZFlagCh]</label><visible>Integer.IsGreater(ListItem.AudioChannels,0)</visible></control>
+            <control type="button"><width min="40" max="260">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                <disabledcolor>ffececec</disabledcolor><texturenofocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="$VAR[ModernSurface]">common/zm-pill40.png</texturefocus>
+                <enable>false</enable><label>$VAR[ZFlagAspect]</label><visible>!String.IsEmpty(ListItem.VideoAspect)</visible></control>
+        </control>
+        </definition>
+    </include>
+</includes>

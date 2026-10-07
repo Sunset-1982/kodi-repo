@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+    <shortcut>
+        <label>$LOCALIZE[13012]</label>
+        <label2>Power</label2>
+        <icon>DefaultProgram.png</icon>
+        <action>Quit()</action>
+    </shortcut>
+    <shortcut>
+        <label>$LOCALIZE[13016]</label>
+        <label2>Power</label2>
+        <icon>DefaultProgram.png</icon>
+        <action>Powerdown()</action>
+    </shortcut>
+    <shortcut>
+        <label>$LOCALIZE[13013]</label>
+        <label2>Power</label2>
+        <icon>DefaultProgram.png</icon>
+        <action>Reset()</action>
+    </shortcut>
+    <shortcut>
+        <label>$LOCALIZE[13011]</label>
+        <label2>Power</label2>
+        <icon>DefaultProgram.png</icon>
+        <action>Suspend()</action>
+        <visible>System.CanSuspend</visible>
+    </shortcut>
+    <shortcut>
+        <label>$LOCALIZE[20126]</label>
+        <label2>Power</label2>
+        <icon>DefaultProgram.png</icon>
+        <action>System.LogOff</action>
+        <visible>System.HasLoginScreen</visible>
+    </shortcut>
+    <shortcut>
+        <label>$LOCALIZE[5]</label>
+        <label2>Power</label2>
+        <icon>DefaultProgram.png</icon>
+        <action>ActivateWindow(Settings)</action>
+    </shortcut>
+</shortcuts>

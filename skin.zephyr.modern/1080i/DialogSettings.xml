@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">5</defaultcontrol>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="66000000">common/white.png</texture><animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="150">WindowClose</animation></control>
+        <control type="group">
+            <visible>!Window.IsVisible(sliderdialog)</visible>
+            <animation effect="slide" start="860,0" end="0,0" time="260" tween="cubic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="860,0" time="200" tween="cubic" easing="in">WindowClose</animation>
+            <control type="image"><left>1092</left><top>24</top><width>804</width><height>1032</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label" id="2"><left>1136</left><top>60</top><width>716</width><height>60</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor></control>
+            <control type="grouplist" id="5">
+                <left>1118</left><top>144</top><width>752</width><height>808</height><orientation>vertical</orientation><itemgap>2</itemgap><pagecontrol>60</pagecontrol>
+                <onleft>9000</onleft><onright>9000</onright><onup>5</onup><ondown>5</ondown>
+            </control>
+            <control type="button" id="7"><width>752</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/></control>
+            <control type="radiobutton" id="8"><width>752</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/>
+                <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">buttons/modern-switch-on-focus.png</textureradioonfocus><textureradioonnofocus>buttons/modern-switch-on.png</textureradioonnofocus>
+                <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">buttons/modern-switch-off-focus.png</textureradioofffocus><textureradiooffnofocus>buttons/modern-switch-off.png</textureradiooffnofocus>
+                <radiowidth>72</radiowidth><radioheight>40</radioheight><radioposx>660</radioposx></control>
+            <control type="spincontrolex" id="9"><width>752</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/>
+                <textureup colordiffuse="ff98a0aa">common/zm-chev-right.png</textureup><textureupfocus colordiffuse="$VAR[ModernFocusText]">common/zm-chev-right.png</textureupfocus>
+                <texturedown colordiffuse="ff98a0aa">common/zm-chev-left.png</texturedown><texturedownfocus colordiffuse="$VAR[ModernFocusText]">common/zm-chev-left.png</texturedownfocus>
+                <textureupdisabled colordiffuse="33ffffff">common/zm-chev-right.png</textureupdisabled><texturedowndisabled colordiffuse="33ffffff">common/zm-chev-left.png</texturedowndisabled>
+                <spinwidth>32</spinwidth><spinheight>32</spinheight><spinposx>12</spinposx><spinposy>20</spinposy></control>
+            <control type="image" id="11"><width>752</width><height>2</height><texture colordiffuse="1effffff">common/white.png</texture></control>
+            <control type="edit" id="12"><width>752</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/></control>
+            <control type="sliderex" id="13"><width>752</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/>
+                <texturesliderbar border="4" colordiffuse="44ffffff">osd/modern/sliderbar.png</texturesliderbar>
+                <textureslidernib colordiffuse="ffececec">osd/modern/slidernib.png</textureslidernib><textureslidernibfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/slidernib.png</textureslidernibfocus>
+                <sliderwidth>180</sliderwidth><sliderheight>16</sliderheight><textwidth>360</textwidth></control>
+            <control type="label" id="14"><width>752</width><height>56</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><textoffsetx>24</textoffsetx><aligny>center</aligny></control>
+            <control type="grouplist" id="9000">
+                <left>1118</left><top>970</top><width>752</width><height>56</height><orientation>horizontal</orientation><itemgap>12</itemgap>
+                <onup>5</onup><ondown>5</ondown><onleft>5</onleft><onright>5</onright>
+                <control type="button" id="28"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+                <control type="button" id="29"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+                <control type="button" id="30"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+            </control>
+            <control type="scrollbar" id="60"><left>1876</left><top>150</top><width>6</width><height>800</height><orientation>vertical</orientation><showonepage>false</showonepage>
+                <texturesliderbackground/><texturesliderbar colordiffuse="33ffffff">common/white.png</texturesliderbar><texturesliderbarfocus colordiffuse="$VAR[ModernFocus]">common/white.png</texturesliderbarfocus>
+                <textureslidernib/><textureslidernibfocus/><onleft>5</onleft><onright>9000</onright></control>
+        </control>
+    </controls>
+</window>

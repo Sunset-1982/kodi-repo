@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">20</defaultcontrol>
+    <onload>Dialog.Close(fullscreeninfo,true)</onload>
+    <onload>Dialog.Close(videoosd,true)</onload>
+    <controls>
+        <control type="group">
+            <left>1124</left><top>744</top><width>700</width><height>280</height>
+            <animation effect="slide" start="760,0" end="0,0" time="320" tween="cubic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="760,0" time="240" tween="cubic" easing="in">WindowClose</animation>
+            <control type="image"><left>0</left><top>0</top><width>700</width><height>280</height><texture border="20" colordiffuse="f0101317">common/modern-round20.png</texture></control>
+            <control type="image"><left>24</left><top>24</top><width>288</width><height>162</height><texture colordiffuse="$VAR[ModernSurface]" diffuse="common/zm-mask-landscape.png">common/white.png</texture></control>
+            <control type="image"><left>24</left><top>24</top><width>288</width><height>162</height><aspectratio>scale</aspectratio><texture background="true" diffuse="common/zm-mask-landscape.png">$INFO[Window.Property(fanart)]</texture><visible>String.IsEmpty(Window.Property(thumb)) + String.IsEmpty(Window.Property(landscape))</visible></control>
+            <control type="image"><left>24</left><top>24</top><width>288</width><height>162</height><aspectratio>scale</aspectratio><texture background="true" diffuse="common/zm-mask-landscape.png">$INFO[Window.Property(landscape)]</texture><visible>String.IsEmpty(Window.Property(thumb))</visible></control>
+            <control type="image"><left>24</left><top>24</top><width>288</width><height>162</height><aspectratio>scale</aspectratio><texture background="true" diffuse="common/zm-mask-landscape.png">$INFO[Window.Property(thumb)]</texture></control>
+            <control type="progress" id="3014"><left>36</left><top>172</top><width>264</width><height>6</height><texturebg border="3" colordiffuse="44000000">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture><righttexture/></control>
+            <control type="label"><left>336</left><top>26</top><width>340</width><height>30</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$LOCALIZE[31123]</label></control>
+            <control type="label"><left>336</left><top>58</top><width>340</width><height>40</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Window.Property(tvshowtitle)]</label></control>
+            <control type="label"><left>336</left><top>98</top><width>340</width><height>32</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Window.Property(season),S,]$INFO[Window.Property(episode), E,  •  ]$INFO[Window.Property(title)]</label></control>
+            <control type="label"><left>336</left><top>134</top><width>340</width><height>30</height><font>ZCaption</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[Window.Property(endtime),$LOCALIZE[31090] ,]</label></control>
+            <control type="button" id="3012"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/></control>
+            <control type="grouplist" id="20"><left>24</left><top>208</top><width>652</width><height>48</height><orientation>horizontal</orientation><itemgap>12</itemgap>
+                <control type="button" id="10"><height>48</height><width min="120" max="420">auto</width><font>ZSmall</font><textoffsetx>24</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="24" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="24" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="24" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="24" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31124]</label><onclick>SendClick(3012)</onclick></control>
+                <control type="button" id="3013"><height>48</height><width min="120" max="420">auto</width><font>ZSmall</font><textoffsetx>24</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="24" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="24" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="24" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="24" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31122]</label></control>
+            </control>
+        </control>
+    </controls>
+</window>

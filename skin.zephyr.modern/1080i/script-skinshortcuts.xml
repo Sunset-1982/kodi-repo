@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">211</defaultcontrol>
+    <controls>
+        <include>ZBackground</include>
+        <control type="label"><left>96</left><top>70</top><width>1000</width><height>34</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$LOCALIZE[31005]</label></control>
+        <control type="label"><left>96</left><top>102</top><width>1200</width><height>80</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor>
+            <label>$VAR[ZMgmtTitle]</label></control>
+        <control type="group">
+            <left>96</left><top>220</top><width>820</width><height>800</height>
+            <control type="image"><left>0</left><top>0</top><width>820</width><height>800</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="list" id="211">
+                <left>24</left><top>24</top><width>772</width><height>660</height><orientation>vertical</orientation><onright>9000</onright><ondown>9100</ondown>
+                <scrolltime tween="cubic" easing="out">200</scrolltime>
+                <itemlayout height="72" width="772">
+                    <control type="image"><left>16</left><top>16</top><width>40</width><height>40</height><aspectratio>keep</aspectratio><texture colordiffuse="99ffffff">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>76</left><top>0</top><width>660</width><height>72</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>76</left><top>0</top><width>670</width><height>72</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Property(widgetName)]</label></control>
+                </itemlayout>
+                <focusedlayout height="72" width="772">
+                    <control type="image"><left>0</left><top>4</top><width>772</width><height>64</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(211)</visible></control>
+                    <control type="image"><left>0</left><top>4</top><width>772</width><height>64</height><texture border="14" colordiffuse="$VAR[ModernSurface]">common/modern-round14.png</texture><visible>!Control.HasFocus(211)</visible></control>
+                    <control type="image"><left>16</left><top>16</top><width>40</width><height>40</height><aspectratio>keep</aspectratio><texture colordiffuse="$VAR[ZMgmtIcon]">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>76</left><top>0</top><width>660</width><height>72</height><font>ZItem</font><textcolor>$VAR[ZMgmtText]</textcolor><selectedcolor>$VAR[ZMgmtText]</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>76</left><top>0</top><width>670</width><height>72</height><font>ZSmall</font><textcolor>$VAR[ZMgmtText]</textcolor><selectedcolor>$VAR[ZMgmtText]</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Property(widgetName)]</label></control>
+                </focusedlayout>
+            </control>
+            <control type="grouplist" id="9100">
+                <left>24</left><top>712</top><width>772</width><height>56</height><orientation>horizontal</orientation><itemgap>12</itemgap><onup>211</onup><onright>9000</onright>
+                <control type="button" id="301"><height>56</height><width min="56" max="300">auto</width><font>ZSmall</font><textoffsetx>22</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31024]</label></control>
+                <control type="button" id="302"><height>56</height><width min="56" max="300">auto</width><font>ZSmall</font><textoffsetx>22</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31025]</label></control>
+                <control type="button" id="303"><height>56</height><width min="56" max="300">auto</width><font>ZSmall</font><textoffsetx>22</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31026]</label></control>
+                <control type="button" id="304"><height>56</height><width min="56" max="300">auto</width><font>ZSmall</font><textoffsetx>22</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31027]</label></control>
+            </control>
+        </control>
+        <control type="group">
+            <left>960</left><top>220</top><width>864</width><height>800</height>
+            <control type="image"><left>0</left><top>0</top><width>864</width><height>800</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label"><left>48</left><top>28</top><width>760</width><height>36</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$INFO[Container(211).ListItem.Label]</label></control>
+            <control type="grouplist" id="9000">
+                <left>48</left><top>76</top><width>768</width><height>640</height><orientation>vertical</orientation><itemgap>4</itemgap><onleft>211</onleft>
+                
+                <control type="button" id="305"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31029]</label><label2>$INFO[Container(211).ListItem.Label]</label2></control>
+                
+                <control type="button" id="401"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31030]</label><visible>!String.EndsWith(Window.Property(groupname),.1)</visible></control>
+                
+                <control type="button" id="312"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31033]</label><label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2><visible>String.EndsWith(Window.Property(groupname),.1)</visible></control>
+                
+                <control type="button" id="9111"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31017]</label><label2>$INFO[Container(211).ListItem.Property(widgetAspect)]</label2><visible>String.EndsWith(Window.Property(groupname),.1)</visible></control>
+                
+                <control type="button" id="406"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31038]</label><visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible></control>
+                
+                <control type="button" id="405"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31039]</label><visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible></control>
+                
+                <control type="button" id="310"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31034]</label><label2>$INFO[Container(211).ListItem.Property(backgroundName)]</label2><visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible></control>
+                
+                <control type="button" id="306"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31032]</label></control>
+                
+                <control type="button" id="307"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31031]</label><visible>!String.EndsWith(Window.Property(groupname),.1)</visible></control>
+                
+                <control type="button" id="308"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31028]</label></control>
+            </control>
+            <control type="textbox"><left>48</left><top>720</top><width>768</width><height>60</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><label>$LOCALIZE[31042]</label></control>
+        </control>
+        <!-- von Skin Shortcuts benoetigte, unsichtbare Buttons -->
+        <control type="button" id="111"><left>-200</left><top>-200</top><width>1</width><height>1</height><visible>false</visible></control>
+        <control type="button" id="309"><left>-200</left><top>-200</top><width>1</width><height>1</height><visible>false</visible></control>
+        <control type="button" id="311"><left>-200</left><top>-200</top><width>1</width><height>1</height><visible>false</visible></control>
+        <control type="button" id="404"><left>-200</left><top>-200</top><width>1</width><height>1</height><visible>false</visible></control>
+    </controls>
+</window>

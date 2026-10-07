@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">3</defaultcontrol>
+    <controls>
+        <include>ZDim</include>
+        <control type="group">
+            <width>828</width><height>900</height><centerleft>960</centerleft><centertop>540</centertop><animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+            <control type="image"><left>-28</left><top>-28</top><width>884</width><height>956</height><texture border="52" colordiffuse="$VAR[ModernBg]">common/modern-card.png</texture></control>
+            <control type="label" id="1"><left>48</left><top>36</top><width>640</width><height>50</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor></control>
+            <control type="label" id="2"><left>560</left><top>44</top><width>220</width><height>40</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align></control>
+            <control type="list" id="3">
+                <left>24</left><top>120</top><width>780</width><height>660</height><onright>9000</onright><ondown>9000</ondown>
+                <scrolltime tween="cubic" easing="out">200</scrolltime>
+                <itemlayout height="64" width="780">
+                    <control type="image"><left>0</left><top>2</top><width>780</width><height>60</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>false</visible></control>
+                    <control type="image"><left>18</left><top>14</top><width>36</width><height>36</height><aspectratio>keep</aspectratio><texture colordiffuse="ccffffff">$INFO[ListItem.Icon]</texture><visible>!String.IsEmpty(ListItem.Icon)</visible></control>
+                    <control type="label"><left>70</left><top>0</top><width>560</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>70</left><top>0</top><width>690</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+                    <control type="image"><left>726</left><top>18</top><width>28</width><height>28</height><texture colordiffuse="$VAR[ModernAccent]">common/zm-check.png</texture><visible>ListItem.IsSelected</visible></control></itemlayout>
+                <focusedlayout height="64" width="780">
+                    <control type="image"><left>0</left><top>2</top><width>780</width><height>60</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(3)</visible></control>
+                    <control type="image"><left>18</left><top>14</top><width>36</width><height>36</height><aspectratio>keep</aspectratio><texture colordiffuse="$VAR[ZSelText]">$INFO[ListItem.Icon]</texture><visible>!String.IsEmpty(ListItem.Icon)</visible></control>
+                    <control type="label"><left>70</left><top>0</top><width>560</width><height>64</height><font>ZItem</font><textcolor>$VAR[ZSelText]</textcolor><selectedcolor>$VAR[ZSelText]</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>70</left><top>0</top><width>690</width><height>64</height><font>ZSmall</font><textcolor>$VAR[ZSelText]</textcolor><selectedcolor>$VAR[ZSelText]</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+                    <control type="image"><left>726</left><top>18</top><width>28</width><height>28</height><texture colordiffuse="$VAR[ZSelText]">common/zm-check.png</texture><visible>ListItem.IsSelected</visible></control></focusedlayout>
+            </control>
+            <control type="list" id="6">
+                <left>24</left><top>120</top><width>780</width><height>660</height><onright>9000</onright><ondown>9000</ondown>
+                <scrolltime tween="cubic" easing="out">200</scrolltime>
+                <itemlayout height="64" width="780">
+                    <control type="image"><left>0</left><top>2</top><width>780</width><height>60</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>false</visible></control>
+                    <control type="image"><left>18</left><top>14</top><width>36</width><height>36</height><aspectratio>keep</aspectratio><texture colordiffuse="ccffffff">$INFO[ListItem.Icon]</texture><visible>!String.IsEmpty(ListItem.Icon)</visible></control>
+                    <control type="label"><left>70</left><top>0</top><width>560</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>70</left><top>0</top><width>690</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+                    <control type="image"><left>726</left><top>18</top><width>28</width><height>28</height><texture colordiffuse="$VAR[ModernAccent]">common/zm-check.png</texture><visible>ListItem.IsSelected</visible></control></itemlayout>
+                <focusedlayout height="64" width="780">
+                    <control type="image"><left>0</left><top>2</top><width>780</width><height>60</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(6)</visible></control>
+                    <control type="image"><left>18</left><top>14</top><width>36</width><height>36</height><aspectratio>keep</aspectratio><texture colordiffuse="$VAR[ZSelText]">$INFO[ListItem.Icon]</texture><visible>!String.IsEmpty(ListItem.Icon)</visible></control>
+                    <control type="label"><left>70</left><top>0</top><width>560</width><height>64</height><font>ZItem</font><textcolor>$VAR[ZSelText]</textcolor><selectedcolor>$VAR[ZSelText]</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>70</left><top>0</top><width>690</width><height>64</height><font>ZSmall</font><textcolor>$VAR[ZSelText]</textcolor><selectedcolor>$VAR[ZSelText]</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+                    <control type="image"><left>726</left><top>18</top><width>28</width><height>28</height><texture colordiffuse="$VAR[ZSelText]">common/zm-check.png</texture><visible>ListItem.IsSelected</visible></control></focusedlayout>
+            </control>
+            <control type="grouplist" id="9000">
+                <left>48</left><top>812</top><width>732</width><height>56</height><orientation>horizontal</orientation><itemgap>12</itemgap><align>right</align><onup>3</onup>
+                <control type="button" id="5"><height>56</height><width min="56" max="300">auto</width><font>ZSmall</font><textoffsetx>22</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+                <control type="button" id="8"><height>56</height><width min="56" max="300">auto</width><font>ZSmall</font><textoffsetx>22</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+                <control type="button" id="7"><height>56</height><width min="56" max="300">auto</width><font>ZSmall</font><textoffsetx>22</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[222]</label></control>
+            </control>
+        </control>
+    </controls>
+</window>

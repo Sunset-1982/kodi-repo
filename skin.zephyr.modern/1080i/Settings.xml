@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <include>ZBackground</include>
+        <include>ZClock</include>
+        <control type="label"><left>96</left><top>52</top><width>1300</width><height>64</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[5]</label></control>
+        <control type="panel" id="9000">
+            <left>96</left><top>200</top><width>1728</width><height>840</height><orientation>vertical</orientation>
+            <scrolltime tween="cubic" easing="out">220</scrolltime>
+            <itemlayout width="432" height="208">
+                    <control type="image"><left>0</left><top>0</top><width>400</width><height>180</height><texture border="20" colordiffuse="$VAR[ModernSurface]">common/modern-round20.png</texture></control>
+                    <control type="label"><left>28</left><top>112</top><width>344</width><height>44</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Label]</label></control>
+                    <control type="image"><left>28</left><top>28</top><width>64</width><height>64</height><aspectratio>keep</aspectratio><texture colordiffuse="ffececec">$INFO[ListItem.Icon]</texture></control>
+            </itemlayout>
+            <focusedlayout width="432" height="208">
+                    <control type="image"><left>0</left><top>0</top><width>400</width><height>180</height><texture border="20" colordiffuse="$VAR[ModernSurface]">common/modern-round20.png</texture></control><control type="image"><left>0</left><top>0</top><width>400</width><height>180</height><texture border="20" colordiffuse="$VAR[ModernFocus]">common/modern-round20.png</texture><visible>Control.HasFocus(9000)</visible></control>
+                    <control type="label"><left>28</left><top>112</top><width>344</width><height>44</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(9000)</visible></control>
+                    <control type="label"><left>28</left><top>112</top><width>344</width><height>44</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(9000)</visible></control>
+                    <control type="image"><left>28</left><top>28</top><width>64</width><height>64</height><aspectratio>keep</aspectratio><texture colordiffuse="$VAR[ModernFocusText]">$INFO[ListItem.Icon]</texture><visible>Control.HasFocus(9000)</visible></control>
+                    <control type="image"><left>28</left><top>28</top><width>64</width><height>64</height><aspectratio>keep</aspectratio><texture colordiffuse="ffececec">$INFO[ListItem.Icon]</texture><visible>!Control.HasFocus(9000)</visible></control>
+            </focusedlayout>
+            <content>
+                <item id="1"><label>$LOCALIZE[14200]</label><icon>special://skin/extras/icons/play.png</icon><onclick>ActivateWindow(PlayerSettings)</onclick></item>
+                <item id="2"><label>$LOCALIZE[14211]</label><icon>special://skin/extras/icons/film.png</icon><onclick>ActivateWindow(MediaSettings)</onclick></item>
+                <item id="3"><label>$LOCALIZE[14204]</label><icon>special://skin/extras/icons/livetv.png</icon><onclick>ActivateWindow(PVRSettings)</onclick></item>
+                <item id="4"><label>$LOCALIZE[14036]</label><icon>special://skin/extras/icons/network.png</icon><onclick>ActivateWindow(ServiceSettings)</onclick></item>
+                <item id="5"><label>$LOCALIZE[14206]</label><icon>special://skin/extras/icons/paintbrush.png</icon><onclick>ActivateWindow(InterfaceSettings)</onclick></item>
+                <item id="6"><label>$LOCALIZE[15016]</label><icon>special://skin/extras/icons/games.png</icon><onclick>ActivateWindow(GameSettings)</onclick><visible>System.GetBool(gamesgeneral.enable)</visible></item>
+                <item id="7"><label>$LOCALIZE[13200]</label><icon>special://skin/extras/icons/person.png</icon><onclick>ActivateWindow(Profiles)</onclick></item>
+                <item id="8"><label>$LOCALIZE[13000]</label><icon>special://skin/extras/icons/settings.png</icon><onclick>ActivateWindow(SystemSettings)</onclick></item>
+                <item id="9"><label>CoreELEC</label><icon>special://skin/extras/icons/coreelec.png</icon><onclick>RunAddon(service.coreelec.settings)</onclick><visible>System.AddonIsEnabled(service.coreelec.settings)</visible></item>
+                <item id="10"><label>LibreELEC</label><icon>special://skin/extras/icons/libreelec.png</icon><onclick>RunAddon(service.libreelec.settings)</onclick><visible>System.AddonIsEnabled(service.libreelec.settings)</visible></item>
+                <item id="11"><label>$LOCALIZE[31035]</label><icon>special://skin/extras/icons/skinsettings.png</icon><onclick>ActivateWindow(SkinSettings)</onclick></item>
+                <item id="12"><label>$LOCALIZE[24001]</label><icon>special://skin/extras/icons/addons.png</icon><onclick>ActivateWindow(AddonBrowser)</onclick></item>
+                <item id="13"><label>$LOCALIZE[10003]</label><icon>special://skin/extras/icons/files.png</icon><onclick>ActivateWindow(FileManager)</onclick></item>
+                <item id="14"><label>$LOCALIZE[138]</label><icon>special://skin/extras/icons/sysinfo.png</icon><onclick>ActivateWindow(SystemInfo)</onclick></item>
+                <item id="15"><label>$LOCALIZE[10050]</label><icon>special://skin/extras/icons/news.png</icon><onclick>ActivateWindow(EventLog)</onclick></item>
+            </content>
+        </control>
+    </controls>
+</window>

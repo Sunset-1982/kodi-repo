@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+    <color name="ModernBg">ff000000</color>
+    <color name="ModernSurface">1affffff</color>
+    <color name="ModernFocus">ffffffff</color>
+    <color name="ModernFocusText">ff000000</color>
+    <color name="ModernAccent">ffa0a0a0</color>
+    <color name="ModernBorder">00ffffff</color>
+</colors>

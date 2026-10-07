@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/playback.py -->
+<includes>
+    <variable name="ZOsdTitle">
+        <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle]</value>
+        <value condition="!String.IsEmpty(VideoPlayer.Title)">$INFO[VideoPlayer.Title]</value>
+        <value>$INFO[Player.Title]</value>
+    </variable>
+    <variable name="ZOsdMeta">
+        <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode, E,]$INFO[VideoPlayer.Title,  •  ,]</value>
+        <value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.Title,  •  ,]</value>
+        <value>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre,  •  ,]$INFO[VideoPlayer.mpaa,  •  ,]</value>
+    </variable>
+    <variable name="ZOsdLogo">
+        <value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
+        <value>$INFO[Player.Art(tvshow.clearlogo)]</value>
+    </variable>
+    <variable name="ZOsdTime">
+        <value condition="Player.Seeking + !String.IsEmpty(Player.SeekTime)">$INFO[Player.SeekTime]</value>
+        <value>$INFO[Player.Time]</value>
+    </variable>
+    <variable name="ZOsdRes">
+        <value condition="String.IsEqual(VideoPlayer.VideoResolution,4K) | String.IsEqual(VideoPlayer.VideoResolution,2160)">4K</value>
+        <value condition="String.IsEqual(VideoPlayer.VideoResolution,1080)">1080p</value>
+        <value condition="String.IsEqual(VideoPlayer.VideoResolution,720)">720p</value>
+        <value>$INFO[VideoPlayer.VideoResolution]</value>
+    </variable>
+    <variable name="ZOsdHdr">
+        <value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision)">Dolby Vision</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus)">HDR10+</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10)">HDR10</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hlg)">HLG</value>
+    </variable>
+    <variable name="ZOsdAudio">
+        <value condition="String.Contains(VideoPlayer.AudioCodec,truehd)">TrueHD</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,eac3)">Dolby Digital+</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,ac3)">Dolby Digital</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD MA</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,dts) | String.IsEqual(VideoPlayer.AudioCodec,dca)">DTS</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,aac)">AAC</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,flac)">FLAC</value>
+        <value>$INFO[VideoPlayer.AudioCodec]</value>
+    </variable>
+    <variable name="ZOsdCh">
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,8)"> 7.1</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,6)"> 5.1</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioChannels,2)"> Stereo</value>
+    </variable>
+    <variable name="ZOsdLang">
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,ger) | String.IsEqual(VideoPlayer.AudioLanguage,deu) | String.IsEqual(VideoPlayer.AudioLanguage,de)">$LOCALIZE[31151]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,eng) | String.IsEqual(VideoPlayer.AudioLanguage,en)">$LOCALIZE[31152]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,fre) | String.IsEqual(VideoPlayer.AudioLanguage,fra)">$LOCALIZE[31153]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,spa)">$LOCALIZE[31154]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,ita)">$LOCALIZE[31155]</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioLanguage,jpn)">$LOCALIZE[31156]</value>
+        <value>$INFO[VideoPlayer.AudioLanguage]</value>
+    </variable>
+    <variable name="ZOsdPlayIcon">
+        <value condition="Player.Paused | Player.Forwarding | Player.Rewinding">osd/modern/play.png</value>
+        <value>osd/modern/pause.png</value>
+    </variable>
+    <variable name="ZOsdHint">
+        <value condition="Control.HasFocus(87)">$LOCALIZE[31099]</value>
+        <value condition="Control.HasFocus(600)">$LOCALIZE[210]</value>
+        <value condition="Control.HasFocus(601)">$LOCALIZE[31089]</value>
+        <value condition="Control.HasFocus(602) + Player.Paused">$LOCALIZE[31054]</value>
+        <value condition="Control.HasFocus(602)">$LOCALIZE[31088]</value>
+        <value condition="Control.HasFocus(603)">$LOCALIZE[31087]</value>
+        <value condition="Control.HasFocus(604)">$LOCALIZE[31086]</value>
+        <value condition="Control.HasFocus(607)">$LOCALIZE[209]</value>
+        <value condition="Control.HasFocus(70046)">$LOCALIZE[31094]</value>
+        <value condition="Control.HasFocus(70049)">$LOCALIZE[31095]</value>
+        <value condition="Control.HasFocus(70050)">$LOCALIZE[31096]</value>
+        <value condition="Control.HasFocus(70044)">$LOCALIZE[31097]</value>
+        <value condition="Control.HasFocus(70043)">PPI – Wiedergabe-Info</value>
+        <value condition="Control.HasFocus(70052)">$LOCALIZE[31098]</value>
+    </variable>
+</includes>

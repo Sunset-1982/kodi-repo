@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">11</defaultcontrol>
+    <controls>
+        <include>ZDim</include>
+        <control type="group">
+            <width>1000</width><height>460</height><centerleft>960</centerleft><centertop>540</centertop><animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+            <control type="image"><left>-28</left><top>-28</top><width>1056</width><height>516</height><texture border="52" colordiffuse="$VAR[ModernBg]">common/modern-card.png</texture></control>
+            <control type="label" id="1"><left>48</left><top>40</top><width>904</width><height>50</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor></control>
+            <control type="textbox" id="9"><left>48</left><top>112</top><width>904</width><height>190</height><font>ZBody</font><textcolor>ff98a0aa</textcolor><autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll></control>
+            <control type="progress" id="20"><left>48</left><top>320</top><width>904</width><height>6</height><texturebg border="3" colordiffuse="33ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture><righttexture/></control>
+            <control type="grouplist" id="9000">
+                <left>48</left><top>360</top><width>904</width><height>64</height><orientation>horizontal</orientation><itemgap>16</itemgap><align>right</align>
+                <control type="button" id="11"><height>64</height><width min="160" max="420">auto</width><font>ZItem</font><textoffsetx>32</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="32" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="32" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+                <control type="button" id="10"><height>64</height><width min="160" max="420">auto</width><font>ZItem</font><textoffsetx>32</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="32" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="32" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+                <control type="button" id="12"><height>64</height><width min="160" max="420">auto</width><font>ZItem</font><textoffsetx>32</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="32" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="32" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus></control>
+            </control>
+        </control>
+    </controls>
+</window>

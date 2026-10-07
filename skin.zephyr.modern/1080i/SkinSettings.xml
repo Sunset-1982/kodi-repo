@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <include>ZBackground</include>
+        <control type="label"><left>96</left><top>70</top><width>1000</width><height>34</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>Zephyr Modern $INFO[System.AddonVersion(skin.zephyr.modern),· ]</label></control>
+        <control type="label"><left>96</left><top>102</top><width>1200</width><height>80</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31035]</label></control>
+        <control type="group">
+            <left>96</left><top>220</top><width>900</width><height>800</height>
+            <control type="image"><left>0</left><top>0</top><width>900</width><height>800</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="grouplist" id="9000">
+                <left>48</left><top>40</top><width>804</width><height>720</height><orientation>vertical</orientation><itemgap>4</itemgap>
+                <control type="label" id="9091"><width>760</width><height>48</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><aligny>center</aligny><label>$LOCALIZE[31041]</label></control>
+                
+                <control type="button" id="9001"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31005]</label><onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick></control>
+                <control type="label" id="9092"><width>760</width><height>48</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><aligny>center</aligny><label>$LOCALIZE[31036]</label></control>
+                
+                <control type="button" id="9002"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31100]</label><label2>$VAR[ZThemeLabel]</label2><onclick>RunScript(special://skin/extras/scripts/select_theme.py)</onclick></control>
+                
+                <control type="button" id="9006"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31091]</label><label2>$VAR[ZOsdStyleLabel]</label2><onclick condition="String.IsEqual(Skin.String(zm.osdstyle),kompakt)">Skin.SetString(zm.osdstyle,kino)</onclick><onclick condition="!String.IsEqual(Skin.String(zm.osdstyle),kompakt)">Skin.SetString(zm.osdstyle,kompakt)</onclick></control>
+                
+                <control type="button" id="9003"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31040]</label><label2>$VAR[ZBgLabel]</label2><onclick condition="String.IsEqual(Skin.String(zm.bgmode),blur)">Skin.SetString(zm.bgmode,fanart)</onclick><onclick condition="String.IsEqual(Skin.String(zm.bgmode),fanart)">Skin.SetString(zm.bgmode,color)</onclick><onclick condition="String.IsEqual(Skin.String(zm.bgmode),color) | String.IsEmpty(Skin.String(zm.bgmode))">Skin.SetString(zm.bgmode,blur)</onclick></control>
+                
+                <control type="button" id="9008"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31170]</label><label2>$VAR[ZFocusName]</label2><onclick>ActivateWindow(1105)</onclick></control>
+                
+                <control type="button" id="9007"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31160]</label><label2>$VAR[ZBgColorLabel]</label2><onclick>RunScript(special://skin/extras/scripts/select_bgcolor.py)</onclick></control>
+                <control type="label" id="9093"><width>760</width><height>48</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><aligny>center</aligny><label>Kodi</label></control>
+                
+                <control type="button" id="9004"><width>720</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31037]</label><onclick>ActivateWindow(Settings)</onclick></control>
+            </control>
+        </control>
+    </controls>
+</window>

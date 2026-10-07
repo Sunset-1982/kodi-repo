@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fonts>
+    <fontset id="Default" idloc="31099">
+            <font><name>font13</name><filename>DMSans-Regular.ttf</filename><size>28</size></font>
+            <font><name>font10</name><filename>DMSans-Regular.ttf</filename><size>24</size></font>
+            <font><name>font12</name><filename>DMSans-Regular.ttf</filename><size>26</size></font>
+            <font><name>font14</name><filename>DMSans-Regular.ttf</filename><size>30</size></font>
+            <font><name>ZCaption</name><filename>DMSans-Medium.ttf</filename><size>22</size></font>
+            <font><name>ZSmall</name><filename>DMSans-Regular.ttf</filename><size>24</size></font>
+            <font><name>ZBody</name><filename>DMSans-Regular.ttf</filename><size>28</size></font>
+            <font><name>ZItem</name><filename>DMSans-Medium.ttf</filename><size>28</size></font>
+            <font><name>ZMenu</name><filename>DMSans-Medium.ttf</filename><size>34</size></font>
+            <font><name>ZH2</name><filename>DMSans-SemiBold.ttf</filename><size>40</size></font>
+            <font><name>ZTitle</name><filename>DMSans-SemiBold.ttf</filename><size>64</size></font>
+            <font><name>ZClock</name><filename>DMSans-Regular.ttf</filename><size>56</size></font>
+            <font><name>ZMeta</name><filename>DMSans-Regular.ttf</filename><size>26</size></font>
+            <font><name>ModernCaption</name><filename>DMSans-Medium.ttf</filename><size>22</size></font>
+            <font><name>ModernSmall</name><filename>DMSans-Regular.ttf</filename><size>23</size></font>
+            <font><name>ModernRow</name><filename>DMSans-Regular.ttf</filename><size>28</size></font>
+            <font><name>ModernRowBold</name><filename>DMSans-SemiBold.ttf</filename><size>28</size></font>
+            <font><name>ModernItem</name><filename>DMSans-Regular.ttf</filename><size>30</size></font>
+            <font><name>ModernTile</name><filename>DMSans-Medium.ttf</filename><size>26</size></font>
+            <font><name>ModernCard</name><filename>DMSans-SemiBold.ttf</filename><size>32</size></font>
+            <font><name>ModernH2</name><filename>DMSans-SemiBold.ttf</filename><size>40</size></font>
+            <font><name>ModernTitle</name><filename>DMSans-SemiBold.ttf</filename><size>64</size></font>
+            <font><name>ClockModern</name><filename>DMSans-Regular.ttf</filename><size>60</size></font>
+    </fontset>
+</fonts>

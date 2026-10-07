@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Arctic Zephyr - Modern: Kontextmenue als abgerundete Karte. Generiert von tools/gen_menus_modern.py -->
+<window id="106">
+    <defaultcontrol always="true">1000</defaultcontrol>
+    <coordinates>
+        <origin x="0" y="0"/>
+    </coordinates>
+    <controls>
+        <control type="image">
+            <width>1920</width><height>1080</height>
+            <texture colordiffuse="99000000">common/white.png</texture>
+            <animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+        </control>
+        <control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="160"/>
+                <effect type="zoom" start="96" end="100" time="200" tween="cubic" easing="out" center="960,540"/>
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="120"/>
+            </animation>
+            <top>170</top>
+            <centerleft>50%</centerleft>
+            <width>560</width>
+            <control type="image" id="999">
+                <description>Hintergrund (Kodi: Hoehe = XML-Hoehe - 700 + Inhalt der Liste 996)</description>
+                <left>-28</left><top>-28</top><width>616</width><height>888</height>
+                <texture border="52" colordiffuse="$VAR[ModernBg]">common/modern-card.png</texture>
+            </control>
+            
+            <control type="label">
+                <left>34</left><top>24</top><width>492</width><height>28</height>
+                <font>ModernCaption</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor>
+                <label>$VAR[ModernContextCaption]</label>
+            </control>
+            <control type="label">
+                <left>34</left><top>50</top><width>492</width><height>46</height>
+                <font>ModernCard</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor>
+                <label>$VAR[ModernContextTitle]</label>
+            </control>
+            <control type="image">
+                <left>24</left><top>106</top><width>512</width><height>1</height>
+                <texture colordiffuse="14ffffff">common/white.png</texture>
+            </control>
+            <control type="group">
+                <visible>Container(996).HasNext | Container(996).HasPrevious</visible>
+                <control type="image">
+                    <centerleft>50%</centerleft><top>-40</top><width>32</width><height>16</height>
+                    <texture colordiffuse="99ffffff" flipy="true">common/arrow-small.png</texture>
+                </control>
+            </control>
+            <control type="grouplist" id="996">
+                <description>grouplist for context buttons</description>
+                <top>118</top>
+                <left>14</left>
+                <right>14</right>
+                <height max="700">auto</height>
+                <itemgap>2</itemgap>
+                <scrolltime tween="cubic" easing="out">150</scrolltime>
+                <control type="button" id="1000">
+                    <description>Buttons</description>
+                    <height>60</height>
+                    <font>ModernTile</font>
+                    <textoffsetx>20</textoffsetx>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <textcolor>ffececec</textcolor>
+                    <focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus>
+                    <texturenofocus />
+                    <alttexturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</alttexturefocus>
+                    <alttexturenofocus />
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

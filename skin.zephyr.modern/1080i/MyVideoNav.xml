@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">50</defaultcontrol>
+    <views>55,56,50,51,52,53,54</views>
+    <menucontrol>9000</menucontrol>
+    <onload>ClearProperty(TMDbHelper.WidgetContainer,home)</onload>
+    <onload condition="Skin.HasSetting(zm.autotrailer)">RunScript(special://skin/extras/scripts/autotrailer.py)</onload>
+    <controls>
+        <include>ZBackground</include>
+        <include>ZClock</include>
+        <control type="group">
+            <left>96</left><top>52</top><width>1300</width><height>110</height>
+            <animation effect="fade" start="100" end="0" time="200" condition="Control.IsVisible(52) | Control.IsVisible(55)">Conditional</animation>
+            <control type="label"><left>0</left><top>0</top><width>1300</width><height>60</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Container.FolderName]</label></control>
+            <control type="label"><left>0</left><top>62</top><width>1300</width><height>36</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$VAR[ZNavSub]</label></control>
+        </control>
+        <control type="group">
+            <left>96</left><top>52</top><width>1300</width><height>40</height><visible>Control.IsVisible(52) | Control.IsVisible(55)</visible>
+            <control type="label"><left>0</left><top>0</top><width>1300</width><height>36</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[Container.FolderName]$INFO[Container.NumItems,  •  , $LOCALIZE[31050]]</label></control>
+        </control>
+        <control type="group">
+            <animation effect="fade" start="0" end="100" time="250">WindowOpen</animation>
+        <control type="list" id="50">
+            <left>96</left><top>200</top><width>980</width><height>792</height><visible>true</visible>
+            <viewtype label="$LOCALIZE[31065]">list</viewtype>
+            <onleft>9000</onleft><pagecontrol/>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <itemlayout height="72" width="980">
+                <control type="label"><left>24</left><top>0</top><width>732</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>left</align><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control><control type="label"><left>756</left><top>0</top><width>180</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control><control type="image"><left>944</left><top>22</top><width>20</width><height>20</height><texture colordiffuse="ff98a0aa">common/zm-check.png</texture><visible>Integer.IsGreater(ListItem.PlayCount,0)</visible></control>
+            </itemlayout>
+            <focusedlayout height="72" width="980">
+                <control type="image"><left>0</left><top>0</top><width>980</width><height>64</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(50)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>732</width><height>64</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><align>left</align><aligny>center</aligny><scroll>true</scroll><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(50)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>732</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>left</align><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(50)</visible></control><control type="label"><left>756</left><top>0</top><width>180</width><height>64</height><font>ZSmall</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label><visible>Control.HasFocus(50)</visible></control>
+                <control type="label"><left>756</left><top>0</top><width>180</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><visible>!Control.HasFocus(50)</visible><label>$INFO[ListItem.Label2]</label></control><control type="image"><left>944</left><top>22</top><width>20</width><height>20</height><texture colordiffuse="ff98a0aa">common/zm-check.png</texture><visible>Integer.IsGreater(ListItem.PlayCount,0)</visible></control>
+            </focusedlayout>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(50) + !ListItem.IsParentFolder</visible>
+            <control type="image"><left>1180</left><top>200</top><width>300</width><height>450</height><aspectratio>scale</aspectratio><fadetime>150</fadetime><texture background="true" diffuse="common/zm-mask-poster.png">$VAR[ZArt_poster]</texture></control>
+            <control type="grouplist"><left>1512</left><top>204</top><width>312</width><height>446</height><orientation>vertical</orientation><itemgap>6</itemgap><usecontrolcoords>true</usecontrolcoords>
+                <control type="label"><width>312</width><height>48</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Year]</label><visible>!String.IsEmpty(ListItem.Year)</visible></control>
+                <control type="label"><width>312</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$INFO[ListItem.Duration(mins),, min]</label><visible>!String.IsEmpty(ListItem.Duration)</visible></control>
+                <control type="label"><width>312</width><height>34</height><font>ZMeta</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[ListItem.Rating,$LOCALIZE[31081] ]</label><visible>!String.IsEmpty(ListItem.Rating)</visible></control>
+                <control type="textbox"><width>312</width><height max="140">auto</height><font>ZMeta</font><textcolor>ff98a0aa</textcolor><label>$INFO[ListItem.Genre]</label></control>
+                <control type="label"><width>312</width><height>34</height><font>ZMeta</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[ListItem.MPAA]</label></control>
+            </control>
+            <control type="textbox"><left>1180</left><top>690</top><width>644</width><height>300</height><font>ZBody</font><textcolor>ffececec</textcolor><label>$INFO[ListItem.Plot]</label></control>
+        </control>
+        <control type="panel" id="51">
+            <left>91</left><top>236</top><width>1722</width><height>760</height><visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos) | Container.Content(videos)</visible>
+            <viewtype label="$LOCALIZE[31066]">wrap</viewtype>
+            <onleft>9000</onleft><orientation>vertical</orientation><pagecontrol/>
+            <scrolltime tween="cubic" easing="out">240</scrolltime>
+            <itemlayout width="246" height="380"><include content="ZWidgetItem"><param name="w" value="222"/><param name="h" value="333"/><param name="mask" value="poster"/><param name="fw" value="234"/><param name="fh" value="345"/><param name="ly" value="345"/><param name="sub" value=" "/><param name="focused" value="false"/></include></itemlayout>
+            <focusedlayout width="246" height="380"><include content="ZWidgetItem"><param name="w" value="222"/><param name="h" value="333"/><param name="mask" value="poster"/><param name="fw" value="234"/><param name="fh" value="345"/><param name="ly" value="345"/><param name="sub" value=" "/><param name="focused" value="Control.HasFocus(51)"/></include></focusedlayout>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(52)</visible>
+            <control type="group">
+                <left>96</left><top>150</top><width>1100</width><height>470</height>
+                <control type="image"><left>0</left><top>0</top><width>640</width><height>160</height><aspectratio align="left" aligny="bottom">keep</aspectratio><fadetime>200</fadetime><texture>$VAR[ZLogo]</texture></control>
+                <control type="label"><left>0</left><top>70</top><width>1100</width><height>90</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZTitle]</label><visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible></control>
+                <control type="label"><left>0</left><top>180</top><width>1100</width><height>34</height><font>ZMeta</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$VAR[ZSubtitle]</label></control>
+                <control type="label"><left>0</left><top>218</top><width>1100</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZMeta]</label></control>
+                <control type="group"><left>0</left><top>262</top><width>1100</width><height>40</height><include content="ZFlags"><param name="width" value="1100"/></include></control>
+                <control type="textbox"><left>0</left><top>320</top><width>1100</width><height>150</height><font>ZBody</font><textcolor>ffececec</textcolor><label>$INFO[ListItem.Plot]</label></control>
+            </control>
+        </control>
+        <control type="fixedlist" id="52">
+            <left>76</left><top>700</top><width>1740</width><height>330</height><visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(videos)</visible>
+            <viewtype label="$LOCALIZE[31067]">bigwrap</viewtype>
+            <onleft>9000</onleft><orientation>horizontal</orientation><focusposition>0</focusposition><movement>1</movement><pagecontrol/>
+            <scrolltime tween="cubic" easing="out">260</scrolltime>
+            <itemlayout width="432" height="330"><include content="ZWidgetItem"><param name="w" value="400"/><param name="h" value="225"/><param name="mask" value="landscape"/><param name="fw" value="412"/><param name="fh" value="237"/><param name="ly" value="233"/><param name="sub" value="$INFO[ListItem.Label]"/><param name="focused" value="false"/></include></itemlayout>
+            <focusedlayout width="432" height="330"><include content="ZWidgetItem"><param name="w" value="400"/><param name="h" value="225"/><param name="mask" value="landscape"/><param name="fw" value="412"/><param name="fh" value="237"/><param name="ly" value="233"/><param name="sub" value="$INFO[ListItem.Label]"/><param name="focused" value="Control.HasFocus(52)"/></include></focusedlayout>
+        </control>
+        <control type="list" id="53">
+            <left>96</left><top>200</top><width>620</width><height>792</height><visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+            <viewtype label="$LOCALIZE[31068]">list</viewtype>
+            <onleft>9000</onleft><pagecontrol/>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <itemlayout height="72" width="620">
+                <control type="label"><left>24</left><top>0</top><width>372</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>left</align><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control><control type="label"><left>396</left><top>0</top><width>180</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control><control type="image"><left>584</left><top>22</top><width>20</width><height>20</height><texture colordiffuse="ff98a0aa">common/zm-check.png</texture><visible>Integer.IsGreater(ListItem.PlayCount,0)</visible></control>
+            </itemlayout>
+            <focusedlayout height="72" width="620">
+                <control type="image"><left>0</left><top>0</top><width>620</width><height>64</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(53)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>372</width><height>64</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><align>left</align><aligny>center</aligny><scroll>true</scroll><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(53)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>372</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>left</align><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(53)</visible></control><control type="label"><left>396</left><top>0</top><width>180</width><height>64</height><font>ZSmall</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label><visible>Control.HasFocus(53)</visible></control>
+                <control type="label"><left>396</left><top>0</top><width>180</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><visible>!Control.HasFocus(53)</visible><label>$INFO[ListItem.Label2]</label></control><control type="image"><left>584</left><top>22</top><width>20</width><height>20</height><texture colordiffuse="ff98a0aa">common/zm-check.png</texture><visible>Integer.IsGreater(ListItem.PlayCount,0)</visible></control>
+            </focusedlayout>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(53) + !ListItem.IsParentFolder</visible>
+            <control type="image"><left>800</left><top>200</top><width>1024</width><height>520</height><aspectratio>scale</aspectratio><fadetime>150</fadetime><texture background="true" diffuse="common/zm-mask-landscape.png">$VAR[ZArt_landscape]</texture></control>
+            <control type="label"><left>800</left><top>744</top><width>1024</width><height>56</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZTitle]</label></control>
+            <control type="label"><left>800</left><top>800</top><width>1024</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZMeta]</label></control>
+            <control type="group"><left>800</left><top>846</top><width>1024</width><height>40</height><include content="ZFlags"><param name="width" value="1024"/></include></control>
+            <control type="textbox"><left>800</left><top>902</top><width>1024</width><height>108</height><font>ZBody</font><textcolor>ff98a0aa</textcolor><label>$INFO[ListItem.Plot]</label></control>
+        </control>
+        <control type="list" id="54">
+            <left>560</left><top>200</top><width>800</width><height>800</height><visible>true</visible>
+            <viewtype label="$LOCALIZE[31069]">list</viewtype>
+            <onleft>9000</onleft><pagecontrol/>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <itemlayout height="80" width="800">
+                <control type="label"><left>24</left><top>0</top><width>752</width><height>72</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>center</align><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+            </itemlayout>
+            <focusedlayout height="80" width="800">
+                <control type="image"><left>0</left><top>0</top><width>800</width><height>72</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(54)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>752</width><height>72</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><align>center</align><aligny>center</aligny><scroll>true</scroll><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(54)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>752</width><height>72</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>center</align><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(54)</visible></control>
+                
+            </focusedlayout>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(55)</visible>
+            <control type="group">
+                <left>96</left><top>150</top><width>1100</width><height>430</height>
+                <control type="image"><left>0</left><top>0</top><width>640</width><height>160</height><aspectratio align="left" aligny="bottom">keep</aspectratio><fadetime>200</fadetime><texture>$VAR[ZLogo]</texture></control>
+                <control type="label"><left>0</left><top>70</top><width>1100</width><height>90</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZTitle]</label><visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible></control>
+                <control type="label"><left>0</left><top>180</top><width>1100</width><height>34</height><font>ZMeta</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$VAR[ZSubtitle]</label></control>
+                <control type="label"><left>0</left><top>218</top><width>1100</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZMeta]</label></control>
+                <control type="group"><left>0</left><top>262</top><width>1100</width><height>40</height><include content="ZFlags"><param name="width" value="1100"/></include></control>
+                <control type="textbox"><left>0</left><top>320</top><width>1100</width><height>110</height><font>ZBody</font><textcolor>ffececec</textcolor><label>$INFO[ListItem.Plot]</label></control>
+            </control>
+        </control>
+        <control type="fixedlist" id="55">
+            <left>91</left><top>600</top><width>1740</width><height>410</height><visible>Container.Content(seasons)</visible>
+            <viewtype label="$LOCALIZE[31070]">list</viewtype>
+            <onleft>9000</onleft><orientation>horizontal</orientation><focusposition>0</focusposition><movement>1</movement><pagecontrol/>
+            <scrolltime tween="cubic" easing="out">260</scrolltime>
+            <itemlayout width="246" height="410"><include content="ZWidgetItem"><param name="w" value="222"/><param name="h" value="333"/><param name="mask" value="poster"/><param name="fw" value="234"/><param name="fh" value="345"/><param name="ly" value="345"/><param name="sub" value="$INFO[ListItem.Label]"/><param name="focused" value="false"/></include></itemlayout>
+            <focusedlayout width="246" height="410"><include content="ZWidgetItem"><param name="w" value="222"/><param name="h" value="333"/><param name="mask" value="poster"/><param name="fw" value="234"/><param name="fh" value="345"/><param name="ly" value="345"/><param name="sub" value="$INFO[ListItem.Label]"/><param name="focused" value="Control.HasFocus(55)"/></include></focusedlayout>
+        </control>
+        <control type="list" id="56">
+            <left>96</left><top>200</top><width>1728</width><height>816</height><visible>Container.Content(episodes)</visible>
+            <viewtype label="$LOCALIZE[31071]">list</viewtype>
+            <onleft>9000</onleft><orientation>vertical</orientation><pagecontrol/>
+            <scrolltime tween="cubic" easing="out">220</scrolltime>
+            <itemlayout width="1728" height="272">
+                <control type="image"><left>20</left><top>20</top><width>384</width><height>216</height><texture colordiffuse="$VAR[ModernSurface]" diffuse="common/zm-mask-landscape.png">common/white.png</texture></control>
+                <control type="image"><left>20</left><top>20</top><width>384</width><height>216</height><aspectratio>scale</aspectratio><texture background="true" diffuse="common/zm-mask-landscape.png">$VAR[ZArt_landscape]</texture></control>
+                <control type="group"><left>20</left><top>20</top><width>384</width><height>216</height>
+                    <control type="group"><visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+                        <control type="image"><top>10</top><right>10</right><width>36</width><height>36</height><texture colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texture></control>
+                        <control type="image"><top>18</top><right>18</right><width>20</width><height>20</height><texture colordiffuse="$VAR[ModernFocusText]">common/zm-check.png</texture></control>
+                    </control>
+                    <control type="progress"><left>14</left><right>14</right><bottom>14</bottom><height>6</height><info>ListItem.PercentPlayed</info><texturebg border="3" colordiffuse="66000000">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture><righttexture/><visible>Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)</visible></control>
+                </control>
+                <control type="label"><left>440</left><top>28</top><width>1250</width><height>40</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</label></control>
+                <control type="label"><left>440</left><top>70</top><width>1250</width><height>32</height><font>ZSmall</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$INFO[ListItem.Premiered]$INFO[ListItem.Duration(mins),  •  , min]$INFO[ListItem.Rating,  •  ]</label></control>
+                <control type="textbox"><left>440</left><top>110</top><width>1250</width><height>120</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><label>$INFO[ListItem.Plot]</label></control>
+            </itemlayout>
+            <focusedlayout width="1728" height="272"><control type="image"><left>0</left><top>0</top><width>1728</width><height>256</height><texture border="20" colordiffuse="$VAR[ModernSurface]">common/modern-round20.png</texture><visible>Control.HasFocus(56)</visible></control>
+                <control type="image"><left>20</left><top>20</top><width>384</width><height>216</height><texture colordiffuse="$VAR[ModernSurface]" diffuse="common/zm-mask-landscape.png">common/white.png</texture></control>
+                <control type="image"><left>20</left><top>20</top><width>384</width><height>216</height><aspectratio>scale</aspectratio><texture background="true" diffuse="common/zm-mask-landscape.png">$VAR[ZArt_landscape]</texture></control><control type="image"><left>14</left><top>14</top><width>396</width><height>228</height><texture border="16" colordiffuse="$VAR[ModernFocus]">common/zm-frame.png</texture><visible>Control.HasFocus(56)</visible></control>
+                <control type="group"><left>20</left><top>20</top><width>384</width><height>216</height>
+                    <control type="group"><visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+                        <control type="image"><top>10</top><right>10</right><width>36</width><height>36</height><texture colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texture></control>
+                        <control type="image"><top>18</top><right>18</right><width>20</width><height>20</height><texture colordiffuse="$VAR[ModernFocusText]">common/zm-check.png</texture></control>
+                    </control>
+                    <control type="progress"><left>14</left><right>14</right><bottom>14</bottom><height>6</height><info>ListItem.PercentPlayed</info><texturebg border="3" colordiffuse="66000000">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture><righttexture/><visible>Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)</visible></control>
+                </control>
+                <control type="label"><left>440</left><top>28</top><width>1250</width><height>40</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</label></control>
+                <control type="label"><left>440</left><top>70</top><width>1250</width><height>32</height><font>ZSmall</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$INFO[ListItem.Premiered]$INFO[ListItem.Duration(mins),  •  , min]$INFO[ListItem.Rating,  •  ]</label></control>
+                <control type="textbox"><left>440</left><top>110</top><width>1250</width><height>120</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><label>$INFO[ListItem.Plot]</label></control>
+            </focusedlayout>
+        </control>
+        </control>
+        <control type="button" id="3"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/></control>
+        <control type="button" id="4"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/></control>
+        <control type="group">
+            <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+            <animation effect="slide" start="-600,0" end="0,0" time="260" tween="cubic" easing="out">Visible</animation>
+            <animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="in">Hidden</animation>
+            <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="88000000">common/white.png</texture></control>
+            <control type="image"><left>40</left><top>40</top><width>536</width><height>1000</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label"><left>96</left><top>76</top><width>440</width><height>56</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31051]</label></control>
+            <control type="grouplist" id="9000">
+                <left>72</left><top>160</top><width>472</width><height>860</height><orientation>vertical</orientation><itemgap>4</itemgap>
+                <onright>50</onright><onleft>50</onleft><onback>50</onback>
+                <control type="button" id="6051"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31076]</label><label2>$INFO[Container.Viewmode]</label2><onclick>Container.NextViewMode</onclick><visible>Integer.IsGreater(Container.ViewCount,1)</visible></control>
+                <control type="button" id="6053"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31074]</label><label2>$INFO[Container.SortMethod]</label2><onclick>SendClick(3)</onclick><visible>Control.IsEnabled(3)</visible></control>
+                <control type="button" id="6052"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31075]</label><label2>$INFO[Container.SortOrder]</label2><onclick>SendClick(4)</onclick><visible>Control.IsEnabled(4)</visible></control>
+                <control type="button" id="10"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label/><visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible></control>
+                <control type="button" id="8"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31077]</label></control>
+                <control type="button" id="19"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31078]</label><onclick>right</onclick><visible>Container.CanFilter + !Container.CanFilterAdvanced</visible></control>
+                <control type="button" id="199"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31078]</label><onclick>Filter</onclick><visible>Container.CanFilterAdvanced</visible></control>
+                <control type="radiobutton" id="6060"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31072]</label>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">buttons/modern-switch-on-focus.png</textureradioonfocus><textureradioonnofocus>buttons/modern-switch-on.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">buttons/modern-switch-off-focus.png</textureradioofffocus><textureradiooffnofocus>buttons/modern-switch-off.png</textureradiooffnofocus>
+                    <radiowidth>72</radiowidth><radioheight>40</radioheight><radioposx>380</radioposx>
+                    <selected>Skin.HasSetting(zm.autotrailer)</selected><onclick>Skin.ToggleSetting(zm.autotrailer)</onclick>
+                    <onclick condition="!Skin.HasSetting(zm.autotrailer)">RunScript(special://skin/extras/scripts/autotrailer.py)</onclick>
+                    <visible>Control.IsVisible(52)</visible></control>
+                <control type="button" id="6054"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31073]</label><onclick>UpdateLibrary(video)</onclick><visible>!Container.Content(addons) + String.IsEmpty(Container.PluginName) + !Library.IsScanningVideo</visible></control>
+                <control type="button" id="6055"><width>472</width><height>64</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31035]</label><onclick>ActivateWindow(skinsettings)</onclick></control>
+            </control>
+        </control>
+    </controls>
+</window>

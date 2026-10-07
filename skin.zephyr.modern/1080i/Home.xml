@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">300</defaultcontrol>
+    <onload condition="String.IsEmpty(Window(Home).Property(zm.shortcuts.built))">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;group=mainmenu|powermenu&amp;levels=1)</onload>
+    <onload>SetProperty(zm.shortcuts.built,1,home)</onload>
+    <onload condition="String.IsEmpty(Skin.String(zm.bgmode))">Skin.SetString(zm.bgmode,blur)</onload>
+    <onload condition="!Skin.HasSetting(TMDbHelper.EnableBlur) + [String.IsEmpty(Skin.String(zm.bgmode)) | String.IsEqual(Skin.String(zm.bgmode),blur)]">Skin.SetBool(TMDbHelper.EnableBlur)</onload>
+    <controls>
+        <include>ZBackground</include>
+        <include>ZClock</include>
+        <!-- Infobereich (A2): fest oben rechts, verschiebt sich nicht -->
+        <control type="group">
+            <left>524</left><top>50</top><width>900</width><height>240</height>
+            <visible>ControlGroup(5000).HasFocus()</visible>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <control type="image"><left>0</left><top>0</top><width>560</width><height>104</height><aspectratio align="left" aligny="bottom">keep</aspectratio><texture>$INFO[ListItem.Art(clearlogo)]</texture><fadetime>200</fadetime></control>
+            <control type="label"><left>0</left><top>14</top><width>900</width><height>90</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZTitle]</label><visible>String.IsEmpty(ListItem.Art(clearlogo))</visible></control>
+            <control type="label"><left>0</left><top>116</top><width>900</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZMeta]$INFO[ListItem.Title,  •  ,]</label><visible>String.IsEqual(ListItem.DBType,episode)</visible></control>
+            <control type="label"><left>0</left><top>116</top><width>900</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZMeta]</label><visible>!String.IsEqual(ListItem.DBType,episode)</visible></control>
+            <control type="textbox"><left>0</left><top>158</top><width>900</width><height>74</height><font>ZBody</font><textcolor>ffececec</textcolor><label>$INFO[ListItem.Plot]</label></control>
+        </control>
+        <control type="label">
+            <left>524</left><top>64</top><width>900</width><height>90</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Container(300).ListItem.Label]</label>
+            <visible>!ControlGroup(5000).HasFocus() + !Control.IsVisible(5101) + !Control.IsVisible(5102) + !Control.IsVisible(5103) + !Control.IsVisible(5104) + !Control.IsVisible(5105) + !Control.IsVisible(5106) + !Control.IsVisible(5107) + !Control.IsVisible(5108) + !Control.IsVisible(5109) + !Control.IsVisible(5110) + !Control.IsVisible(5111) + !Control.IsVisible(5112) + !Control.IsVisible(5113) + !Control.IsVisible(5114) + !Control.IsVisible(5115)</visible>
+        </control>
+        <control type="list" id="300">
+            <left>64</left><top>150</top><width>360</width><height>488</height>
+            <orientation>vertical</orientation>
+            <onright>SetFocus(5000)</onright>
+            <onup>300</onup><ondown>300</ondown>
+            <scrolltime tween="cubic" easing="out">220</scrolltime>
+            <itemlayout height="72" width="360">
+                <control type="label"><left>24</left><top>0</top><width>312</width><height>64</height><font>ZMenu</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+            </itemlayout>
+            <focusedlayout height="72" width="360">
+                <control type="image"><left>0</left><top>0</top><width>360</width><height>64</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(300)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>312</width><height>64</height><font>ZMenu</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(300)</visible></control>
+                <control type="label"><left>24</left><top>0</top><width>312</width><height>64</height><font>ZMenu</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(300)</visible></control>
+            </focusedlayout>
+            <content><include>skinshortcuts-mainmenu</include></content>
+        </control>
+        <control type="group" id="5000">
+            <left>0</left><top>0</top><width>1920</width><height>1080</height>
+            <onleft>SetFocus(300)</onleft>
+            <include>skinshortcuts-template-zm-widgets</include>
+        </control>
+        <control type="group">
+            <left>64</left><top>900</top><width>360</width><height>120</height>
+            <visible>Player.HasMedia</visible>
+            <control type="image"><left>0</left><top>0</top><width>360</width><height>120</height><texture border="20" colordiffuse="$VAR[ModernSurface]">common/modern-round20.png</texture></control>
+            <control type="image"><left>16</left><top>16</top><width>88</width><height>88</height><aspectratio>scale</aspectratio><texture diffuse="common/zm-mask-square.png">$INFO[Player.Art(thumb)]</texture></control>
+            <control type="label"><left>120</left><top>18</top><width>224</width><height>26</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$LOCALIZE[31004]</label></control>
+            <control type="label"><left>120</left><top>44</top><width>224</width><height>32</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Player.Title]</label></control>
+            <control type="progress"><left>120</left><top>90</top><width>210</width><height>6</height><info>Player.Progress</info><texturebg border="3" colordiffuse="33ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture><righttexture/></control>
+        </control>
+    </controls>
+</window>

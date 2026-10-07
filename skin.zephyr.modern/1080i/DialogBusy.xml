@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <zorder>90</zorder>
+    <controls>
+        <control type="group">
+            <width>72</width><height>72</height><right>64</right><bottom>56</bottom>
+            <control type="image"><left>0</left><top>0</top><width>72</width><height>72</height><texture colordiffuse="$VAR[ModernSurface]">osd/modern/circle.png</texture></control>
+            <control type="image"><left>18</left><top>18</top><width>36</width><height>36</height><texture colordiffuse="ffececec">osd/modern/pm-reload.png</texture>
+                <animation effect="rotate" end="-360" center="auto" time="1000" loop="true" condition="true">Conditional</animation></control>
+        </control>
+    </controls>
+</window>

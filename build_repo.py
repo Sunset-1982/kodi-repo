@@ -6,7 +6,7 @@ Ausgabe: _site/ (wird von der GitHub Action auf den Branch gh-pages gelegt)
 """
 import hashlib, os, re, shutil, zipfile, xml.etree.ElementTree as ET
 
-ADDONS = ["skin.arctic.zephyr.modern", "repository.sunset1982"]
+ADDONS = ["skin.arctic.zephyr.modern", "repository.sunset1982", "skin.zephyr.modern"]
 EXCLUDE = re.compile(r"(^|/)(\.git|\.DS_Store|Thumbs\.db|__pycache__)(/|$)|script-skinshortcuts-includes\.xml$")
 OUT = "_site"
 

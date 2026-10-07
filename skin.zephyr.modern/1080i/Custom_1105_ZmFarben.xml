@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window id="1105">
+    <defaultcontrol always="true">9100</defaultcontrol>
+    <controls>
+        <include>ZBackground</include>
+        <control type="label"><left>96</left><top>70</top><width>1000</width><height>34</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$LOCALIZE[31035]</label></control>
+        <control type="label"><left>96</left><top>102</top><width>1400</width><height>80</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31170]</label></control>
+        <control type="group">
+            <left>96</left><top>220</top><width>1116</width><height>800</height>
+            <control type="image"><left>0</left><top>0</top><width>1116</width><height>800</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label"><left>48</left><top>40</top><width>900</width><height>40</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$LOCALIZE[31182]</label></control>
+            <control type="group"><left>0</left><top>92</top><width>1116</width><height>104</height>
+            <control type="list" id="9100">
+                <left>36</left><top>0</top><width>1040</width><height>104</height><orientation>horizontal</orientation>
+                <onup>9200</onup><ondown>9200</ondown><onleft>9100</onleft><onright>9100</onright>
+                <scrolltime>0</scrolltime>
+                <itemlayout width="104" height="104">
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="$INFO[ListItem.Property(color)]">osd/modern/circle.png</texture></control>
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="33ffffff">osd/modern/circle-ring.png</texture></control>
+                    <control type="image"><left>36</left><top>36</top><width>32</width><height>32</height><texture colordiffuse="$INFO[ListItem.Property(text)]">common/zm-check.png</texture><visible>String.IsEqual(ListItem.Property(sel),1)</visible></control>
+                </itemlayout>
+                <focusedlayout width="104" height="104">
+                    <control type="image"><left>6</left><top>6</top><width>92</width><height>92</height><texture colordiffuse="ffececec">osd/modern/circle.png</texture><visible>Control.HasFocus(9100)</visible></control>
+                    <control type="image"><left>10</left><top>10</top><width>84</width><height>84</height><texture colordiffuse="$VAR[ModernBg]">osd/modern/circle.png</texture><visible>Control.HasFocus(9100)</visible></control>
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="$INFO[ListItem.Property(color)]">osd/modern/circle.png</texture></control>
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="33ffffff">osd/modern/circle-ring.png</texture></control>
+                    <control type="image"><left>36</left><top>36</top><width>32</width><height>32</height><texture colordiffuse="$INFO[ListItem.Property(text)]">common/zm-check.png</texture><visible>String.IsEqual(ListItem.Property(sel),1)</visible></control>
+                </focusedlayout>
+                <content>
+                <item><label>$LOCALIZE[31171]</label><property name="key">creme</property><property name="color">fff7f2e8</property><property name="text">ff1c1912</property><property name="sel">$VAR[ZSel_focuscolor_creme]</property><onclick>Skin.SetString(zm.focuscolor,creme)</onclick></item>
+                <item><label>$LOCALIZE[31172]</label><property name="key">weiss</property><property name="color">fff1f3f5</property><property name="text">ff14171b</property><property name="sel">$VAR[ZSel_focuscolor_weiss]</property><onclick>Skin.SetString(zm.focuscolor,weiss)</onclick></item>
+                <item><label>$LOCALIZE[31173]</label><property name="key">mint</property><property name="color">ffbff0dd</property><property name="text">ff08201a</property><property name="sel">$VAR[ZSel_focuscolor_mint]</property><onclick>Skin.SetString(zm.focuscolor,mint)</onclick></item>
+                <item><label>$LOCALIZE[31174]</label><property name="key">tuerkis</property><property name="color">ff1fb5c9</property><property name="text">ff04171b</property><property name="sel">$VAR[ZSel_focuscolor_tuerkis]</property><onclick>Skin.SetString(zm.focuscolor,tuerkis)</onclick></item>
+                <item><label>$LOCALIZE[31175]</label><property name="key">himmelblau</property><property name="color">ff8fb4ff</property><property name="text">ff0b1220</property><property name="sel">$VAR[ZSel_focuscolor_himmelblau]</property><onclick>Skin.SetString(zm.focuscolor,himmelblau)</onclick></item>
+                <item><label>$LOCALIZE[31176]</label><property name="key">kodiblau</property><property name="color">ff1f8fff</property><property name="text">ffffffff</property><property name="sel">$VAR[ZSel_focuscolor_kodiblau]</property><onclick>Skin.SetString(zm.focuscolor,kodiblau)</onclick></item>
+                <item><label>$LOCALIZE[31177]</label><property name="key">gold</property><property name="color">ffe8c46a</property><property name="text">ff1d1606</property><property name="sel">$VAR[ZSel_focuscolor_gold]</property><onclick>Skin.SetString(zm.focuscolor,gold)</onclick></item>
+                <item><label>$LOCALIZE[31178]</label><property name="key">koralle</property><property name="color">ffffa78c</property><property name="text">ff2a1016</property><property name="sel">$VAR[ZSel_focuscolor_koralle]</property><onclick>Skin.SetString(zm.focuscolor,koralle)</onclick></item>
+                <item><label>$LOCALIZE[31179]</label><property name="key">lavendel</property><property name="color">ffc7b6ff</property><property name="text">ff1a1230</property><property name="sel">$VAR[ZSel_focuscolor_lavendel]</property><onclick>Skin.SetString(zm.focuscolor,lavendel)</onclick></item>
+                <item><label>$LOCALIZE[31167]</label><property name="key">theme</property><property name="color">ModernFocus</property><property name="text">ModernFocusText</property><property name="sel">$VAR[ZSel_focuscolor_theme]</property><onclick>Skin.SetString(zm.focuscolor,theme)</onclick></item>
+                </content>
+            </control>
+            </control>
+            <control type="label"><left>48</left><top>206</top><width>900</width><height>40</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZPrevFocusName]</label></control>
+            <control type="label"><left>48</left><top>316</top><width>900</width><height>40</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$LOCALIZE[31183]</label></control>
+            <control type="group"><left>0</left><top>368</top><width>1116</width><height>104</height>
+            <control type="list" id="9200">
+                <left>36</left><top>0</top><width>1040</width><height>104</height><orientation>horizontal</orientation>
+                <onup>9100</onup><ondown>9100</ondown><onleft>9200</onleft><onright>9200</onright>
+                <scrolltime>0</scrolltime>
+                <itemlayout width="104" height="104">
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="$INFO[ListItem.Property(color)]">osd/modern/circle.png</texture></control>
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="33ffffff">osd/modern/circle-ring.png</texture></control>
+                    <control type="image"><left>36</left><top>36</top><width>32</width><height>32</height><texture colordiffuse="$INFO[ListItem.Property(text)]">common/zm-check.png</texture><visible>String.IsEqual(ListItem.Property(sel),1)</visible></control>
+                </itemlayout>
+                <focusedlayout width="104" height="104">
+                    <control type="image"><left>6</left><top>6</top><width>92</width><height>92</height><texture colordiffuse="ffececec">osd/modern/circle.png</texture><visible>Control.HasFocus(9200)</visible></control>
+                    <control type="image"><left>10</left><top>10</top><width>84</width><height>84</height><texture colordiffuse="$VAR[ModernBg]">osd/modern/circle.png</texture><visible>Control.HasFocus(9200)</visible></control>
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="$INFO[ListItem.Property(color)]">osd/modern/circle.png</texture></control>
+                    <control type="image"><left>14</left><top>14</top><width>76</width><height>76</height><texture colordiffuse="33ffffff">osd/modern/circle-ring.png</texture></control>
+                    <control type="image"><left>36</left><top>36</top><width>32</width><height>32</height><texture colordiffuse="$INFO[ListItem.Property(text)]">common/zm-check.png</texture><visible>String.IsEqual(ListItem.Property(sel),1)</visible></control>
+                </focusedlayout>
+                <content>
+                <item><label>$LOCALIZE[31174]</label><property name="key">tuerkis</property><property name="color">ff1fb5c9</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_tuerkis]</property><onclick>Skin.SetString(zm.progresscolor,tuerkis)</onclick></item>
+                <item><label>$LOCALIZE[31171]</label><property name="key">creme</property><property name="color">fff7f2e8</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_creme]</property><onclick>Skin.SetString(zm.progresscolor,creme)</onclick></item>
+                <item><label>$LOCALIZE[31172]</label><property name="key">weiss</property><property name="color">fff1f3f5</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_weiss]</property><onclick>Skin.SetString(zm.progresscolor,weiss)</onclick></item>
+                <item><label>$LOCALIZE[31173]</label><property name="key">mint</property><property name="color">ff7fd6b9</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_mint]</property><onclick>Skin.SetString(zm.progresscolor,mint)</onclick></item>
+                <item><label>$LOCALIZE[31175]</label><property name="key">himmelblau</property><property name="color">ff8fb4ff</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_himmelblau]</property><onclick>Skin.SetString(zm.progresscolor,himmelblau)</onclick></item>
+                <item><label>$LOCALIZE[31176]</label><property name="key">kodiblau</property><property name="color">ff1f8fff</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_kodiblau]</property><onclick>Skin.SetString(zm.progresscolor,kodiblau)</onclick></item>
+                <item><label>$LOCALIZE[31177]</label><property name="key">gold</property><property name="color">ffe8c46a</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_gold]</property><onclick>Skin.SetString(zm.progresscolor,gold)</onclick></item>
+                <item><label>$LOCALIZE[31178]</label><property name="key">koralle</property><property name="color">ffffa78c</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_koralle]</property><onclick>Skin.SetString(zm.progresscolor,koralle)</onclick></item>
+                <item><label>$LOCALIZE[31180]</label><property name="key">rot</property><property name="color">ffe5484d</property><property name="text">ff101317</property><property name="sel">$VAR[ZSel_progresscolor_rot]</property><onclick>Skin.SetString(zm.progresscolor,rot)</onclick></item>
+                <item><label>$LOCALIZE[31181]</label><property name="key">focus</property><property name="color">$VAR[ModernFocus]</property><property name="text">$VAR[ModernFocusText]</property><property name="sel">$VAR[ZSel_progresscolor_focus]</property><onclick>Skin.SetString(zm.progresscolor,focus)</onclick></item>
+                </content>
+            </control>
+            </control>
+            <control type="label"><left>48</left><top>482</top><width>900</width><height>40</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZPrevProgName]</label></control>
+            <control type="textbox"><left>48</left><top>700</top><width>1020</width><height>70</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><label>$LOCALIZE[31185]</label></control>
+        </control>
+        <control type="group">
+            <left>1260</left><top>220</top><width>564</width><height>800</height>
+            <control type="image"><left>0</left><top>0</top><width>564</width><height>800</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label"><left>40</left><top>40</top><width>480</width><height>40</height><font>ZCaption</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$LOCALIZE[31184]</label></control>
+            <control type="image"><left>28</left><top>96</top><width>360</width><height>64</height><texture border="14" colordiffuse="$VAR[ZPrevFocus]">common/modern-round14.png</texture></control>
+            <control type="label"><left>52</left><top>96</top><width>320</width><height>64</height><font>ZMenu</font><textcolor>$VAR[ZPrevFocusText]</textcolor><selectedcolor>$VAR[ZPrevFocusText]</selectedcolor><aligny>center</aligny><label>$LOCALIZE[342]</label></control>
+            <control type="label"><left>52</left><top>168</top><width>320</width><height>64</height><font>ZMenu</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><aligny>center</aligny><label>$LOCALIZE[20343]</label></control>
+            <control type="image"><left>40</left><top>268</top><width>136</width><height>204</height><texture colordiffuse="$VAR[ModernSurface]" diffuse="common/zm-mask-poster.png">common/white.png</texture></control>
+            <control type="image"><left>34</left><top>262</top><width>148</width><height>216</height><texture border="16" colordiffuse="$VAR[ZPrevFocus]">common/zm-frame.png</texture></control>
+            <control type="image"><left>200</left><top>268</top><width>136</width><height>204</height><texture colordiffuse="$VAR[ModernSurface]" diffuse="common/zm-mask-poster.png">common/white.png</texture></control>
+            <control type="image"><left>360</left><top>268</top><width>136</width><height>204</height><texture colordiffuse="$VAR[ModernSurface]" diffuse="common/zm-mask-poster.png">common/white.png</texture></control>
+            <control type="image"><left>372</left><top>280</top><width>36</width><height>36</height><texture colordiffuse="$VAR[ZPrevFocus]">osd/modern/circle.png</texture></control>
+            <control type="image"><left>380</left><top>288</top><width>20</width><height>20</height><texture colordiffuse="$VAR[ZPrevFocusText]">common/zm-check.png</texture></control>
+            <control type="label"><left>40</left><top>560</top><width>480</width><height>34</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$LOCALIZE[31183]</label></control>
+            <control type="image"><left>40</left><top>612</top><width>484</width><height>8</height><texture border="3" colordiffuse="33ffffff">osd/modern/bar.png</texture></control>
+            <control type="image"><left>40</left><top>612</top><width>330</width><height>8</height><texture border="3" colordiffuse="44ffffff">osd/modern/bar.png</texture></control>
+            <control type="image"><left>40</left><top>612</top><width>290</width><height>8</height><texture border="3" colordiffuse="$VAR[ZPrevProg]">osd/modern/bar.png</texture></control>
+            <control type="label"><left>40</left><top>632</top><width>240</width><height>40</height><font>ZBody</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>1:02:15</label></control>
+            <control type="label"><left>284</left><top>632</top><width>240</width><height>40</height><font>ZBody</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><label>-0:44:05</label></control>
+            <control type="group"><left>196</left><top>700</top><width>172</width><height>72</height>
+                <control type="image"><left>50</left><top>0</top><width>72</width><height>72</height><texture colordiffuse="$VAR[ZPrevFocus]">osd/modern/circle.png</texture></control>
+                <control type="image"><left>68</left><top>18</top><width>36</width><height>36</height><texture colordiffuse="$VAR[ZPrevFocusText]">osd/modern/play.png</texture></control>
+            </control>
+        </control>
+    </controls>
+</window>

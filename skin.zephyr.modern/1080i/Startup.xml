@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <onload>ReplaceWindow(home)</onload>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="$VAR[ModernBg]">common/white.png</texture></control>
+        <control type="image"><width>900</width><height>94</height><centerleft>960</centerleft><centertop>500</centertop><aspectratio>keep</aspectratio><texture>misc/logo-modern.png</texture></control>
+        <control type="label"><left>0</left><top>600</top><width>1920</width><height>40</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>center</align><label>$LOCALIZE[31007]</label></control>
+    </controls>
+</window>

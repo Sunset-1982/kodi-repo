@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">11</defaultcontrol>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="88000000">common/white.png</texture><animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="150">WindowClose</animation></control>
+        <control type="group"><left>1180</left><top>0</top><width>740</width><height>1080</height>
+            <animation effect="slide" start="760,0" end="0,0" time="260" tween="cubic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="760,0" time="200" tween="cubic" easing="in">WindowClose</animation>
+        <control type="image"><left>0</left><top>24</top><width>716</width><height>1032</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label" id="2"><left>44</left><top>56</top><width>640</width><height>56</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[19069]</label></control>
+            <control type="label"><left>44</left><top>160</top><width>640</width><height>40</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$LOCALIZE[19055]</label><visible>Integer.IsEqual(Container(11).NumItems,0)</visible></control>
+        </control>
+        <control type="fixedlist" id="11">
+            <left>1206</left><top>140</top><width>668</width><height>880</height><orientation>vertical</orientation><focusposition>3</focusposition><movement>3</movement><pagecontrol>60</pagecontrol>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <itemlayout width="668" height="88"><control type="image"><left>20</left><top>18</top><width>44</width><height>44</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>88</left><top>0</top><width>232</width><height>80</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control><control type="label"><left>344</left><top>0</top><width>300</width><height>80</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+            </itemlayout>
+            <focusedlayout width="668" height="88"><control type="image"><left>0</left><top>0</top><width>668</width><height>80</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(11)</visible></control><control type="image"><left>20</left><top>18</top><width>44</width><height>44</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>88</left><top>0</top><width>232</width><height>80</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><aligny>center</aligny><scroll>true</scroll><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(11)</visible></control>
+                    <control type="label"><left>88</left><top>0</top><width>232</width><height>80</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(11)</visible></control>
+                    <control type="label"><left>344</left><top>0</top><width>300</width><height>80</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+            </focusedlayout>
+        </control>
+        <control type="scrollbar" id="60"><left>1886</left><top>146</top><width>6</width><height>860</height><orientation>vertical</orientation><showonepage>false</showonepage>
+            <texturesliderbackground/><texturesliderbar colordiffuse="33ffffff">common/white.png</texturesliderbar><texturesliderbarfocus colordiffuse="$VAR[ModernFocus]">common/white.png</texturesliderbarfocus>
+            <textureslidernib/><textureslidernibfocus/></control>
+    </controls>
+</window>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <controls>
+        <control type="group">
+            <visible>Slideshow.IsActive + [Player.ShowInfo | Slideshow.IsPaused]</visible>
+            <control type="image"><left>0</left><top>780</top><width>1920</width><height>300</height><texture colordiffuse="cc000000">common/zm-grad-bottom.png</texture></control>
+            <control type="label"><left>96</left><top>960</top><width>1300</width><height>44</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Slideshow.Filename]</label></control>
+            <control type="label"><left>96</left><top>1006</top><width>1300</width><height>36</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[Slideshow.Resolution]$INFO[Slideshow.EXIFDate,  •  ]$INFO[Slideshow.Index,  •  ]$INFO[Container.NumItems, / ]</label></control>
+            <control type="label"><left>1324</left><top>1006</top><width>500</width><height>36</height><font>ZSmall</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><align>right</align><label>$LOCALIZE[31088]</label><visible>Slideshow.IsPaused</visible></control>
+        </control>
+    </controls>
+</window>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>
+    <doNotShareMenu/>
+    <groupoverride group="powermenu" condition="Window.IsActive(DialogButtonMenu.xml)">Close</groupoverride>
+    <widgetPlaylists>True</widgetPlaylists>
+    <!-- Widget-Format -->
+    <propertySettings property="widgetAspect" buttonID="9111" showNone="False" title="$LOCALIZE[31017]"/>
+    <property property="widgetAspect" label="Poster">Poster</property>
+    <property property="widgetAspect" label="Landscape">Landscape</property>
+    <property property="widgetAspect" label="Square">Square</property>
+    <!-- Standard-Widgets -->
+    <propertydefault group="20342.1" labelID="zmmovies0" property="widgetPath">special://skin/extras/playlists/zm_inprogress_movies.xsp</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies0" property="widgetTarget">videos</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies0" property="widgetAspect">Poster</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies0" property="widgetSortby">lastplayed</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies0" property="widgetLimit">25</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies1" property="widgetPath">videodb://recentlyaddedmovies/</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies1" property="widgetTarget">videos</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies1" property="widgetAspect">Poster</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies1" property="widgetLimit">25</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies2" property="widgetPath">special://skin/extras/playlists/zm_unwatched_movies.xsp</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies2" property="widgetTarget">videos</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies2" property="widgetAspect">Poster</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies2" property="widgetSortby">random</propertydefault>
+    <propertydefault group="20342.1" labelID="zmmovies2" property="widgetLimit">25</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows0" property="widgetPath">plugin://plugin.video.themoviedb.helper/?info=trakt_upnext&amp;tmdb_type=tv&amp;widget=true</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows0" property="widgetTarget">videos</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows0" property="widgetAspect">Poster</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows0" property="widgetLimit">25</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows1" property="widgetPath">videodb://recentlyaddedepisodes/</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows1" property="widgetTarget">videos</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows1" property="widgetAspect">Poster</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows1" property="widgetLimit">25</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows2" property="widgetPath">special://skin/extras/playlists/zm_unwatched_tvshows.xsp</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows2" property="widgetTarget">videos</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows2" property="widgetAspect">Poster</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows2" property="widgetSortby">random</propertydefault>
+    <propertydefault group="31016.1" labelID="zmtvshows2" property="widgetLimit">25</propertydefault>
+</overrides>

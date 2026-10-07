@@ -1,0 +1,589 @@
+# Zephyr Modern
+msgid ""
+msgstr ""
+"Language: de_de\n"
+
+msgctxt "#31000"
+msgid "Background"
+msgstr "Hintergrund"
+
+msgctxt "#31001"
+msgid "Blurred fanart"
+msgstr "Verwaschene Fanart"
+
+msgctxt "#31002"
+msgid "Fanart"
+msgstr "Fanart"
+
+msgctxt "#31003"
+msgid "Solid colour"
+msgstr "Einfarbig"
+
+msgctxt "#31004"
+msgid "Now playing"
+msgstr "Gerade läuft"
+
+msgctxt "#31005"
+msgid "Customise main menu"
+msgstr "Hauptmenü anpassen"
+
+msgctxt "#31006"
+msgid "Loading …"
+msgstr "Wird geladen …"
+
+msgctxt "#31007"
+msgid "starting …"
+msgstr "wird gestartet …"
+
+msgctxt "#31010"
+msgid "Recently added"
+msgstr "Zuletzt hinzugefügt"
+
+msgctxt "#31011"
+msgid "In progress"
+msgstr "Weiterschauen"
+
+msgctxt "#31012"
+msgid "Random"
+msgstr "Zufällig"
+
+msgctxt "#31013"
+msgid "Next up"
+msgstr "Als Nächstes"
+
+msgctxt "#31014"
+msgid "Recent episodes"
+msgstr "Neue Episoden"
+
+msgctxt "#31015"
+msgid "Unwatched"
+msgstr "Ungesehen"
+
+msgctxt "#31016"
+msgid "TV shows"
+msgstr "Serien"
+
+msgctxt "#31017"
+msgid "Widget format"
+msgstr "Widget-Format"
+
+msgctxt "#31018"
+msgid "Live TV"
+msgstr "Live-TV"
+
+msgctxt "#31021"
+msgid "Main menu"
+msgstr "Hauptmenü"
+
+msgctxt "#31022"
+msgid "Submenu"
+msgstr "Untermenü"
+
+msgctxt "#31023"
+msgid "Widgets"
+msgstr "Widgets"
+
+msgctxt "#31024"
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgctxt "#31025"
+msgid "Remove"
+msgstr "Entfernen"
+
+msgctxt "#31026"
+msgid "Move up"
+msgstr "Nach oben"
+
+msgctxt "#31027"
+msgid "Move down"
+msgstr "Nach unten"
+
+msgctxt "#31028"
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgctxt "#31029"
+msgid "Label"
+msgstr "Bezeichnung"
+
+msgctxt "#31030"
+msgid "Shortcut"
+msgstr "Verknüpfung"
+
+msgctxt "#31031"
+msgid "Custom action"
+msgstr "Eigene Aktion"
+
+msgctxt "#31032"
+msgid "Icon"
+msgstr "Symbol"
+
+msgctxt "#31033"
+msgid "Widget content"
+msgstr "Widget-Inhalt"
+
+msgctxt "#31034"
+msgid "Background image"
+msgstr "Hintergrundbild"
+
+msgctxt "#31035"
+msgid "Skin settings"
+msgstr "Skin-Einstellungen"
+
+msgctxt "#31036"
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+msgctxt "#31037"
+msgid "Kodi settings"
+msgstr "Kodi-Einstellungen"
+
+msgctxt "#31038"
+msgid "Edit widgets"
+msgstr "Widgets bearbeiten"
+
+msgctxt "#31039"
+msgid "Edit submenu"
+msgstr "Untermenü bearbeiten"
+
+msgctxt "#31040"
+msgid "Background style"
+msgstr "Hintergrund-Stil"
+
+msgctxt "#31041"
+msgid "Home screen"
+msgstr "Startbildschirm"
+
+msgctxt "#31042"
+msgid "Changes are saved automatically. Widgets: one row per entry."
+msgstr "Änderungen werden automatisch gespeichert. Widgets: eine Reihe pro Eintrag."
+
+msgctxt "#31050"
+msgid "items"
+msgstr "Einträge"
+
+msgctxt "#31051"
+msgid "Options"
+msgstr "Optionen"
+
+msgctxt "#31052"
+msgid "Director"
+msgstr "Regie"
+
+msgctxt "#31053"
+msgid "Open"
+msgstr "Öffnen"
+
+msgctxt "#31054"
+msgid "Play"
+msgstr "Abspielen"
+
+msgctxt "#31055"
+msgid "Resume"
+msgstr "Fortsetzen"
+
+msgctxt "#31056"
+msgid "Trailer"
+msgstr "Trailer"
+
+msgctxt "#31057"
+msgid "Versions"
+msgstr "Versionen"
+
+msgctxt "#31058"
+msgid "Extras"
+msgstr "Extras"
+
+msgctxt "#31059"
+msgid "Collection"
+msgstr "Sammlung"
+
+msgctxt "#31060"
+msgid "Cast"
+msgstr "Besetzung"
+
+msgctxt "#31061"
+msgid "Similar titles"
+msgstr "Ähnliche Titel"
+
+msgctxt "#31062"
+msgid "Artwork"
+msgstr "Artwork"
+
+msgctxt "#31063"
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+msgctxt "#31065"
+msgid "List"
+msgstr "Liste"
+
+msgctxt "#31066"
+msgid "Poster"
+msgstr "Poster"
+
+msgctxt "#31067"
+msgid "Flix"
+msgstr "Flix"
+
+msgctxt "#31068"
+msgid "Media info"
+msgstr "Medieninfo"
+
+msgctxt "#31069"
+msgid "Minimal"
+msgstr "Minimal"
+
+msgctxt "#31070"
+msgid "Seasons"
+msgstr "Staffeln"
+
+msgctxt "#31071"
+msgid "Episodes"
+msgstr "Episoden"
+
+msgctxt "#31072"
+msgid "Play trailers automatically"
+msgstr "Trailer automatisch abspielen"
+
+msgctxt "#31073"
+msgid "Update library"
+msgstr "Bibliothek aktualisieren"
+
+msgctxt "#31074"
+msgid "Sort by"
+msgstr "Sortieren"
+
+msgctxt "#31075"
+msgid "Order"
+msgstr "Reihenfolge"
+
+msgctxt "#31076"
+msgid "View"
+msgstr "Ansicht"
+
+msgctxt "#31077"
+msgid "Search"
+msgstr "Suchen"
+
+msgctxt "#31078"
+msgid "Filter"
+msgstr "Filter"
+
+msgctxt "#31079"
+msgid "Recommendations"
+msgstr "Empfehlungen"
+
+msgctxt "#31080"
+msgid "Seasons"
+msgstr "Staffeln"
+
+msgctxt "#31081"
+msgid "Rating"
+msgstr "Bewertung"
+
+msgctxt "#31082"
+msgid "Info area"
+msgstr "Infobereich"
+
+msgctxt "#31083"
+msgid "Compact · two rows"
+msgstr "Kompakt · 2 Reihen"
+
+msgctxt "#31084"
+msgid "Large · one row"
+msgstr "Groß · 1 Reihe"
+
+msgctxt "#31086"
+msgid "Skip forward"
+msgstr "Vorspringen"
+
+msgctxt "#31087"
+msgid "Stop"
+msgstr "Stopp"
+
+msgctxt "#31088"
+msgid "Pause"
+msgstr "Pause"
+
+msgctxt "#31089"
+msgid "Skip back"
+msgstr "Zurückspringen"
+
+msgctxt "#31090"
+msgid "Ends at"
+msgstr "Endet um"
+
+msgctxt "#31091"
+msgid "Player display"
+msgstr "Wiedergabe-Anzeige"
+
+msgctxt "#31092"
+msgid "Cinema"
+msgstr "Kino"
+
+msgctxt "#31093"
+msgid "Compact"
+msgstr "Kompakt"
+
+msgctxt "#31094"
+msgid "Subtitles"
+msgstr "Untertitel"
+
+msgctxt "#31095"
+msgid "Audio"
+msgstr "Audio"
+
+msgctxt "#31096"
+msgid "Video"
+msgstr "Video"
+
+msgctxt "#31097"
+msgid "Bookmarks"
+msgstr "Lesezeichen"
+
+msgctxt "#31098"
+msgid "Playback info"
+msgstr "Wiedergabe-Info"
+
+msgctxt "#31099"
+msgid "Seek"
+msgstr "Spulen"
+
+msgctxt "#31100"
+msgid "Colour theme"
+msgstr "Farbthema"
+
+msgctxt "#31101"
+msgid "Graphite"
+msgstr "Graphit"
+
+msgctxt "#31102"
+msgid "Midnight"
+msgstr "Mitternacht"
+
+msgctxt "#31103"
+msgid "OLED black"
+msgstr "OLED Schwarz"
+
+msgctxt "#31104"
+msgid "Northern lights"
+msgstr "Nordlicht"
+
+msgctxt "#31105"
+msgid "Sunset"
+msgstr "Sonnenuntergang"
+
+msgctxt "#31106"
+msgid "Sand"
+msgstr "Sand"
+
+msgctxt "#31107"
+msgid "Kodi blue"
+msgstr "Kodi-Blau"
+
+msgctxt "#31108"
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+msgctxt "#31120"
+msgid "Up next in"
+msgstr "Als Nächstes in"
+
+msgctxt "#31121"
+msgid "Watch now"
+msgstr "Jetzt ansehen"
+
+msgctxt "#31122"
+msgid "Close"
+msgstr "Schließen"
+
+msgctxt "#31123"
+msgid "Still watching?"
+msgstr "Schaust du noch?"
+
+msgctxt "#31124"
+msgid "Continue watching"
+msgstr "Weiterschauen"
+
+msgctxt "#31125"
+msgid "seconds"
+msgstr "Sekunden"
+
+msgctxt "#31128"
+msgid "Search subtitles"
+msgstr "Untertitel suchen"
+
+msgctxt "#31129"
+msgid "Manual search"
+msgstr "Manuelle Suche"
+
+msgctxt "#31130"
+msgid "Synced"
+msgstr "Synchron"
+
+msgctxt "#31132"
+msgid "No bookmarks yet"
+msgstr "Noch keine Lesezeichen"
+
+msgctxt "#31141"
+msgid "Now"
+msgstr "Jetzt"
+
+msgctxt "#31142"
+msgid "Date"
+msgstr "Datum"
+
+msgctxt "#31143"
+msgid "First channel"
+msgstr "Erster Sender"
+
+msgctxt "#31144"
+msgid "Playing channel"
+msgstr "Laufender Sender"
+
+msgctxt "#31145"
+msgid "Last channel"
+msgstr "Letzter Sender"
+
+msgctxt "#31146"
+msgid "Group"
+msgstr "Gruppe"
+
+msgctxt "#31147"
+msgid "Rules"
+msgstr "Regeln"
+
+msgctxt "#31148"
+msgid "Add group"
+msgstr "Gruppe hinzufügen"
+
+msgctxt "#31149"
+msgid "Rename group"
+msgstr "Gruppe umbenennen"
+
+msgctxt "#31150"
+msgid "Delete group"
+msgstr "Gruppe löschen"
+
+msgctxt "#31151"
+msgid "German"
+msgstr "Deutsch"
+
+msgctxt "#31152"
+msgid "English"
+msgstr "Englisch"
+
+msgctxt "#31153"
+msgid "French"
+msgstr "Französisch"
+
+msgctxt "#31154"
+msgid "Spanish"
+msgstr "Spanisch"
+
+msgctxt "#31155"
+msgid "Italian"
+msgstr "Italienisch"
+
+msgctxt "#31156"
+msgid "Japanese"
+msgstr "Japanisch"
+
+msgctxt "#31160"
+msgid "Background colour"
+msgstr "Hintergrundfarbe"
+
+msgctxt "#31161"
+msgid "Graphite"
+msgstr "Graphit"
+
+msgctxt "#31162"
+msgid "Night blue"
+msgstr "Nachtblau"
+
+msgctxt "#31163"
+msgid "Ocean blue"
+msgstr "Ozeanblau"
+
+msgctxt "#31164"
+msgid "Deep black"
+msgstr "Tiefschwarz"
+
+msgctxt "#31165"
+msgid "Petrol"
+msgstr "Petrol"
+
+msgctxt "#31166"
+msgid "Aubergine"
+msgstr "Aubergine"
+
+msgctxt "#31167"
+msgid "Theme colour"
+msgstr "Farbe des Themas"
+
+msgctxt "#31170"
+msgid "Focus and timeline colour"
+msgstr "Fokus- und Zeitstrahlfarbe"
+
+msgctxt "#31171"
+msgid "Cream"
+msgstr "Creme"
+
+msgctxt "#31172"
+msgid "White"
+msgstr "Weiß"
+
+msgctxt "#31173"
+msgid "Mint"
+msgstr "Mint"
+
+msgctxt "#31174"
+msgid "Turquoise blue"
+msgstr "Türkisblau"
+
+msgctxt "#31175"
+msgid "Sky blue"
+msgstr "Himmelblau"
+
+msgctxt "#31176"
+msgid "Kodi blue"
+msgstr "Kodi-Blau"
+
+msgctxt "#31177"
+msgid "Gold"
+msgstr "Gold"
+
+msgctxt "#31178"
+msgid "Coral"
+msgstr "Koralle"
+
+msgctxt "#31179"
+msgid "Lavender"
+msgstr "Lavendel"
+
+msgctxt "#31180"
+msgid "Red"
+msgstr "Rot"
+
+msgctxt "#31181"
+msgid "Same as focus"
+msgstr "Wie Fokusfarbe"
+
+msgctxt "#31182"
+msgid "Focus colour"
+msgstr "Fokusfarbe"
+
+msgctxt "#31183"
+msgid "Timeline in the OSD"
+msgstr "Zeitstrahl im OSD"
+
+msgctxt "#31184"
+msgid "Preview"
+msgstr "Vorschau"
+
+msgctxt "#31185"
+msgid "Select with OK, Back closes. Changes apply immediately."
+msgstr "Mit OK übernehmen, Zurück schließt. Änderungen gelten sofort."
+

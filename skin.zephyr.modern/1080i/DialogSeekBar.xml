@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/playback.py -->
+<window>
+    <visible>Window.IsActive(fullscreenvideo)</visible>
+    <visible>Player.Seeking | Player.HasPerformedSeek(3) | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | !String.IsEmpty(Player.SeekNumeric)</visible>
+    <zorder>0</zorder>
+    <controls>
+        <control type="group">
+            <animation effect="fade" start="0" end="100" time="220">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+            <visible>!Window.IsVisible(sliderdialog) + !Window.IsVisible(playerprocessinfo)</visible>
+        <control type="group">
+            <visible>Player.ShowInfo | Window.IsVisible(videoosd) | Player.Paused | Window.IsActive(fullscreeninfo)</visible>
+            <animation effect="fade" start="0" end="100" time="240">Visible</animation><animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+            <control type="image"><left>0</left><top>0</top><width>1920</width><height>240</height><texture colordiffuse="cc000000">common/zm-grad-top.png</texture></control>
+            <control type="label"><left>1320</left><top>50</top><width>520</width><height>64</height><font>ZClock</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>right</align><label>$INFO[System.Time]</label></control>
+            <control type="label"><left>1320</left><top>116</top><width>520</width><height>32</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><label>$LOCALIZE[31090] $INFO[Player.FinishTime]</label></control>
+        </control>
+        <control type="group">
+            <visible>!String.IsEqual(Skin.String(zm.osdstyle),kompakt)</visible>
+            <animation effect="slide" start="0,0" end="0,-96" time="240" tween="cubic" easing="out" condition="Window.IsVisible(videoosd)">Conditional</animation>
+            <control type="image"><left>0</left><top>500</top><width>1920</width><height>676</height><texture colordiffuse="f2000000">common/zm-grad-bottom.png</texture></control>
+            <control type="image"><left>96</left><top>650</top><width>600</width><height>150</height><aspectratio align="left" aligny="bottom">keep</aspectratio><texture>$VAR[ZOsdLogo]</texture></control>
+            <control type="label"><left>96</left><top>708</top><width>1500</width><height>92</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZOsdTitle]</label><visible>String.IsEmpty(Player.Art(clearlogo)) + String.IsEmpty(Player.Art(tvshow.clearlogo))</visible></control>
+            <control type="label"><left>96</left><top>814</top><width>1500</width><height>36</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZOsdMeta]</label></control>
+            <control type="grouplist"><left>96</left><top>862</top><width>1400</width><height>40</height><orientation>horizontal</orientation><itemgap>10</itemgap><usecontrolcoords>true</usecontrolcoords>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdRes]</label><visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdHdr]</label><visible>!String.IsEmpty(VideoPlayer.HdrType)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdAudio]$VAR[ZOsdCh]</label><visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdLang]</label><visible>!String.IsEmpty(VideoPlayer.AudioLanguage) + !String.IsEqual(VideoPlayer.AudioLanguage,und)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$LOCALIZE[31094]$INFO[VideoPlayer.SubtitlesLanguage, ,]</label><visible>VideoPlayer.SubtitlesEnabled + VideoPlayer.HasSubtitles</visible></control>
+            </control>
+            <control type="group">
+                <left>96</left><top>934</top><width>1728</width><height>8</height>
+                <control type="image"><left>0</left><top>0</top><width>1728</width><height>8</height><texture border="3" colordiffuse="33ffffff">osd/modern/bar.png</texture></control>
+                <control type="progress"><left>0</left><top>0</top><width>1728</width><height>8</height><info>Player.ProgressCache</info><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="33ffffff">osd/modern/bar.png</midtexture><righttexture/></control>
+                <control type="progress"><left>0</left><top>0</top><width>1728</width><height>8</height><info>Player.Progress</info><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ZProgress]">osd/modern/bar.png</midtexture><righttexture/></control>
+                <control type="ranges"><left>0</left><top>0</top><width>1728</width><height>8</height><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture colordiffuse="66ff5555">common/white.png</midtexture><righttexture/><info>Player.Editlist</info></control>
+                <control type="ranges"><left>0</left><top>-4</top><width>1728</width><height>16</height><texturebg colordiffuse="00ffffff">common/zm-tick.png</texturebg><lefttexture/><midtexture/><righttexture colordiffuse="ddffffff">common/zm-tick.png</righttexture><info>Player.Chapters</info></control>
+                <control type="progress"><left>0</left><top>0</top><width>1728</width><height>8</height><info>Player.SeekBar</info><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="ccffffff">osd/modern/bar.png</midtexture><righttexture/>
+                    <visible>Player.Seeking | Player.HasPerformedSeek(3) | !String.IsEmpty(Player.SeekNumeric)</visible></control>
+            </control>
+            <control type="label"><left>96</left><top>956</top><width>600</width><height>40</height><font>ZBody</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZOsdTime]</label></control>
+            <control type="label"><left>496</left><top>956</top><width>928</width><height>40</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>center</align><label>$INFO[Player.ChapterName]</label></control>
+            <control type="label"><left>1224</left><top>956</top><width>600</width><height>40</height><font>ZBody</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><label>-$INFO[Player.TimeRemaining]</label></control>
+        </control>
+        <control type="group">
+            <visible>String.IsEqual(Skin.String(zm.osdstyle),kompakt)</visible>
+            <animation effect="slide" start="0,0" end="0,-96" time="240" tween="cubic" easing="out" condition="Window.IsVisible(videoosd)">Conditional</animation>
+            <control type="image"><left>0</left><top>640</top><width>1920</width><height>536</height><texture colordiffuse="aa000000">common/zm-grad-bottom.png</texture></control>
+            <control type="image"><left>96</left><top>868</top><width>1728</width><height>176</height><texture border="20" colordiffuse="e6101317">common/modern-round20.png</texture></control>
+            <control type="image"><left>116</left><top>888</top><width>91</width><height>136</height><aspectratio>scale</aspectratio><texture diffuse="common/zm-mask-poster.png">$INFO[Player.Art(poster)]</texture></control>
+            <control type="label"><left>232</left><top>888</top><width>1000</width><height>44</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZOsdTitle]</label></control>
+            <control type="label"><left>232</left><top>930</top><width>1000</width><height>32</height><font>ZSmall</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZOsdMeta]</label></control>
+            <control type="grouplist"><left>1004</left><top>890</top><width>800</width><height>40</height><orientation>horizontal</orientation><align>right</align><itemgap>10</itemgap><usecontrolcoords>true</usecontrolcoords>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdRes]</label><visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdHdr]</label><visible>!String.IsEmpty(VideoPlayer.HdrType)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdAudio]$VAR[ZOsdCh]</label><visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$VAR[ZOsdLang]</label><visible>!String.IsEmpty(VideoPlayer.AudioLanguage) + !String.IsEqual(VideoPlayer.AudioLanguage,und)</visible></control>
+                <control type="button"><width min="40" max="360">auto</width><height>40</height><font>ZCaption</font><textoffsetx>16</textoffsetx><align>center</align><aligny>center</aligny>
+                    <enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                    <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><texturefocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturefocus>
+                    <label>$LOCALIZE[31094]$INFO[VideoPlayer.SubtitlesLanguage, ,]</label><visible>VideoPlayer.SubtitlesEnabled + VideoPlayer.HasSubtitles</visible></control>
+            </control>
+            <control type="group">
+                <left>232</left><top>982</top><width>1572</width><height>8</height>
+                <control type="image"><left>0</left><top>0</top><width>1572</width><height>8</height><texture border="3" colordiffuse="33ffffff">osd/modern/bar.png</texture></control>
+                <control type="progress"><left>0</left><top>0</top><width>1572</width><height>8</height><info>Player.ProgressCache</info><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="33ffffff">osd/modern/bar.png</midtexture><righttexture/></control>
+                <control type="progress"><left>0</left><top>0</top><width>1572</width><height>8</height><info>Player.Progress</info><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ZProgress]">osd/modern/bar.png</midtexture><righttexture/></control>
+                <control type="ranges"><left>0</left><top>0</top><width>1572</width><height>8</height><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture colordiffuse="66ff5555">common/white.png</midtexture><righttexture/><info>Player.Editlist</info></control>
+                <control type="ranges"><left>0</left><top>-4</top><width>1572</width><height>16</height><texturebg colordiffuse="00ffffff">common/zm-tick.png</texturebg><lefttexture/><midtexture/><righttexture colordiffuse="ddffffff">common/zm-tick.png</righttexture><info>Player.Chapters</info></control>
+                <control type="progress"><left>0</left><top>0</top><width>1572</width><height>8</height><info>Player.SeekBar</info><texturebg border="3" colordiffuse="00ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="ccffffff">osd/modern/bar.png</midtexture><righttexture/>
+                    <visible>Player.Seeking | Player.HasPerformedSeek(3) | !String.IsEmpty(Player.SeekNumeric)</visible></control>
+            </control>
+            <control type="label"><left>232</left><top>998</top><width>400</width><height>36</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZOsdTime]</label></control>
+            <control type="label"><left>632</left><top>998</top><width>636</width><height>36</height><font>ZCaption</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>center</align><label>$INFO[Player.ChapterName]</label></control>
+            <control type="label"><left>1404</left><top>998</top><width>400</width><height>36</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><label>-$INFO[Player.TimeRemaining]</label></control>
+        </control>
+        </control>
+    </controls>
+</window>

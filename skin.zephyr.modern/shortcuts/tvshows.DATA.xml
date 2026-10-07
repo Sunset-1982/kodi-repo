@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+    <shortcut>
+        <label>$LOCALIZE[135]</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/genre.png</icon>
+        <action>ActivateWindow(Videos,videodb://tvshows/genres/,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>$LOCALIZE[20387]</label>
+        <label2>Common Shortcut</label2>
+        <icon>special://skin/extras/icons/recentlyadded.png</icon>
+        <action>ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</action>
+    </shortcut>
+</shortcuts>

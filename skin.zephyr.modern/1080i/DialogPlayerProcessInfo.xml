@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <onload condition="System.HasAddon(script.signde.tinyppi)">RunScript(script.signde.tinyppi)</onload>
+    <controls>
+        <control type="group">
+            <left>96</left><top>96</top><width>900</width><height>470</height>
+            <visible>!System.HasAddon(script.signde.tinyppi)</visible>
+            <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+            <control type="image"><left>0</left><top>0</top><width>900</width><height>470</height><texture border="20" colordiffuse="e6101317">common/modern-round20.png</texture></control>
+            <control type="label"><left>40</left><top>28</top><width>820</width><height>50</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31098]</label></control>
+            <control type="grouplist"><left>40</left><top>96</top><width>820</width><height>360</height><orientation>vertical</orientation><itemgap>0</itemgap>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>Video</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Player.Process(videodecoder)]$INFO[Player.Process(videohwdecoder),  (,)]</label></control>
+                </control>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>Format</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Player.Process(videowidth)]x$INFO[Player.Process(videoheight)]$INFO[Player.Process(videofps),  •  , fps]$INFO[Player.Process(videodar),  •  ,]</label></control>
+                </control>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>Pixel</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Player.Process(pixformat)]$INFO[Player.Process(deintmethod),  •  ,]</label></control>
+                </control>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>HDR</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[VideoPlayer.HdrType]</label></control>
+                </control>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>Audio</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Player.Process(audiodecoder)]$INFO[Player.Process(audiochannels),  •  ,]</label></control>
+                </control>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>Abtastung</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Player.Process(audiosamplerate),, Hz]$INFO[Player.Process(audiobitspersample),  •  , Bit]</label></control>
+                </control>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>Puffer</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Player.CacheLevel,,%]</label></control>
+                </control>
+                <control type="group"><width>820</width><height>44</height>
+                    <control type="label"><left>0</left><top>0</top><width>220</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>System</label></control>
+                    <control type="label"><left>220</left><top>0</top><width>600</width><height>44</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>CPU $INFO[System.CpuUsage]</label></control>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">602</defaultcontrol>
+    <onload condition="!Player.PauseEnabled">SetFocus(603)</onload>
+    <controls>
+        <control type="button"><left>0</left><top>0</top><width>1920</width><height>640</height><texturefocus/><texturenofocus/><onclick>Action(close)</onclick></control>
+        <control type="group">
+            <visible>![Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(sliderdialog) | Window.IsVisible(playerprocessinfo) | Window.IsVisible(osdcmssettings)]</visible>
+            <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+            <animation effect="fade" time="160">VisibleChange</animation>
+            <control type="button" id="87"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/>
+                <onup>200</onup><ondown>200</ondown><onleft>StepBack</onleft>
+                <onright condition="!Player.Paused">StepForward</onright><onright condition="Player.Paused">PlayerControl(FrameAdvance(1))</onright></control>
+            <control type="progress"><left>96</left><top>835</top><width>1728</width><height>14</height><info>Player.Progress</info><texturebg border="6" colordiffuse="44ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="6" colordiffuse="$VAR[ZProgress]">osd/modern/bar.png</midtexture><righttexture/><visible>Control.HasFocus(87) + !String.IsEqual(Skin.String(zm.osdstyle),kompakt)</visible></control>
+            <control type="progress"><left>232</left><top>883</top><width>1572</width><height>14</height><info>Player.Progress</info><texturebg border="6" colordiffuse="44ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="6" colordiffuse="$VAR[ZProgress]">osd/modern/bar.png</midtexture><righttexture/><visible>Control.HasFocus(87) + String.IsEqual(Skin.String(zm.osdstyle),kompakt)</visible></control>
+            <control type="label"><left>96</left><top>1004</top><width>640</width><height>44</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><aligny>center</aligny><label>$VAR[ZOsdHint]</label></control>
+            <control type="grouplist" id="200">
+                <left>0</left><top>990</top><width>1920</width><height>72</height><orientation>horizontal</orientation><align>center</align><itemgap>18</itemgap>
+                <onup>87</onup><ondown>87</ondown><onright>201</onright><onleft>201</onleft>
+                <control type="radiobutton" id="600"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/prev.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/prev.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/prev.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/prev.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>PlayerControl(Previous)</onclick><visible>Integer.IsGreater(Playlist.Length(video),1) | Player.ChapterCount</visible></control>
+                <control type="radiobutton" id="601"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/rew.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/rew.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/rew.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/rew.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>PlayerControl(SmallSkipBackward)</onclick><visible>Player.SeekEnabled</visible></control>
+                <control type="radiobutton" id="602"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/play.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/play.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/pause.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/pause.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>PlayerControl(Play)</onclick><visible>Player.PauseEnabled</visible><selected>Player.Paused | Player.Forwarding | Player.Rewinding</selected></control>
+                <control type="radiobutton" id="603"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/stop.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/stop.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/stop.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/stop.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>PlayerControl(Stop)</onclick></control>
+                <control type="radiobutton" id="604"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/ff.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/ff.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/ff.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/ff.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>PlayerControl(SmallSkipForward)</onclick><visible>Player.SeekEnabled</visible></control>
+                <control type="radiobutton" id="607"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/next.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/next.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/next.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/next.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>PlayerControl(Next)</onclick><visible>Integer.IsGreater(Playlist.Length(video),1) | Player.ChapterCount</visible></control>
+            </control>
+            <control type="grouplist" id="201">
+                <left>1124</left><top>990</top><width>700</width><height>72</height><orientation>horizontal</orientation><align>right</align><itemgap>14</itemgap>
+                <onup>87</onup><ondown>87</ondown><onleft>200</onleft><onright>200</onright>
+                <control type="radiobutton" id="70046"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/sub.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/sub.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/sub.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/sub.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>ActivateWindow(osdsubtitlesettings)</onclick></control>
+                <control type="radiobutton" id="70049"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/audio.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/audio.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/audio.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/audio.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>ActivateWindow(osdaudiosettings)</onclick></control>
+                <control type="radiobutton" id="70050"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/video.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/video.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/video.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/video.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>ActivateWindow(osdvideosettings)</onclick></control>
+                <control type="radiobutton" id="70044"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/chapters.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/chapters.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/chapters.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/chapters.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>ActivateWindow(videobookmarks)</onclick></control>
+                <control type="radiobutton" id="70043"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/info.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/info.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/info.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/info.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick condition="System.HasAddon(script.signde.tinyppi)">RunScript(script.signde.tinyppi,dialog)</onclick><onclick condition="!System.HasAddon(script.signde.tinyppi)">ActivateWindow(playerprocessinfo)</onclick></control>
+                <control type="radiobutton" id="70052"><width>72</width><height>72</height><label/>
+                    <texturefocus colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texturefocus><texturenofocus colordiffuse="26ffffff">osd/modern/circle.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$VAR[ModernFocusText]">osd/modern/tv.png</textureradioonfocus><textureradioonnofocus colordiffuse="ffececec">osd/modern/tv.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="$VAR[ModernFocusText]">osd/modern/tv.png</textureradioofffocus><textureradiooffnofocus colordiffuse="ffececec">osd/modern/tv.png</textureradiooffnofocus>
+                    <radioposx>18</radioposx><radioposy>18</radioposy><radiowidth>36</radiowidth><radioheight>36</radioheight><onclick>ActivateWindow(playerprocessinfo)</onclick><visible>System.HasAddon(script.signde.tinyppi)</visible></control>
+            </control>
+        </control>
+    </controls>
+</window>

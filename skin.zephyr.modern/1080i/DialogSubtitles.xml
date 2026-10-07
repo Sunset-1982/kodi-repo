@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">150</defaultcontrol>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="88000000">common/white.png</texture><animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="150">WindowClose</animation></control>
+        <control type="group" id="250">
+            <animation effect="slide" start="0,0" end="0,0" time="0">WindowOpen</animation>
+            <animation effect="fade" start="0" end="100" time="220">WindowOpen</animation><animation effect="fade" start="100" end="0" time="180">WindowClose</animation>
+            <control type="image"><left>40</left><top>40</top><width>1840</width><height>1000</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label"><left>96</left><top>76</top><width>1000</width><height>56</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31128]</label></control>
+            <control type="label" id="100"><left>96</left><top>134</top><width>1600</width><height>32</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[Player.Filename]</label></control>
+            <control type="image" id="110"><left>1584</left><top>70</top><width>240</width><height>70</height><aspectratio align="right">keep</aspectratio><fadetime>200</fadetime></control>
+            <control type="button" id="160"><left>96</left><top>196</top><width>380</width><height>56</height><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31129]</label><onup>150</onup><ondown>150</ondown><onright>120</onright></control>
+            <control type="list" id="150">
+                <left>96</left><top>276</top><width>380</width><height>720</height><orientation>vertical</orientation><onup>160</onup><onright>120</onright><onleft>120</onleft>
+                <itemlayout width="380" height="64">
+                    <control type="label"><left>24</left><top>0</top><width>332</width><height>56</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control>
+                </itemlayout>
+                <focusedlayout width="380" height="64">
+                    <control type="image"><left>0</left><top>0</top><width>380</width><height>56</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(150)</visible></control>
+                    <control type="label"><left>24</left><top>0</top><width>332</width><height>56</height><font>ZSmall</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(150)</visible></control>
+                    <control type="label"><left>24</left><top>0</top><width>332</width><height>56</height><font>ZSmall</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(150)</visible></control>
+                </focusedlayout>
+            </control>
+            <control type="label" id="140"><left>560</left><top>200</top><width>1264</width><height>40</height><font>ZBody</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><wrapmultiline>true</wrapmultiline></control>
+            <control type="grouplist" id="130"><left>560</left><top>600</top><width>1264</width><height>60</height><orientation>horizontal</orientation><align>center</align>
+            </control>
+            <control type="list" id="120">
+                <left>560</left><top>256</top><width>1164</width><height>744</height><orientation>vertical</orientation><onleft>150</onleft><onright>73</onright><pagecontrol>73</pagecontrol>
+                <scrolltime tween="cubic" easing="out">200</scrolltime>
+                <itemlayout width="1164" height="92">
+                    <control type="label"><left>24</left><top>8</top><width>860</width><height>36</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>24</left><top>44</top><width>860</width><height>32</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[ListItem.Label2]</label></control>
+                    <control type="grouplist"><left>900</left><top>22</top><width>240</width><height>40</height><orientation>horizontal</orientation><align>right</align><itemgap>8</itemgap><usecontrolcoords>true</usecontrolcoords>
+                        <control type="button"><width min="40" max="160">auto</width><height>40</height><font>ZCaption</font><textoffsetx>14</textoffsetx><align>center</align><aligny>center</aligny><enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                            <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><label>$LOCALIZE[31130]</label><visible>ListItem.Property(sync)</visible></control>
+                        <control type="button"><width min="40" max="160">auto</width><height>40</height><font>ZCaption</font><textoffsetx>14</textoffsetx><align>center</align><aligny>center</aligny><enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                            <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><label>HI</label><visible>ListItem.Property(hearing_imp)</visible></control>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="1164" height="92"><control type="image"><left>0</left><top>0</top><width>1164</width><height>84</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(120)</visible></control>
+                    <control type="label"><left>24</left><top>8</top><width>860</width><height>36</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>24</left><top>44</top><width>860</width><height>32</height><font>ZSmall</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><label>$INFO[ListItem.Label2]</label></control>
+                    <control type="grouplist"><left>900</left><top>22</top><width>240</width><height>40</height><orientation>horizontal</orientation><align>right</align><itemgap>8</itemgap><usecontrolcoords>true</usecontrolcoords>
+                        <control type="button"><width min="40" max="160">auto</width><height>40</height><font>ZCaption</font><textoffsetx>14</textoffsetx><align>center</align><aligny>center</aligny><enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                            <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><label>$LOCALIZE[31130]</label><visible>ListItem.Property(sync)</visible></control>
+                        <control type="button"><width min="40" max="160">auto</width><height>40</height><font>ZCaption</font><textoffsetx>14</textoffsetx><align>center</align><aligny>center</aligny><enable>false</enable><disabledcolor>ffececec</disabledcolor>
+                            <texturenofocus border="20" colordiffuse="33ffffff">common/zm-pill40.png</texturenofocus><label>HI</label><visible>ListItem.Property(hearing_imp)</visible></control>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="scrollbar" id="73"><left>1756</left><top>260</top><width>6</width><height>736</height><orientation>vertical</orientation><showonepage>false</showonepage>
+                <texturesliderbackground/><texturesliderbar colordiffuse="33ffffff">common/white.png</texturesliderbar><texturesliderbarfocus colordiffuse="$VAR[ModernFocus]">common/white.png</texturesliderbarfocus>
+                <textureslidernib/><textureslidernibfocus/><onleft>120</onleft></control>
+        </control>
+    </controls>
+</window>

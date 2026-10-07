@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+    <shortcut>
+        <defaultID>zmtvshows0</defaultID>
+        <label>$LOCALIZE[31013]</label>
+        <label2>Widget</label2>
+        <icon>DefaultFolder.png</icon>
+        <action>ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/?info=trakt_upnext&amp;tmdb_type=tv&amp;widget=true,return)</action>
+    </shortcut>
+    <shortcut>
+        <defaultID>zmtvshows1</defaultID>
+        <label>$LOCALIZE[31014]</label>
+        <label2>Widget</label2>
+        <icon>DefaultFolder.png</icon>
+        <action>ActivateWindow(videos,videodb://recentlyaddedepisodes/,return)</action>
+    </shortcut>
+    <shortcut>
+        <defaultID>zmtvshows2</defaultID>
+        <label>$LOCALIZE[31015]</label>
+        <label2>Widget</label2>
+        <icon>DefaultFolder.png</icon>
+        <action>ActivateWindow(videos,special://skin/extras/playlists/zm_unwatched_tvshows.xsp,return)</action>
+    </shortcut>
+</shortcuts>

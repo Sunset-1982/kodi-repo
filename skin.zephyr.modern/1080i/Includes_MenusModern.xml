@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Arctic Zephyr - Modern: Variablen fuer Kontext- und Powermenue. Generiert von tools/gen_menus_modern.py -->
+<includes>
+    <variable name="ModernContextCaption">
+        <value condition="String.IsEqual(ListItem.DBType,movie)">$LOCALIZE[20338]</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow)">$LOCALIZE[20364]</value>
+        <value condition="String.IsEqual(ListItem.DBType,season)">$LOCALIZE[20373]</value>
+        <value condition="String.IsEqual(ListItem.DBType,episode)">$LOCALIZE[20359]</value>
+        <value condition="String.IsEqual(ListItem.DBType,musicvideo)">$LOCALIZE[20391]</value>
+        <value condition="String.IsEqual(ListItem.DBType,artist)">$LOCALIZE[557]</value>
+        <value condition="String.IsEqual(ListItem.DBType,album)">$LOCALIZE[558]</value>
+        <value condition="String.IsEqual(ListItem.DBType,song)">$LOCALIZE[179]</value>
+        <value condition="!String.IsEmpty(ListItem.Label)">$LOCALIZE[10106]</value>
+    </variable>
+    <variable name="ModernContextTitle">
+        <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]: $INFO[ListItem.Title]</value>
+        <value condition="!String.IsEmpty(ListItem.Label) + !String.IsEqual(ListItem.Label,..)">$INFO[ListItem.Label]</value>
+        <value>$LOCALIZE[10106]</value>
+    </variable>
+    <variable name="ModernPowerRowColor">
+        <value condition="Control.HasFocus(3110)">$VAR[ModernFocusText]</value>
+        <value>ffececec</value>
+    </variable>
+    <variable name="ModernFileText20">
+        <value condition="Control.HasFocus(20)">$VAR[ModernFocusText]</value>
+        <value>ffececec</value>
+    </variable>
+    <variable name="ModernFileText21">
+        <value condition="Control.HasFocus(21)">$VAR[ModernFocusText]</value>
+        <value>ffececec</value>
+    </variable>
+    <variable name="ModernPowerIcon">
+        <value condition="String.Contains(ListItem.Property(path),cancelalarm)">osd/modern/pm-timeroff.png</value>
+        <value condition="String.Contains(ListItem.Property(path),alarmclock)">osd/modern/pm-timer.png</value>
+        <value condition="String.Contains(ListItem.Property(path),shutdowntimer)">osd/modern/pm-timer.png</value>
+        <value condition="String.Contains(ListItem.Property(path),reloadskin)">osd/modern/pm-reload.png</value>
+        <value condition="String.Contains(ListItem.Property(path),quit)">osd/modern/pm-exit.png</value>
+        <value condition="String.Contains(ListItem.Property(path),powerdown)">osd/modern/pm-power.png</value>
+        <value condition="String.Contains(ListItem.Property(path),shutdown)">osd/modern/pm-power.png</value>
+        <value condition="String.Contains(ListItem.Property(path),suspend)">osd/modern/pm-moon.png</value>
+        <value condition="String.Contains(ListItem.Property(path),hibernate)">osd/modern/pm-moon.png</value>
+        <value condition="String.Contains(ListItem.Property(path),reboottoandroid)">osd/modern/pm-chip.png</value>
+        <value condition="String.Contains(ListItem.Property(path),rebootto)">osd/modern/pm-chip.png</value>
+        <value condition="String.Contains(ListItem.Property(path),emmc)">osd/modern/pm-chip.png</value>
+        <value condition="String.Contains(ListItem.Property(path),reset)">osd/modern/pm-reboot.png</value>
+        <value condition="String.Contains(ListItem.Property(path),reboot)">osd/modern/pm-reboot.png</value>
+        <value condition="String.Contains(ListItem.Property(path),restart)">osd/modern/pm-reboot.png</value>
+        <value condition="String.Contains(ListItem.Property(path),logoff)">osd/modern/pm-logout.png</value>
+        <value condition="String.Contains(ListItem.Property(path),mastermode)">osd/modern/pm-lock.png</value>
+        <value condition="String.Contains(ListItem.Property(path),inhibitidleshutdown)">osd/modern/pm-eye.png</value>
+        <value condition="String.Contains(ListItem.Property(path),cancelalarm)">osd/modern/pm-timeroff.png</value>
+        <value condition="String.Contains(ListItem.Property(path),alarmclock)">osd/modern/pm-timer.png</value>
+        <value condition="String.Contains(ListItem.Property(path),settings)">osd/modern/pm-settings.png</value>
+        <value>osd/modern/pm-dot.png</value>
+    </variable>
+</includes>

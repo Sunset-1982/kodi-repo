@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">50</defaultcontrol>
+    <views>50</views>
+    <menucontrol>9000</menucontrol>
+    <controls>
+        <include>ZBackground</include>
+        <include>ZClock</include>
+        <control type="label"><left>96</left><top>52</top><width>1300</width><height>60</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[13350]</label></control>
+        <control type="label"><left>96</left><top>114</top><width>1300</width><height>36</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[Container.NumItems,, $LOCALIZE[31050]]$INFO[Container.SortMethod,  •  ]</label></control>
+        <control type="group"><animation effect="fade" start="0" end="100" time="250">WindowOpen</animation>
+        <control type="list" id="50">
+            <left>96</left><top>200</top><width>1040</width><height>792</height><orientation>vertical</orientation><viewtype label="$LOCALIZE[31065]">list</viewtype><visible>true</visible>
+            <scrolltime tween="cubic" easing="out">200</scrolltime><onleft>9000</onleft><onright>100</onright><pagecontrol/>
+            <itemlayout width="1040" height="72"><control type="image"><left>20</left><top>10</top><width>44</width><height>44</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>88</left><top>0</top><width>604</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control><control type="label"><left>716</left><top>0</top><width>300</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+            </itemlayout>
+            <focusedlayout width="1040" height="72"><control type="image"><left>0</left><top>0</top><width>1040</width><height>64</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(50)</visible></control><control type="image"><left>20</left><top>10</top><width>44</width><height>44</height><aspectratio>keep</aspectratio><texture background="true">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>88</left><top>0</top><width>604</width><height>64</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><aligny>center</aligny><scroll>true</scroll><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(50)</visible></control>
+                    <control type="label"><left>88</left><top>0</top><width>604</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(50)</visible></control>
+                    <control type="label"><left>716</left><top>0</top><width>300</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+            </focusedlayout>
+        </control>
+        </control>
+        <control type="image"><left>1180</left><top>180</top><width>660</width><height>860</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+        <control type="label"><left>1212</left><top>200</top><width>600</width><height>40</height><font>ZSmall</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$LOCALIZE[13350]</label></control>
+        <control type="list" id="100">
+            <left>1200</left><top>250</top><width>620</width><height>770</height><orientation>vertical</orientation>
+            <scrolltime tween="cubic" easing="out">200</scrolltime><onleft>50</onleft><onright>9000</onright><pagecontrol>61</pagecontrol>
+            <itemlayout width="620" height="72">
+                    <control type="label"><left>24</left><top>0</top><width>248</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label></control><control type="label"><left>296</left><top>0</top><width>300</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+            </itemlayout>
+            <focusedlayout width="620" height="72"><control type="image"><left>0</left><top>0</top><width>620</width><height>64</height><texture border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texture><visible>Control.HasFocus(100)</visible></control>
+                    <control type="label"><left>24</left><top>0</top><width>248</width><height>64</height><font>ZItem</font><textcolor>$VAR[ModernFocusText]</textcolor><selectedcolor>$VAR[ModernFocusText]</selectedcolor><aligny>center</aligny><scroll>true</scroll><label>$INFO[ListItem.Label]</label><visible>Control.HasFocus(100)</visible></control>
+                    <control type="label"><left>24</left><top>0</top><width>248</width><height>64</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><aligny>center</aligny><label>$INFO[ListItem.Label]</label><visible>!Control.HasFocus(100)</visible></control>
+                    <control type="label"><left>296</left><top>0</top><width>300</width><height>64</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[ListItem.Label2]</label></control>
+            </focusedlayout>
+        </control>
+        <control type="scrollbar" id="61"><left>1830</left><top>256</top><width>6</width><height>760</height><orientation>vertical</orientation><showonepage>false</showonepage>
+            <texturesliderbackground/><texturesliderbar colordiffuse="33ffffff">common/white.png</texturesliderbar><texturesliderbarfocus colordiffuse="$VAR[ModernFocus]">common/white.png</texturesliderbarfocus>
+            <textureslidernib/><textureslidernibfocus/></control>
+        <control type="button" id="3"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/></control>
+        <control type="button" id="4"><left>-2000</left><top>-2000</top><width>1</width><height>1</height><texturefocus/><texturenofocus/></control>
+        <control type="group">
+            <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+            <animation effect="slide" start="-600,0" end="0,0" time="260" tween="cubic" easing="out">Visible</animation>
+            <animation effect="slide" start="0,0" end="-600,0" time="200" tween="cubic" easing="in">Hidden</animation>
+            <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="88000000">common/white.png</texture></control>
+        <control type="image"><left>40</left><top>40</top><width>536</width><height>1000</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+            <control type="label"><left>96</left><top>76</top><width>440</width><height>56</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31051]</label></control>
+            <control type="grouplist" id="9000">
+                <left>72</left><top>160</top><width>472</width><height>860</height><orientation>vertical</orientation><itemgap>4</itemgap>
+                <onright>50</onright><onleft>50</onleft><onback>50</onback>
+                <control type="button" id="6051"><width>472</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31076]</label><label2>$INFO[Container.Viewmode]</label2><onclick>Container.NextViewMode</onclick><visible>Integer.IsGreater(Container.ViewCount,1)</visible></control>
+                <control type="button" id="6053"><width>472</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31074]</label><label2>$INFO[Container.SortMethod]</label2><onclick>SendClick(3)</onclick><visible>Control.IsEnabled(3)</visible></control>
+                <control type="button" id="6052"><width>472</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[31075]</label><label2>$INFO[Container.SortOrder]</label2><onclick>SendClick(4)</onclick><visible>Control.IsEnabled(4)</visible></control>
+                <control type="button" id="6"><width>472</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[502]</label></control>
+                <control type="button" id="7"><width>472</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[190]</label></control>
+                <control type="button" id="8"><width>472</width><height>72</height><font>ZItem</font><textoffsetx>24</textoffsetx><aligny>center</aligny>
+                <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                <scrollspeed>25</scrollspeed><scrollsuffix> · </scrollsuffix>
+                <texturefocus border="14" colordiffuse="$VAR[ModernFocus]">common/modern-round14.png</texturefocus><texturenofocus/><label>$LOCALIZE[192]</label></control>
+            </control>
+        </control>
+    </controls>
+</window>

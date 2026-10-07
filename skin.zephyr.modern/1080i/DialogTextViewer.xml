@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">1000</defaultcontrol>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="99000000">common/white.png</texture><animation effect="fade" start="0" end="100" time="200">WindowOpen</animation><animation effect="fade" start="100" end="0" time="150">WindowClose</animation></control>
+        <control type="image"><left>200</left><top>80</top><width>1520</width><height>920</height><texture border="20" colordiffuse="$VAR[ModernBg]">common/modern-round20.png</texture></control>
+        <control type="label" id="1"><left>248</left><top>112</top><width>1300</width><height>60</height><font>ZH2</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor></control>
+        <control type="textbox" id="5"><left>248</left><top>196</top><width>1400</width><height>700</height><font>ZBody</font><textcolor>ffececec</textcolor><pagecontrol>3000</pagecontrol></control>
+        <control type="scrollbar" id="3000"><left>1672</left><top>200</top><width>6</width><height>690</height><orientation>vertical</orientation><showonepage>false</showonepage>
+            <texturesliderbackground/><texturesliderbar colordiffuse="33ffffff">common/white.png</texturesliderbar><texturesliderbarfocus colordiffuse="$VAR[ModernFocus]">common/white.png</texturesliderbarfocus>
+            <textureslidernib/><textureslidernibfocus/></control>
+        <control type="label"><left>248</left><top>918</top><width>600</width><height>40</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$INFO[Container(5).CurrentPage]/$INFO[Container(5).NumPages]</label><visible>Integer.IsGreater(Container(5).NumPages,1)</visible></control>
+        <control type="grouplist"><left>1100</left><top>908</top><width>560</width><height>64</height><orientation>horizontal</orientation><align>right</align>
+            <control type="button" id="1000"><height>56</height><width min="180" max="300">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[15067]</label><onclick>Action(Close)</onclick></control>
+        </control>
+    </controls>
+</window>

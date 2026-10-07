@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <zorder>70</zorder>
+    <controls>
+        <control type="group">
+            <top>56</top><width>420</width><height>72</height><right>64</right>
+            <animation effect="fade" start="0" end="100" time="150">WindowOpen</animation><animation effect="fade" start="100" end="0" time="300" delay="200">WindowClose</animation>
+            <control type="image"><left>0</left><top>0</top><width>420</width><height>72</height><texture border="36" colordiffuse="$VAR[ModernBg]">common/modern-pill.png</texture></control>
+            <control type="image"><left>22</left><top>18</top><width>36</width><height>36</height><texture colordiffuse="ffececec">osd/modern/audio.png</texture></control>
+            <control type="progress"><left>76</left><top>33</top><width>270</width><height>6</height><info>Player.Volume</info><texturebg border="3" colordiffuse="33ffffff">osd/modern/bar.png</texturebg><lefttexture/><midtexture border="3" colordiffuse="$VAR[ModernFocus]">osd/modern/bar.png</midtexture><righttexture/></control>
+            <control type="label"><left>350</left><top>0</top><width>54</width><height>72</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>right</align><aligny>center</aligny><label>$INFO[Control.GetLabel(29999)]</label></control>
+        </control>
+    </controls>
+</window>

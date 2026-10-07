@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: Basisfenster fuer TMDb-Helper-Infos ausserhalb der Bibliothek -->
+<window type="window" id="1190">
+    <defaultcontrol always="true">9999</defaultcontrol>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="$VAR[ModernBg]">common/white.png</texture></control>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><aspectratio>scale</aspectratio><texture background="true">$INFO[Container(9999).ListItem.Art(fanart)]</texture>
+            <animation effect="fade" start="35" end="35" time="0" condition="true">Conditional</animation></control>
+        <control type="list" id="9999">
+            <left>-2000</left><top>-2000</top><width>10</width><height>10</height>
+            <itemlayout width="10" height="10"/><focusedlayout width="10" height="10"/>
+            <content target="videos">$INFO[Window(Home).Property(TMDbHelper.Path.Current)]</content>
+        </control>
+        <control type="label"><left>0</left><top>500</top><width>1920</width><height>60</height><font>ZBody</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>center</align><label>$LOCALIZE[31006]</label><visible>Container(9999).IsUpdating</visible></control>
+    </controls>
+</window>

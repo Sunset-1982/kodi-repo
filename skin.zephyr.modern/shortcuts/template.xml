@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <submenu include="zm-widgets" level="1">
+        <property name="mainmenuid" tag="mainmenuid"/>
+        <controls>
+            <control type="grouplist" id="$PYTHON[int(mainmenuid) + 5100]">
+                <skinshortcuts>visibility</skinshortcuts>
+                <left>504</left><top>296</top><width>1320</width><height>368</height>
+                <orientation>vertical</orientation><itemgap>0</itemgap><usecontrolcoords>true</usecontrolcoords>
+                <onleft>SetFocus(300)</onleft>
+                <skinshortcuts insert="top">items</skinshortcuts>
+            </control>
+            <control type="grouplist" id="$PYTHON[int(mainmenuid) + 5200]">
+                <skinshortcuts>visibility</skinshortcuts>
+                <left>76</left><top>662</top><width>1760</width><height>368</height>
+                <orientation>vertical</orientation><itemgap>0</itemgap><usecontrolcoords>true</usecontrolcoords>
+                <scrolltime tween="cubic" easing="out">300</scrolltime>
+                <onleft>SetFocus(300)</onleft>
+                <skinshortcuts insert="bottom">items</skinshortcuts>
+            </control>
+            <control type="group" id="$PYTHON[int(mainmenuid) + 5300]">
+                <skinshortcuts>visibility</skinshortcuts>
+                <left>524</left><top>50</top><width>900</width><height>240</height>
+                <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+                <visible>!ControlGroup(5000).HasFocus()</visible>
+                <skinshortcuts insert="info">items</skinshortcuts>
+            </control>
+        </controls>
+        <items insert="top">
+            <property name="id" tag="mainmenuid"/>
+            <property name="label" tag="label"/>
+            <property name="path" tag="property" attribute="name|widgetPath"/>
+            <property name="path" tag="property" attribute="name|list"/>
+            <property name="target" tag="property" attribute="name|widgetTarget"/>
+            <property name="target">videos</property>
+            <property name="sortby" tag="property" attribute="name|widgetSortby"/>
+            <property name="sortby">none</property>
+            <property name="limit" tag="property" attribute="name|widgetLimit"/>
+            <property name="limit">25</property>
+            <property name="itemW" tag="property" attribute="name|widgetAspect" value="Poster">184</property>
+            <property name="itemW" tag="property" attribute="name|widgetAspect" value="Landscape">398</property>
+            <property name="itemW" tag="property" attribute="name|widgetAspect" value="Square">184</property>
+            <property name="itemW">184</property>
+            <property name="itemH" tag="property" attribute="name|widgetAspect" value="Poster">276</property>
+            <property name="itemH" tag="property" attribute="name|widgetAspect" value="Landscape">224</property>
+            <property name="itemH" tag="property" attribute="name|widgetAspect" value="Square">184</property>
+            <property name="itemH">276</property>
+            <property name="rowH" tag="property" attribute="name|widgetAspect" value="Poster">368</property>
+            <property name="rowH" tag="property" attribute="name|widgetAspect" value="Landscape">368</property>
+            <property name="rowH" tag="property" attribute="name|widgetAspect" value="Square">368</property>
+            <property name="rowH">368</property>
+            <property name="mask" tag="property" attribute="name|widgetAspect" value="Poster">poster</property>
+            <property name="mask" tag="property" attribute="name|widgetAspect" value="Landscape">landscape</property>
+            <property name="mask" tag="property" attribute="name|widgetAspect" value="Square">square</property>
+            <property name="mask">poster</property>
+            <property name="fw" tag="property" attribute="name|widgetAspect" value="Poster">196</property>
+            <property name="fw" tag="property" attribute="name|widgetAspect" value="Landscape">410</property>
+            <property name="fw" tag="property" attribute="name|widgetAspect" value="Square">196</property>
+            <property name="fw">196</property>
+            <property name="fh" tag="property" attribute="name|widgetAspect" value="Poster">288</property>
+            <property name="fh" tag="property" attribute="name|widgetAspect" value="Landscape">236</property>
+            <property name="fh" tag="property" attribute="name|widgetAspect" value="Square">196</property>
+            <property name="fh">288</property>
+            <property name="ly" tag="property" attribute="name|widgetAspect" value="Poster">284</property>
+            <property name="ly" tag="property" attribute="name|widgetAspect" value="Landscape">232</property>
+            <property name="ly" tag="property" attribute="name|widgetAspect" value="Square">192</property>
+            <property name="ly">284</property>
+            <property name="sub" tag="property" attribute="name|widgetAspect" value="Poster"> </property>
+            <property name="sub" tag="property" attribute="name|widgetAspect" value="Landscape">$INFO[ListItem.Label]</property>
+            <property name="sub" tag="property" attribute="name|widgetAspect" value="Square">$INFO[ListItem.Label]</property>
+            <property name="sub"> </property>
+            <property name="slot" tag="property" attribute="name|widgetAspect" value="Poster">214</property>
+            <property name="slot" tag="property" attribute="name|widgetAspect" value="Landscape">428</property>
+            <property name="slot" tag="property" attribute="name|widgetAspect" value="Square">214</property>
+            <property name="slot">214</property>
+            <controls>
+                <control type="group" id="$PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 250]">
+                    <height>368</height><visible>Integer.IsGreater(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).NumItems,0) | Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).IsUpdating</visible><visible>$PYTHON['true' if int(id) &lt; 3 else 'false']</visible><visible>$PYTHON['true' if int(id) == 1 else 'false'] | !Integer.IsGreater(Container($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 50]).NumItems,0) + !Container($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 50]).IsUpdating</visible>
+                <control type="label">
+                    <left>20</left><width>1250</width><height>44</height>
+                    <font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor>
+                    <label>$SKINSHORTCUTS[label]</label>
+                    <animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50])">Conditional</animation>
+                </control>
+                <control type="fixedlist" id="$PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]">
+                    <left>0</left><top>44</top><width>1290</width><height>324</height>
+                    <orientation>horizontal</orientation>
+                    <focusposition>0</focusposition><movement>1</movement>
+                    <preloaditems>2</preloaditems>
+                    <scrolltime tween="cubic" easing="out">260</scrolltime>
+                    <onleft>SetFocus(300)</onleft><ondown condition="Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 3 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 3 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 3 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 4 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 4 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 3 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 4 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 5 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 5 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 3 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 4 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 5 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 6 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 6 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 3 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 4 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 5 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 6 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 7 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 7 + 0])</ondown>
+                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50],home)</onfocus>
+                    <itemlayout width="$SKINSHORTCUTS[slot]" height="324">
+                        <include content="ZWidgetItem">
+                            <param name="w" value="$SKINSHORTCUTS[itemW]"/><param name="h" value="$SKINSHORTCUTS[itemH]"/><param name="mask" value="$SKINSHORTCUTS[mask]"/><param name="fw" value="$SKINSHORTCUTS[fw]"/><param name="fh" value="$SKINSHORTCUTS[fh]"/><param name="ly" value="$SKINSHORTCUTS[ly]"/><param name="sub" value="$SKINSHORTCUTS[sub]"/><param name="focused" value="false"/>
+                        </include>
+                    </itemlayout>
+                    <focusedlayout width="$SKINSHORTCUTS[slot]" height="324">
+                        <include content="ZWidgetItem">
+                            <param name="w" value="$SKINSHORTCUTS[itemW]"/><param name="h" value="$SKINSHORTCUTS[itemH]"/><param name="mask" value="$SKINSHORTCUTS[mask]"/><param name="fw" value="$SKINSHORTCUTS[fw]"/><param name="fh" value="$SKINSHORTCUTS[fh]"/><param name="ly" value="$SKINSHORTCUTS[ly]"/><param name="sub" value="$SKINSHORTCUTS[sub]"/><param name="focused" value="Control.HasFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50])"/>
+                        </include>
+                    </focusedlayout>
+                    <content target="$SKINSHORTCUTS[target]" sortby="$SKINSHORTCUTS[sortby]" limit="$SKINSHORTCUTS[limit]" browse="never">$SKINSHORTCUTS[path]</content>
+                </control>
+                </control>
+            </controls>
+        </items>
+        <items insert="bottom">
+            <property name="id" tag="mainmenuid"/>
+            <property name="label" tag="label"/>
+            <property name="path" tag="property" attribute="name|widgetPath"/>
+            <property name="path" tag="property" attribute="name|list"/>
+            <property name="target" tag="property" attribute="name|widgetTarget"/>
+            <property name="target">videos</property>
+            <property name="sortby" tag="property" attribute="name|widgetSortby"/>
+            <property name="sortby">none</property>
+            <property name="limit" tag="property" attribute="name|widgetLimit"/>
+            <property name="limit">25</property>
+            <property name="itemW" tag="property" attribute="name|widgetAspect" value="Poster">184</property>
+            <property name="itemW" tag="property" attribute="name|widgetAspect" value="Landscape">398</property>
+            <property name="itemW" tag="property" attribute="name|widgetAspect" value="Square">184</property>
+            <property name="itemW">184</property>
+            <property name="itemH" tag="property" attribute="name|widgetAspect" value="Poster">276</property>
+            <property name="itemH" tag="property" attribute="name|widgetAspect" value="Landscape">224</property>
+            <property name="itemH" tag="property" attribute="name|widgetAspect" value="Square">184</property>
+            <property name="itemH">276</property>
+            <property name="rowH" tag="property" attribute="name|widgetAspect" value="Poster">368</property>
+            <property name="rowH" tag="property" attribute="name|widgetAspect" value="Landscape">368</property>
+            <property name="rowH" tag="property" attribute="name|widgetAspect" value="Square">368</property>
+            <property name="rowH">368</property>
+            <property name="mask" tag="property" attribute="name|widgetAspect" value="Poster">poster</property>
+            <property name="mask" tag="property" attribute="name|widgetAspect" value="Landscape">landscape</property>
+            <property name="mask" tag="property" attribute="name|widgetAspect" value="Square">square</property>
+            <property name="mask">poster</property>
+            <property name="fw" tag="property" attribute="name|widgetAspect" value="Poster">196</property>
+            <property name="fw" tag="property" attribute="name|widgetAspect" value="Landscape">410</property>
+            <property name="fw" tag="property" attribute="name|widgetAspect" value="Square">196</property>
+            <property name="fw">196</property>
+            <property name="fh" tag="property" attribute="name|widgetAspect" value="Poster">288</property>
+            <property name="fh" tag="property" attribute="name|widgetAspect" value="Landscape">236</property>
+            <property name="fh" tag="property" attribute="name|widgetAspect" value="Square">196</property>
+            <property name="fh">288</property>
+            <property name="ly" tag="property" attribute="name|widgetAspect" value="Poster">284</property>
+            <property name="ly" tag="property" attribute="name|widgetAspect" value="Landscape">232</property>
+            <property name="ly" tag="property" attribute="name|widgetAspect" value="Square">192</property>
+            <property name="ly">284</property>
+            <property name="sub" tag="property" attribute="name|widgetAspect" value="Poster"> </property>
+            <property name="sub" tag="property" attribute="name|widgetAspect" value="Landscape">$INFO[ListItem.Label]</property>
+            <property name="sub" tag="property" attribute="name|widgetAspect" value="Square">$INFO[ListItem.Label]</property>
+            <property name="sub"> </property>
+            <property name="slot" tag="property" attribute="name|widgetAspect" value="Poster">214</property>
+            <property name="slot" tag="property" attribute="name|widgetAspect" value="Landscape">428</property>
+            <property name="slot" tag="property" attribute="name|widgetAspect" value="Square">214</property>
+            <property name="slot">214</property>
+            <controls>
+                <control type="group" id="$PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 200]">
+                    <height>368</height><visible>Integer.IsGreater(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 0]).NumItems,0) | Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 0]).IsUpdating</visible><visible>$PYTHON['false' if int(id) == 1 else 'true']</visible><visible>$PYTHON['true' if int(id) != 2 else 'false'] | Integer.IsGreater(Container($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 50]).NumItems,0) | Container($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 50]).IsUpdating</visible>
+                <control type="label">
+                    <left>20</left><width>1680</width><height>44</height>
+                    <font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor>
+                    <label>$SKINSHORTCUTS[label]</label>
+                    <animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 0])">Conditional</animation>
+                </control>
+                <control type="fixedlist" id="$PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 0]">
+                    <left>0</left><top>44</top><width>1720</width><height>324</height>
+                    <orientation>horizontal</orientation>
+                    <focusposition>0</focusposition><movement>1</movement>
+                    <preloaditems>2</preloaditems>
+                    <scrolltime tween="cubic" easing="out">260</scrolltime>
+                    <onleft>SetFocus(300)</onleft><onup condition="Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 1 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 1 + 0])</onup><onup condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 1 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 2 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 2 + 0])</onup><onup condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 1 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 2 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 3 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 3 + 0])</onup><onup condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 1 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 3 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 4 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 4 + 0])</onup><onup condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 1 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 3 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 4 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 250])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 50])</onup><onup condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 1 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 3 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) - 4 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 250]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 250])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + 2 + 50])</onup><ondown condition="Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 1 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 1 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 1 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 2 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 2 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 1 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 2 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 3 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 3 + 0])</ondown><ondown condition="!Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 1 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 2 + 200]) + !Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 3 + 200]) + Control.IsVisible($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 4 + 200])">SetFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 4 + 0])</ondown>
+                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 0],home)</onfocus>
+                    <itemlayout width="$SKINSHORTCUTS[slot]" height="324">
+                        <include content="ZWidgetItem">
+                            <param name="w" value="$SKINSHORTCUTS[itemW]"/><param name="h" value="$SKINSHORTCUTS[itemH]"/><param name="mask" value="$SKINSHORTCUTS[mask]"/><param name="fw" value="$SKINSHORTCUTS[fw]"/><param name="fh" value="$SKINSHORTCUTS[fh]"/><param name="ly" value="$SKINSHORTCUTS[ly]"/><param name="sub" value="$SKINSHORTCUTS[sub]"/><param name="focused" value="false"/>
+                        </include>
+                    </itemlayout>
+                    <focusedlayout width="$SKINSHORTCUTS[slot]" height="324">
+                        <include content="ZWidgetItem">
+                            <param name="w" value="$SKINSHORTCUTS[itemW]"/><param name="h" value="$SKINSHORTCUTS[itemH]"/><param name="mask" value="$SKINSHORTCUTS[mask]"/><param name="fw" value="$SKINSHORTCUTS[fw]"/><param name="fh" value="$SKINSHORTCUTS[fh]"/><param name="ly" value="$SKINSHORTCUTS[ly]"/><param name="sub" value="$SKINSHORTCUTS[sub]"/><param name="focused" value="Control.HasFocus($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 0])"/>
+                        </include>
+                    </focusedlayout>
+                    <content target="$SKINSHORTCUTS[target]" sortby="$SKINSHORTCUTS[sortby]" limit="$SKINSHORTCUTS[limit]" browse="never">$SKINSHORTCUTS[path]</content>
+                </control>
+                </control>
+            </controls>
+        </items>
+        <items insert="info">
+            <property name="id" tag="mainmenuid"/>
+            <controls>
+                <control type="group">
+                    <visible>$PYTHON['true' if int(id) &lt; 3 else 'false']</visible>
+                    <visible>$PYTHON['true' if int(id) == 1 else 'false'] | !Integer.IsGreater(Container($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 50]).NumItems,0) + !Container($PYTHON[int(mainmenuid) * 100 + 30000 + 1 + 50]).IsUpdating</visible>
+                <control type="group">
+                    <visible>Integer.IsGreater(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).NumItems,0)</visible>
+                    <control type="image"><left>0</left><top>0</top><width>560</width><height>104</height><aspectratio align="left" aligny="bottom">keep</aspectratio><texture>$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Art(clearlogo)]</texture></control>
+                    <control type="label"><left>0</left><top>14</top><width>900</width><height>90</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Label]</label><visible>String.IsEmpty(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Art(clearlogo)) + !String.IsEqual(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.DBType,episode)</visible></control>
+                    <control type="label"><left>0</left><top>14</top><width>900</width><height>90</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.TVShowTitle]</label><visible>String.IsEmpty(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Art(clearlogo)) + String.IsEqual(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.DBType,episode)</visible></control>
+                    <control type="label"><left>0</left><top>116</top><width>900</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Year,,  •  ]$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Duration(mins),, min  •  ]$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Rating(),,  •  ]$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Genre]</label><visible>!String.IsEqual(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.DBType,episode)</visible></control>
+                    <control type="label"><left>0</left><top>116</top><width>900</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Season,S,]$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Episode,E,  •  ]$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Title]</label><visible>String.IsEqual(Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.DBType,episode)</visible></control>
+                    <control type="textbox"><left>0</left><top>158</top><width>900</width><height>74</height><font>ZBody</font><textcolor>ffececec</textcolor><label>$INFO[Container($PYTHON[int(mainmenuid) * 100 + 30000 + int(id) + 50]).ListItem.Plot]</label></control>
+                </control>
+                </control>
+            </controls>
+        </items>
+    </submenu>
+</template>

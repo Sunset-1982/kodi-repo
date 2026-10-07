@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <zorder>100</zorder>
+    <controls>
+        <control type="image" id="1"><width>36</width><height>36</height><texture>osd/modern/knob.png</texture><animation effect="fade" start="0" end="70" time="0" condition="true">Conditional</animation></control>
+    </controls>
+</window>

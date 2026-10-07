@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window type="dialog">
+    <defaultcontrol always="true">8</defaultcontrol>
+    <controls>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="$VAR[ModernBg]">common/white.png</texture></control>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><aspectratio>scale</aspectratio><fadetime>300</fadetime><texture background="true">$INFO[ListItem.Art(fanart)]</texture></control>
+        <control type="image"><left>0</left><top>0</top><width>1920</width><height>1080</height><texture colordiffuse="$VAR[ModernBg]">common/white.png</texture>
+            <animation effect="fade" start="45" end="45" time="0" condition="!ControlGroup(6000).HasFocus">Conditional</animation>
+            <animation effect="fade" start="85" end="85" time="0" condition="ControlGroup(6000).HasFocus">Conditional</animation></control>
+        <control type="image"><left>0</left><top>0</top><width>1400</width><height>1080</height><texture colordiffuse="$VAR[ModernBg]">common/zm-grad-left.png</texture></control>
+        <control type="image"><left>0</left><top>600</top><width>1920</width><height>480</height><texture colordiffuse="$VAR[ModernBg]">common/zm-grad-bottom.png</texture></control>
+        <control type="group">
+            <animation effect="fade" start="0" end="100" time="250">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="180">WindowClose</animation>
+            <animation effect="slide" start="0,0" end="0,-560" time="320" tween="cubic" easing="out" condition="ControlGroup(6000).HasFocus">Conditional</animation>
+            <control type="image"><left>1464</left><top>120</top><width>360</width><height>540</height><aspectratio>scale</aspectratio><fadetime>200</fadetime><texture background="true" diffuse="common/zm-mask-poster.png">$VAR[ZArt_poster]</texture>
+                <visible>!String.IsEqual(ListItem.DBType,episode)</visible></control>
+            <control type="image"><left>1184</left><top>120</top><width>640</width><height>360</height><aspectratio>scale</aspectratio><fadetime>200</fadetime><texture background="true" diffuse="common/zm-mask-landscape.png">$INFO[ListItem.Art(thumb)]</texture>
+                <visible>String.IsEqual(ListItem.DBType,episode)</visible></control>
+        <control type="group">
+            <left>96</left><top>90</top><width>1240</width><height>540</height>
+            <control type="image"><left>0</left><top>0</top><width>640</width><height>160</height><aspectratio align="left" aligny="bottom">keep</aspectratio><fadetime>200</fadetime><texture>$VAR[ZLogo]</texture></control>
+            <control type="label"><left>0</left><top>70</top><width>1240</width><height>90</height><font>ZTitle</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$VAR[ZTitle]</label><visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible></control>
+            <control type="label"><left>0</left><top>180</top><width>1240</width><height>34</height><font>ZMeta</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$VAR[ZSubtitle]</label></control>
+            <control type="label"><left>0</left><top>218</top><width>1240</width><height>34</height><font>ZMeta</font><textcolor>$VAR[ModernAccent]</textcolor><selectedcolor>$VAR[ModernAccent]</selectedcolor><label>$VAR[ZMeta]</label></control>
+            <control type="group"><left>0</left><top>262</top><width>1240</width><height>40</height><include content="ZFlags"><param name="width" value="1240"/></include></control>
+            <control type="textbox"><left>0</left><top>320</top><width>1240</width><height>220</height><font>ZBody</font><textcolor>ffececec</textcolor><label>$INFO[ListItem.Plot]</label></control>
+        </control>
+            <control type="label"><left>96</left><top>640</top><width>1240</width><height>32</height><font>ZSmall</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><label>$VAR[ZCredits]</label></control>
+            <control type="grouplist" id="5000">
+                <left>96</left><top>700</top><width>1728</width><height>64</height><orientation>horizontal</orientation><itemgap>16</itemgap><usecontrolcoords>true</usecontrolcoords>
+                <onleft>noop</onleft><onright>noop</onright>
+                <control type="button" id="8"><height>64</height><width min="64" max="420">auto</width><font>ZItem</font><textoffsetx>30</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$VAR[ZPlayLabel]</label>
+                    <ondown condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + [[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + ![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown></control>
+                <control type="button" id="11"><height>64</height><width min="64" max="420">auto</width><font>ZItem</font><textoffsetx>30</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31056]</label><visible>!String.IsEmpty(ListItem.Trailer)</visible>
+                    <ondown condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + [[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + ![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown></control>
+                <control type="button" id="14"><height>64</height><width min="64" max="420">auto</width><font>ZItem</font><textoffsetx>30</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31057]</label><visible>String.IsEqual(ListItem.DBType,movie) + ListItem.HasVideoVersions</visible>
+                    <ondown condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + [[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + ![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown></control>
+                <control type="button" id="15"><height>64</height><width min="64" max="420">auto</width><font>ZItem</font><textoffsetx>30</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31058]</label><visible>String.IsEqual(ListItem.DBType,movie) + ListItem.HasVideoExtras</visible>
+                    <ondown condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + [[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + ![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown></control>
+                <control type="button" id="443"><height>64</height><width min="64" max="420">auto</width><font>ZItem</font><textoffsetx>30</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31059]</label><onclick>Dialog.Close(all,true)</onclick><onclick>ActivateWindow(Videos,videodb://movies/sets/$INFO[ListItem.SetID]/?setid=$INFO[ListItem.SetID],return)</onclick><visible>!String.IsEmpty(ListItem.SetID)</visible>
+                    <ondown condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + [[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + ![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown></control>
+                <control type="button" id="10"><height>64</height><width min="64" max="420">auto</width><font>ZItem</font><textoffsetx>30</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31062]</label><visible>Control.IsEnabled(10)</visible>
+                    <ondown condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + [[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + ![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown></control>
+                <control type="button" id="6"><height>64</height><width min="64" max="420">auto</width><font>ZItem</font><textoffsetx>30</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus><label>$LOCALIZE[31063]</label><visible>Control.IsEnabled(6)</visible>
+                    <ondown condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + [[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![Integer.IsGreater(Container(50).NumItems,0)] + ![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown></control>
+            </control>
+            <control type="grouplist" id="6000">
+                <left>76</left><top>800</top><width>1768</width><height>1060</height><orientation>vertical</orientation><itemgap>8</itemgap><usecontrolcoords>true</usecontrolcoords>
+                <scrolltime tween="cubic" easing="out">260</scrolltime>
+                <control type="group">
+                    <height>300</height><visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+                    <control type="label"><left>20</left><top>0</top><width>1200</width><height>44</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31060]</label></control>
+                    <control type="fixedlist" id="50">
+                        <left>0</left><top>44</top><width>1740</width><height>256</height><orientation>horizontal</orientation><focusposition>0</focusposition><movement>1</movement>
+                        <scrolltime tween="cubic" easing="out">240</scrolltime><onup condition="true">SetFocus(5000)</onup><ondown condition="[[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</ondown><ondown condition="![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown>
+                        <itemlayout width="216" height="256">
+                    <control type="image"><left>23</left><top>10</top><width>170</width><height>170</height><aspectratio>scale</aspectratio><texture background="true" diffuse="osd/modern/circle.png" fallback="DefaultActor.png">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>0</left><top>194</top><width>216</width><height>34</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>center</align><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>0</left><top>226</top><width>216</width><height>30</height><font>ZCaption</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>center</align><label>$INFO[ListItem.Label2]</label></control></itemlayout>
+                        <focusedlayout width="216" height="256"><control type="image"><left>17</left><top>4</top><width>182</width><height>182</height><texture colordiffuse="$VAR[ModernFocus]">osd/modern/circle.png</texture><visible>Control.HasFocus(50)</visible></control>
+                    <control type="image"><left>23</left><top>10</top><width>170</width><height>170</height><aspectratio>scale</aspectratio><texture background="true" diffuse="osd/modern/circle.png" fallback="DefaultActor.png">$INFO[ListItem.Icon]</texture></control>
+                    <control type="label"><left>0</left><top>194</top><width>216</width><height>34</height><font>ZSmall</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><align>center</align><label>$INFO[ListItem.Label]</label></control>
+                    <control type="label"><left>0</left><top>226</top><width>216</width><height>30</height><font>ZCaption</font><textcolor>ff98a0aa</textcolor><selectedcolor>ff98a0aa</selectedcolor><align>center</align><label>$INFO[ListItem.Label2]</label></control></focusedlayout>
+                    </control>
+                </control>
+                <control type="group">
+                    <height>374</height><visible>[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)</visible>
+                    <control type="label"><left>20</left><top>0</top><width>1200</width><height>44</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31061]</label></control>
+                    <control type="fixedlist" id="6201">
+                        <left>0</left><top>44</top><width>1740</width><height>330</height><orientation>horizontal</orientation><focusposition>0</focusposition><movement>1</movement>
+                        <scrolltime tween="cubic" easing="out">240</scrolltime><onup condition="[Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</onup><onup condition="![Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(5000)</onup><ondown condition="[Integer.IsGreater(Container(6202).NumItems,0) + !String.IsEmpty(ListItem.SetID)]">SetFocus(6202)</ondown><onclick>RunScript(plugin.video.themoviedb.helper,add_path=$ESCINFO[ListItem.FolderPath],call_auto=1190)</onclick>
+                        <itemlayout width="216" height="330"><include content="ZWidgetItem"><param name="w" value="190"/><param name="h" value="285"/><param name="mask" value="poster"/><param name="fw" value="202"/><param name="fh" value="297"/><param name="ly" value="293"/><param name="sub" value=" "/><param name="focused" value="false"/></include></itemlayout>
+                        <focusedlayout width="216" height="330"><include content="ZWidgetItem"><param name="w" value="190"/><param name="h" value="285"/><param name="mask" value="poster"/><param name="fw" value="202"/><param name="fh" value="297"/><param name="ly" value="293"/><param name="sub" value=" "/><param name="focused" value="Control.HasFocus(6201)"/></include></focusedlayout><content target="videos">plugin://plugin.video.themoviedb.helper/?info=recommendations&amp;tmdb_type=$VAR[ZTmdbType]&amp;$VAR[ZTmdbQuery]&amp;widget=true</content>
+                    </control>
+                </control>
+                <control type="group">
+                    <height>374</height><visible>[Integer.IsGreater(Container(6202).NumItems,0)] + !String.IsEmpty(ListItem.SetID)</visible>
+                    <control type="label"><left>20</left><top>0</top><width>1200</width><height>44</height><font>ZItem</font><textcolor>ffececec</textcolor><selectedcolor>ffececec</selectedcolor><label>$LOCALIZE[31059]</label></control>
+                    <control type="fixedlist" id="6202">
+                        <left>0</left><top>44</top><width>1740</width><height>330</height><orientation>horizontal</orientation><focusposition>0</focusposition><movement>1</movement>
+                        <scrolltime tween="cubic" easing="out">240</scrolltime><onup condition="[[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)]">SetFocus(6201)</onup><onup condition="![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + [Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(50)</onup><onup condition="![[Integer.IsGreater(Container(6201).NumItems,0) | Container(6201).IsUpdating] + System.AddonIsEnabled(plugin.video.themoviedb.helper)] + ![Integer.IsGreater(Container(50).NumItems,0)]">SetFocus(5000)</onup>
+                        <itemlayout width="216" height="330"><include content="ZWidgetItem"><param name="w" value="190"/><param name="h" value="285"/><param name="mask" value="poster"/><param name="fw" value="202"/><param name="fh" value="297"/><param name="ly" value="293"/><param name="sub" value=" "/><param name="focused" value="false"/></include></itemlayout>
+                        <focusedlayout width="216" height="330"><include content="ZWidgetItem"><param name="w" value="190"/><param name="h" value="285"/><param name="mask" value="poster"/><param name="fw" value="202"/><param name="fh" value="297"/><param name="ly" value="293"/><param name="sub" value=" "/><param name="focused" value="Control.HasFocus(6202)"/></include></focusedlayout><content target="videos">videodb://movies/sets/$INFO[ListItem.SetID]/?setid=$INFO[ListItem.SetID]</content>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

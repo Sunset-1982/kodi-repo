@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zephyr Modern: generiert von src/build.py, nicht von Hand bearbeiten -->
+<window>
+    <defaultcontrol always="true">602</defaultcontrol>
+    <controls>
+        <control type="group" id="200"><left>96</left><top>920</top><width>1728</width><height>120</height>
+            <animation effect="slide" start="0,200" end="0,0" time="240" tween="cubic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="0,200" time="200" tween="cubic" easing="in">WindowClose</animation>
+        <control type="image"><left>0</left><top>0</top><width>1728</width><height>120</height><texture border="20" colordiffuse="f0101317">common/modern-round20.png</texture></control>
+            <control type="grouplist" id="201"><left>32</left><top>32</top><width>1664</width><height>56</height><orientation>horizontal</orientation><itemgap>10</itemgap>
+                <control type="button" id="600"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>|&lt;</label><onclick>PVR.EpgGridControl(FirstProgramme)</onclick></control>
+                <control type="button" id="601"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>-12h</label><onclick>PVR.EpgGridControl(-12)</onclick></control>
+                <control type="button" id="602"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31141]</label><onclick>PVR.EpgGridControl(CurrentProgramme)</onclick></control>
+                <control type="button" id="603"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>+12h</label><onclick>PVR.EpgGridControl(+12)</onclick></control>
+                <control type="button" id="604"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>&gt;|</label><onclick>PVR.EpgGridControl(LastProgramme)</onclick></control>
+                <control type="button" id="605"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31142]</label><onclick>PVR.EpgGridControl(SelectDate)</onclick></control>
+                <control type="button" id="70040"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31143]</label><onclick>PVR.EpgGridControl(FirstChannel)</onclick></control>
+                <control type="button" id="70041"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31144]</label><onclick>PVR.EpgGridControl(PlayingChannel)</onclick><visible>PVR.IsPlayingTV | PVR.IsPlayingRadio | PVR.IsPlayingEpgTag</visible></control>
+                <control type="button" id="70042"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31145]</label><onclick>PVR.EpgGridControl(LastChannel)</onclick></control>
+                <control type="button" id="70043"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>&lt;</label><onclick>PVR.EpgGridControl(PreviousGroup)</onclick></control>
+                <control type="button" id="70045"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>$LOCALIZE[31146]</label><onclick>PVR.EpgGridControl(SelectGroup)</onclick></control>
+                <control type="button" id="70044"><height>56</height><width min="120" max="360">auto</width><font>ZSmall</font><textoffsetx>26</textoffsetx><align>center</align><aligny>center</aligny>
+                    <textcolor>ffececec</textcolor><focusedcolor>$VAR[ModernFocusText]</focusedcolor><disabledcolor>66ffffff</disabledcolor>
+                    <texturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</texturefocus>
+                    <texturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</texturenofocus>
+                    <alttexturefocus border="28" colordiffuse="$VAR[ModernFocus]">common/modern-pill.png</alttexturefocus>
+                    <alttexturenofocus border="28" colordiffuse="$VAR[ModernSurface]">common/modern-pill.png</alttexturenofocus><label>&gt;</label><onclick>PVR.EpgGridControl(NextGroup)</onclick></control>
+            </control>
+        </control>
+    </controls>
+</window>
